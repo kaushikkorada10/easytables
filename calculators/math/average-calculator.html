@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Average Calculator - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/average-calculator.css" />
+  <script defer src="../assets/js/average-calculator.js"></script>
+</head>
+<body>
+    <style>
+        .calculator {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f0f8ff;
+  border: 2px solid #85c1e9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.calculator input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  border: 2px solid #d6eaf8;
+  border-radius: 8px;
+}
+
+.calculator button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.calculator button:hover {
+  background-color: #2e86c1;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #1a5276;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  color: #1f618d;
+  margin-bottom: 20px;
+}
+
+.description {
+  max-width: 700px;
+  margin: 30px auto;
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+  background-color: #fdfefe;
+  border-left: 4px solid #3498db;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .calculator input,
+  .calculator button {
+    font-size: 1em;
+  }
+}
+
+    </style>
+  <div id="header" data-include="../components/header.html"></div>
+
+  <main class="container">
+    <h2 class="title">Average Calculator</h2>
+    <div class="calculator">
+      <input type="text" id="numbersInput" placeholder="Enter numbers separated by commas (e.g., 10, 20, 30)" />
+      <button onclick="calculateAverage()">Calculate Average</button>
+      <div id="result"></div>
+    </div>
+
+    <div class="description">
+      <h3>About This Calculator</h3>
+      <p>This average calculator allows you to find the mean (average) of a list of numbers. Simply enter the numbers separated by commas and click the button. This is useful for students, teachers, analysts, and anyone needing quick average calculations.</p>
+    </div>
+  </main>
+
+  <div id="footer" data-include="../components/footer.html"></div>
+
+  <script>
+    function includeHTML() {
+      document.querySelectorAll('[data-include]').forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(res => res.text())
+          .then(data => el.innerHTML = data)
+          .catch(err => console.error(`Error loading ${file}:`, err));
+      });
+    }
+    includeHTML();
+    function calculateAverage() {
+  const input = document.getElementById('numbersInput').value;
+  const resultDiv = document.getElementById('result');
+
+  if (!input.trim()) {
+    resultDiv.innerHTML = '<span style="color:red;">Please enter some numbers.</span>';
+    return;
+  }
+
+  const numbers = input
+    .split(',')
+    .map(num => parseFloat(num.trim()))
+    .filter(num => !isNaN(num));
+
+  if (numbers.length === 0) {
+    resultDiv.innerHTML = '<span style="color:red;">No valid numbers entered.</span>';
+    return;
+  }
+
+  const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+  const average = sum / numbers.length;
+
+  resultDiv.innerHTML = `Average: <strong>${average.toFixed(2)}</strong>`;
+}
+
+  </script>
+</body>
+</html>

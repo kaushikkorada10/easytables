@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Calculator - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/calculator.css" />
+  <link rel="stylesheet" href="../">
+  <script defer src="../assets/js/calculator.js"></script>
+</head>
+<body>
+<style>
+  .calculator {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 40px;
+    background: #eaf2f8;
+    border: 2px solid #aed6f1;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .calculator input#display {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 90%;
+    padding: 15px;
+    font-size: 1.4em;
+    text-align: right;
+    border: 2px solid #d6eaf8;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+
+  .calculator .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .calculator button {
+    padding: 15px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .calculator button:hover {
+    background-color: #2e86c1;
+  }
+
+  .title {
+    text-align: center;
+    color: #1f618d;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    max-width: 700px;
+    margin: 30px auto;
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fdfefe;
+    border-left: 4px solid #3498db;
+    padding: 15px 20px;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .calculator {
+      width: 95%;
+      padding: 15px;
+    }
+
+    .calculator button {
+      padding: 12px;
+      font-size: 1em;
+    }
+  }
+</style>
+
+<!-- Header Include -->
+<div id="header" data-include="../components/header.html"></div>
+
+<!-- Main Content -->
+<main class="container">
+  <h2 class="title">Scientific Calculator</h2>
+  <div class="calculator">
+    <input type="text" id="display" disabled />
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="deleteLast()">DEL</button>
+      <button onclick="append('%')">%</button>
+      <button onclick="append('/')">÷</button>
+
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('*')">×</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('-')">−</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('+')">+</button>
+
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="append('**')">^</button>
+
+      <button onclick="append('Math.sin(')">sin</button>
+      <button onclick="append('Math.cos(')">cos</button>
+      <button onclick="append('Math.tan(')">tan</button>
+      <button onclick="append('Math.sqrt(')">√</button>
+
+      <button onclick="append('Math.log10(')">log</button>
+      <button onclick="append('Math.exp(')">exp</button>
+      <button onclick="append('(')">(</button>
+      <button onclick="append(')')">)</button>
+    </div>
+  </div>
+
+  <!-- Description Section -->
+  <div class="description">
+    <h3>About This Calculator</h3>
+    <p>
+      This scientific calculator provides a wide range of mathematical operations such as basic arithmetic, powers, square roots, trigonometric functions, logarithms, and exponential calculations.
+      It is designed to be intuitive, responsive, and easy to use across all devices. You can use it for solving equations, studying math problems, or performing day-to-day calculations.
+    </p>
+    <p>
+      All functions are evaluated in real-time using JavaScript, ensuring instant results and a smooth user experience. It's a handy tool for students, professionals, and anyone who needs accurate computations on the go.
+    </p>
+    <p>
+      <h3> Key Features and Capabilities:</h3> 
+Trigonometric functions: Sine, cosine, tangent, and their inverses. 
+Logarithmic functions: Common log (base 10) and natural log (base e). 
+Exponential functions and roots: Powers and roots beyond the square root. 
+Scientific notation: Displaying and working with very large or small numbers using powers of 10. 
+Constants: Pre-programmed values for mathematical constants like pi (π) and Euler's number (e). 
+Statistical functions: Calculations like permutations, combinations, and factorials. 
+Unit conversions: Often includes functions for converting units, such as degrees to radians, or metric to imperial. 
+Multiple-line display: Allows users to view both input and output simultaneously, making it easier to check for errors and review previous calculations. 
+
+    </p>
+  </div>
+</main>
+
+<!-- Footer Include -->
+<div id="footer" data-include="../components/footer.html"></div>
+
+<!-- JavaScript Logic -->
+<script>
+  function includeHTML() {
+    document.querySelectorAll('[data-include]').forEach(el => {
+      const file = el.getAttribute('data-include');
+      fetch(file)
+        .then(res => res.text())
+        .then(data => el.innerHTML = data)
+        .catch(err => console.error(`Error loading ${file}:`, err));
+    });
+  }
+
+  includeHTML();
+
+  const display = document.getElementById('display');
+
+  function append(value) {
+    display.value += value;
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+
+  function deleteLast() {
+    display.value = display.value.slice(0, -1);
+  }
+
+  function calculate() {
+    try {
+      const result = Function('"use strict";return (' + display.value + ')')();
+      display.value = result;
+    } catch (e) {
+      display.value = 'Error';
+    }
+  }
+</script>
+</body>
+</html>

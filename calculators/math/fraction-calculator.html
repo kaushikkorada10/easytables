@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fraction Calculator - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/fraction.css" />
+  <script defer src="../assets/js/fraction.js"></script>
+</head>
+<body>
+    <style>
+        .calculator {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fef9e7;
+  border: 2px solid #f9e79f;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.input-group input, .input-group select, .input-group button {
+  padding: 10px 12px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.input-group input {
+  width: 100px;
+}
+
+.input-group button {
+  background-color: #f4d03f;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-group button:hover {
+  background-color: #f1c40f;
+}
+
+.result {
+  font-size: 1.2em;
+  color: #2e4053;
+  margin-top: 10px;
+}
+
+.title {
+  text-align: center;
+  color: #b7950b;
+  margin-bottom: 20px;
+}
+
+.description {
+  max-width: 700px;
+  margin: 30px auto;
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+  background-color: #fffef4;
+  border-left: 4px solid #f1c40f;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+  .input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-group input {
+    width: 100%;
+  }
+}
+
+    </style>
+
+  <!-- Header Include -->
+  <div id="header" data-include="../components/header.html"></div>
+  
+
+  <main class="container">
+    <h2 class="title">Fraction Calculator</h2>
+    <div class="calculator">
+      <div class="input-group">
+        <input type="text" id="fraction1" placeholder="e.g., 1/2" />
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">−</option>
+          <option value="*">×</option>
+          <option value="/">÷</option>
+        </select>
+        <input type="text" id="fraction2" placeholder="e.g., 3/4" />
+        <button onclick="calculateFraction()">=</button>
+      </div>
+      <div class="result">
+        Result: <span id="result">--</span>
+      </div>
+    </div>
+
+    <div class="description">
+      <h3>About This Calculator</h3>
+      <p>This calculator allows you to add, subtract, multiply, and divide fractions. Enter two fractions (like 1/2 and 3/4), choose the operation, and get the simplified result instantly.</p>
+      <ul>
+        <li>Handles improper fractions and whole numbers.</li>
+        <li>Simplifies results automatically.</li>
+        <li>Responsive and user-friendly design.</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Footer Include -->
+  <div id="footer" data-include="../components/footer.html"></div>
+
+  <script>
+    function includeHTML() {
+      document.querySelectorAll('[data-include]').forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(res => res.text())
+          .then(data => el.innerHTML = data)
+          .catch(err => console.error(`Error loading ${file}:`, err));
+      });
+    }
+    includeHTML();
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Percentage Calculator - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/percentage-calculator.css" />
+  <script defer src="../assets/js/percentage-calculator.js"></script>
+</head>
+<body>
+    <style>
+        .container {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f0f8ff;
+  border: 2px solid #5dade2;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.calculator label {
+  font-weight: 600;
+  color: #34495e;
+}
+
+.calculator input[type="number"] {
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 2px solid #2980b9;
+  border-radius: 8px;
+  outline-color: #2980b9;
+  transition: border-color 0.3s ease;
+}
+
+.calculator input[type="number"]:focus {
+  border-color: #1abc9c;
+}
+
+#calculateBtn {
+  padding: 14px;
+  font-size: 1.2rem;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+#calculateBtn:hover {
+  background-color: #2980b9;
+}
+
+.result {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #27ae60;
+  min-height: 1.5em;
+  text-align: center;
+}
+
+.description {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #d0d0d0;
+}
+
+.description h3 {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.description p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .calculator input[type="number"],
+  #calculateBtn {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}
+
+    </style>
+  <!-- Header -->
+  <div id="header" data-include="../components/header.html"></div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2 class="title">Percentage Calculator</h2>
+    <div class="calculator">
+      <label for="total">Total Value:</label>
+      <input type="number" id="total" placeholder="Enter total value" />
+
+      <label for="percentage">Percentage (%):</label>
+      <input type="number" id="percentage" placeholder="Enter percentage" />
+
+      <button id="calculateBtn">Calculate</button>
+
+      <div id="result" class="result"></div>
+    </div>
+
+    <section class="description">
+      <h3>What is a Percentage Calculator?</h3>
+      <p>
+        A percentage calculator helps you determine the value that corresponds to a specific percentage of a given total. 
+        It's useful for discounts, grades, tax calculations, and financial evaluations.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer" data-include="../components/footer.html"></div>
+
+  <!-- includeHTML loader -->
+  <script>
+    function includeHTML() {
+      document.querySelectorAll('[data-include]').forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(res => res.text())
+          .then(data => el.innerHTML = data)
+          .catch(err => console.error(`Error loading ${file}:`, err));
+      });
+    }
+    includeHTML();
+    document.addEventListener('DOMContentLoaded', () => {
+  const totalInput = document.getElementById('total');
+  const percentageInput = document.getElementById('percentage');
+  const calculateBtn = document.getElementById('calculateBtn');
+  const resultDiv = document.getElementById('result');
+
+  calculateBtn.addEventListener('click', () => {
+    const total = parseFloat(totalInput.value);
+    const percentage = parseFloat(percentageInput.value);
+
+    if (isNaN(total) || isNaN(percentage)) {
+      resultDiv.style.color = '#e74c3c';
+      resultDiv.textContent = 'Please enter valid numbers in both fields.';
+      return;
+    }
+
+    if (percentage < 0 || percentage > 100) {
+      resultDiv.style.color = '#e74c3c';
+      resultDiv.textContent = 'Percentage should be between 0 and 100.';
+      return;
+    }
+
+    const value = (total * percentage) / 100;
+    resultDiv.style.color = '#27ae60';
+    resultDiv.textContent = `${percentage}% of ${total} is ${value.toFixed(2)}`;
+  });
+});
+
+  </script>
+</body>
+</html>
