@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASCII Table - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/ascii-table.css" />
+</head>
+<body>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fbfd;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
+  h1, h2, h3 {
+    color: #2c3e50;
+  }
+  .search-box {
+    margin: 20px 0;
+  }
+  .search-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #aed6f1;
+    border-radius: 5px;
+  }
+  .ascii-section {
+    margin: 30px 0;
+  }
+  .ascii-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .ascii-grid div {
+    border: 1px solid #d1eaf0;
+    background-color: #eaf6fb;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95em;
+  }
+  .ascii-info {
+    margin-top: 40px;
+    background: #f1f9ff;
+    padding: 20px;
+    border-left: 4px solid #3498db;
+    border-radius: 8px;
+    color: #333;
+  }
+  @media (max-width: 600px) {
+    .ascii-grid {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  }
+</style>
+
+<main class="container">
+  <h1>ASCII Table</h1>
+  <p>ASCII (American Standard Code for Information Interchange) character code chart with decimal, hex, binary, and description:</p>
+
+  <div class="search-box">
+    <label for="asciiSearch">Character Search</label>
+    <input type="text" id="asciiSearch" placeholder="Search character or code..." />
+  </div>
+
+  <section class="ascii-section">
+    <h2>Standard ASCII Table</h2>
+    <div class="ascii-grid">
+      <!-- Static ASCII data -->
+      <div><strong>Dec:</strong> 0<br><strong>Hex:</strong> 00<br><strong>Char:</strong> NUL</div>
+      <div><strong>Dec:</strong> 1<br><strong>Hex:</strong> 01<br><strong>Char:</strong> SOH</div>
+      <div><strong>Dec:</strong> 2<br><strong>Hex:</strong> 02<br><strong>Char:</strong> STX</div>
+      <div><strong>Dec:</strong> 3<br><strong>Hex:</strong> 03<br><strong>Char:</strong> ETX</div>
+      <div><strong>Dec:</strong> 4<br><strong>Hex:</strong> 04<br><strong>Char:</strong> EOT</div>
+      <!-- Add the rest of standard ASCII up to 127 similarly... -->
+      <div><strong>Dec:</strong> 65<br><strong>Hex:</strong> 41<br><strong>Char:</strong> A</div>
+      <div><strong>Dec:</strong> 66<br><strong>Hex:</strong> 42<br><strong>Char:</strong> B</div>
+      <div><strong>Dec:</strong> 67<br><strong>Hex:</strong> 43<br><strong>Char:</strong> C</div>
+      <!-- ... -->
+      <div><strong>Dec:</strong> 127<br><strong>Hex:</strong> 7F<br><strong>Char:</strong> DEL</div>
+    </div>
+  </section>
+
+  <section class="ascii-section">
+    <h2>Extended ASCII Table</h2>
+    <div class="ascii-grid">
+      <!-- Static Extended ASCII data -->
+      <div><strong>Dec:</strong> 128<br><strong>Hex:</strong> 80<br><strong>Char:</strong> €</div>
+      <div><strong>Dec:</strong> 129<br><strong>Hex:</strong> 81<br><strong>Char:</strong> </div>
+      <div><strong>Dec:</strong> 130<br><strong>Hex:</strong> 82<br><strong>Char:</strong> ‚</div>
+      <div><strong>Dec:</strong> 131<br><strong>Hex:</strong> 83<br><strong>Char:</strong> ƒ</div>
+      <!-- Add more Extended ASCII characters up to 255 similarly... -->
+      <div><strong>Dec:</strong> 255<br><strong>Hex:</strong> FF<br><strong>Char:</strong> ÿ</div>
+    </div>
+  </section>
+
+  <section class="ascii-info">
+    <h3>What is ASCII code?</h3>
+    <p>
+      ASCII (American Standard Code for Information Interchange) is a 7-bit character encoding with values from 0 to 127. It includes control characters and printable characters like digits, uppercase and lowercase letters.
+    </p>
+    <h3>ASCII vs Unicode</h3>
+    <p>
+      ASCII is limited to 128 characters (0–127). Unicode is a superset of ASCII and supports over a million characters including emojis, math symbols, and scripts from all languages.
+    </p>
+  </section>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Online Notepad</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #fafafa;
+  }
+  header {
+    background: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  textarea {
+    flex: 1;
+    width: 100%;
+    resize: none;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: white;
+    color: #222;
+  }
+  .buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  button:hover {
+    background: #0056b3;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  footer {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    color: #666;
+    background: #eee;
+  }
+</style>
+</head>
+<body>
+
+<header>Online Notepad</header>
+
+<main>
+  <textarea id="notepad" placeholder="Start typing your notes here..."></textarea>
+
+  <div class="buttons">
+    <button id="newBtn" title="New Note">New</button>
+    <button id="saveBtn" title="Save Note as .txt">Save</button>
+    <label for="openFile" style="background:#007bff; color:#fff; padding:0.6rem 1.2rem; border-radius:6px; cursor:pointer; user-select:none;" title="Open a .txt file">Open</label>
+    <input type="file" id="openFile" accept=".txt" />
+    <button id="clearBtn" title="Clear All">Clear</button>
+  </div>
+</main>
+
+<footer>
+  Your notes are saved automatically in your browser (localStorage). No data is sent anywhere.
+</footer>
+
+<script>
+  const textarea = document.getElementById('notepad');
+  const newBtn = document.getElementById('newBtn');
+  const saveBtn = document.getElementById('saveBtn');
+  const openFileInput = document.getElementById('openFile');
+  const clearBtn = document.getElementById('clearBtn');
+
+  // Load from localStorage on start
+  function loadNote() {
+    const saved = localStorage.getItem('onlineNotepadContent');
+    if (saved) {
+      textarea.value = saved;
+    }
+  }
+
+  // Save to localStorage on input
+  textarea.addEventListener('input', () => {
+    localStorage.setItem('onlineNotepadContent', textarea.value);
+  });
+
+  // New note clears textarea and localStorage
+  newBtn.addEventListener('click', () => {
+    if (confirm("Start a new note? Unsaved changes will be lost.")) {
+      textarea.value = '';
+      localStorage.removeItem('onlineNotepadContent');
+    }
+  });
+
+  // Save note as .txt file
+  saveBtn.addEventListener('click', () => {
+    const text = textarea.value;
+    if (!text) {
+      alert("Nothing to save!");
+      return;
+    }
+    const blob = new Blob([text], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'note.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // Open a .txt file and load content into textarea
+  openFileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (file.type && !file.type.startsWith('text')) {
+      alert('Please select a text (.txt) file.');
+      openFileInput.value = '';
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      textarea.value = evt.target.result;
+      localStorage.setItem('onlineNotepadContent', textarea.value);
+    }
+    reader.readAsText(file);
+    openFileInput.value = '';
+  });
+
+  // Clear textarea and localStorage
+  clearBtn.addEventListener('click', () => {
+    if (confirm("Clear all notes? This cannot be undone.")) {
+      textarea.value = '';
+      localStorage.removeItem('onlineNotepadContent');
+    }
+  });
+
+  // Initialize
+  loadNote();
+</script>
+
+</body>
+</html>

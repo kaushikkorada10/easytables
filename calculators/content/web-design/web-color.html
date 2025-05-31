@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Colors - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    main {
+      background-color: #111;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .title {
+      text-align: center;
+      color: #3498db;
+      margin-bottom: 30px;
+    }
+
+    .card-3 {
+      background-color: #f4f6f7;
+      border: 2px solid #aed6f1;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      color: #111;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .color-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-2 {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      font-size: 1em;
+      text-align: center;
+      flex: 1 1 200px;
+    }
+
+    .btn-2:hover {
+      background-color: #2e86c1;
+    }
+
+    @media (max-width: 480px) {
+      .btn-2 {
+        font-size: 0.95em;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Include -->
+  <div id="header" data-include="../components/header.html"></div>
+
+  <main>
+    <h2 class="title">Web Colors</h2>
+
+    <div class="card-3">
+      <div class="color-list">
+        <a href="rgb-color.html" class="btn-2">RGB Color</a>
+        <a href="color-picker.html" class="btn-2">Color Picker</a>
+        <a href="color-scheme.html" class="btn-2">Color Scheme</a>
+        <a href="image-color-picker.html" class="btn-2">Image Color Picker</a>
+        <a href="color-wheel.html" class="btn-2">Color Wheel</a>
+        <a href="web-safe-colors.html" class="btn-2">Web Safe Colors</a>
+        <a href="html-color-codes.html" class="btn-2">HTML Color Codes</a>
+        <a href="black-color.html" class="btn-2">Black</a>
+        <a href="blue-color.html" class="btn-2">Blue</a>
+        <a href="brown-color.html" class="btn-2">Brown</a>
+        <a href="cyan-color.html" class="btn-2">Cyan</a>
+        <a href="gold-color.html" class="btn-2">Gold</a>
+        <a href="green-color.html" class="btn-2">Green</a>
+        <a href="grey-color.html" class="btn-2">Grey</a>
+        <a href="maroon-color.html" class="btn-2">Maroon</a>
+        <a href="orange-color.html" class="btn-2">Orange</a>
+        <a href="pink-color.html" class="btn-2">Pink</a>
+        <a href="purple-color.html" class="btn-2">Purple</a>
+        <a href="red-color.html" class="btn-2">Red</a>
+        <a href="white-color.html" class="btn-2">White</a>
+        <a href="yellow-color.html" class="btn-2">Yellow</a>
+        <a href="beige-color.html" class="btn-2">Beige</a>
+        <a href="ivory-color.html" class="btn-2">Ivory</a>
+        <a href="lavender-color.html" class="btn-2">Lavender</a>
+        <a href="magenta-color.html" class="btn-2">Magenta</a>
+        <a href="peach-color.html" class="btn-2">Peach</a>
+        <a href="silver-color.html" class="btn-2">Silver</a>
+        <a href="tan-color.html" class="btn-2">Tan</a>
+        <a href="teal-color.html" class="btn-2">Teal</a>
+        <a href="turquoise-color.html" class="btn-2">Turquoise</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Include -->
+  <div id="footer" data-include="../components/footer.html"></div>
+
+  <script>
+    // Include header and footer
+    function includeHTML() {
+      document.querySelectorAll('[data-include]').forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(res => res.text())
+          .then(data => el.innerHTML = data)
+          .catch(err => console.error(`Error loading ${file}:`, err));
+      });
+    }
+    includeHTML();
+  </script>
+
+</body>
+</html>

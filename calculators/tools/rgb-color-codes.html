@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RGB Color Codes Chart</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 1rem;
+    background: #f7f7f7;
+    color: #222;
+  }
+  h1, h2, h3 {
+    color: #333;
+  }
+  .color-picker {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .color-picker label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  input[type=number] {
+    width: 60px;
+    padding: 0.25rem;
+    font-size: 1rem;
+  }
+  .color-display {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    width: fit-content;
+    user-select: none;
+  }
+  .info-block {
+    margin-bottom: 2rem;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: center;
+  }
+  th {
+    background: #eee;
+  }
+  tbody tr:hover {
+    background: #ffffcc;
+    cursor: pointer;
+  }
+  .hover-info {
+    margin-top: 1rem;
+    font-family: monospace;
+    background: #333;
+    color: #eee;
+    padding: 0.5rem;
+    border-radius: 4px;
+    width: fit-content;
+  }
+  .section-divider {
+    border-top: 2px solid #bbb;
+    margin: 2rem 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>RGB Color Codes Chart</h1>
+
+<section class="color-picker-section">
+  <h2>RGB Color Picker</h2>
+  <div class="color-picker">
+    <label>
+      R
+      <input type="number" id="r" min="0" max="255" value="255" />
+    </label>
+    <label>
+      G
+      <input type="number" id="g" min="0" max="255" value="255" />
+    </label>
+    <label>
+      B
+      <input type="number" id="b" min="0" max="255" value="255" />
+    </label>
+  </div>
+  <div id="colorBox" class="color-display" style="background:#fff; color:#000;">Sample Text</div>
+  <div>
+    <b>Hex:</b> <span id="hexValue">#FFFFFF</span> &nbsp;|&nbsp;
+    <b>Decimal:</b> <span id="decimalValue">16777215</span> &nbsp;|&nbsp;
+    <b>HSV:</b> <span id="hsvValue">0°, 0%, 100%</span>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="info-block">
+  <h2>RGB Color Space</h2>
+  <p>
+    RGB color space or RGB color system constructs all the colors from combinations of the Red, Green, and Blue colors.
+    Each color channel uses 8 bits with integer values from 0 to 255, making
+    256 × 256 × 256 = 16,777,216 possible colors.
+  </p>
+  <p>
+    RGB ≡ Red, Green, Blue<br>
+    Each pixel on an LED monitor displays colors by combining red, green, and blue LEDs.
+    When a channel is set to 0, that LED is off; when set to 255, the LED is fully on.
+    Values in between produce varying light intensity.
+  </p>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="info-block">
+  <h2>RGB Color Format & Calculation</h2>
+  <p>
+    RGB color codes are stored in 24 bits (bits 0..23):
+  </p>
+  <pre style="background:#eee; padding:1rem; font-family: monospace;">
+RED[7:0]   GREEN[7:0]   BLUE[7:0]
+23          16          15          8          7          0
+
+RGB = (R * 65536) + (G * 256) + B
+  </pre>
+  <p>Calculation examples:</p>
+  <ul>
+    <li>White = 255 * 65536 + 255 * 256 + 255 = <b>#FFFFFF</b></li>
+    <li>Blue = 0 * 65536 + 0 * 256 + 255 = <b>#0000FF</b></li>
+    <li>Red = 255 * 65536 + 0 * 256 + 0 = <b>#FF0000</b></li>
+    <li>Green = 0 * 65536 + 255 * 256 + 0 = <b>#00FF00</b></li>
+    <li>Gray = 128 * 65536 + 128 * 256 + 128 = <b>#808080</b></li>
+    <li>Yellow = 255 * 65536 + 255 * 256 + 0 = <b>#FFFF00</b></li>
+  </ul>
+</section>
+
+<div class="section-divider"></div>
+
+<section>
+  <h2>RGB Color Codes Chart</h2>
+  <p>Hover over a color to see Hex and Decimal codes below:</p>
+  <table id="colorChart">
+    <tbody>
+      <!-- will fill with JS -->
+    </tbody>
+  </table>
+  <div id="hoverInfo" class="hover-info">Hover over a color cell</div>
+</section>
+
+<div class="section-divider"></div>
+
+<section>
+  <h2>Basic Colors Table</h2>
+  <table>
+    <thead>
+      <tr><th>Color</th><th>HTML / CSS Name</th><th>Hex Code</th><th>Decimal (R,G,B)</th></tr>
+    </thead>
+    <tbody id="basicColorsTable">
+      <!-- Filled by JS -->
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"></div>
+
+<section>
+  <h2>Extended Colors Table</h2>
+  <table>
+    <thead>
+      <tr><th>Color</th><th>Hex Code</th><th>Decimal (R,G,B)</th></tr>
+    </thead>
+    <tbody id="extendedColorsTable">
+      <!-- Filled by JS -->
+    </tbody>
+  </table>
+</section>
+
+<script>
+// Utility functions
+function rgbToHex(r, g, b) {
+  return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0').toUpperCase()).join('');
+}
+
+function rgbToDecimal(r, g, b) {
+  return (r << 16) + (g << 8) + b;
+}
+
+function rgbToHsv(r, g, b) {
+  r /= 255; g /= 255; b /= 255;
+  let max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let h, s, v = max;
+
+  let d = max - min;
+  s = max === 0 ? 0 : d / max;
+
+  if (max === min) {
+    h = 0; // achromatic
+  } else {
+    switch(max) {
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)); break;
+      case g: h = ((b - r) / d + 2); break;
+      case b: h = ((r - g) / d + 4); break;
+    }
+    h /= 6;
+  }
+  return [Math.round(h * 360), Math.round(s * 100), Math.round(v * 100)];
+}
+
+// Update color picker display
+const rInput = document.getElementById('r');
+const gInput = document.getElementById('g');
+const bInput = document.getElementById('b');
+const colorBox = document.getElementById('colorBox');
+const hexValue = document.getElementById('hexValue');
+const decimalValue = document.getElementById('decimalValue');
+const hsvValue = document.getElementById('hsvValue');
+
+function updateColorDisplay() {
+  let r = clamp(parseInt(rInput.value), 0, 255);
+  let g = clamp(parseInt(gInput.value), 0, 255);
+  let b = clamp(parseInt(bInput.value), 0, 255);
+
+  rInput.value = r;
+  gInput.value = g;
+  bInput.value = b;
+
+  let hex = rgbToHex(r, g, b);
+  let dec = rgbToDecimal(r, g, b);
+  let [h, s, v] = rgbToHsv(r, g, b);
+
+  colorBox.style.backgroundColor = hex;
+  colorBox.style.color = v < 60 ? '#eee' : '#222';
+  colorBox.textContent = hex;
+
+  hexValue.textContent = hex;
+  decimalValue.textContent = dec;
+  hsvValue.textContent = `${h}°, ${s}%, ${v}%`;
+}
+
+function clamp(num, min, max) {
+  return isNaN(num) ? min : Math.min(Math.max(num, min), max);
+}
+
+rInput.addEventListener('input', updateColorDisplay);
+gInput.addEventListener('input', updateColorDisplay);
+bInput.addEventListener('input', updateColorDisplay);
+
+updateColorDisplay();
+
+// Color chart data
+const chartColors = [
+  [255, 255, 102], [255, 204, 0], [255, 153, 51], [255, 102, 102], [255, 51, 51],
+  [255, 0, 0], [204, 0, 0], [153, 0, 0], [102, 0, 0], [51, 0, 0],
+  [0, 51, 51], [0, 102, 102], [0, 153, 153], [0, 204, 204], [0, 255, 255],
+  [51, 204, 204], [102, 204, 204], [153, 255, 255], [204, 255, 255], [255, 255, 255]
+];
+
+const colorChartBody = document.querySelector('#colorChart tbody');
+const hoverInfo = document.getElementById('hoverInfo');
+
+function createColorCell(r, g, b) {
+  const td = document.createElement('td');
+  const hex = rgbToHex(r, g, b);
+  const dec = rgbToDecimal(r, g, b);
+  td.style.backgroundColor = hex;
+  td.title = `Hex: ${hex} \nDecimal: ${dec} \nRGB(${r},${g},${b})`;
+  td.addEventListener('mouseenter', () => {
+    hoverInfo.textContent = `Hex: ${hex} | Decimal: ${dec} | RGB: (${r}, ${g}, ${b})`;
+  });
+  td.addEventListener('mouseleave', () => {
+    hoverInfo.textContent = 'Hover over a color cell';
+  });
+  return td;
+}
+
+// Fill the color chart (5 columns, 4 rows for demo)
+function fillColorChart() {
+  let rows = 4;
+  let cols = 5;
+  let idx = 0;
+  for(let i = 0; i < rows; i++) {
+    const tr = document.createElement('tr');
+    for(let j = 0; j < cols; j++) {
+      if(idx < chartColors.length) {
+        let [r, g, b] = chartColors[idx++];
+        tr.appendChild(createColorCell(r, g, b));
+      } else {
+        tr.appendChild(document.createElement('td'));
+      }
+    }
+    colorChartBody.appendChild(tr);
+  }
+}
+fillColorChart();
+
+// Basic colors table data (HTML standard color names)
+const basicColors = [
+  {name: "Black", hex: "#000000", r:0, g:0, b:0},
+  {name: "White", hex: "#FFFFFF", r:255, g:255, b:255},
+  {name: "Red", hex: "#FF0000", r:255, g:0, b:0},
+  {name: "Lime", hex: "#00FF00", r:0, g:255, b:0},
+  {name: "Blue", hex: "#0000FF", r:0, g:0, b:255},
+  {name: "Yellow", hex: "#FFFF00", r:255, g:255, b:0},
+  {name: "Cyan", hex: "#00FFFF", r:0, g:255, b:255},
+  {name: "Magenta", hex: "#FF00FF", r:255, g:0, b:255},
+  {name: "Silver", hex: "#C0C0C0", r:192, g:192, b:192},
+  {name: "Gray", hex: "#808080", r:128, g:128, b:128}
+];
+
+const basicColorsTable = document.getElementById('basicColorsTable');
+function fillBasicColorsTable() {
+  basicColors.forEach(c => {
+    const tr = document.createElement('tr');
+    const tdColor = document.createElement('td');
+    tdColor.style.backgroundColor = c.hex;
+    tdColor.textContent = '';
+    tr.appendChild(tdColor);
+
+    const tdName = document.createElement('td');
+    tdName.textContent = c.name;
+    tr.appendChild(tdName);
+
+    const tdHex = document.createElement('td');
+    tdHex.textContent = c.hex;
+    tr.appendChild(tdHex);
+
+    const tdDec = document.createElement('td');
+    tdDec.textContent = `(${c.r}, ${c.g}, ${c.b})`;
+    tr.appendChild(tdDec);
+
+    basicColorsTable.appendChild(tr);
+  });
+}
+fillBasicColorsTable();
+
+// Extended colors (some common colors)
+const extendedColors = [
+  {name: "DarkRed", hex: "#8B0000", r:139, g:0, b:0},
+  {name: "FireBrick", hex: "#B22222", r:178, g:34, b:34},
+  {name: "DarkGreen", hex: "#006400", r:0, g:100, b:0},
+  {name: "ForestGreen", hex: "#228B22", r:34, g:139, b:34},
+  {name: "DarkBlue", hex: "#00008B", r:0, g:0, b:139},
+  {name: "MidnightBlue", hex: "#191970", r:25, g:25, b:112},
+  {name: "DarkCyan", hex: "#008B8B", r:0, g:139, b:139},
+  {name: "Teal", hex: "#008080", r:0, g:128, b:128},
+  {name: "Gold", hex: "#FFD700", r:255, g:215, b:0},
+  {name: "Orange", hex: "#FFA500", r:255, g:165, b:0}
+];
+
+const extendedColorsTable = document.getElementById('extendedColorsTable');
+function fillExtendedColorsTable() {
+  extendedColors.forEach(c => {
+    const tr = document.createElement('tr');
+    const tdColor = document.createElement('td');
+    tdColor.style.backgroundColor = c.hex;
+    tdColor.textContent = '';
+    tr.appendChild(tdColor);
+
+    const tdHex = document.createElement('td');
+    tdHex.textContent = c.hex;
+    tr.appendChild(tdHex);
+
+    const tdDec = document.createElement('td');
+    tdDec.textContent = `(${c.r}, ${c.g}, ${c.b})`;
+    tr.appendChild(tdDec);
+
+    extendedColorsTable.appendChild(tr);
+  });
+}
+fillExtendedColorsTable();
+</script>
+
+</body>
+</html>

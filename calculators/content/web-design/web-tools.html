@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Tools - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    main {
+      background-color: #111;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .title {
+      text-align: center;
+      color: #3498db;
+      margin-bottom: 30px;
+    }
+
+    .card-3 {
+      background-color: #f4f6f7;
+      border: 2px solid #aed6f1;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      color: #111;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .btn-2 {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      font-size: 1em;
+      text-align: center;
+      flex: 1 1 200px;
+    }
+
+    .btn-2:hover {
+      background-color: #2e86c1;
+    }
+
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      .btn-2 {
+        font-size: 0.95em;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Include -->
+  <div id="header" data-include="../components/header.html"></div>
+
+  <main>
+    <h2 class="title">Web Tools</h2>
+
+    <div class="card-3">
+      <div class="tool-list">
+        <a href="301-redirect-generator.html" class="btn-2">301 Redirect Generator</a>
+        <a href="base64-decode.html" class="btn-2">Base64 Decode</a>
+        <a href="base64-encode.html" class="btn-2">Base64 Encode</a>
+        <a href="base64-to-image.html" class="btn-2">Base64 to Image</a>
+        <a href="color-tester.html" class="btn-2">Color Tester</a>
+        <a href="html-editor.html" class="btn-2">HTML Editor</a>
+        <a href="html-link-code-generator.html" class="btn-2">Link Code Generator</a>
+        <a href="html-table-generator.html" class="btn-2">Table Generator</a>
+        <a href="http-header-checker.html" class="btn-2">HTTP Header Checker</a>
+        <a href="http-status-checker.html" class="btn-2">HTTP Status Checker</a>
+        <a href="image-to-base64.html" class="btn-2">Image to Base64</a>
+        <a href="online-pixel-ruler.html" class="btn-2">Online Pixel Ruler</a>
+        <a href="screen-resolution.html" class="btn-2">Screen Resolution</a>
+        <a href="screen-resolution-tester.html" class="btn-2">Resolution Tester</a>
+        <a href="svg-viewer.html" class="btn-2">SVG Viewer/Editor</a>
+        <a href="url-encode.html" class="btn-2">URL Encode</a>
+        <a href="url-decode.html" class="btn-2">URL Decode</a>
+        <a href="window-size.html" class="btn-2">Window Size</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Include -->
+  <div id="footer" data-include="../components/footer.html"></div>
+
+  <script>
+    function includeHTML() {
+      document.querySelectorAll('[data-include]').forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(res => res.text())
+          .then(data => el.innerHTML = data)
+          .catch(err => console.error(`Error loading ${file}:`, err));
+      });
+    }
+    includeHTML();
+  </script>
+
+</body>
+</html>

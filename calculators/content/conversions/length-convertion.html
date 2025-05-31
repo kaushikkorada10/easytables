@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Length Converter - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #ddd;
+    }
+    header, footer {
+      background-color: #000000cc;
+      color: #ddd;
+      padding: 15px 20px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8em;
+      color: #3b82f6;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: #3b82f6;
+      color: #121212;
+    }
+    main.container {
+      max-width: 900px;
+      margin: 30px auto 50px;
+      background: #1a1a2e;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #3b82f6aa;
+    }
+    .title {
+      text-align: center;
+      color: #60a5fa;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    .converter {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 25px;
+      background: #16213e;
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
+      color: #a0c4ff;
+    }
+    .converter label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .converter input,
+    .converter select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 2px solid #99bbff;
+      border-radius: 8px;
+      font-size: 1em;
+      background-color: #0f172a;
+      color: #cbd5e1;
+    }
+    .converter button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .converter button:hover {
+      background-color: #2563eb;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      background-color: #0f172a;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      min-height: 40px;
+    }
+    .conversion-list {
+      margin-top: 30px;
+      font-size: 0.95em;
+      background: #0f172a;
+      padding: 20px;
+      border-radius: 10px;
+      line-height: 1.8;
+      color: #cbd5e1;
+      border-left: 4px solid #3b82f6;
+    }
+    footer {
+      font-size: 0.9em;
+      text-align: center;
+      border-top: 1px solid #222244;
+    }
+    footer a {
+      color: #3b82f6;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EasyTables</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
+        <li><a href="../compound-interest/compound-interest.html">Compound Interest</a></li>
+        <li><a href="../other-tools.html">Other Tools</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="title">Length Converter</h2>
+
+    <div class="converter">
+      <label for="lengthInput">Enter Length</label>
+      <input type="number" id="lengthInput" placeholder="Enter value"/>
+
+      <label for="fromUnit">From Unit</label>
+      <select id="fromUnit">
+        <option value="mm">Millimeter (mm)</option>
+        <option value="cm">Centimeter (cm)</option>
+        <option value="m">Meter (m)</option>
+        <option value="km">Kilometer (km)</option>
+        <option value="in">Inch (in)</option>
+        <option value="ft">Foot (ft)</option>
+        <option value="yd">Yard (yd)</option>
+        <option value="mi">Mile (mi)</option>
+      </select>
+
+      <label for="toUnit">To Unit</label>
+      <select id="toUnit">
+        <option value="mm">Millimeter (mm)</option>
+        <option value="cm">Centimeter (cm)</option>
+        <option value="m">Meter (m)</option>
+        <option value="km">Kilometer (km)</option>
+        <option value="in">Inch (in)</option>
+        <option value="ft">Foot (ft)</option>
+        <option value="yd">Yard (yd)</option>
+        <option value="mi">Mile (mi)</option>
+      </select>
+
+      <button onclick="convertLength()">Convert</button>
+      <div class="result" id="lengthResult"></div>
+    </div>
+
+    <div class="conversion-list">
+      <strong>Quick Reference:</strong><br/>
+      cm to feet, cm to inches, cm to km, cm to meters, cm to miles, cm to mm, cm to yard<br/>
+      feet to cm, feet to inches, feet to meters, feet to miles, feet to yards, feet to mm<br/>
+      inches to cm, inches to meters, inches to miles, inches to feet, inches to yards<br/>
+      km to cm, km to meters, km to miles, km to yards, km to inches<br/>
+      meters to cm, meters to feet, meters to inches, meters to miles<br/>
+      miles to mm, miles to cm, miles to feet, miles to inches, miles to meters<br/>
+      mm to cm, mm to inches, mm to meters, mm to miles, mm to yards<br/>
+      yards to meters, yards to feet, yards to inches, yards to miles
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 EasyTables. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    const conversionRates = {
+      mm: 1,
+      cm: 10,
+      m: 1000,
+      km: 1e6,
+      in: 25.4,
+      ft: 304.8,
+      yd: 914.4,
+      mi: 1.609e+6
+    };
+
+    function convertLength() {
+      const value = parseFloat(document.getElementById('lengthInput').value);
+      const fromUnit = document.getElementById('fromUnit').value;
+      const toUnit = document.getElementById('toUnit').value;
+      const resultBox = document.getElementById('lengthResult');
+
+      if (isNaN(value)) {
+        resultBox.innerHTML = "Please enter a valid number.";
+        return;
+      }
+
+      const valueInMM = value * conversionRates[fromUnit];
+      const convertedValue = valueInMM / conversionRates[toUnit];
+      resultBox.innerHTML = `Converted Value: ${convertedValue.toFixed(4)} ${toUnit}`;
+    }
+  </script>
+
+</body>
+</html>

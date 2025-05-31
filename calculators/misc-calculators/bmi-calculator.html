@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMI Calculator - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    /* Page-specific CSS */
+    main {
+      background-color: #111;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .card-3 {
+      background-color: #f4f6f7;
+      border: 2px solid #aed6f1;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      color: #111;
+      padding: 20px;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .title {
+      text-align: center;
+      color: #3498db;
+      margin-bottom: 30px;
+    }
+
+    .card-3 label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #1f618d;
+    }
+
+    .card-3 input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    .btn-2 {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+    }
+
+    .btn-2:hover {
+      background-color: #2e86c1;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #d6eaf8;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #154360;
+      min-height: 40px;
+    }
+
+    .description.card-3 {
+      font-size: 1.1em;
+      color: #333;
+      line-height: 1.6;
+      background-color: #fdfefe;
+      border-left: 4px solid #3498db;
+      padding: 15px 20px;
+    }
+
+    @media (max-width: 480px) {
+      .card-3 {
+        width: 95%;
+        padding: 15px;
+      }
+
+      .btn-2 {
+        font-size: 1em;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Include -->
+  <div id="header" data-include="../components/header.html"></div>
+
+  <main>
+    <h2 class="title">BMI Calculator</h2>
+
+    <div class="card-3 calculator">
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" placeholder="e.g. 170" />
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" placeholder="e.g. 65" />
+
+      <button class="btn-2" onclick="calculateBMI()">Calculate BMI</button>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <div class="card-3 description">
+      <h3>About BMI Calculator</h3>
+      <p>
+        The Body Mass Index (BMI) calculator helps you assess if your weight is within a healthy range based on your height.
+        It’s a quick, simple tool used by healthcare professionals to categorize weight status.
+      </p>
+      <p>
+        <strong>BMI Categories:</strong><br />
+        Underweight: BMI &lt; 18.5<br />
+        Normal weight: 18.5 ≤ BMI &lt; 24.9<br />
+        Overweight: 25 ≤ BMI &lt; 29.9<br />
+        Obese: BMI ≥ 30
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer Include -->
+  <div id="footer" data-include="../components/footer.html"></div>
+
+  <script>
+    // Include header and footer
+    function includeHTML() {
+      document.querySelectorAll('[data-include]').forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(res => res.text())
+          .then(data => el.innerHTML = data)
+          .catch(err => console.error(`Error loading ${file}:`, err));
+      });
+    }
+    includeHTML();
+
+    function calculateBMI() {
+      const height = parseFloat(document.getElementById("height").value);
+      const weight = parseFloat(document.getElementById("weight").value);
+      const resultDiv = document.getElementById("result");
+
+      if (!height || !weight || height <= 0 || weight <= 0) {
+        resultDiv.textContent = "Please enter valid height and weight.";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      const heightInMeters = height / 100;
+      const bmi = weight / (heightInMeters * heightInMeters);
+      const roundedBMI = bmi.toFixed(2);
+
+      let category = "";
+      if (bmi < 18.5) {
+        category = "Underweight";
+      } else if (bmi < 24.9) {
+        category = "Normal weight";
+      } else if (bmi < 29.9) {
+        category = "Overweight";
+      } else {
+        category = "Obese";
+      }
+
+      resultDiv.textContent = `Your BMI is ${roundedBMI} (${category})`;
+      resultDiv.style.color = "#154360";
+    }
+  </script>
+</body>
+</html>

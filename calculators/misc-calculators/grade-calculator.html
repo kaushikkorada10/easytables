@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grade Calculator - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/grade.css" />
+  <style>
+    /* === Common dark black + blue styles === */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #ddd;
+    }
+    header, footer {
+      background-color: #000000cc;
+      color: #ddd;
+      padding: 15px 20px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8em;
+      color: #3b82f6;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: #3b82f6;
+      color: #121212;
+    }
+    main.container {
+      max-width: 900px;
+      margin: 30px auto 50px;
+      background: #1a1a2e;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #3b82f6aa;
+      color: #ddd;
+    }
+    footer {
+      font-size: 0.9em;
+      text-align: center;
+      border-top: 1px solid #222244;
+      user-select: none;
+    }
+    footer a {
+      color: #3b82f6;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* === Calculator styles with black + blue accent === */
+    .calculator {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 25px;
+      background: #16213e;
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
+      color: #a0c4ff;
+    }
+    .calculator input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 1em;
+      border: 2px solid #99bbff;
+      border-radius: 8px;
+      background-color: #0f172a;
+      color: #cbd5e1;
+    }
+    .calculator input::placeholder {
+      color: #a3bffa;
+    }
+    .calculator button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .calculator button:hover {
+      background-color: #2563eb;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #a0c4ff;
+      background-color: #0f172a;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      min-height: 40px;
+    }
+    .title {
+      text-align: center;
+      color: #60a5fa;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    .description {
+      max-width: 700px;
+      margin: 30px auto;
+      font-size: 1.1em;
+      color: #cbd5e1;
+      line-height: 1.6;
+      background-color: #0f172a;
+      border-left: 4px solid #3b82f6;
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
+    @media (max-width: 480px) {
+      .calculator {
+        width: 95%;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>EasyTables</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
+        <li><a href="../compound-interest/compound-interest.html">Compound Interest</a></li>
+        <li><a href="../other-tools.html">Other Tools</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2 class="title">Final Grade Calculator</h2>
+    <div class="calculator">
+      <input type="number" id="currentGrade" placeholder="Current Grade (%)" />
+      <input type="number" id="finalWeight" placeholder="Final Exam Weight (%)" />
+      <input type="number" id="desiredGrade" placeholder="Desired Overall Grade (%)" />
+      <button onclick="calculateFinalExamGrade()">Calculate Required Final Grade</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <div class="description">
+      <h3>About This Calculator</h3>
+      <p>
+        This Final Grade Calculator helps you determine the score you need on your final exam to achieve a desired overall course grade.
+      </p>
+      <p><strong>Formula:</strong><br />
+        Required Final Exam Grade = (Desired Grade − (Current Grade × (1 − Final Weight))) ÷ Final Weight
+      </p>
+      <p>
+        This tool is especially useful for students who want to stay on track with their academic goals and plan ahead.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 EasyTables. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    function calculateFinalExamGrade() {
+      const currentGrade = parseFloat(document.getElementById("currentGrade").value);
+      const finalWeight = parseFloat(document.getElementById("finalWeight").value) / 100;
+      const desiredGrade = parseFloat(document.getElementById("desiredGrade").value);
+      const resultElement = document.getElementById("result");
+
+      if (
+        isNaN(currentGrade) ||
+        isNaN(finalWeight) ||
+        isNaN(desiredGrade) ||
+        finalWeight <= 0 ||
+        finalWeight > 1
+      ) {
+        resultElement.textContent = "Please enter valid inputs.";
+        return;
+      }
+
+      const requiredFinal =
+        (desiredGrade - currentGrade * (1 - finalWeight)) / finalWeight;
+
+      if (requiredFinal > 100) {
+        resultElement.textContent = `You need ${requiredFinal.toFixed(2)}% — it's more than 100%! Consider reaching out to your instructor.`;
+      } else if (requiredFinal < 0) {
+        resultElement.textContent = `You're already on track! You need 0% on the final to reach your goal.`;
+      } else {
+        resultElement.textContent = `You need to score at least ${requiredFinal.toFixed(2)}% on your final exam.`;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Development - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    main {
+      background-color: #111;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .title {
+      text-align: center;
+      color: #3498db;
+      margin-bottom: 30px;
+    }
+
+    .card-3 {
+      background-color: #f4f6f7;
+      border: 2px solid #aed6f1;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      color: #111;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .btn-2 {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      font-size: 1em;
+      text-align: center;
+      flex: 1 1 200px;
+    }
+
+    .btn-2:hover {
+      background-color: #2e86c1;
+    }
+
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      .btn-2 {
+        font-size: 0.95em;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Include -->
+  <div id="header" data-include="../components/header.html"></div>
+
+  <main>
+    <h2 class="title">Website Development</h2>
+
+    <div class="card-3">
+      <div class="tool-list">
+        <a href="htaccess-redirection.html" class="btn-2">.htaccess Redirection</a>
+        <a href="canonical-url-link.html" class="btn-2">Canonical URL Link</a>
+        <a href="html-redirection.html" class="btn-2">HTML Redirection</a>
+        <a href="javascript-redirection.html" class="btn-2">JavaScript Redirection</a>
+        <a href="jquery-redirection.html" class="btn-2">jQuery Redirection</a>
+        <a href="php-redirection.html" class="btn-2">PHP Redirection</a>
+        <a href="screen-resolution-statistics.html" class="btn-2">Screen Resolution Stats</a>
+        <a href="url-redirection.html" class="btn-2">URL Redirection</a>
+        <a href="website-traffic-down.html" class="btn-2">Website Traffic Down</a>
+      </div>
+    </div>
+
+    <h2 class="title">Related Tools & Resources</h2>
+
+    <div class="card-3">
+      <div class="tool-list">
+        <a href="web-html.html" class="btn-2">Web HTML</a>
+        <a href="web-tools.html" class="btn-2">Web Tools</a>
+        <a href="web-colors.html" class="btn-2">Web Colors</a>
+        <a href="http-header-checker.html" class="btn-2">HTTP Header Checker</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Include -->
+  <div id="footer" data-include="../components/footer.html"></div>
+
+  <script>
+    function includeHTML() {
+      document.querySelectorAll('[data-include]').forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(res => res.text())
+          .then(data => el.innerHTML = data)
+          .catch(err => console.error(`Error loading ${file}:`, err));
+      });
+    }
+    includeHTML();
+  </script>
+
+</body>
+</html>
