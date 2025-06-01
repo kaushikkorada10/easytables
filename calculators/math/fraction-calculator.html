@@ -2,24 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fraction Calculator - EasyTables</title>
   <link rel="stylesheet" href="../../assets/css/style.css" />
   <script defer src="../../assets/js/fraction.js"></script>
   <style>
+    :root {
+      --navbar-color: #0D47A1;
+      --body-bg: #F5F5F5;
+      --card-bg: #FFFFFF;
+      --card-border: #E0E0E0;
+      --text-color: #000000;
+      --accent-color: #1976D2;
+    }
+
     body {
-      background-color: #121212;
-      color: white;
+      background-color: var(--body-bg);
+      color: var(--text-color);
       font-family: Arial, sans-serif;
+      margin: 0;
     }
 
     header {
-      background-color: #000;
+      background-color: var(--navbar-color);
       padding: 20px 0;
     }
 
     header h1 {
-      color: #00ffc8;
+      color: #fff;
       text-align: center;
       margin: 0;
     }
@@ -38,7 +48,7 @@
     }
 
     header nav ul li a {
-      color: #00d4ff;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
     }
@@ -48,21 +58,41 @@
     }
 
     footer {
-      background-color: #111;
-      color: #ccc;
+      background-color: var(--navbar-color);
+      color: #fff;
       padding: 20px 0;
       text-align: center;
       font-size: 14px;
     }
 
     footer a {
-      color: #00d4ff;
+      color: #fff;
       margin: 0 5px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 14px;
+      margin: 15px 0;
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
     }
 
     .title {
       text-align: center;
-      color: #ffcc00;
+      color: var(--navbar-color);
       margin: 20px auto;
     }
 
@@ -70,10 +100,10 @@
       max-width: 500px;
       margin: 20px auto;
       padding: 20px;
-      background: #1e1e1e;
-      border: 2px solid #ffcc00;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
@@ -91,35 +121,35 @@
       padding: 10px 12px;
       font-size: 1em;
       border-radius: 8px;
-      border: 1px solid #444;
+      border: 1px solid var(--card-border);
     }
 
     .input-group input {
       width: 100px;
-      background-color: #2c2c2c;
-      color: #fff;
+      background-color: #fff;
+      color: var(--text-color);
     }
 
     .input-group select {
-      background-color: #2c2c2c;
-      color: #fff;
+      background-color: #fff;
+      color: var(--text-color);
     }
 
     .input-group button {
-      background-color: #ffcc00;
-      color: #000;
+      background-color: var(--accent-color);
+      color: #fff;
       border: none;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     .input-group button:hover {
-      background-color: #f1c40f;
+      background-color: #145ea8;
     }
 
     .result {
       font-size: 1.2em;
-      color: #00ffc8;
+      color: var(--accent-color);
       margin-top: 10px;
     }
 
@@ -127,10 +157,10 @@
       max-width: 700px;
       margin: 30px auto;
       font-size: 1.1em;
-      color: #ccc;
+      color: var(--text-color);
       line-height: 1.6;
-      background-color: #1b1b1b;
-      border-left: 4px solid #ffcc00;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
       padding: 15px 20px;
       border-radius: 8px;
     }
@@ -138,6 +168,30 @@
     .description ul {
       padding-left: 1.2em;
       list-style: disc;
+    }
+
+    .see-also {
+      margin: 20px auto;
+      max-width: 700px;
+    }
+
+    .see-also h4 {
+      color: var(--navbar-color);
+      margin-bottom: 10px;
+    }
+
+    .see-also ul {
+      padding-left: 1.2em;
+      list-style: none;
+    }
+
+    .see-also ul li a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .see-also ul li a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 480px) {
@@ -154,69 +208,84 @@
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
+  <header>
+    <div class="container">
+      <h1>EasyTables - Online Calculators & Tools</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Web</a></li>
+          <li><a href="#">Math</a></li>
+          <li><a href="#">Electricity</a></li>
+          <li><a href="#">Calculators</a></li>
+          <li><a href="#">Converters</a></li>
+          <li><a href="#">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="breadcrumb">
+      <a href="#">Home</a> › <a href="#">Math</a> › Fraction Calculator
+    </div>
+
+    <h2 class="title">Fraction Calculator</h2>
+
+    <div class="calculator">
+      <div class="input-group">
+        <input type="text" id="fraction1" placeholder="e.g., 1/2" />
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">−</option>
+          <option value="*">×</option>
+          <option value="/">÷</option>
+        </select>
+        <input type="text" id="fraction2" placeholder="e.g., 3/4" />
+        <button onclick="calculateFraction()">=</button>
+      </div>
+      <div class="result">
+        Result: <span id="result">--</span>
+      </div>
+    </div>
+
+    <div class="description">
+      <h3>About This Calculator</h3>
+      <p>This calculator allows you to add, subtract, multiply, and divide fractions. Enter two fractions (like 1/2 and 3/4), choose the operation, and get the simplified result instantly.</p>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
+        <li>Handles improper fractions and whole numbers.</li>
+        <li>Simplifies results automatically.</li>
+        <li>Responsive and user-friendly design.</li>
       </ul>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-  <h2 class="title">Fraction Calculator</h2>
-  <div class="calculator">
-    <div class="input-group">
-      <input type="text" id="fraction1" placeholder="e.g., 1/2" />
-      <select id="operator">
-        <option value="+">+</option>
-        <option value="-">−</option>
-        <option value="*">×</option>
-        <option value="/">÷</option>
-      </select>
-      <input type="text" id="fraction2" placeholder="e.g., 3/4" />
-      <button onclick="calculateFraction()">=</button>
     </div>
-    <div class="result">
-      Result: <span id="result">--</span>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">Decimal to Fraction Converter</a></li>
+        <li><a href="#">Percentage Calculator</a></li>
+        <li><a href="#">Average Calculator</a></li>
+        <li><a href="#">Scientific Calculator</a></li>
+      </ul>
     </div>
-  </div>
+  </main>
 
-  <div class="description">
-    <h3>About This Calculator</h3>
-    <p>This calculator allows you to add, subtract, multiply, and divide fractions. Enter two fractions (like 1/2 and 3/4), choose the operation, and get the simplified result instantly.</p>
-    <ul>
-      <li>Handles improper fractions and whole numbers.</li>
-      <li>Simplifies results automatically.</li>
-      <li>Responsive and user-friendly design.</li>
-    </ul>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>

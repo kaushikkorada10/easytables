@@ -8,47 +8,97 @@
   <script defer src="../assets/js/percentage-calculator.js"></script>
   <style>
     body {
-      background-color: #121212;
-      color: #fff;
+      background-color: #F5F5F5;
+      color: black;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header, footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 15px 0;
+    }
+
+    header h1, footer p {
+      text-align: center;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 10px 0 0;
+    }
+
+    nav ul li {
+      margin: 5px 15px;
+    }
+
+    nav ul li a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb {
+      padding: 10px 20px;
+      background-color: #E0E0E0;
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .breadcrumb a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
     }
 
     .title {
       text-align: center;
-      color: #ffcc00;
-      margin-top: 40px;
+      color: #0D47A1;
+      margin-top: 30px;
       font-size: 2rem;
     }
 
     .calculator-card {
       max-width: 420px;
       margin: 30px auto;
-      background-color: #1e1e1e;
+      background-color: #FFFFFF;
       padding: 25px;
       border-radius: 12px;
-      border: 2px solid #3498db;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      border: 1px solid #E0E0E0;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
     .calculator-card label {
       display: block;
       margin: 15px 0 5px;
       font-weight: bold;
-      color: #bbb;
+      color: black;
     }
 
     .calculator-card input[type="number"] {
       width: 100%;
       padding: 12px;
       font-size: 1rem;
-      border: 1px solid #2980b9;
+      border: 1px solid #E0E0E0;
       border-radius: 8px;
-      background-color: #2c2c2c;
-      color: #fff;
+      background-color: #FFFFFF;
+      color: black;
     }
 
     .calculator-card input:focus {
-      border-color: #1abc9c;
+      border-color: #1976D2;
       outline: none;
     }
 
@@ -57,7 +107,7 @@
       width: 100%;
       padding: 14px;
       font-size: 1.1rem;
-      background-color: #3498db;
+      background-color: #1976D2;
       color: white;
       border: none;
       border-radius: 8px;
@@ -67,14 +117,14 @@
     }
 
     #calculateBtn:hover {
-      background-color: #2980b9;
+      background-color: #0D47A1;
     }
 
     #result {
       margin-top: 15px;
       font-size: 1.3rem;
       font-weight: 600;
-      color: #27ae60;
+      color: #2E7D32;
       text-align: center;
       min-height: 1.5em;
     }
@@ -82,18 +132,46 @@
     .description {
       max-width: 700px;
       margin: 40px auto;
-      background-color: #1b1b1b;
+      background-color: #FFFFFF;
       padding: 20px;
-      border-left: 4px solid #ffcc00;
+      border-left: 4px solid #1976D2;
       border-radius: 10px;
       font-size: 1.05rem;
-      color: #ccc;
+      color: black;
       line-height: 1.6;
+      border: 1px solid #E0E0E0;
     }
 
     .description h3 {
-      color: #ffcc00;
+      color: #0D47A1;
       margin-bottom: 10px;
+    }
+
+    .see-also {
+      max-width: 700px;
+      margin: 20px auto 40px;
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #E0E0E0;
+    }
+
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+
+    .see-also ul {
+      padding-left: 20px;
+    }
+
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .see-also a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 480px) {
@@ -107,7 +185,30 @@
 <body>
 
   <!-- Header -->
-  <div id="header" data-include="../components/header.html"></div>
+  <header>
+    <div class="container">
+      <h1>EasyTables - Online Calculators & Tools</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Web</a></li>
+          <li><a href="#">Math</a></li>
+          <li><a href="#">Electricity</a></li>
+          <li><a href="#">Calculators</a></li>
+          <li><a href="#">Converters</a></li>
+          <li><a href="#">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="#">Home</a> &gt; 
+    <a href="#">Math</a> &gt; 
+    <a href="#">Percentage Tools</a> &gt; 
+    Percentage Calculator
+  </div>
 
   <!-- Main Content -->
   <main>
@@ -131,24 +232,39 @@
         It's useful for discounts, grades, tax calculations, and financial evaluations.
       </p>
     </div>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">Percent to Decimal Calculator</a></li>
+        <li><a href="#">Discount Calculator</a></li>
+        <li><a href="#">Increase/Decrease by Percentage</a></li>
+        <li><a href="#">Percentage Change Calculator</a></li>
+      </ul>
+    </div>
   </main>
 
   <!-- Footer -->
-  <div id="footer" data-include="../components/footer.html"></div>
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#" style="color: white;">Link to Us</a> |
+        <a href="#" style="color: white;">Recommend Site</a> |
+        <a href="#" style="color: white;">Send Feedback</a> |
+        <a href="#" style="color: white;">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#" style="color: white;">About</a> |
+        <a href="#" style="color: white;">Terms of Use</a> |
+        <a href="#" style="color: white;">Privacy Policy</a> |
+        <a href="#" style="color: white;">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
 
-  <!-- includeHTML loader -->
+  <!-- Calculator Script -->
   <script>
-    function includeHTML() {
-      document.querySelectorAll('[data-include]').forEach(el => {
-        const file = el.getAttribute('data-include');
-        fetch(file)
-          .then(res => res.text())
-          .then(data => el.innerHTML = data)
-          .catch(err => console.error(`Error loading ${file}:`, err));
-      });
-    }
-    includeHTML();
-
     document.addEventListener('DOMContentLoaded', () => {
       const totalInput = document.getElementById('total');
       const percentageInput = document.getElementById('percentage');
@@ -160,19 +276,19 @@
         const percentage = parseFloat(percentageInput.value);
 
         if (isNaN(total) || isNaN(percentage)) {
-          resultDiv.style.color = '#e74c3c';
+          resultDiv.style.color = '#D32F2F';
           resultDiv.textContent = 'Please enter valid numbers in both fields.';
           return;
         }
 
         if (percentage < 0 || percentage > 100) {
-          resultDiv.style.color = '#e74c3c';
+          resultDiv.style.color = '#D32F2F';
           resultDiv.textContent = 'Percentage should be between 0 and 100.';
           return;
         }
 
         const value = (total * percentage) / 100;
-        resultDiv.style.color = '#27ae60';
+        resultDiv.style.color = '#2E7D32';
         resultDiv.textContent = `${percentage}% of ${total} is ${value.toFixed(2)}`;
       });
     });

@@ -2,178 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Compound Interest Calculator - EasyTables</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/compound-interest.css" />
   <style>
-    /* === Header and Footer styles with black and blue === */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #121212; /* dark background for whole page */
-      color: #ddd;
+      background-color: #F5F5F5;
+      color: black;
     }
+
     header, footer {
-      background-color: #000000cc; /* black with some transparency */
-      color: #ddd;
-      padding: 15px 20px;
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 15px;
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px #000;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+
     header h1 {
       margin: 0;
-      font-weight: 700;
       font-size: 1.8em;
-      color: #3b82f6; /* bright blue */
-      user-select: none;
     }
+
     nav ul {
       list-style: none;
-      margin: 0;
       padding: 0;
+      margin-top: 10px;
       display: flex;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
+
     nav ul li {
       display: inline;
     }
+
     nav ul li a {
-      color: #3b82f6;
+      color: white;
       text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 5px;
     }
+
     nav ul li a:hover {
-      background-color: #3b82f6;
-      color: #121212;
+      background-color: #1976D2;
     }
+
     main.container {
       max-width: 900px;
-      margin: 30px auto 50px;
-      background: #1a1a2e; /* dark blue-ish background */
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #3b82f6aa;
-      color: #ddd;
+      margin: 30px auto;
+      padding: 20px;
+      background: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 10px;
     }
-    footer {
+
+    .breadcrumb {
       font-size: 0.9em;
-      text-align: center;
-      border-top: 1px solid #222244;
-      user-select: none;
+      margin-bottom: 20px;
     }
-    footer a {
-      color: #3b82f6;
+
+    .breadcrumb a {
       text-decoration: none;
-      margin: 0 8px;
+      color: #1976D2;
     }
-    footer a:hover {
+
+    .breadcrumb a:hover {
       text-decoration: underline;
     }
 
-    /* === Calculator styles with black + blue accent === */
+    .title {
+      text-align: center;
+      color: #0D47A1;
+      margin-bottom: 20px;
+    }
+
     .calculator {
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 25px;
-      background: #16213e; /* darker blue */
-      border: 2px solid #3b82f6;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
-      color: #a0c4ff;
+      margin: 0 auto;
     }
 
     .calculator label {
       display: block;
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: bold;
-      color: #a0c4ff;
     }
 
     .calculator input,
     .calculator select {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin-top: 5px;
-      border: 2px solid #99bbff;
-      border-radius: 8px;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
       font-size: 1em;
-      background-color: #0f172a;
-      color: #cbd5e1;
-    }
-
-    .calculator input::placeholder {
-      color: #a3bffa;
     }
 
     .calculator button {
-      margin-top: 15px;
+      margin-top: 20px;
       width: 100%;
       padding: 12px;
       font-size: 1.1em;
       border: none;
-      border-radius: 8px;
-      background-color: #3b82f6;
+      border-radius: 6px;
+      background-color: #1976D2;
       color: white;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
     .calculator button:hover {
-      background-color: #2563eb;
+      background-color: #125ea2;
     }
 
     .result {
       margin-top: 20px;
-      font-size: 1.2em;
-      color: #a0c4ff;
-      background-color: #0f172a;
-      padding: 10px;
-      border-radius: 8px;
+      font-size: 1.1em;
+      background: #F5F5F5;
+      padding: 12px;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
       text-align: center;
-      min-height: 40px;
-    }
-
-    .title {
-      text-align: center;
-      color: #60a5fa;
-      margin-bottom: 20px;
-      user-select: none;
     }
 
     .description {
-      max-width: 700px;
-      margin: 30px auto;
-      font-size: 1.1em;
-      color: #cbd5e1;
-      line-height: 1.6;
-      background-color: #0f172a;
-      border-left: 4px solid #3b82f6;
+      margin-top: 40px;
+      background: #F5F5F5;
       padding: 15px 20px;
-      border-radius: 8px;
+      border-left: 4px solid #1976D2;
+      border-radius: 6px;
+      font-size: 1em;
+      line-height: 1.6;
     }
 
-    @media (max-width: 480px) {
-      .calculator {
-        width: 95%;
-        padding: 15px;
+    .see-also {
+      margin-top: 40px;
+      background: #F5F5F5;
+      padding: 15px 20px;
+      border-left: 4px solid #1976D2;
+      border-radius: 6px;
+    }
+
+    .see-also ul {
+      padding-left: 20px;
+    }
+
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
       }
 
       .calculator input,
-      .calculator select {
-        font-size: 1em;
-      }
-
+      .calculator select,
       .calculator button {
         font-size: 1em;
       }
@@ -182,22 +183,30 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <h1>EasyTables</h1>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
-        <li><a href="../compound-interest/compound-interest.html">Compound Interest</a></li>
-        <li><a href="../other-tools.html">Other Tools</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>EasyTables - Online Calculators & Tools</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">Web</a></li>
+          <li><a href="#">Math</a></li>
+          <li><a href="#">Electricity</a></li>
+          <li><a href="#">Calculators</a></li>
+          <li><a href="#">Converters</a></li>
+          <li><a href="#">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Main Content -->
   <main class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › <a href="#">Calculators</a> › Compound Interest Calculator
+    </div>
+
     <h2 class="title">Compound Interest Calculator</h2>
+
     <div class="calculator">
       <label>Principal Amount ($)</label>
       <input type="number" id="principal" placeholder="Enter principal amount" />
@@ -226,11 +235,34 @@
       <h3>What is Compound Interest?</h3>
       <p>Compound interest is calculated on the initial principal and also on the accumulated interest of previous periods. This calculator helps you determine the total value of your investment after interest is compounded over time.</p>
     </div>
+
+    <div class="see-also">
+      <h3>See Also:</h3>
+      <ul>
+        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
+        <li><a href="../average/average.html">Average Calculator</a></li>
+        <li><a href="../fraction/fraction.html">Fraction Calculator</a></li>
+        <li><a href="../scientific/scientific.html">Scientific Calculator</a></li>
+      </ul>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 EasyTables. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">About</a> |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
   </footer>
 
   <script>
@@ -256,5 +288,6 @@
       `;
     }
   </script>
+
 </body>
 </html>

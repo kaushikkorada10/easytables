@@ -4,30 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scientific Calculator - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <script defer src="../assets/js/calculator.js"></script>
   <style>
     body {
-      background-color: #121212;
-      color: #fff;
+      background-color: #F5F5F5;
+      color: black;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0D47A1;
+      padding: 20px 0;
+      color: white;
+    }
+
+    header .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     .title {
       text-align: center;
-      color: #ffcc00;
+      color: #0D47A1;
       font-size: 2rem;
       margin: 40px 0 20px;
+    }
+
+    .breadcrumbs {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 20px;
+      font-size: 0.95rem;
+      color: #1976D2;
+    }
+
+    .breadcrumbs a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      text-decoration: underline;
     }
 
     .calculator {
       max-width: 400px;
       margin: 0 auto;
       padding: 25px;
-      background-color: #1e1e1e;
-      border: 2px solid #3498db;
+      background-color: #FFFFFF;
+      border: 2px solid #E0E0E0;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
     .calculator input#display {
@@ -36,9 +107,9 @@
       font-size: 1.4em;
       text-align: right;
       border-radius: 8px;
-      border: 1px solid #2980b9;
-      background-color: #2c2c2c;
-      color: #fff;
+      border: 1px solid #E0E0E0;
+      background-color: #FFFFFF;
+      color: black;
       margin-bottom: 15px;
     }
 
@@ -51,32 +122,32 @@
     .calculator button {
       padding: 14px;
       font-size: 1.05em;
-      background-color: #3498db;
+      background-color: #1976D2;
       border: none;
       border-radius: 8px;
-      color: #fff;
+      color: white;
       cursor: pointer;
       transition: background 0.3s;
     }
 
     .calculator button:hover {
-      background-color: #2e86c1;
+      background-color: #0D47A1;
     }
 
     .description {
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
-      background-color: #1b1b1b;
-      border-left: 5px solid #ffcc00;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
       border-radius: 10px;
       line-height: 1.6;
       font-size: 1.05rem;
-      color: #ccc;
+      color: black;
     }
 
     .description h3 {
-      color: #ffcc00;
+      color: #0D47A1;
       margin-bottom: 10px;
     }
 
@@ -86,6 +157,38 @@
 
     .description li {
       margin-bottom: 8px;
+    }
+
+    .see-also {
+      max-width: 800px;
+      margin: 20px auto 40px;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+    }
+
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .see-also a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 480px) {
@@ -103,12 +206,30 @@
 </head>
 <body>
 
-  <!-- Header Include -->
-  <div id="header" data-include="../components/header.html"></div>
+  <header>
+    <div class="container">
+      <h1>EasyTables - Online Calculators & Tools</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Web</a></li>
+          <li><a href="#">Math</a></li>
+          <li><a href="#">Electricity</a></li>
+          <li><a href="#">Calculators</a></li>
+          <li><a href="#">Converters</a></li>
+          <li><a href="#">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Main Content -->
+  <div class="breadcrumbs">
+    <a href="#">Home</a> › <a href="#">Calculators</a> › Scientific Calculator
+  </div>
+
   <main class="container">
     <h2 class="title">Scientific Calculator</h2>
+
     <div class="calculator">
       <input type="text" id="display" disabled />
       <div class="buttons">
@@ -151,9 +272,7 @@
 
     <div class="description">
       <h3>About This Calculator</h3>
-      <p>
-        This scientific calculator supports advanced operations including powers, square roots, trigonometric, logarithmic, and exponential functions. It’s perfect for students, professionals, and anyone who needs a reliable math tool.
-      </p>
+      <p>This scientific calculator supports advanced operations including powers, square roots, trigonometric, logarithmic, and exponential functions. It’s perfect for students, professionals, and anyone who needs a reliable math tool.</p>
       <h3>Key Features and Capabilities:</h3>
       <ul>
         <li>✅ Trigonometric functions: sin, cos, tan</li>
@@ -165,25 +284,38 @@
         <li>✅ Real-time calculations using JavaScript</li>
       </ul>
     </div>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">Fraction Calculator</a></li>
+        <li><a href="#">Average Calculator</a></li>
+        <li><a href="#">Compound Interest Calculator</a></li>
+        <li><a href="#">BMI Calculator</a></li>
+        <li><a href="#">Number Converter</a></li>
+      </ul>
+    </div>
   </main>
 
-  <!-- Footer Include -->
-  <div id="footer" data-include="../components/footer.html"></div>
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">About</a> |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
 
-  <!-- JavaScript Logic -->
   <script>
-    function includeHTML() {
-      document.querySelectorAll('[data-include]').forEach(el => {
-        const file = el.getAttribute('data-include');
-        fetch(file)
-          .then(res => res.text())
-          .then(data => el.innerHTML = data)
-          .catch(err => console.error(`Error loading ${file}:`, err));
-      });
-    }
-
-    includeHTML();
-
     const display = document.getElementById('display');
 
     function append(value) {

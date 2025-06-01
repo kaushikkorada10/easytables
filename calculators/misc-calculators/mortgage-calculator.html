@@ -2,167 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mortgage Calculator - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/mortgage.css" />
   <style>
-    /* === Header and Footer styles with black and blue === */
+    /* === Global styles with your color scheme === */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #121212; /* dark background */
-      color: #ddd;
+      background-color: #F5F5F5; /* Light Grey */
+      color: black;
     }
-    header, footer {
-      background-color: #000000cc; /* black with transparency */
-      color: #ddd;
-      padding: 15px 20px;
+
+    a {
+      color: #1976D2; /* Accent Medium Blue */
+      text-decoration: none;
     }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* === Header styles === */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px #000;
+      background-color: #0D47A1; /* Dark Blue */
+      color: white;
+      padding: 15px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    header .container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
     header h1 {
       margin: 0;
       font-weight: 700;
       font-size: 1.8em;
-      color: #3b82f6; /* bright blue */
       user-select: none;
     }
-    nav ul {
+    header nav ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
     }
-    nav ul li {
+    header nav ul li {
       display: inline;
     }
-    nav ul li a {
-      color: #3b82f6;
-      text-decoration: none;
+    header nav ul li a {
+      color: white;
       font-weight: 600;
       padding: 8px 12px;
       border-radius: 6px;
       transition: background-color 0.3s ease;
+      display: inline-block;
     }
-    nav ul li a:hover {
-      background-color: #3b82f6;
-      color: #121212;
-    }
-    main.container {
-      max-width: 900px;
-      margin: 30px auto 50px;
-      background: #1a1a2e; /* dark blue-ish */
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #3b82f6aa;
-      color: #ddd;
-    }
-    footer {
-      font-size: 0.9em;
-      text-align: center;
-      border-top: 1px solid #222244;
-      user-select: none;
-    }
-    footer a {
-      color: #3b82f6;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-    footer a:hover {
-      text-decoration: underline;
+    header nav ul li a:hover,
+    header nav ul li a:focus {
+      background-color: #1976D2; /* Medium Blue */
+      color: white;
+      outline: none;
     }
 
-    /* === Calculator styles with black + blue accent === */
+    /* === Breadcrumb navigation === */
+    .breadcrumb {
+      max-width: 960px;
+      margin: 10px auto;
+      padding: 0 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .breadcrumb a {
+      color: #1976D2;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb span {
+      margin: 0 5px;
+      color: #999;
+    }
+
+    /* === Main container === */
+    main.container {
+      max-width: 960px;
+      margin: 20px auto 50px;
+      background-color: #FFFFFF; /* White */
+      border: 1px solid #E0E0E0; /* Light Grey Border */
+      border-radius: 10px;
+      padding: 30px 40px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      color: black;
+    }
+
+    h2.title {
+      text-align: center;
+      color: #0D47A1; /* Dark Blue */
+      margin-bottom: 25px;
+      user-select: none;
+    }
+
+    /* === Calculator styles === */
     .calculator {
       max-width: 500px;
-      margin: 20px auto;
-      padding: 25px;
-      background: #16213e; /* darker blue */
-      border: 2px solid #3b82f6;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
-      color: #a0c4ff;
+      margin: 0 auto 30px;
     }
     .calculator label {
       display: block;
-      margin-top: 10px;
-      font-weight: bold;
-      color: #a0c4ff;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #0D47A1;
     }
     .calculator input {
       width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      border: 2px solid #99bbff;
-      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 6px;
       font-size: 1em;
-      background-color: #0f172a;
-      color: #cbd5e1;
+      border: 1.8px solid #E0E0E0;
+      border-radius: 6px;
+      box-sizing: border-box;
+      color: black;
+      background-color: #F5F5F5;
+      transition: border-color 0.3s ease;
     }
-    .calculator input::placeholder {
-      color: #a3bffa;
+    .calculator input:focus {
+      border-color: #1976D2;
+      outline: none;
+      background-color: #ffffff;
     }
     .calculator button {
-      margin-top: 15px;
+      margin-top: 20px;
       width: 100%;
       padding: 12px;
       font-size: 1.1em;
+      font-weight: 700;
       border: none;
       border-radius: 8px;
-      background-color: #3b82f6;
+      background-color: #1976D2; /* Medium Blue */
       color: white;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
-    .calculator button:hover {
-      background-color: #2563eb;
+    .calculator button:hover,
+    .calculator button:focus {
+      background-color: #0D47A1; /* Dark Blue */
+      outline: none;
     }
+
     .result {
       margin-top: 20px;
       font-size: 1.2em;
-      color: #a0c4ff;
-      background-color: #0f172a;
-      padding: 10px;
+      color: #0D47A1;
+      background-color: #E3F2FD; /* very light blue */
+      padding: 12px 18px;
       border-radius: 8px;
       text-align: center;
       min-height: 40px;
+      user-select: text;
     }
-    .title {
+
+    /* === Description box === */
+    .description {
+      max-width: 720px;
+      margin: 30px auto 0;
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+      border-left: 5px solid #1976D2;
+      padding-left: 18px;
+      user-select: text;
+    }
+    .description h3 {
+      color: #0D47A1;
+    }
+    .description ul {
+      margin: 10px 0 0 20px;
+    }
+    .description code {
+      background-color: #F0F0F0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* === Footer styles === */
+    footer {
+      background-color: #0D47A1; /* Dark Blue */
+      color: white;
+      padding: 20px 0;
       text-align: center;
-      color: #60a5fa;
-      margin-bottom: 20px;
+      font-size: 0.9em;
       user-select: none;
     }
-    .description {
-      max-width: 700px;
-      margin: 30px auto;
-      font-size: 1.1em;
-      color: #cbd5e1;
-      line-height: 1.6;
-      background-color: #0f172a;
-      border-left: 4px solid #3b82f6;
-      padding: 15px 20px;
-      border-radius: 8px;
+    footer .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    @media (max-width: 480px) {
+    footer a {
+      color: #1976D2;
+      margin: 0 8px;
+      font-weight: 600;
+    }
+    footer a:hover,
+    footer a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header .container, footer .container, main.container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      header nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
       .calculator {
-        width: 95%;
-        padding: 15px;
-      }
-      .calculator input {
-        font-size: 1em;
-      }
-      .calculator button {
-        font-size: 1em;
+        max-width: 100%;
       }
     }
   </style>
@@ -171,52 +238,80 @@
 
   <!-- Header -->
   <header>
-    <h1>EasyTables</h1>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
-        <li><a href="../compound-interest/compound-interest.html">Compound Interest</a></li>
-        <li><a href="../other-tools.html">Other Tools</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>EasyTables - Online Calculators &amp; Tools</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Web</a></li>
+          <li><a href="#">Math</a></li>
+          <li><a href="#">Electricity</a></li>
+          <li><a href="#">Calculators</a></li>
+          <li><a href="#">Converters</a></li>
+          <li><a href="#">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="#">Home</a>
+    <span>&raquo;</span>
+    <a href="#">Calculators</a>
+    <span>&raquo;</span>
+    <span>Mortgage Calculator</span>
+  </nav>
 
   <!-- Main Content -->
   <main class="container">
     <h2 class="title">Mortgage Calculator</h2>
-    <div class="calculator">
-      <label>Loan Amount ($):</label>
+
+    <div class="calculator" role="region" aria-label="Mortgage Calculator">
+      <label for="loanAmount">Loan Amount ($):</label>
       <input type="number" id="loanAmount" placeholder="e.g. 200000" />
 
-      <label>Annual Interest Rate (%):</label>
+      <label for="interestRate">Annual Interest Rate (%):</label>
       <input type="number" id="interestRate" placeholder="e.g. 3.5" />
 
-      <label>Loan Term (years):</label>
+      <label for="loanTerm">Loan Term (years):</label>
       <input type="number" id="loanTerm" placeholder="e.g. 30" />
 
       <button onclick="calculateMortgage()">Calculate</button>
 
-      <div class="result" id="result"></div>
+      <div class="result" id="result" aria-live="polite" aria-atomic="true"></div>
     </div>
 
     <div class="description">
       <h3>About This Calculator</h3>
       <p>This Mortgage Calculator helps you estimate your monthly payments based on the loan amount, interest rate, and loan term. It provides quick and clear insights into your financial commitment for home loans or real estate investments.</p>
-      <p><strong>Formula Used:</strong> <code>M = P[r(1+r)^n] / [(1+r)^n – 1]</code> where:
-        <ul>
-          <li><strong>M</strong> = monthly payment</li>
-          <li><strong>P</strong> = principal loan amount</li>
-          <li><strong>r</strong> = monthly interest rate</li>
-          <li><strong>n</strong> = number of monthly payments</li>
-        </ul>
-      </p>
+      <p><strong>Formula Used:</strong> <code>M = P[r(1+r)^n] / [(1+r)^n – 1]</code> where:</p>
+      <ul>
+        <li><strong>M</strong> = monthly payment</li>
+        <li><strong>P</strong> = principal loan amount</li>
+        <li><strong>r</strong> = monthly interest rate</li>
+        <li><strong>n</strong> = number of monthly payments</li>
+      </ul>
     </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 EasyTables. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">About</a> |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
   </footer>
 
   <script>
@@ -225,7 +320,7 @@
       const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
       const loanTerm = parseFloat(document.getElementById('loanTerm').value) * 12;
 
-      if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
+      if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm) || loanTerm === 0) {
         document.getElementById('result').innerText = 'Please enter valid numbers in all fields.';
         return;
       }
@@ -233,8 +328,14 @@
       const x = Math.pow(1 + interestRate, loanTerm);
       const monthlyPayment = (loanAmount * x * interestRate) / (x - 1);
 
+      if (isNaN(monthlyPayment) || !isFinite(monthlyPayment)) {
+        document.getElementById('result').innerText = 'Calculation error. Please check your inputs.';
+        return;
+      }
+
       document.getElementById('result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
     }
   </script>
+
 </body>
 </html>

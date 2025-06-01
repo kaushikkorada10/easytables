@@ -6,19 +6,73 @@
   <title>BMI Calculator - EasyTables</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
   <style>
-    /* Page-specific CSS */
+    body {
+      background-color: #F5F5F5;
+      color: black;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+    }
+
+    header .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     main {
-      background-color: #111;
       padding: 40px 20px;
       min-height: 100vh;
     }
 
     .card-3 {
-      background-color: #f4f6f7;
-      border: 2px solid #aed6f1;
+      background-color: #FFFFFF;
+      border: 2px solid #E0E0E0;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      color: #111;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
       padding: 20px;
       margin-bottom: 30px;
       max-width: 700px;
@@ -28,7 +82,7 @@
 
     .title {
       text-align: center;
-      color: #3498db;
+      color: #1976D2;
       margin-bottom: 30px;
     }
 
@@ -36,7 +90,7 @@
       display: block;
       margin-top: 10px;
       font-weight: bold;
-      color: #1f618d;
+      color: black;
     }
 
     .card-3 input {
@@ -53,26 +107,23 @@
       margin-top: 20px;
       width: 100%;
       padding: 14px;
-      background-color: #3498db;
+      background-color: #1976D2;
       color: white;
       border: none;
       border-radius: 8px;
       font-size: 1.1em;
       cursor: pointer;
       transition: background 0.3s ease;
-      display: inline-block;
-      text-align: center;
-      user-select: none;
     }
 
     .btn-2:hover {
-      background-color: #2e86c1;
+      background-color: #125ca0;
     }
 
     .result {
       margin-top: 20px;
       padding: 15px;
-      background-color: #d6eaf8;
+      background-color: #E3F2FD;
       border-radius: 8px;
       text-align: center;
       font-size: 1.2em;
@@ -83,11 +134,41 @@
 
     .description.card-3 {
       font-size: 1.1em;
-      color: #333;
+      color: black;
       line-height: 1.6;
-      background-color: #fdfefe;
-      border-left: 4px solid #3498db;
+      background-color: #FFFFFF;
+      border-left: 4px solid #1976D2;
       padding: 15px 20px;
+    }
+
+    .breadcrumb {
+      font-size: 0.95em;
+      margin: 20px auto 30px;
+      width: 90%;
+      max-width: 700px;
+    }
+
+    .breadcrumb a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .see-also {
+      max-width: 700px;
+      margin: 30px auto;
+    }
+
+    .see-also ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .see-also a {
+      color: #1976D2;
     }
 
     @media (max-width: 480px) {
@@ -100,90 +181,129 @@
         font-size: 1em;
         padding: 12px;
       }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Include -->
-  <div id="header" data-include="../components/header.html"></div>
+<header>
+  <div class="container">
+    <h1>EasyTables - Online Calculators & Tools</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Web</a></li>
+        <li><a href="#">Math</a></li>
+        <li><a href="#">Electricity</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">Converters</a></li>
+        <li><a href="#">Tools</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <h2 class="title">BMI Calculator</h2>
+<main>
+  <div class="breadcrumb">
+    <a href="#">Home</a> &gt;
+    <a href="#">Calculators</a> &gt;
+    <span>BMI Calculator</span>
+  </div>
 
-    <div class="card-3 calculator">
-      <label for="height">Height (cm):</label>
-      <input type="number" id="height" placeholder="e.g. 170" />
+  <h2 class="title">BMI Calculator</h2>
 
-      <label for="weight">Weight (kg):</label>
-      <input type="number" id="weight" placeholder="e.g. 65" />
+  <div class="card-3 calculator">
+    <label for="height">Height (cm):</label>
+    <input type="number" id="height" placeholder="e.g. 170" />
 
-      <button class="btn-2" onclick="calculateBMI()">Calculate BMI</button>
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" placeholder="e.g. 65" />
 
-      <div class="result" id="result"></div>
-    </div>
+    <button class="btn-2" onclick="calculateBMI()">Calculate BMI</button>
 
-    <div class="card-3 description">
-      <h3>About BMI Calculator</h3>
-      <p>
-        The Body Mass Index (BMI) calculator helps you assess if your weight is within a healthy range based on your height.
-        It’s a quick, simple tool used by healthcare professionals to categorize weight status.
-      </p>
-      <p>
-        <strong>BMI Categories:</strong><br />
-        Underweight: BMI &lt; 18.5<br />
-        Normal weight: 18.5 ≤ BMI &lt; 24.9<br />
-        Overweight: 25 ≤ BMI &lt; 29.9<br />
-        Obese: BMI ≥ 30
-      </p>
-    </div>
-  </main>
+    <div class="result" id="result"></div>
+  </div>
 
-  <!-- Footer Include -->
-  <div id="footer" data-include="../components/footer.html"></div>
+  <div class="card-3 description">
+    <h3>About BMI Calculator</h3>
+    <p>
+      The Body Mass Index (BMI) calculator helps you assess if your weight is within a healthy range based on your height.
+      It’s a quick, simple tool used by healthcare professionals to categorize weight status.
+    </p>
+    <p>
+      <strong>BMI Categories:</strong><br />
+      Underweight: BMI &lt; 18.5<br />
+      Normal weight: 18.5 ≤ BMI &lt; 24.9<br />
+      Overweight: 25 ≤ BMI &lt; 29.9<br />
+      Obese: BMI ≥ 30
+    </p>
+  </div>
 
-  <script>
-    // Include header and footer
-    function includeHTML() {
-      document.querySelectorAll('[data-include]').forEach(el => {
-        const file = el.getAttribute('data-include');
-        fetch(file)
-          .then(res => res.text())
-          .then(data => el.innerHTML = data)
-          .catch(err => console.error(`Error loading ${file}:`, err));
-      });
+  <div class="see-also card-3">
+    <h3>See Also</h3>
+    <ul>
+      <li><a href="#">Ideal Weight Calculator</a></li>
+      <li><a href="#">Calorie Calculator</a></li>
+      <li><a href="#">Body Fat Calculator</a></li>
+      <li><a href="#">Basal Metabolic Rate (BMR)</a></li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">About</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function calculateBMI() {
+    const height = parseFloat(document.getElementById("height").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+    const resultDiv = document.getElementById("result");
+
+    if (!height || !weight || height <= 0 || weight <= 0) {
+      resultDiv.textContent = "Please enter valid height and weight.";
+      resultDiv.style.color = "red";
+      return;
     }
-    includeHTML();
 
-    function calculateBMI() {
-      const height = parseFloat(document.getElementById("height").value);
-      const weight = parseFloat(document.getElementById("weight").value);
-      const resultDiv = document.getElementById("result");
+    const heightInMeters = height / 100;
+    const bmi = weight / (heightInMeters * heightInMeters);
+    const roundedBMI = bmi.toFixed(2);
 
-      if (!height || !weight || height <= 0 || weight <= 0) {
-        resultDiv.textContent = "Please enter valid height and weight.";
-        resultDiv.style.color = "red";
-        return;
-      }
-
-      const heightInMeters = height / 100;
-      const bmi = weight / (heightInMeters * heightInMeters);
-      const roundedBMI = bmi.toFixed(2);
-
-      let category = "";
-      if (bmi < 18.5) {
-        category = "Underweight";
-      } else if (bmi < 24.9) {
-        category = "Normal weight";
-      } else if (bmi < 29.9) {
-        category = "Overweight";
-      } else {
-        category = "Obese";
-      }
-
-      resultDiv.textContent = `Your BMI is ${roundedBMI} (${category})`;
-      resultDiv.style.color = "#154360";
+    let category = "";
+    if (bmi < 18.5) {
+      category = "Underweight";
+    } else if (bmi < 24.9) {
+      category = "Normal weight";
+    } else if (bmi < 29.9) {
+      category = "Overweight";
+    } else {
+      category = "Obese";
     }
-  </script>
+
+    resultDiv.textContent = `Your BMI is ${roundedBMI} (${category})`;
+    resultDiv.style.color = "#154360";
+  }
+</script>
+
 </body>
 </html>
