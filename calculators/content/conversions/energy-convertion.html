@@ -1,148 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Energy Conversion Calculator - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/energy-conversion.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electrical Calculations - EasyTables</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
-    /* Reuse your Compound Interest page style here or link to the same stylesheet */
     body {
-      margin: 0;
+      background-color: #F5F5F5;
       font-family: Arial, sans-serif;
-      background: #121212;
-      color: #ddd;
+      color: black;
     }
-    header, footer { background-color: #000000cc; color: #ddd; padding: 15px 20px; }
     header {
+      background-color: #0D47A1;
+      padding: 15px 0;
+    }
+    header h1 {
+      color: white;
+      margin: 0 0 10px 0;
+      font-size: 28px;
+      text-align: center;
+      font-weight: 700;
+    }
+    nav ul {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px #000;
-      position: sticky; top: 0; z-index: 1000;
+      justify-content: center;
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      gap: 20px;
+      flex-wrap: wrap;
     }
-    header h1 { color: #3b82f6; font-weight: 700; font-size: 1.8em; margin: 0; }
-    nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
-    nav ul li a { color: #3b82f6; text-decoration: none; font-weight: 600; padding: 8px 12px; border-radius: 6px; }
-    nav ul li a:hover { background-color: #3b82f6; color: #121212; }
-    main.container {
-      max-width: 900px;
-      margin: 30px auto 50px;
-      background: #1a1a2e;
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #3b82f6aa;
-      color: #ddd;
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      transition: color 0.3s;
+      font-size: 16px;
     }
-    .calculator input {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 2px solid #99bbff;
-      border-radius: 8px;
-      background-color: #0f172a;
-      color: #cbd5e1;
+    nav ul li a:hover {
+      color: #1976D2;
     }
-    .calculator label { font-weight: bold; margin-top: 12px; display: block; }
-    .calculator button {
-      margin-top: 15px; padding: 12px;
-      background-color: #3b82f6; color: white;
-      border: none; border-radius: 8px;
-      font-size: 1.1em; cursor: pointer;
+    .breadcrumb {
+      background-color: transparent;
+      padding: 10px 0;
+      margin-bottom: 0;
     }
-    .calculator button:hover { background-color: #2563eb; }
-    .conversion-links ul {
-      columns: 2;
-      list-style: disc inside;
-      margin: 30px 0;
+    .card-3 {
+      border-radius: 10px;
+      background-color: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .btn-2 {
+      margin: 4px;
+      padding: 8px 16px;
+      background-color: #1976D2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-2:hover {
+      background-color: #0D47A1;
     }
     footer {
-      text-align: center; border-top: 1px solid #222244;
-      font-size: 0.9em;
+      background-color: #0D47A1;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
     }
-    footer a { color: #3b82f6; text-decoration: none; margin: 0 8px; }
-    footer a:hover { text-decoration: underline; }
+    footer a {
+      color: #FFF;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #1976D2;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>EasyTables</h1>
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
-      <li><a href="../compound-interest/compound-interest.html">Compound Interest</a></li>
-      <li><a href="../other-tools.html">Other Tools</a></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <h1>EasyTables - Online Calculators & Tools</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Web</a></li>
+        <li><a href="#">Math</a></li>
+        <li><a href="#">Electricity</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">Converters</a></li>
+        <li><a href="#">Tools</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<main class="container">
-  <h2 class="title">Energy Conversion Calculator</h2>
-  <p>Enter the energy in one of the text boxes and press the Convert button:</p>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Calculators</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Electrical Calculations</li>
+    </ol>
+  </nav>
 
-  <div class="calculator">
-    <label>Enter watt-hour (Wh):</label>
-    <input type="number" id="wh" placeholder="Enter watt-hour">
-
-    <label>Enter kilowatt-hour (kWh):</label>
-    <input type="number" id="kwh" placeholder="Enter kilowatt-hour">
-
-    <label>Enter megawatt-hour (MWh):</label>
-    <input type="number" id="mwh" placeholder="Enter megawatt-hour">
-
-    <label>Enter BTU:</label>
-    <input type="number" id="btu" placeholder="Enter BTU">
-
-    <label>Enter kilojoules (kJ):</label>
-    <input type="number" id="kj" placeholder="Enter kilojoules">
-
-    <button onclick="convertEnergy()">Convert</button>
-    <div class="result" id="result"></div>
+  <div class="card-3 mt-4">
+    <h2 class="text-center mb-4">Electrical Calculations</h2>
+    <p class="mb-3">Choose a calculation:</p>
+    <div>
+      <button class="btn-2">1 amps to watts</button>
+      <button class="btn-2">1 watt to amps</button>
+      <button class="btn-2">2 amps to watts</button>
+      <button class="btn-2">3 amps to watts</button>
+      <button class="btn-2">10 amps to watts</button>
+      <button class="btn-2">15 amps to watts</button>
+      <button class="btn-2">100 amps to watts</button>
+      <button class="btn-2">100 watts to amps</button>
+      <button class="btn-2">500 watts to amps</button>
+      <button class="btn-2">600 watts to amps</button>
+      <button class="btn-2">800 watts to amps</button>
+      <button class="btn-2">1000 watts to amps</button>
+      <button class="btn-2">1200 watts to amps</button>
+      <button class="btn-2">2000 watts to amps</button>
+      <button class="btn-2">Ah to mAh</button>
+      <button class="btn-2">Amps to kVA</button>
+      <button class="btn-2">Amps to mA</button>
+      <button class="btn-2">Amps to kW</button>
+      <button class="btn-2">Amps to ohms</button>
+      <button class="btn-2">Amps to VA</button>
+      <button class="btn-2">Amps to volts</button>
+      <button class="btn-2">Amps to watts</button>
+      <button class="btn-2">dB converter</button>
+      <button class="btn-2">eV to volts</button>
+      <button class="btn-2">Joules to kW</button>
+      <button class="btn-2">Joules to volts</button>
+      <button class="btn-2">Joules to watts</button>
+      <button class="btn-2">kW to amps</button>
+      <button class="btn-2">kJ to kW</button>
+      <button class="btn-2">kJ to watts</button>
+      <button class="btn-2">kVA to amps</button>
+      <button class="btn-2">kW to kVA</button>
+      <button class="btn-2">kW to joules</button>
+      <button class="btn-2">kVA to kW</button>
+      <button class="btn-2">kVA to VA</button>
+      <button class="btn-2">kVA to watts</button>
+      <button class="btn-2">kW to kJ</button>
+      <button class="btn-2">kW to kWh</button>
+      <button class="btn-2">kW to VA</button>
+      <button class="btn-2">kW to volts</button>
+      <button class="btn-2">kW to Wh</button>
+      <button class="btn-2">kWh to kW</button>
+      <button class="btn-2">kWh to watts</button>
+      <button class="btn-2">Lumens to watts</button>
+      <button class="btn-2">Lumens to lux</button>
+      <button class="btn-2">Lux to lumens</button>
+      <button class="btn-2">mA to amps</button>
+      <button class="btn-2">mAh to Ah</button>
+      <button class="btn-2">mAh to Wh</button>
+      <button class="btn-2">Ohms to amps</button>
+      <button class="btn-2">Ohms to volts</button>
+      <button class="btn-2">VA to amps</button>
+      <button class="btn-2">VA to watts</button>
+      <button class="btn-2">VA to kVA</button>
+      <button class="btn-2">VA to kW</button>
+      <button class="btn-2">Volts to amps</button>
+      <button class="btn-2">Volts to joules</button>
+      <button class="btn-2">Volts to kW</button>
+      <button class="btn-2">Volts to ohms</button>
+      <button class="btn-2">Volts to eV</button>
+      <button class="btn-2">Volts to watts</button>
+      <button class="btn-2">Watts to amps</button>
+      <button class="btn-2">Watts to joules</button>
+      <button class="btn-2">Watts to volts</button>
+      <button class="btn-2">Watts to VA</button>
+      <button class="btn-2">Watts to kVA</button>
+      <button class="btn-2">Watts to kWh</button>
+      <button class="btn-2">Watts to kJ</button>
+      <button class="btn-2">Watts to lumens</button>
+      <button class="btn-2">Watts to Wh</button>
+      <button class="btn-2">Wh to kW</button>
+      <button class="btn-2">Wh to mAh</button>
+      <button class="btn-2">Wh to watts</button>
+    </div>
   </div>
 
-  <div class="conversion-links">
-    <h3>Quick Conversions</h3>
-    <ul>
-      <li>Joules to kWh</li>
-      <li>kWh to BTU</li>
-      <li>kcal to joules</li>
-      <li>eV to joules</li>
-      <li>Calories to kJ</li>
-      <li>kJ to kcal</li>
-      <li>MeV to eV</li>
-      <li>BTU to Joules</li>
-      <li>Joules to Calories</li>
-      <li>How to convert kcal to calories</li>
-      <li>How to convert BTU to kWh</li>
+  <div class="card-3 mt-4">
+    <h3 class="mb-3">See also</h3>
+    <ul class="list-unstyled">
+      <li><a href="#">Ohm's Law Calculator</a></li>
+      <li><a href="#">Power Factor Calculator</a></li>
+      <li><a href="#">Voltage Drop Calculator</a></li>
+      <li><a href="#">Resistor Color Code</a></li>
+      <li><a href="#">Electric Charge Conversion</a></li>
+      <li><a href="#">Capacitor Calculator</a></li>
+      <li><a href="#">Transformer Efficiency Calculator</a></li>
+      <li><a href="#">dBm to Watts Converter</a></li>
     </ul>
   </div>
-</main>
+</div>
 
 <footer>
-  <p>© 2025 EasyTables. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">About</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
 </footer>
-
-<script>
-  function convertEnergy() {
-    const wh = parseFloat(document.getElementById("wh").value);
-    const kwh = parseFloat(document.getElementById("kwh").value);
-    const mwh = parseFloat(document.getElementById("mwh").value);
-    const btu = parseFloat(document.getElementById("btu").value);
-    const kj = parseFloat(document.getElementById("kj").value);
-    const result = document.getElementById("result");
-
-    // Example logic:
-    if (!isNaN(kwh)) {
-      const joules = kwh * 3600000;
-      result.innerHTML = `kWh to Joules: ${joules.toLocaleString()} J`;
-    } else {
-      result.innerHTML = "Please fill in at least one field.";
-    }
-  }
-</script>
 
 </body>
 </html>

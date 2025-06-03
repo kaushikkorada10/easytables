@@ -4,41 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Web Colors - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
   <style>
+    body {
+      background-color: #F5F5F5;
+      color: black;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav ul li a:hover {
+      text-decoration: underline;
+    }
     main {
-      background-color: #111;
       padding: 40px 20px;
       min-height: 100vh;
     }
-
     .title {
       text-align: center;
-      color: #3498db;
+      color: #1976D2;
       margin-bottom: 30px;
     }
-
     .card-3 {
-      background-color: #f4f6f7;
-      border: 2px solid #aed6f1;
+      background-color: #FFFFFF;
+      border: 2px solid #E0E0E0;
       border-radius: 12px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      color: #111;
+      color: black;
       padding: 20px;
       max-width: 800px;
       margin: 0 auto 30px;
     }
-
     .color-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
     }
-
     .btn-2 {
       display: inline-block;
-      background-color: #3498db;
+      background-color: #1976D2;
       color: white;
       padding: 12px 20px;
       border-radius: 8px;
@@ -49,79 +76,98 @@
       text-align: center;
       flex: 1 1 200px;
     }
-
     .btn-2:hover {
-      background-color: #2e86c1;
+      background-color: #125ea2;
     }
-
     @media (max-width: 480px) {
       .btn-2 {
         font-size: 0.95em;
         padding: 10px;
       }
     }
+    footer {
+      font-size: 0.9em;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header Include -->
-  <div id="header" data-include="../components/header.html"></div>
+<header>
+  <div class="container">
+    <h1>EasyTables - Online Calculators & Tools</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Web</a></li>
+        <li><a href="#">Math</a></li>
+        <li><a href="#">Electricity</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">Converters</a></li>
+        <li><a href="#">Tools</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <h2 class="title">Web Colors</h2>
+<main>
+  <h2 class="title">Web Colors</h2>
 
-    <div class="card-3">
-      <div class="color-list">
-        <a href="rgb-color.html" class="btn-2">RGB Color</a>
-        <a href="color-picker.html" class="btn-2">Color Picker</a>
-        <a href="color-scheme.html" class="btn-2">Color Scheme</a>
-        <a href="image-color-picker.html" class="btn-2">Image Color Picker</a>
-        <a href="color-wheel.html" class="btn-2">Color Wheel</a>
-        <a href="web-safe-colors.html" class="btn-2">Web Safe Colors</a>
-        <a href="html-color-codes.html" class="btn-2">HTML Color Codes</a>
-        <a href="black-color.html" class="btn-2">Black</a>
-        <a href="blue-color.html" class="btn-2">Blue</a>
-        <a href="brown-color.html" class="btn-2">Brown</a>
-        <a href="cyan-color.html" class="btn-2">Cyan</a>
-        <a href="gold-color.html" class="btn-2">Gold</a>
-        <a href="green-color.html" class="btn-2">Green</a>
-        <a href="grey-color.html" class="btn-2">Grey</a>
-        <a href="maroon-color.html" class="btn-2">Maroon</a>
-        <a href="orange-color.html" class="btn-2">Orange</a>
-        <a href="pink-color.html" class="btn-2">Pink</a>
-        <a href="purple-color.html" class="btn-2">Purple</a>
-        <a href="red-color.html" class="btn-2">Red</a>
-        <a href="white-color.html" class="btn-2">White</a>
-        <a href="yellow-color.html" class="btn-2">Yellow</a>
-        <a href="beige-color.html" class="btn-2">Beige</a>
-        <a href="ivory-color.html" class="btn-2">Ivory</a>
-        <a href="lavender-color.html" class="btn-2">Lavender</a>
-        <a href="magenta-color.html" class="btn-2">Magenta</a>
-        <a href="peach-color.html" class="btn-2">Peach</a>
-        <a href="silver-color.html" class="btn-2">Silver</a>
-        <a href="tan-color.html" class="btn-2">Tan</a>
-        <a href="teal-color.html" class="btn-2">Teal</a>
-        <a href="turquoise-color.html" class="btn-2">Turquoise</a>
-      </div>
+  <div class="card-3">
+    <div class="color-list">
+      <a href="rgb-color.html" class="btn-2">RGB Color</a>
+      <a href="color-picker.html" class="btn-2">Color Picker</a>
+      <a href="color-scheme.html" class="btn-2">Color Scheme</a>
+      <a href="image-color-picker.html" class="btn-2">Image Color Picker</a>
+      <a href="color-wheel.html" class="btn-2">Color Wheel</a>
+      <a href="web-safe-colors.html" class="btn-2">Web Safe Colors</a>
+      <a href="html-color-codes.html" class="btn-2">HTML Color Codes</a>
+      <a href="black-color.html" class="btn-2">Black</a>
+      <a href="blue-color.html" class="btn-2">Blue</a>
+      <a href="brown-color.html" class="btn-2">Brown</a>
+      <a href="cyan-color.html" class="btn-2">Cyan</a>
+      <a href="gold-color.html" class="btn-2">Gold</a>
+      <a href="green-color.html" class="btn-2">Green</a>
+      <a href="grey-color.html" class="btn-2">Grey</a>
+      <a href="maroon-color.html" class="btn-2">Maroon</a>
+      <a href="orange-color.html" class="btn-2">Orange</a>
+      <a href="pink-color.html" class="btn-2">Pink</a>
+      <a href="purple-color.html" class="btn-2">Purple</a>
+      <a href="red-color.html" class="btn-2">Red</a>
+      <a href="white-color.html" class="btn-2">White</a>
+      <a href="yellow-color.html" class="btn-2">Yellow</a>
+      <a href="beige-color.html" class="btn-2">Beige</a>
+      <a href="ivory-color.html" class="btn-2">Ivory</a>
+      <a href="lavender-color.html" class="btn-2">Lavender</a>
+      <a href="magenta-color.html" class="btn-2">Magenta</a>
+      <a href="peach-color.html" class="btn-2">Peach</a>
+      <a href="silver-color.html" class="btn-2">Silver</a>
+      <a href="tan-color.html" class="btn-2">Tan</a>
+      <a href="teal-color.html" class="btn-2">Teal</a>
+      <a href="turquoise-color.html" class="btn-2">Turquoise</a>
     </div>
-  </main>
+  </div>
+</main>
 
-  <!-- Footer Include -->
-  <div id="footer" data-include="../components/footer.html"></div>
-
-  <script>
-    // Include header and footer
-    function includeHTML() {
-      document.querySelectorAll('[data-include]').forEach(el => {
-        const file = el.getAttribute('data-include');
-        fetch(file)
-          .then(res => res.text())
-          .then(data => el.innerHTML = data)
-          .catch(err => console.error(`Error loading ${file}:`, err));
-      });
-    }
-    includeHTML();
-  </script>
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> | <a href="#">Recommend Site</a> | <a href="#">Send Feedback</a> | <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com | <a href="#">About</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
 
 </body>
 </html>

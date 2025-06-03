@@ -3,152 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Weight Converter - EasyTables</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <title>Voltage Converter - EasyTables</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
   <style>
     body {
-      background-color: #f4f4f4;
+      margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #F5F5F5;
+      color: black;
     }
     header, footer {
-      background-color: #222;
+      background-color: #0D47A1;
       color: white;
-      padding: 20px 0;
-      text-align: center;
+      padding: 15px 20px;
     }
-    .black-bg {
-      background-color: #111;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-weight: bold;
+    }
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      background-color: #1976D2;
       color: white;
-      padding: 40px 0;
+      padding: 6px 10px;
+      border-radius: 6px;
     }
-    .card-3 {
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      border: none;
+    main.container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px 30px;
+      background: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 12px;
     }
-    .btn-2 {
-      margin: 4px;
-      padding: 8px 16px;
-      background-color: #007bff;
-      color: white;
+    .converter label, .converter input, .converter select {
+      display: block;
+      margin: 12px 0 4px;
+      width: 100%;
+    }
+    .converter input, .converter select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #1976D2;
+      background: white;
+      color: black;
+    }
+    .converter button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background: #1976D2;
       border: none;
       border-radius: 8px;
-      text-align: center;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .converter button:hover {
+      background: #0D47A1;
+    }
+    .section h3 {
+      margin-top: 30px;
+      color: #0D47A1;
+    }
+    .btn-2 {
       display: inline-block;
+      margin: 6px;
+      padding: 10px 14px;
+      background: white;
+      border: 1px solid #1976D2;
+      border-radius: 6px;
+      color: black;
       text-decoration: none;
+      transition: 0.3s;
     }
     .btn-2:hover {
-      background-color: #0056b3;
+      background-color: #1976D2;
+      color: white;
+    }
+    footer {
+      font-size: 0.9em;
+      text-align: center;
+      border-top: 1px solid #E0E0E0;
+      margin-top: 50px;
+    }
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
-  <h1>EasyTables - Weight Converter</h1>
-  <nav>
-    <a href="/" class="text-light mx-2">Home</a>
-    <a href="/tools" class="text-light mx-2">Tools</a>
-  </nav>
+  <div class="container">
+    <h1>EasyTables - Online Calculators & Tools</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Web</a></li>
+        <li><a href="#">Math</a></li>
+        <li><a href="#">Electricity</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">Converters</a></li>
+        <li><a href="#">Tools</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<!-- Weight Converter Section -->
-<section class="black-bg">
-  <div class="container">
-    <h2 class="text-center mb-4">Weight Converter</h2>
-    <div class="card card-3 p-4">
-      <form>
-        <div class="mb-3">
-          <label for="weightValue" class="form-label">Enter weight</label>
-          <input type="number" class="form-control" id="weightValue" placeholder="Enter weight">
-        </div>
-        <div class="mb-3">
-          <label for="weightFrom" class="form-label">From</label>
-          <select class="form-select" id="weightFrom">
-            <option>Microgram (μg)</option>
-            <option>Milligram (mg)</option>
-            <option>Gram (g)</option>
-            <option>Kilogram (kg)</option>
-            <option>Metric Ton (t)</option>
-            <option>Ounce (oz)</option>
-            <option>Pound (lb)</option>
-            <option>Stone (st)</option>
-            <option>Ton (LT/st)</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="weightTo" class="form-label">To</label>
-          <select class="form-select" id="weightTo">
-            <option>Microgram (μg)</option>
-            <option>Milligram (mg)</option>
-            <option>Gram (g)</option>
-            <option>Kilogram (kg)</option>
-            <option>Metric Ton (t)</option>
-            <option>Ounce (oz)</option>
-            <option>Pound (lb)</option>
-            <option>Stone (st)</option>
-            <option>Ton (LT/st)</option>
-          </select>
-        </div>
-        <button type="button" class="btn btn-primary">Convert</button>
-      </form>
-    </div>
-  </div>
-</section>
+<main class="container">
+  <p><strong>Home > Converters > Voltage Converter</strong></p>
+  <h2>Voltage Converter</h2>
+  <p>Voltage unit conversion tool for engineers, students, and technicians.</p>
 
-<!-- Conversion Links -->
-<section class="py-5">
-  <div class="container">
-    <h3 class="mb-3">Weight & Mass Conversions</h3>
-    <div>
-      <button class="btn-2">Grams to Kilograms</button>
-      <button class="btn-2">Grams to Milligrams</button>
-      <button class="btn-2">Grams to Ounces</button>
-      <button class="btn-2">Grams to Pounds</button>
-      <button class="btn-2">Kilograms to Grams</button>
-      <button class="btn-2">Kilograms to Milligrams</button>
-      <button class="btn-2">Kilograms to Ounces</button>
-      <button class="btn-2">Kilograms to Pounds</button>
-      <button class="btn-2">Kilograms to Tons</button>
-      <button class="btn-2">Milligrams to Grams</button>
-      <button class="btn-2">Milligrams to Kilograms</button>
-      <button class="btn-2">Milligrams to Micrograms</button>
-      <button class="btn-2">Micrograms to Milligrams</button>
-      <button class="btn-2">Ounces to Grams</button>
-      <button class="btn-2">Ounces to Kilograms</button>
-      <button class="btn-2">Ounces to Pounds</button>
-      <button class="btn-2">Pounds to Grams</button>
-      <button class="btn-2">Pounds to Kilograms</button>
-      <button class="btn-2">Pounds to Ounces</button>
-      <button class="btn-2">Pounds to Stones</button>
-      <button class="btn-2">Pounds to Tons</button>
-      <button class="btn-2">Pounds+Ounces to Kilograms</button>
-      <button class="btn-2">Stones to Pounds</button>
-      <button class="btn-2">Tons to Kilograms</button>
-      <button class="btn-2">Tons to Pounds</button>
-      <button class="btn-2">Convert kg to lb</button>
-      <button class="btn-2">Convert lb to kg</button>
-      <button class="btn-2">Convert g to oz</button>
-      <button class="btn-2">Convert oz to g</button>
-      <button class="btn-2">Grams in a Kilogram</button>
-      <button class="btn-2">Grams in an Ounce</button>
-      <button class="btn-2">Grams in a Pound</button>
-      <button class="btn-2">Kilograms in a Gram</button>
-      <button class="btn-2">Kilograms in a Pound</button>
-      <button class="btn-2">Milligrams in a Gram</button>
-      <button class="btn-2">Ounces in a Gram</button>
-      <button class="btn-2">Ounces in a Pound</button>
-      <button class="btn-2">Pounds in a Gram</button>
-      <button class="btn-2">Pounds in a Kilogram</button>
-      <button class="btn-2">Pounds in an Ounce</button>
-    </div>
-  </div>
-</section>
+  <div class="converter">
+    <label for="voltageValue">Enter voltage</label>
+    <input type="number" id="voltageValue" placeholder="Enter voltage">
 
-<!-- Footer -->
+    <label for="voltageFrom">From</label>
+    <select id="voltageFrom">
+      <option value="uV">Microvolts (µV)</option>
+      <option value="mV">Millivolts (mV)</option>
+      <option value="V">Volts (V)</option>
+      <option value="kV">Kilovolts (kV)</option>
+      <option value="MV">Megavolts (MV)</option>
+      <option value="GV">Gigavolts (GV)</option>
+    </select>
+
+    <label for="voltageTo">To</label>
+    <select id="voltageTo">
+      <option value="uV">Microvolts (µV)</option>
+      <option value="mV">Millivolts (mV)</option>
+      <option value="V">Volts (V)</option>
+      <option value="kV">Kilovolts (kV)</option>
+      <option value="MV">Megavolts (MV)</option>
+      <option value="GV">Gigavolts (GV)</option>
+    </select>
+
+    <button type="button">Convert</button>
+  </div>
+
+  <div class="section">
+    <h3>See Also</h3>
+    <a href="#" class="btn-2">Volts to Microvolts (µV)</a>
+    <a href="#" class="btn-2">Volts to Millivolts (mV)</a>
+    <a href="#" class="btn-2">Volts to Kilovolts (kV)</a>
+    <a href="#" class="btn-2">Volts to Megavolts (MV)</a>
+    <a href="#" class="btn-2">Volts to Gigavolts (GV)</a>
+    <a href="#" class="btn-2">Microvolts to Volts</a>
+    <a href="#" class="btn-2">Millivolts to Volts</a>
+    <a href="#" class="btn-2">Kilovolts to Volts</a>
+    <a href="#" class="btn-2">Megavolts to Volts</a>
+    <a href="#" class="btn-2">Gigavolts to Volts</a>
+  </div>
+</main>
+
 <footer>
-  <p>&copy; 2025 EasyTables. All rights reserved.</p>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> | <a href="#">Recommend Site</a> | <a href="#">Send Feedback</a> | <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com | <a href="#">About</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a>
+    </p>
+  </div>
 </footer>
 
 </body>

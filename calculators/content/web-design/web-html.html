@@ -4,34 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HTML Codes & Links - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
   <style>
-    main {
-      background-color: #111;
-      padding: 40px 20px;
-      min-height: 100vh;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #F5F5F5;
+      color: black;
     }
-
-    .title {
+    header, footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
       text-align: center;
-      color: #3498db;
+    }
+    header h1 {
+      margin: 0;
+    }
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header nav ul li a:hover {
+      text-decoration: underline;
+    }
+    main.container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px 30px;
+      background-color: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 12px;
+    }
+    h2.title {
+      text-align: center;
+      color: #0D47A1;
       margin-bottom: 30px;
     }
-
     .card-3 {
-      background-color: #f4f6f7;
-      border: 2px solid #aed6f1;
+      background-color: #FFFFFF;
+      border: 1px solid #E0E0E0;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      color: #111;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+      color: black;
       padding: 20px;
-      max-width: 800px;
+      max-width: 100%;
       margin: 0 auto 30px;
     }
-
     .btn-2 {
       display: inline-block;
-      background-color: #3498db;
+      background-color: #1976D2;
       color: white;
       padding: 12px 20px;
       border-radius: 8px;
@@ -42,76 +73,103 @@
       text-align: center;
       flex: 1 1 200px;
     }
-
     .btn-2:hover {
-      background-color: #2e86c1;
+      background-color: #125ea2;
     }
-
     .tool-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
     }
-
     @media (max-width: 480px) {
       .btn-2 {
         font-size: 0.95em;
         padding: 10px;
       }
     }
+    footer {
+      font-size: 0.9em;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header Include -->
-  <div id="header" data-include="../components/header.html"></div>
+<header>
+  <div class="container">
+    <h1>EasyTables - Online Calculators & Tools</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Web</a></li>
+        <li><a href="#">Math</a></li>
+        <li><a href="#">Electricity</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">Converters</a></li>
+        <li><a href="#">Tools</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <h2 class="title">HTML Codes & Links</h2>
+<main class="container">
+  <h2 class="title">HTML Codes & Links</h2>
 
-    <div class="card-3">
-      <div class="tool-list">
-        <a href="html-tags-code.html" class="btn-2">HTML Tags Code</a>
-        <a href="html-color-codes.html" class="btn-2">HTML Color Codes</a>
-        <a href="html-comments.html" class="btn-2">HTML Comments</a>
-        <a href="html-character-codes.html" class="btn-2">HTML Character Codes</a>
-        <a href="amp-html-code.html" class="btn-2">&amp; HTML Code</a>
-        <a href="checkmark-html-code.html" class="btn-2">Check Mark Code</a>
-        <a href="copyright-html-code.html" class="btn-2">Copyright Code</a>
-        <a href="euro-html-code.html" class="btn-2">Euro Code</a>
-        <a href="heart-html-code.html" class="btn-2">Heart Code</a>
-        <a href="quotation-mark-html-code.html" class="btn-2">Quotation Mark</a>
-        <a href="space-html-code.html" class="btn-2">Space Code</a>
-        <a href="trademark-html-code.html" class="btn-2">Trademark Code</a>
-        <a href="html-links.html" class="btn-2">HTML Links</a>
-        <a href="html-anchor-link.html" class="btn-2">HTML Anchor Link</a>
-        <a href="html-button-link.html" class="btn-2">HTML Button Link</a>
-        <a href="html-download-link.html" class="btn-2">HTML Download Link</a>
-        <a href="html-image-link.html" class="btn-2">HTML Image Link</a>
-        <a href="html-link-color.html" class="btn-2">HTML Link Color</a>
-        <a href="html-mailto-link.html" class="btn-2">HTML Mailto Link</a>
-        <a href="html-new-window-link.html" class="btn-2">New Window Link</a>
-        <a href="html-text-link.html" class="btn-2">HTML Text Link</a>
-      </div>
+  <div class="card-3">
+    <div class="tool-list">
+      <a href="html-tags-code.html" class="btn-2">HTML Tags Code</a>
+      <a href="html-color-codes.html" class="btn-2">HTML Color Codes</a>
+      <a href="html-comments.html" class="btn-2">HTML Comments</a>
+      <a href="html-character-codes.html" class="btn-2">HTML Character Codes</a>
+      <a href="amp-html-code.html" class="btn-2">&amp; HTML Code</a>
+      <a href="checkmark-html-code.html" class="btn-2">Check Mark Code</a>
+      <a href="copyright-html-code.html" class="btn-2">Copyright Code</a>
+      <a href="euro-html-code.html" class="btn-2">Euro Code</a>
+      <a href="heart-html-code.html" class="btn-2">Heart Code</a>
+      <a href="quotation-mark-html-code.html" class="btn-2">Quotation Mark</a>
+      <a href="space-html-code.html" class="btn-2">Space Code</a>
+      <a href="trademark-html-code.html" class="btn-2">Trademark Code</a>
+      <a href="html-links.html" class="btn-2">HTML Links</a>
+      <a href="html-anchor-link.html" class="btn-2">HTML Anchor Link</a>
+      <a href="html-button-link.html" class="btn-2">HTML Button Link</a>
+      <a href="html-download-link.html" class="btn-2">HTML Download Link</a>
+      <a href="html-image-link.html" class="btn-2">HTML Image Link</a>
+      <a href="html-link-color.html" class="btn-2">HTML Link Color</a>
+      <a href="html-mailto-link.html" class="btn-2">HTML Mailto Link</a>
+      <a href="html-new-window-link.html" class="btn-2">New Window Link</a>
+      <a href="html-text-link.html" class="btn-2">HTML Text Link</a>
     </div>
-  </main>
+  </div>
 
-  <!-- Footer Include -->
-  <div id="footer" data-include="../components/footer.html"></div>
+  <div class="section">
+    <h3>See also</h3>
+    <a href="web-html.html" class="btn-2">Web HTML</a>
+    <a href="web-colors.html" class="btn-2">Web Colors</a>
+    <a href="web-tools.html" class="btn-2">Web Tools</a>
+    <a href="website-traffic-down.html" class="btn-2">Website Traffic Down</a>
+  </div>
+</main>
 
-  <script>
-    function includeHTML() {
-      document.querySelectorAll('[data-include]').forEach(el => {
-        const file = el.getAttribute('data-include');
-        fetch(file)
-          .then(res => res.text())
-          .then(data => el.innerHTML = data)
-          .catch(err => console.error(`Error loading ${file}:`, err));
-      });
-    }
-    includeHTML();
-  </script>
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> | <a href="#">Recommend Site</a> | <a href="#">Send Feedback</a> | <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com | <a href="#">About</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
 
 </body>
 </html>

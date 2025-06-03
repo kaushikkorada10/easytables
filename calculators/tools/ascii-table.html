@@ -270,7 +270,177 @@
       <p>
         ASCII is limited to 128 characters (0–127). Unicode is a superset of ASCII and supports over a million characters including emojis, math symbols, and scripts from all languages.
       </p>
+      <div class="description">
+        <h3>What is an ASCII Table?</h3>
+        <p>The ASCII (American Standard Code for Information Interchange) table maps characters to numerical values that computers can interpret. It’s a fundamental part of modern computing, representing English characters as numbers ranging from 0 to 127.</p>
+      
+        <h3>ASCII Table Structure</h3>
+        <p>Each entry in the ASCII table consists of:</p>
+        <ul>
+          <li><strong>Decimal:</strong> The base-10 value of the character.</li>
+          <li><strong>Hex:</strong> The hexadecimal representation.</li>
+          <li><strong>Octal:</strong> The octal equivalent of the decimal value.</li>
+          <li><strong>Character:</strong> The symbol or function associated with the code.</li>
+        </ul>
+      
+        <h3>Control Characters (0–31)</h3>
+        <p>These non-printing characters perform control functions such as newline, tab, or carriage return. Examples include:</p>
+        <ul>
+          <li><code>0</code> – NULL</li>
+          <li><code>9</code> – TAB</li>
+          <li><code>10</code> – LF (Line Feed)</li>
+          <li><code>13</code> – CR (Carriage Return)</li>
+        </ul>
+      
+        <h3>Printable Characters (32–126)</h3>
+        <p>This range includes:</p>
+        <ul>
+          <li><strong>32–47:</strong> Punctuation and symbols</li>
+          <li><strong>48–57:</strong> Digits 0–9</li>
+          <li><strong>65–90:</strong> Uppercase letters A–Z</li>
+          <li><strong>97–122:</strong> Lowercase letters a–z</li>
+        </ul>
+      
+        <h3>Extended ASCII (128–255)</h3>
+        <p>While not part of the original standard, many systems extend ASCII to 8-bit encoding to support special symbols, accents, and foreign characters.</p>
+      
+        <h3>Why ASCII Matters</h3>
+        <ul>
+          <li><strong>Universal:</strong> ASCII is supported by all programming languages and systems.</li>
+          <li><strong>Compact:</strong> Each character uses just 1 byte of memory.</li>
+          <li><strong>Standardized:</strong> Ensures consistent text representation across devices.</li>
+        </ul>
+      
+        <h3>Common ASCII Codes</h3>
+        <table border="1" cellpadding="8">
+          <thead>
+            <tr><th>Char</th><th>Dec</th><th>Hex</th><th>Binary</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>65</td><td>41</td><td>01000001</td></tr>
+            <tr><td>a</td><td>97</td><td>61</td><td>01100001</td></tr>
+            <tr><td>0</td><td>48</td><td>30</td><td>00110000</td></tr>
+            <tr><td>Space</td><td>32</td><td>20</td><td>00100000</td></tr>
+            <tr><td>!</td><td>33</td><td>21</td><td>00100001</td></tr>
+          </tbody>
+        </table>
+      
+        <h3>Using ASCII in Programming</h3>
+        <p>ASCII is critical in string handling, file encoding, and data transmission. Examples:</p>
+        <pre>
+        // JavaScript example
+        const letter = 'A';
+        const ascii = letter.charCodeAt(0); // returns 65
+      
+        // Convert from code to character
+        String.fromCharCode(65); // returns 'A'
+        </pre>
+      
+        <h3>Tools that Use ASCII</h3>
+        <ul>
+          <li>Text editors</li>
+          <li>Terminal/console applications</li>
+          <li>Network protocols (SMTP, FTP)</li>
+          <li>Programming environments</li>
+        </ul>
+      
+        <h3>ASCII vs Unicode</h3>
+        <ul>
+          <li><strong>ASCII:</strong> 128 characters (7-bit). Great for basic English text.</li>
+          <li><strong>Unicode:</strong> Over 140,000 characters. Supports global languages and emoji.</li>
+        </ul>
+        <p>Modern systems use Unicode, but ASCII remains the foundation and is compatible with UTF-8.</p>
+      
+        <h3>Visualizing ASCII</h3>
+        <p>ASCII tables can be represented using:</p>
+        <ul>
+          <li>Grid charts with categories</li>
+          <li>Highlighting printable vs control characters</li>
+          <li>Binary trees for encoding logic</li>
+        </ul>
+      
+        <h3>Conclusion</h3>
+        <p>The ASCII table is an essential guide to understanding how characters are represented in computers. Whether you're debugging text files, writing code, or learning about data transmission, this standardized character set plays a vital role. Explore it, use it, and integrate it into your digital toolbox.</p>
+      </div>
+      <div class="description">
+        ... [PREVIOUS CONTENT REMAINS UNCHANGED] ...
+      
+        <h3>Fun with ASCII Art</h3>
+        <p>One of the most creative uses of ASCII is generating images or designs using text characters. This form of art—<strong>ASCII Art</strong>—was popular in early computing and is still appreciated in retro designs and command-line interfaces.</p>
+        <pre>
+         __  __        _  
+        |  \/  |  __ _| |_ ___ 
+        | |\/| | / _` | __/ _ \
+        | |  | || (_| | ||  __/
+        |_|  |_| \__,_|\__\___|
+        </pre>
+        <p>Above is a simple banner created with text characters. Many developers use such art in code comments, terminal splash screens, or startup banners.</p>
+      
+        <h3>How to Memorize ASCII Codes</h3>
+        <ul>
+          <li>Group characters by category (e.g., uppercase A–Z is 65–90).</li>
+          <li>Use flashcards or mobile apps that quiz you on values.</li>
+          <li>Associate values with keyboard layout positions.</li>
+          <li>Use ASCII conversion tools regularly to build muscle memory.</li>
+        </ul>
+      
+        <h3>Security Implications</h3>
+        <p>Understanding ASCII can help in security and penetration testing. For example:</p>
+        <ul>
+          <li><strong>Injection Attacks:</strong> ASCII encodings (like %20 for space) can bypass filters if not properly handled.</li>
+          <li><strong>Payload Encoding:</strong> Exploit payloads often use ASCII shellcode or hex-encoded characters.</li>
+          <li><strong>Sanitization:</strong> Applications must validate ASCII characters to prevent malicious inputs.</li>
+        </ul>
+      
+        <h3>ASCII in Data Transmission</h3>
+        <p>ASCII is foundational in protocols like:</p>
+        <ul>
+          <li><strong>HTTP Headers:</strong> Text sent in request and response headers follows ASCII encoding.</li>
+          <li><strong>Email:</strong> SMTP protocol relies on ASCII for headers and commands.</li>
+          <li><strong>File Formats:</strong> Many configuration files are plain ASCII (e.g., .txt, .ini, .csv).</li>
+        </ul>
+      
+        <h3>Keyboard and ASCII Relationship</h3>
+        <p>Each keystroke you make on a physical keyboard maps to an ASCII code. For example:</p>
+        <ul>
+          <li>Pressing <code>A</code> yields ASCII 65.</li>
+          <li>Pressing <code>Enter</code> triggers ASCII 13 (Carriage Return).</li>
+          <li>Spacebar is ASCII 32.</li>
+        </ul>
+      
+        <h3>Encoding and ASCII</h3>
+        <p>When storing or transmitting text files, it’s important to choose the right encoding:</p>
+        <ul>
+          <li><strong>ASCII Encoding:</strong> Smallest and fastest for basic English text.</li>
+          <li><strong>UTF-8:</strong> Backward compatible with ASCII, supports all Unicode characters.</li>
+          <li><strong>ISO-8859-1:</strong> Supports Western European languages; ASCII-compatible subset.</li>
+        </ul>
+        <p>Modern systems typically use UTF-8 as default, but ASCII still forms its first 128 values.</p>
+      
+        <h3>Hidden Messages with ASCII</h3>
+        <p>ASCII codes are often used in puzzles, hidden data, or even malware where binary or hex is converted back to readable strings. Examples include:</p>
+        <ul>
+          <li><code>72 101 108 108 111</code> → <strong>Hello</strong></li>
+          <li><code>77 65 71 73 67</code> → <strong>MAGIC</strong></li>
+        </ul>
+      
+        <h3>Trivia and Fun Facts</h3>
+        <ul>
+          <li>The first 32 characters in ASCII are non-printable control codes.</li>
+          <li>ASCII code 127 is <code>DEL</code> (delete), originally used to erase punched tape.</li>
+          <li>ASCII was developed in the 1960s and remains unchanged for its core values.</li>
+          <li>The smiley face 🙂 was originally created using ASCII characters <code>:) </code></li>
+        </ul>
+      
+        <h3>ASCII vs EBCDIC</h3>
+        <p><strong>EBCDIC</strong> (Extended Binary Coded Decimal Interchange Code) is another encoding system used primarily by IBM mainframes. ASCII, however, became the global standard due to its simplicity and widespread adoption in Unix and internet systems.</p>
+      
+        <h3>Conclusion: The Legacy of ASCII</h3>
+        <p>Despite the rise of more complex character encoding systems, ASCII remains a core foundation of digital communication. From simple text files to complex APIs, its compactness and predictability make it indispensable for developers, engineers, and IT professionals. Whether you’re coding, debugging, or learning computer science, understanding ASCII is a vital first step into the world of binary logic and textual representation.</p>
+      </div>
+      
     </section>
+    
   </main>
 
   <!-- Footer -->

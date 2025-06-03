@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   <style>
     body {
-      background-color: #000;
-      color: #fff;
+      background-color: #F5F5F5;
+      color: black;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -20,11 +20,11 @@
       margin: 0 auto;
     }
     header {
-      background-color: #111;
+      background-color: #0D47A1;
       padding: 15px 0;
     }
     header h1 {
-      color: #00bfff;
+      color: white;
       margin: 0 0 10px 0;
       font-size: 28px;
       text-align: center;
@@ -40,25 +40,24 @@
       flex-wrap: wrap;
     }
     nav ul li a {
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-weight: 600;
       padding: 6px 12px;
-      transition: color 0.3s;
       font-size: 16px;
     }
     nav ul li a:hover {
-      color: #00bfff;
+      text-decoration: underline;
     }
     .card-3 {
-      background-color: #1c1c1c;
+      background-color: #FFFFFF;
       border-radius: 10px;
       padding: 25px 30px;
-      box-shadow: 0 0 10px #444;
+      border: 1px solid #E0E0E0;
       margin-bottom: 30px;
     }
     .card-3 h2 {
-      color: #00bfff;
+      color: #0D47A1;
       font-size: 26px;
       margin-bottom: 15px;
       font-weight: 700;
@@ -67,7 +66,6 @@
       font-size: 16px;
       margin-bottom: 20px;
       line-height: 1.5;
-      color: #ccc;
     }
     .card-3 ul {
       list-style-type: none;
@@ -78,26 +76,25 @@
       padding: 8px 0;
     }
     .card-3 ul li a {
-      color: #fff;
+      color: #1976D2;
       text-decoration: none;
       font-weight: 500;
       display: inline-block;
-      background-color: #343a40;
+      background-color: #E0E0E0;
       padding: 8px 14px;
       border-radius: 6px;
       transition: background-color 0.3s;
       font-size: 15px;
     }
     .card-3 ul li a:hover {
-      background-color: #007bff;
-      color: #fff;
+      background-color: #D0D0D0;
     }
     .see-also {
-      border-top: 1px solid #333;
+      border-top: 1px solid #E0E0E0;
       padding-top: 20px;
     }
     .see-also h3 {
-      color: #00bfff;
+      color: #0D47A1;
       font-weight: 700;
       margin-bottom: 15px;
     }
@@ -113,34 +110,33 @@
       padding: 6px 0;
     }
     .see-also ul li a {
-      color: #ddd;
+      color: #1976D2;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
       font-size: 15px;
     }
     .see-also ul li a:hover {
-      color: #00bfff;
       text-decoration: underline;
     }
+    .breadcrumb {
+      background-color: transparent;
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
     footer {
-      background-color: #111;
-      color: #888;
+      background-color: #0D47A1;
+      color: white;
       padding: 20px 0;
       text-align: center;
       font-size: 14px;
-      border-top: 1px solid #222;
-      margin-top: 40px;
     }
     footer a {
-      color: #00bfff;
+      color: white;
       text-decoration: none;
       margin: 0 10px;
-      font-weight: 600;
-      transition: color 0.3s;
     }
     footer a:hover {
-      color: #007bff;
       text-decoration: underline;
     }
   </style>
@@ -165,6 +161,14 @@
 </header>
 
 <div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Electricity</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Wire Gauge Calculators</li>
+    </ol>
+  </nav>
+
   <div class="card-3">
     <h2>Wire Gauge Calculators</h2>
     <p>Calculate wire sizes, voltage drops, and conversions between wire gauge standards.</p>
@@ -178,7 +182,7 @@
   </div>
 
   <div class="card-3 see-also">
-    <h3>See also</h3>
+    <h3>See Also</h3>
     <ul>
       <li><a href="#">Inches to mm</a></li>
       <li><a href="#">mm to inches</a></li>
