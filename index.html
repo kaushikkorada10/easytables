@@ -7,37 +7,42 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
+    .nav-bg {
+      background-color: #0D47A1;
+    }
 
-.nav-bg{
-    background-color:  #0D47A1;
-}
-.nav-h1-color{
-    color: white;
-    font-family: "roboto";
-    font-size: 2rem;
-}
-#navItem2 {
-  color: white;
-  font-family: "Roboto";
-}
-#navItem2:hover {
+    .nav-h1-color {
+      color: white;
+      font-family: "Roboto";
+      font-size: 2rem;
+    }
+
+    #navItem2 {
+      color: white;
+      font-family: "Roboto";
+    }
+
+    #navItem2:hover {
       text-decoration: underline;
     }
+
     body {
       background-color: #F5F5F5;
       color: gray;
     }
-    
+
     .card-3 {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
       padding: 20px;
       border-radius: 8px;
     }
+
     .card-3 h2 {
       color: #1976D2;
       margin-bottom: 15px;
     }
+
     .btn-2 {
       display: block;
       background-color: transparent;
@@ -48,80 +53,92 @@
       border: 1px solid transparent;
       transition: background-color 0.3s, border-color 0.3s;
     }
+
     .btn-2 a {
       color: #1976D2;
       text-decoration: none;
       display: block;
       font-weight: 500;
     }
+
     .btn-2:hover {
       background-color: #E0E0E0;
       border-color: #1976D2;
     }
+
     .dropdown-menu {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
     }
+
     .dropdown-item {
       color: black;
     }
+
     .dropdown-item:hover {
       background-color: #1976D2;
       color: white;
     }
+
     .card-1 {
       padding-left: 0;
     }
+
     .dropdown {
       list-style-type: none;
     }
+
     footer {
       background-color: #0D47A1;
-      padding: 20px;
+      color: white;
+      padding: 20px 0;
       text-align: center;
-      margin-top: 40px;
-      color: black;
+      font-size: 0.9rem;
     }
+
     footer a {
-      color: #1976D2;
-      margin: 0 10px;
+      color: #FFFFFF;
       text-decoration: none;
-      font-weight: 600;
+      margin: 0 5px;
     }
+
     footer a:hover {
       text-decoration: underline;
     }
+
     div[style*="background-color: black"] {
       background-color: gray;
       padding: 15px;
     }
+
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
         align-items: center;
       }
     }
-html {
-  scroll-behavior: smooth;
-}
 
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
+
 <body>
 
 <header>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+      <a class="navbar-brand" href="index.html">
         <h1 class="nav-h1-color">EASY TABLES</h1>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="#maths-s"> Maths<span class="sr-only">(current)</span></a>
+          <a class="nav-link active" id="navItem2" href="#maths-s">Maths</a>
           <a class="nav-link" href="#misc-s" id="navItem2">Misc</a>
           <a class="nav-link" href="#Online-tools-s" id="navItem2">Online tools</a>
           <a class="nav-link" href="#Calculators-s" id="navItem2">Calculators</a>
@@ -130,12 +147,11 @@ html {
       </div>
     </div>
   </nav>
-  <br>
 </header>
 
-<div >
-  <section id="maths-s" class="container">
-
+<main class="container">
+  <!-- Maths Section -->
+  <section id="maths-s" >
     <div class="card-3">
       <h2>Math Calculators</h2>
       <ul>
@@ -144,8 +160,11 @@ html {
         <li class="btn-2"><a href="calculators/math/fraction-calculator.html">Fraction calculator</a></li>
         <li class="btn-2"><a href="calculators/math/average-calculator.html">Average calculator</a></li>
       </ul>
-    </div><br>
-<section id="misc-s">
+    </div>
+  </section>
+
+  <!-- Misc Section -->
+  <section id="misc-s" >
     <div class="card-3">
       <h2>Miscellaneous calculators</h2>
       <ul>
@@ -156,9 +175,11 @@ html {
         <li class="btn-2"><a href="calculators/misc-calculators/compound-interest-calculator.html">Compound interest calculator</a></li>
         <li class="btn-2"><a href="calculators/misc-calculators/bmi-calculator.html">BMI calculator</a></li>
       </ul>
-    </div><br>
+    </div>
   </section>
-<section id="Online-tools-s">
+
+  <!-- Online Tools Section -->
+  <section id="Online-tools-s" >
     <div class="card-3">
       <h2>Online Tools</h2>
       <ul>
@@ -166,92 +187,111 @@ html {
         <li class="btn-2"><a href="calculators/tools/rgb-color-codes.html">RGB color codes</a></li>
         <li class="btn-2"><a href="calculators/tools/ascii-table.html">ASCII table</a></li>
       </ul>
-    </div><br>
-</section>
-<section id="Calculators-s">
-  
-      
-      <div class="card-3">
-        <h2>Content Categories</h2>
-        <li class="dropdown">
-          <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown1" data-toggle="dropdown">calculate Calculators</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="calculators/content/calculators-2/electrical-calculators.html">Electrical Calculators</a>
-            <a class="dropdown-item" href="calculators/content/calculators-2/financial-calculators.html">Financial calculators</a>
-            <a class="dropdown-item" href="calculators/content/calculators-2/grade-calculators.html">Grade Calculators</a>
-            <a class="dropdown-item" href="calculators/content/calculators-2/lighting-calculators.html">Lighting calculators</a>
-            <a class="dropdown-item" href="calculators/content/calculators-2/math-calculator.html">Math Calculators</a>
-            <a class="dropdown-item" href="calculators/content/calculators-2/wire-Gauge-calculators.html">Wire Gauge calculators</a>
-            <a class="dropdown-item" href="calculators/content/calculators-2/Time-date-calculators.html">Time & Date Calculators</a>
-          </div>
-        </li><br>
-
-      
-        <li class="dropdown">
-          <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown">Conversion</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="calculators/content/conversions/energy-convertion.html">Energy Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/length-convertion.html">Length Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/number-convertion.html">Number Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/power-convertion.html">Power Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/temprature-convertion.html">Temperature Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/weight-convertion.html">Weight Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/voltage-convertion.html">Voltage Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/frequency-convertion.html">Frequency Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/color-convertion.html">Color Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/image-convertion.html">Image Converter</a>
-            <a class="dropdown-item" href="calculators/content/conversions/electrical-convertion.html">Electrical Converter</a>
-          </div>
-        </li><br>
-
-        <li class="dropdown">
-          <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown3" data-toggle="dropdown">web Web Design</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="calculators/content/web-design/web-color.html">Web color</a>
-            <a class="dropdown-item" href="calculators/content/web-design/web-html.html">Web HTML</a>
-            <a class="dropdown-item" href="calculators/content/web-design/web-tools.html">Web Tools</a>
-            <a class="dropdown-item" href="calculators/content/web-design/web-development.html">Web development</a>
-          </div>
-        </li><br>
-
-        <li class="dropdown">
-          <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown4" data-toggle="dropdown">Electricity & Electronics</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="calculators/content/electrical-electronic.html">Electricity & Electronics</a>
-           
-          </div>
-        </li><br>
-
-        <li class="dropdown">
-          <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown5" data-toggle="dropdown">functions Mathematics</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="calculators/content/mathematical.html">Mathematics</a>
-            
-          </div>
-        </li><br>
-      
-    </div><br>
+    </div>
   </section>
-      <section id="contents-s">
-        <div class="card-3">
-          <h2>CONTENTS</h2>
-          <ul>
-            <li class="btn-2"><a href="calculators/content/online-tools.html">Online Tools</a></li>
-            <li class="btn-2"><a href="calculators/content/text-tools.html">Text Tools</a></li>
-            <li class="btn-2"><a href="calculators/content/pdf-tools.html">PDF Tools</a></li>
-            <li class="btn-2"><a href="calculators/content/code.html">Code</a></li>
-            <li class="btn-2"><a href="calculators/content/ecology.html">Ecology</a></li>
-          </ul>
+
+  <!-- Calculators Section -->
+  <section id="Calculators-s" >
+    <div class="card-3">
+      <h2>Content Categories</h2>
+
+      <!-- Dropdown 1 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown1" data-toggle="dropdown">Calculate Calculators</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="calculators/content/calculators-2/electrical-calculators.html">Electrical Calculators</a>
+          <a class="dropdown-item" href="calculators/content/calculators-2/financial-calculators.html">Financial calculators</a>
+          <a class="dropdown-item" href="calculators/content/calculators-2/grade-calculators.html">Grade Calculators</a>
+          <a class="dropdown-item" href="calculators/content/calculators-2/lighting-calculators.html">Lighting calculators</a>
+          <a class="dropdown-item" href="calculators/content/calculators-2/math-calculator.html">Math Calculators</a>
+          <a class="dropdown-item" href="calculators/content/calculators-2/wire-Gauge-calculators.html">Wire Gauge calculators</a>
+          <a class="dropdown-item" href="calculators/content/calculators-2/Time-date-calculators.html">Time & Date Calculators</a>
         </div>
-      </section>
+      </li><br>
+
+      <!-- Dropdown 2 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown">Conversion</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="calculators/content/conversions/energy-convertion.html">Energy Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/length-convertion.html">Length Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/number-convertion.html">Number Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/power-convertion.html">Power Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/temprature-convertion.html">Temperature Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/weight-convertion.html">Weight Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/voltage-convertion.html">Voltage Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/frequency-convertion.html">Frequency Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/color-convertion.html">Color Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/image-convertion.html">Image Converter</a>
+          <a class="dropdown-item" href="calculators/content/conversions/electrical-convertion.html">Electrical Converter</a>
+        </div>
+      </li><br>
+
+      <!-- Dropdown 3 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown3" data-toggle="dropdown">Web Design</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="calculators/content/web-design/web-color.html">Web color</a>
+          <a class="dropdown-item" href="calculators/content/web-design/web-html.html">Web HTML</a>
+          <a class="dropdown-item" href="calculators/content/web-design/web-tools.html">Web Tools</a>
+          <a class="dropdown-item" href="calculators/content/web-design/web-development.html">Web development</a>
+        </div>
+      </li><br>
+
+      <!-- Dropdown 4 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown4" data-toggle="dropdown">Electricity & Electronics</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="calculators/content/electrical-electronic.html">Electricity & Electronics</a>
+        </div>
+      </li><br>
+
+      <!-- Dropdown 5 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown5" data-toggle="dropdown">Mathematics</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="calculators/content/mathematical.html">Mathematics</a>
+        </div>
+      </li><br>
+    </div>
   </section>
-</div>
 
+  <!-- Contents Section -->
+  <section id="contents-s" >
+    <div class="card-3">
+      <h2>CONTENTS</h2>
+      <ul>
+        <li class="btn-2"><a href="calculators/content/online-tools.html">Online Tools</a></li>
+        <li class="btn-2"><a href="calculators/content/text-tools.html">Text Tools</a></li>
+        <li class="btn-2"><a href="calculators/content/pdf-tools.html">PDF Tools</a></li>
+        <li class="btn-2"><a href="calculators/content/code.html">Code</a></li>
+        <li class="btn-2"><a href="calculators/content/ecology.html">Ecology</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
 <footer>
-  &copy; 2025 EasyTables | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Contact</a>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">About</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
 </footer>
-
+<!-- JS Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

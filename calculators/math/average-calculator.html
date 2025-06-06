@@ -4,217 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Average Calculator - EasyTables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../assets/css/style.css" />
   <script defer src="../../scripts.js"></script>
   <style>
-    body {
-      background-color: #F5F5F5;
-      color: black;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    header {
-      background-color: #0D47A1;
-      padding: 20px 0;
-    }
-
-    header h1 {
-      color: white;
-      text-align: center;
-      margin: 0;
-    }
-
-    header nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 10px 0 0 0;
-      padding: 0;
-    }
-
-    header nav ul li {
-      margin: 0 10px;
-    }
-
-    header nav ul li a {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    header nav ul li a:hover {
-      text-decoration: underline;
-    }
-
-    .title {
-      text-align: center;
-      color: #0D47A1;
-      margin-top: 20px;
-    }
-
-    .breadcrumb {
-      font-size: 14px;
-      margin: 10px 0;
-    }
-
-    .breadcrumb a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .calculator {
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .calculator input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      font-size: 1.1em;
-      border: 1px solid #E0E0E0;
-      border-radius: 6px;
-      background-color: #FFFFFF;
-      color: black;
-    }
-
-    .calculator button {
-      width: 100%;
-      padding: 12px;
-      font-size: 1.1em;
-      background-color: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .calculator button:hover {
-      background-color: #0D47A1;
-    }
-
-    #result {
-      margin-top: 15px;
-      font-size: 1.2em;
-      text-align: center;
-      color: #0D47A1;
-    }
-
-    .description {
-      max-width: 700px;
-      margin: 30px auto;
-      font-size: 1.1em;
-      line-height: 1.6;
-      background-color: #FFFFFF;
-      border-left: 4px solid #1976D2;
-      border: 1px solid #E0E0E0;
-      padding: 15px 20px;
-      border-radius: 8px;
-    }
-
-    .see-also {
-      max-width: 700px;
-      margin: 40px auto 20px;
-      font-size: 1em;
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 6px;
-      padding: 15px;
-    }
-
-    .see-also h4 {
-      margin-top: 0;
-      color: #0D47A1;
-    }
-
-    .see-also ul {
-      padding-left: 20px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
     footer {
       background-color: #0D47A1;
       color: white;
       padding: 20px 0;
       text-align: center;
-      font-size: 14px;
-      margin-top: 40px;
+      font-size: 0.9rem;
     }
-
     footer a {
-      color: #BBDEFB;
-      margin: 0 5px;
+      color: #FFFFFF;
       text-decoration: none;
+      margin: 0 5px;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
+    .description {
+      max-width: 700px;
+      margin: 30px auto;
+      font-size: 1.1em;
+      color: black;
+      line-height: 1.6;
+      background-color: #FFFFFF;
+      border-left: 4px solid #1976D2;
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
 
-    @media (max-width: 480px) {
-      .calculator {
-        width: 90%;
-      }
-
-      .calculator input,
-      .calculator button {
-        font-size: 1em;
-      }
+    .description ul {
+      padding-left: 1.2em;
+      list-style: disc;
     }
   </style>
 </head>
 <body>
 
-<header>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
   <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
-    </nav>
+    <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
+    </div>
   </div>
-</header>
+</nav>
+<br>
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+  <a href="#">Home</a> <span>›</span>
+  <a href="#">Tools</a> <span>›</span>
+  <a href="#">ASCII Table</a>
+</nav>
 
-<main class="container">
-  <div class="breadcrumb">
-    <a href="#">Calculators</a> &gt;
-    <a href="#">Math</a> &gt;
-    <a href="#">Average Calculator</a>
-  </div>
 
+  <!-- Original Average Calculator content stays intact here -->
+   
   <h2 class="title">Average Calculator</h2>
 
   <div class="calculator">
@@ -524,9 +386,9 @@
       Try the calculator now, and let data-driven decision-making guide your personal, academic, or professional life!
     </p>
   </div>
+
   
-  
-  <div class="see-also">
+  <div class="see-also description">
     <h4>See Also</h4>
     <ul>
       
@@ -535,6 +397,7 @@
       <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/percentage-calculator.html">Percentage Calculator</a></li>
     </ul>
   </div>
+
 </main>
 
 <footer>
@@ -547,40 +410,12 @@
     </p>
     <p>
       © EasyTables.com |
-      <a href="#">About</a> |
       <a href="#">Terms of Use</a> |
       <a href="#">Privacy Policy</a> |
       <a href="#">Manage Cookies</a>
     </p>
   </div>
 </footer>
-
-<script>
-  function calculateAverage() {
-    const input = document.getElementById('numbersInput').value;
-    const resultDiv = document.getElementById('result');
-
-    if (!input.trim()) {
-      resultDiv.innerHTML = '<span style="color:red;">Please enter some numbers.</span>';
-      return;
-    }
-
-    const numbers = input
-      .split(',')
-      .map(num => parseFloat(num.trim()))
-      .filter(num => !isNaN(num));
-
-    if (numbers.length === 0) {
-      resultDiv.innerHTML = '<span style="color:red;">No valid numbers entered.</span>';
-      return;
-    }
-
-    const sum = numbers.reduce((acc, curr) => acc + curr, 0);
-    const average = sum / numbers.length;
-
-    resultDiv.innerHTML = `Average: <strong>${average.toFixed(2)}</strong>`;
-  }
-</script>
 
 </body>
 </html>

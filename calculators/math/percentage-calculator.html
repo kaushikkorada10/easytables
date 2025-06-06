@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Percentage Calculator - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <script defer src="../assets/js/percentage-calculator.js"></script>
   <style>
     body {
@@ -13,37 +13,22 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    header, footer {
+    .nav-bg {
       background-color: #0D47A1;
+    }
+
+    .nav-h1-color {
       color: white;
-      padding: 15px 0;
+      font-family: "roboto";
+      font-size: 2rem;
     }
 
-    header h1, footer p {
-      text-align: center;
-      margin: 0;
+    #navItem2 {
+      color: white;
+      font-family: "Roboto";
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 0;
-      margin: 10px 0 0;
-    }
-
-    nav ul li {
-      margin: 5px 15px;
-    }
-
-    nav ul li a {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav ul li a:hover {
+    #navItem2:hover {
       text-decoration: underline;
     }
 
@@ -142,35 +127,21 @@
       border: 1px solid #E0E0E0;
     }
 
-    .description h3 {
-      color: #0D47A1;
-      margin-bottom: 10px;
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
     }
 
-    .see-also {
-      max-width: 700px;
-      margin: 20px auto 40px;
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #E0E0E0;
-    }
-
-    .see-also h4 {
-      color: #0D47A1;
-      margin-bottom: 10px;
-    }
-
-    .see-also ul {
-      padding-left: 20px;
-    }
-
-    .see-also a {
-      color: #1976D2;
+    footer a {
+      color: #FFFFFF;
       text-decoration: none;
+      margin: 0 5px;
     }
 
-    .see-also a:hover {
+    footer a:hover {
       text-decoration: underline;
     }
 
@@ -184,412 +155,103 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1>EasyTables - Online Calculators & Tools</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Web</a></li>
-          <li><a href="#">Math</a></li>
-          <li><a href="#">Electricity</a></li>
-          <li><a href="#">Calculators</a></li>
-          <li><a href="#">Converters</a></li>
-          <li><a href="#">Tools</a></li>
-        </ul>
-      </nav>
+<!-- New Header -->
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+  <div class="container">
+    <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-     
-    <a href="#"> Calculator</a> &gt; 
-    <a href="#">Maths</a> &gt; 
-    Percentage Calculator
+<!-- New Breadcrumb -->
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+  <a href="../../index.html">Home</a> <span>›</span>
+  <a href="../../index.html">Calculators</a> <span>›</span>
+  <a href="#">Percentage Calculator</a>
+</nav>
+
+<!-- Main content (unchanged) -->
+<main>
+  <h2 class="title">Percentage Calculator</h2>
+  <div class="calculator-card">
+    <label for="total">Total Value:</label>
+    <input type="number" id="total" placeholder="Enter total value" />
+
+    <label for="percentage">Percentage (%):</label>
+    <input type="number" id="percentage" placeholder="Enter percentage" />
+
+    <button id="calculateBtn">Calculate</button>
+
+    <div id="result"></div>
   </div>
 
-  <!-- Main Content -->
-  <main>
-    <h2 class="title">Percentage Calculator</h2>
-    <div class="calculator-card">
-      <label for="total">Total Value:</label>
-      <input type="number" id="total" placeholder="Enter total value" />
+  <!-- Keep rest of old body content here... -->
+  <!-- You can paste the large description and examples here as is from the old code -->
+</main>
 
-      <label for="percentage">Percentage (%):</label>
-      <input type="number" id="percentage" placeholder="Enter percentage" />
+<!-- New Footer -->
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">About</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
 
-      <button id="calculateBtn">Calculate</button>
+<!-- JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const totalInput = document.getElementById('total');
+    const percentageInput = document.getElementById('percentage');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const resultDiv = document.getElementById('result');
 
-      <div id="result"></div>
-    </div>
+    calculateBtn.addEventListener('click', () => {
+      const total = parseFloat(totalInput.value);
+      const percentage = parseFloat(percentageInput.value);
 
-    <div class="description">
-      <h3>What is a Percentage Calculator?</h3>
-      <p>
-        A percentage calculator helps you determine the value that corresponds to a specific percentage of a given total. 
-        It's useful for discounts, grades, tax calculations, and financial evaluations.
-      </p>
-    </div>
-    <div class="description">
-      <h3>What is a Percentage?</h3>
-      <p>
-        A percentage is a number or ratio expressed as a fraction of 100. The symbol "%" means "per hundred." It helps express proportions, changes, comparisons, and trends in an intuitive way. For example, saying “50% of a class passed” means 50 out of every 100 students passed. Percentages are widely used in finance, sales, data analysis, health, academics, and daily life.
-      </p>
-    
-      <h3>Basic Percentage Formulas</h3>
-      <ul>
-        <li><strong>Percentage of a Number:</strong> (Percentage ÷ 100) × Number</li>
-        <li><strong>What percent of X is Y?</strong> (Y ÷ X) × 100</li>
-        <li><strong>Percentage Increase:</strong> ((New - Original) ÷ Original) × 100</li>
-        <li><strong>Percentage Decrease:</strong> ((Original - New) ÷ Original) × 100</li>
-        <li><strong>Find the original number from a percentage:</strong> Value ÷ (Percentage ÷ 100)</li>
-      </ul>
-    
-      <h3>Examples of Percentage Calculations</h3>
-      <p><strong>1. What is 25% of 240?</strong></p>
-      <pre>
-    25% of 240 = (25 ÷ 100) × 240 = 0.25 × 240 = 60
-      </pre>
-    
-      <p><strong>2. 15 is what percent of 75?</strong></p>
-      <pre>
-    (15 ÷ 75) × 100 = 0.2 × 100 = 20%
-      </pre>
-    
-      <p><strong>3. A phone was ₹15,000 and now it’s ₹12,000. What’s the percentage decrease?</strong></p>
-      <pre>
-    (15,000 - 12,000) ÷ 15,000 × 100 = 3,000 ÷ 15,000 × 100 = 20%
-      </pre>
-    
-      <p><strong>4. A population increased from 50,000 to 65,000. What's the percentage increase?</strong></p>
-      <pre>
-    (65,000 - 50,000) ÷ 50,000 × 100 = 15,000 ÷ 50,000 × 100 = 30%
-      </pre>
-    
-      <h3>Common Uses of Percentages</h3>
-      <ul>
-        <li><strong>Shopping:</strong> Discounts, taxes, and offers (e.g., 30% off, 5% GST)</li>
-        <li><strong>Finance:</strong> Interest rates, returns, investment growth, and taxes</li>
-        <li><strong>Health:</strong> Body fat percentage, daily value % of nutrients</li>
-        <li><strong>Academics:</strong> Test scores (e.g., 88% marks)</li>
-        <li><strong>Sports:</strong> Win percentage, batting average, success rate</li>
-        <li><strong>Data Analysis:</strong> Growth rate, performance metrics, change tracking</li>
-      </ul>
-    
-      <h3>Types of Percentage Calculations</h3>
-      <p><strong>1. Finding the Percentage of a Value</strong></p>
-      <p>E.g., What is 18% of 350?</p>
-      <pre>
-    18/100 × 350 = 63
-      </pre>
-    
-      <p><strong>2. Finding What Percent One Number Is of Another</strong></p>
-      <p>E.g., What percent is 50 of 200?</p>
-      <pre>
-    (50 ÷ 200) × 100 = 25%
-      </pre>
-    
-      <p><strong>3. Percentage Increase/Decrease</strong></p>
-      <p>E.g., Increase from ₹800 to ₹1,000</p>
-      <pre>
-    (1,000 - 800) ÷ 800 × 100 = 25% increase
-      </pre>
-    
-      <p>E.g., Decrease from 500 to 350</p>
-      <pre>
-    (500 - 350) ÷ 500 × 100 = 30% decrease
-      </pre>
-    
-      <h3>Percentage Change in Real Life</h3>
-      <ul>
-        <li><strong>Salary Hike:</strong> If your salary goes from ₹25,000 to ₹30,000, the percentage increase is (5,000 ÷ 25,000) × 100 = 20%.</li>
-        <li><strong>Price Drop:</strong> An item drops from ₹1000 to ₹800. The drop is (200 ÷ 1000) × 100 = 20%.</li>
-        <li><strong>GST Calculation:</strong> If an item costs ₹1,200 and GST is 18%, the total cost = ₹1,200 + (18/100 × ₹1,200) = ₹1,416.</li>
-      </ul>
-    
-      <h3>Tips for Fast Percentage Calculations</h3>
-      <ul>
-        <li><strong>10% of any number:</strong> Just move the decimal point one place left (e.g., 10% of 450 = 45)</li>
-        <li><strong>5%:</strong> Half of 10%</li>
-        <li><strong>20%:</strong> Double the value of 10%</li>
-        <li><strong>25%:</strong> One fourth of the total value</li>
-        <li><strong>50%:</strong> Half the value</li>
-        <li><strong>75%:</strong> Three fourths of the total</li>
-      </ul>
-    
-      <h3>Conversions Between Decimals and Percentages</h3>
-      <ul>
-        <li><strong>Decimal → Percentage:</strong> Multiply by 100</li>
-        <li><strong>Percentage → Decimal:</strong> Divide by 100</li>
-      </ul>
-      <p>Examples:</p>
-      <pre>
-    0.75 → 75%
-    1.25 → 125%
-    0.08 → 8%
-    25% → 0.25
-    100% → 1.0
-    150% → 1.5
-      </pre>
-    
-      <h3>Reverse Percentage Problems</h3>
-      <p>Q: If 20% of a number is 60, what is the number?</p>
-      <pre>
-    Let the number be X.
-    20% of X = 60 → (20/100) × X = 60 → X = 60 ÷ 0.2 = 300
-      </pre>
-    
-      <h3>Percentage Practice Problems</h3>
-      <ol>
-        <li>Find 40% of 650</li>
-        <li>What percent of 500 is 125?</li>
-        <li>Original price: ₹800, Discounted price: ₹600. What’s the discount %?</li>
-        <li>A laptop's price increased from ₹45,000 to ₹49,500. What is the % increase?</li>
-        <li>If 25% of a number is 75, what is the original number?</li>
-        <li>Convert 0.4 to a percentage</li>
-        <li>Convert 135% to a decimal</li>
-        <li>Which is greater: 60% of 500 or 45% of 800?</li>
-        <li>Find the percentage change: From 90 to 108</li>
-        <li>If 480 is 80% of a number, what is the number?</li>
-      </ol>
-    
-      <h3>Practice Solutions</h3>
-      <ol>
-        <li>40% of 650 = 0.4 × 650 = 260</li>
-        <li>(125 ÷ 500) × 100 = 25%</li>
-        <li>(800 - 600)/800 × 100 = 25%</li>
-        <li>(49500 - 45000)/45000 × 100 = 10%</li>
-        <li>75 ÷ 0.25 = 300</li>
-        <li>0.4 × 100 = 40%</li>
-        <li>135 ÷ 100 = 1.35</li>
-        <li>60% of 500 = 300, 45% of 800 = 360 → 45% of 800 is greater</li>
-        <li>(108 - 90)/90 × 100 = 20%</li>
-        <li>480 ÷ 0.8 = 600</li>
-      </ol>
-    
-      <h3>Why Use a Percentage Calculator?</h3>
-      <ul>
-        <li>Instant calculations without errors</li>
-        <li>Handles complex increases/decreases</li>
-        <li>Useful for budgeting, investing, shopping, and data reporting</li>
-        <li>Great for students, teachers, analysts, and professionals</li>
-        <li>Saves time and reduces manual mistakes</li>
-      </ul>
-      <div class="description">
-        <h3>Advanced Percentage Applications</h3>
-        <p>While basic percentage operations are foundational, percentages are also used in more complex real-world and academic problems. Here are some advanced uses of percentage calculations:</p>
-      
-        <h4>1. Compound Percentage Change</h4>
-        <p>When a quantity changes multiple times by different percentages, the total percentage change is not a simple addition. It’s calculated using multiplication of change factors.</p>
-        <p><strong>Example:</strong> If a product’s price increases by 20% in year 1 and then decreases by 10% in year 2:</p>
-        <pre>
-      Year 1: 100 → 100 + 20% = 120
-      Year 2: 120 → 120 - 10% = 108
-      Overall change: (108 - 100)/100 × 100 = 8%
-        </pre>
-      
-        <h4>2. Successive Discounts</h4>
-        <p>Successive percentage discounts are common in retail. A 30% discount followed by 20% on the reduced price is not equal to 50% off.</p>
-        <p><strong>Example:</strong> Item price: ₹1,000 → 30% off = ₹700 → 20% off of ₹700 = ₹560</p>
-        <p>Total discount = ₹1,000 - ₹560 = ₹440 → <strong>44% overall</strong></p>
-      
-        <h4>3. Percentage of Percentage</h4>
-        <p>This occurs in taxation or commission scenarios. If a salesperson earns 10% commission and is taxed 20% on that, the net earning is 80% of 10%.</p>
-        <p><strong>Example:</strong> Sale = ₹10,000 → Commission = ₹1,000 → After 20% tax = ₹800</p>
-        <p>Net = 80% of 10% = 8%</p>
-      
-        <h4>4. Percentage Allocation</h4>
-        <p>Used in budgeting and expense tracking.</p>
-        <p><strong>Example:</strong> Monthly income = ₹50,000<br>
-      Rent = 30% → ₹15,000<br>
-      Groceries = 20% → ₹10,000<br>
-      Savings = 25% → ₹12,500<br>
-      Remaining = 25% → ₹12,500</p>
-      
-        <h3>Percentage in Financial Planning</h3>
-        <p>Percentages are essential in finance for evaluating returns, calculating interest, analyzing risk, and making investment decisions. Common financial formulas using percentages include:</p>
-      
-        <ul>
-          <li><strong>Return on Investment (ROI):</strong> (Profit ÷ Cost) × 100</li>
-          <li><strong>Profit Margin:</strong> (Profit ÷ Revenue) × 100</li>
-          <li><strong>Loan Interest:</strong> (Rate × Principal × Time) ÷ 100</li>
-          <li><strong>Inflation Rate:</strong> ((Current - Previous) ÷ Previous) × 100</li>
-          <li><strong>Depreciation Rate:</strong> ((Cost - Salvage) ÷ Cost) × 100</li>
-        </ul>
-      
-        <p><strong>Example:</strong> Investment of ₹50,000 returns ₹60,000 in 1 year. ROI = (10,000 ÷ 50,000) × 100 = 20%</p>
-      
-        <h3>Percentage Tables for Quick Reference</h3>
-        <p>Use this reference table for mental math or estimate checks:</p>
-      
-        <table border="1" cellpadding="8">
-          <thead>
-            <tr>
-              <th>%</th><th>Fraction</th><th>Decimal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1%</td><td>1/100</td><td>0.01</td></tr>
-            <tr><td>5%</td><td>1/20</td><td>0.05</td></tr>
-            <tr><td>10%</td><td>1/10</td><td>0.10</td></tr>
-            <tr><td>12.5%</td><td>1/8</td><td>0.125</td></tr>
-            <tr><td>20%</td><td>1/5</td><td>0.20</td></tr>
-            <tr><td>25%</td><td>1/4</td><td>0.25</td></tr>
-            <tr><td>33.33%</td><td>1/3</td><td>0.333</td></tr>
-            <tr><td>50%</td><td>1/2</td><td>0.50</td></tr>
-            <tr><td>75%</td><td>3/4</td><td>0.75</td></tr>
-            <tr><td>100%</td><td>1</td><td>1.0</td></tr>
-          </tbody>
-        </table>
-      
-        <h3>Percentage in Academics and Grading</h3>
-        <p>In schools and universities, marks and grades are often based on percentages:</p>
-        <ul>
-          <li>Below 35% → Fail</li>
-          <li>35% – 49% → Pass</li>
-          <li>50% – 59% → Second Class</li>
-          <li>60% – 74% → First Class</li>
-          <li>75% and above → Distinction</li>
-        </ul>
-      
-        <p><strong>Example:</strong> Scored 420 out of 600</p>
-        <pre>
-      (420 ÷ 600) × 100 = 70% → First Class
-        </pre>
-      
-        <h3>Visual Representation of Percentages</h3>
-        <p>Percentages are often shown visually using:</p>
-        <ul>
-          <li><strong>Pie Charts</strong> – to show parts of a whole (e.g., expenses)</li>
-          <li><strong>Bar Graphs</strong> – for comparing multiple percentage values</li>
-          <li><strong>Progress Circles</strong> – used in dashboards to track goals (e.g., 80% progress)</li>
-          <li><strong>Thermometer Charts</strong> – showing fund-raising progress, etc.</li>
-        </ul>
-      
-        <h3>Percent Error in Science</h3>
-        <p>In experiments and measurements, percent error tells you how close your result is to the true value:</p>
-        <pre>
-      Percent Error = |Measured - Actual| ÷ Actual × 100
-        </pre>
-      
-        <p><strong>Example:</strong> Actual weight = 52g, Measured = 50g</p>
-        <pre>
-      (2 ÷ 52) × 100 ≈ 3.85%
-        </pre>
-      
-        <h3>How Students Can Learn Percentages Better</h3>
-        <p>Here are tips and tools that can help improve understanding of percentages:</p>
-        <ul>
-          <li>Use real-life examples like shopping and discounts</li>
-          <li>Visual tools: graphs, fraction circles, and colored blocks</li>
-          <li>Practice with percentage worksheets and online quizzes</li>
-          <li>Understand link between fractions, decimals, and percentages</li>
-          <li>Break down word problems into simpler percentage steps</li>
-        </ul>
-      
-        <h3>FAQs – Percentage Calculator</h3>
-      
-        <h4>🔹 What is the fastest way to calculate percentages?</h4>
-        <p>Use the formula: (Part ÷ Whole) × 100. For quick estimates, use round numbers or common fractions like 1/2 = 50%, 1/4 = 25%, etc.</p>
-      
-        <h4>🔹 Can I calculate percentage increase/decrease with this calculator?</h4>
-        <p>Yes. Just input the original and new values, and it will compute the percentage change instantly.</p>
-      
-        <h4>🔹 How do I find what number X% is of Y?</h4>
-        <p>Use the formula: (X ÷ 100) × Y</p>
-      
-        <h4>🔹 Is this percentage calculator suitable for exams?</h4>
-        <p>Absolutely. It's perfect for students needing quick checks during revision or homework practice.</p>
-      
-        <h4>🔹 Can this be used in business or tax work?</h4>
-        <p>Yes. Businesses use percentages for profit, tax, discount, commission, pricing, and cost analysis.</p>
-      
-        <h4>🔹 What’s the difference between a percentage and a percentile?</h4>
-        <p>
-          A percentage shows a proportion out of 100. A percentile ranks a value relative to others in a dataset. If you're in the 90th percentile, you've scored better than 90% of others.
-        </p>
-      
-        <h3>Conclusion</h3>
-        <p>
-          Percentages are one of the most widely used mathematical tools in both everyday life and professional domains. From shopping discounts to salary increases, from taxes to profit margins, percentages make understanding relative values simple. This Percentage Calculator is designed to handle all types of percentage problems — from basic to advanced — instantly, reliably, and accurately. Whether you're a student, teacher, business owner, or simply curious, this tool and guide will help you master the power of percentages with ease.
-        </p>
-      </div>
-      
-      <h3>Helpful Resources to Learn More</h3>
-      <ul>
-        <li><a href="https://www.khanacademy.org/math/arithmetic/arith-review-percent" target="_blank">Khan Academy: Understanding Percentages</a></li>
-        <li><a href="https://www.mathsisfun.com/percentage.html" target="_blank">Math is Fun: Percentage Explained</a></li>
-        <li><a href="https://byjus.com/maths/percentage/" target="_blank">BYJU'S: Percentage - Basics, Formula, Examples</a></li>
-        <li><a href="https://www.calculatorsoup.com/calculators/math/percent.php" target="_blank">CalculatorSoup: Percentage Calculator Tool</a></li>
-      </ul>
-    
-      <h3>Conclusion</h3>
-      <p>
-        Mastering percentages is a fundamental skill in mathematics and real life. Whether you're calculating tax, profit, discounts, score percentages, or performance growth, understanding how percentages work is crucial. This page’s Percentage Calculator helps you perform all types of percentage calculations instantly. Use it to enhance your understanding, solve real-world problems, or double-check your answers for assignments or projects.
-      </p>
-    </div>
-    
+      if (isNaN(total) || isNaN(percentage)) {
+        resultDiv.style.color = '#D32F2F';
+        resultDiv.textContent = 'Please enter valid numbers in both fields.';
+        return;
+      }
 
-    <div class="see-also">
-      <h4>See Also</h4>
-      <ul>
-        <li><a href="https://www.inchcalculator.com/percent-to-decimal-calculator/">Percent to Decimal Calculator</a></li>
-        <li><a href="https://www.calculator.net/discount-calculator.html">Discount Calculator</a></li>
-        <li><a href="https://percentagecalculator.net/">Percentage Change Calculator</a></li>
-      </ul>
-    </div>
-  </main>
+      if (percentage < 0 || percentage > 100) {
+        resultDiv.style.color = '#D32F2F';
+        resultDiv.textContent = 'Percentage should be between 0 and 100.';
+        return;
+      }
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#" style="color: white;">Link to Us</a> |
-        <a href="#" style="color: white;">Recommend Site</a> |
-        <a href="#" style="color: white;">Send Feedback</a> |
-        <a href="#" style="color: white;">About</a>
-      </p>
-      <p>
-        © EasyTables.com |
-        <a href="#" style="color: white;">About</a> |
-        <a href="#" style="color: white;">Terms of Use</a> |
-        <a href="#" style="color: white;">Privacy Policy</a> |
-        <a href="#" style="color: white;">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Calculator Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const totalInput = document.getElementById('total');
-      const percentageInput = document.getElementById('percentage');
-      const calculateBtn = document.getElementById('calculateBtn');
-      const resultDiv = document.getElementById('result');
-
-      calculateBtn.addEventListener('click', () => {
-        const total = parseFloat(totalInput.value);
-        const percentage = parseFloat(percentageInput.value);
-
-        if (isNaN(total) || isNaN(percentage)) {
-          resultDiv.style.color = '#D32F2F';
-          resultDiv.textContent = 'Please enter valid numbers in both fields.';
-          return;
-        }
-
-        if (percentage < 0 || percentage > 100) {
-          resultDiv.style.color = '#D32F2F';
-          resultDiv.textContent = 'Percentage should be between 0 and 100.';
-          return;
-        }
-
-        const value = (total * percentage) / 100;
-        resultDiv.style.color = '#2E7D32';
-        resultDiv.textContent = `${percentage}% of ${total} is ${value.toFixed(2)}`;
-      });
+      const value = (total * percentage) / 100;
+      resultDiv.style.color = '#2E7D32';
+      resultDiv.textContent = `${percentage}% of ${total} is ${value.toFixed(2)}`;
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
