@@ -7,36 +7,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
+
+.nav-bg{
+    background-color:  #0D47A1;
+}
+.nav-h1-color{
+    color: white;
+    font-family: "roboto";
+    font-size: 2rem;
+}
+#navItem2 {
+  color: white;
+  font-family: "Roboto";
+}
+#navItem2:hover {
+      text-decoration: underline;
+    }
     body {
       background-color: #F5F5F5;
       color: gray;
     }
-    header {
-      background-color: #0D47A1;
-      padding: 20px 0;
-    }
-    header h1 {
-      text-align: center;
-      color: black;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      flex-wrap: wrap;
-    }
-    nav ul li {
-      margin: 0 15px;
-    }
-    nav ul li a {
-      color: #010101;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
+    
     .card-3 {
       background-color: #FFFFFF;
       border: 1px solid #E0E0E0;
@@ -110,29 +101,40 @@
         align-items: center;
       }
     }
+html {
+  scroll-behavior: smooth;
+}
+
   </style>
 </head>
 <body>
 
 <header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <!--<ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>-->
-    </nav>
-  </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="#maths-s"> Maths<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#misc-s" id="navItem2">Misc</a>
+          <a class="nav-link" href="#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="#Calculators-s" id="navItem2">Calculators</a>
+          <a class="nav-link" href="#contents-s" id="navItem2">Contents</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
 </header>
 
-<div style="background-color: grey; padding: 15px;">
-  <section class="container">
+<div >
+  <section id="maths-s" class="container">
 
     <div class="card-3">
       <h2>Math Calculators</h2>
@@ -143,9 +145,9 @@
         <li class="btn-2"><a href="calculators/math/average-calculator.html">Average calculator</a></li>
       </ul>
     </div><br>
-
+<section id="misc-s">
     <div class="card-3">
-      <h2>Misc Calculators</h2>
+      <h2>Miscellaneous calculators</h2>
       <ul>
         <li class="btn-2"><a href="calculators/misc-calculators/grade-calculator.html">Grade calculator</a></li>
         <li class="btn-2"><a href="calculators/misc-calculators/gpa-calculator.html">GPA calculator</a></li>
@@ -155,7 +157,8 @@
         <li class="btn-2"><a href="calculators/misc-calculators/bmi-calculator.html">BMI calculator</a></li>
       </ul>
     </div><br>
-
+  </section>
+<section id="Online-tools-s">
     <div class="card-3">
       <h2>Online Tools</h2>
       <ul>
@@ -164,10 +167,12 @@
         <li class="btn-2"><a href="calculators/tools/ascii-table.html">ASCII table</a></li>
       </ul>
     </div><br>
-
-    <div class="card-3">
-      <h2>Content Categories</h2>
-      <div class="card-1">
+</section>
+<section id="Calculators-s">
+  
+      
+      <div class="card-3">
+        <h2>Content Categories</h2>
         <li class="dropdown">
           <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown1" data-toggle="dropdown">calculate Calculators</a>
           <div class="dropdown-menu">
@@ -181,6 +186,7 @@
           </div>
         </li><br>
 
+      
         <li class="dropdown">
           <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown">Conversion</a>
           <div class="dropdown-menu">
@@ -223,20 +229,21 @@
             
           </div>
         </li><br>
-      </div>
+      
     </div><br>
-
-    <div class="card-3">
-      <h2>CONTENTS</h2>
-      <ul>
-        <li class="btn-2"><a href="calculators/content/online-tools.html">Online Tools</a></li>
-        <li class="btn-2"><a href="calculators/content/text-tools.html">Text Tools</a></li>
-        <li class="btn-2"><a href="calculators/content/pdf-tools.html">PDF Tools</a></li>
-        <li class="btn-2"><a href="calculators/content/code.html">Code</a></li>
-        <li class="btn-2"><a href="calculators/content/ecology.html">Ecology</a></li>
-      </ul>
-    </div>
-
+  </section>
+      <section id="contents-s">
+        <div class="card-3">
+          <h2>CONTENTS</h2>
+          <ul>
+            <li class="btn-2"><a href="calculators/content/online-tools.html">Online Tools</a></li>
+            <li class="btn-2"><a href="calculators/content/text-tools.html">Text Tools</a></li>
+            <li class="btn-2"><a href="calculators/content/pdf-tools.html">PDF Tools</a></li>
+            <li class="btn-2"><a href="calculators/content/code.html">Code</a></li>
+            <li class="btn-2"><a href="calculators/content/ecology.html">Ecology</a></li>
+          </ul>
+        </div>
+      </section>
   </section>
 </div>
 
