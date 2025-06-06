@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scientific Calculator - EasyTables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <style>
     body {
       background-color: #F5F5F5;
@@ -13,39 +14,22 @@
       padding: 0;
     }
 
-    header {
+    .nav-bg {
       background-color: #0D47A1;
-      padding: 20px 0;
+    }
+
+    .nav-h1-color {
       color: white;
+      font-family: "roboto";
+      font-size: 2rem;
     }
 
-    header .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
+    #navItem2 {
+      color: white;
+      font-family: "Roboto";
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    nav ul li a {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav ul li a:hover {
+    #navItem2:hover {
       text-decoration: underline;
     }
 
@@ -64,30 +48,6 @@
     }
 
     footer a:hover {
-      text-decoration: underline;
-    }
-
-    .title {
-      text-align: center;
-      color: #0D47A1;
-      font-size: 2rem;
-      margin: 40px 0 20px;
-    }
-
-    .breadcrumbs {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto 20px;
-      font-size: 0.95rem;
-      color: #1976D2;
-    }
-
-    .breadcrumbs a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .breadcrumbs a:hover {
       text-decoration: underline;
     }
 
@@ -134,7 +94,14 @@
       background-color: #0D47A1;
     }
 
-    .description {
+    .title {
+      text-align: center;
+      color: #0D47A1;
+      font-size: 2rem;
+      margin: 40px 0 20px;
+    }
+
+    .description, .see-also {
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
@@ -143,31 +110,9 @@
       border-radius: 10px;
       line-height: 1.6;
       font-size: 1.05rem;
-      color: black;
     }
 
-    .description h3 {
-      color: #0D47A1;
-      margin-bottom: 10px;
-    }
-
-    .description ul {
-      padding-left: 20px;
-    }
-
-    .description li {
-      margin-bottom: 8px;
-    }
-
-    .see-also {
-      max-width: 800px;
-      margin: 20px auto 40px;
-      padding: 20px;
-      background-color: #FFFFFF;
-      border-left: 5px solid #1976D2;
-      border-radius: 10px;
-    }
-
+    .description h3,
     .see-also h4 {
       color: #0D47A1;
       margin-bottom: 10px;
@@ -190,43 +135,39 @@
     .see-also a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 480px) {
-      .calculator {
-        width: 90%;
-        padding: 15px;
-      }
-
-      .calculator button {
-        padding: 12px;
-        font-size: 0.95em;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <h1>EasyTables - Online Calculators & Tools</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Web</a></li>
-          <li><a href="#">Math</a></li>
-          <li><a href="#">Electricity</a></li>
-          <li><a href="#">Calculators</a></li>
-          <li><a href="#">Converters</a></li>
-          <li><a href="#">Tools</a></li>
-        </ul>
-      </nav>
+      <a class="navbar-brand" href="#">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#" id="navItem2">Calculators</a>
+          <a class="nav-link" href="#" id="navItem2">Converters</a>
+          <a class="nav-link" href="#" id="navItem2">Math</a>
+          <a class="nav-link" href="#" id="navItem2">Electricity</a>
+        </div>
+      </div>
     </div>
-  </header><br>
+  </nav>
+  <br>
 
-  <div class="breadcrumbs">
-      <a href="#">Calculators</a> › Scientific Calculator
-  </div>
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="#">Calculators</a> <span>›</span>
+    <a href="#">Scientific Calculator</a>
+  </nav>
 
+  <!-- Main Content -->
   <main class="container">
     <h2 class="title">Scientific Calculator</h2>
 
@@ -237,32 +178,26 @@
         <button onclick="deleteLast()">DEL</button>
         <button onclick="append('%')">%</button>
         <button onclick="append('/')">÷</button>
-
         <button onclick="append('7')">7</button>
         <button onclick="append('8')">8</button>
         <button onclick="append('9')">9</button>
         <button onclick="append('*')">×</button>
-
         <button onclick="append('4')">4</button>
         <button onclick="append('5')">5</button>
         <button onclick="append('6')">6</button>
         <button onclick="append('-')">−</button>
-
         <button onclick="append('1')">1</button>
         <button onclick="append('2')">2</button>
         <button onclick="append('3')">3</button>
         <button onclick="append('+')">+</button>
-
         <button onclick="append('0')">0</button>
         <button onclick="append('.')">.</button>
         <button onclick="calculate()">=</button>
         <button onclick="append('**')">^</button>
-
         <button onclick="append('Math.sin(')">sin</button>
         <button onclick="append('Math.cos(')">cos</button>
         <button onclick="append('Math.tan(')">tan</button>
         <button onclick="append('Math.sqrt(')">√</button>
-
         <button onclick="append('Math.log10(')">log</button>
         <button onclick="append('Math.exp(')">exp</button>
         <button onclick="append('(')">(</button>
@@ -273,16 +208,7 @@
     <div class="description">
       <h3>About This Calculator</h3>
       <p>This scientific calculator supports advanced operations including powers, square roots, trigonometric, logarithmic, and exponential functions. It’s perfect for students, professionals, and anyone who needs a reliable math tool.</p>
-      <h3>Key Features and Capabilities:</h3>
-      <ul>
-        <li>✅ Trigonometric functions: sin, cos, tan</li>
-        <li>✅ Logarithmic and exponential operations</li>
-        <li>✅ Powers and square roots</li>
-        <li>✅ Scientific notation handling</li>
-        <li>✅ Parentheses and nested operations</li>
-        <li>✅ Clear and delete functions</li>
-        <li>✅ Real-time calculations using JavaScript</li>
-      </ul>
+      
     </div>
     <div class="description">
       <h3>Using a Scientific Calculator</h3>
@@ -330,17 +256,19 @@
       <p>When describing how to use various calculator functions, this guide gives the exact keys that you need to press using the symbols shown on the keys. This is known as a ‘key sequence’. If the key sequence accesses the second function of a key, or a function from a menu, the name of this function will be given in brackets at the appropriate point in the key sequence. Names in brackets are thus not keys that you press but simply describe the function that is accessed using the previous key sequence. For example, to turn off the calculator, press <code>SHIFT</code> <code>AC</code> (<em>OFF</em>).</p>
     </div>
 
+
+
     <div class="see-also">
       <h4>See Also</h4>
       <ul>
         <li><a href="https://www.hackmath.net/en/calculator/fraction?input=1400*12&submit=1">Fraction Calculator</a></li>
         <li><a href="https://www.calculator.net/average-calculator.html">Average Calculator</a></li>
         <li><a href="https://www.calculator.net/bmi-calculator.html">BMI Calculator</a></li>
-        
       </ul>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>
@@ -358,6 +286,11 @@
       </p>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
   <script>
     const display = document.getElementById('display');
