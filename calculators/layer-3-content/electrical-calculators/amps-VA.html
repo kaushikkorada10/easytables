@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <style>
+      .nav-bg {
+        background-color: #0D47A1;
+      }
+      .nav-h1-color {
+        color: white;
+        font-family: "roboto";
+        font-size: 2rem;
+      }
+      #navItem2 {
+        color: white;
+        font-family: "Roboto";
+      }
+      #navItem2:hover {
+        text-decoration: underline;
+      }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3,
+      .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .see-also ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .see-also ul li {
+        margin-bottom: 8px;
+      }
+      .see-also a {
+        color: #1976D2;
+        text-decoration: none;
+      }
+      .see-also a:hover {
+        text-decoration: underline;
+      }
+      .form-group label {
+        font-weight: 500;
+      }
+    </style>
+
+    <script>
+      function calculateVA() {
+        const amps = parseFloat(document.getElementById("amps").value);
+        const volts = parseFloat(document.getElementById("volts").value);
+        const phase = document.querySelector('input[name="phase"]:checked').value;
+
+        if (isNaN(amps) || isNaN(volts)) {
+          document.getElementById("result").innerHTML = "Please enter valid numbers.";
+          return;
+        }
+
+        let va = 0;
+        if (phase === "single") {
+          va = amps * volts;
+        } else {
+          va = Math.sqrt(3) * amps * volts;
+        }
+
+        document.getElementById("result").innerHTML = `Apparent Power = ${va.toFixed(2)} VA`;
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+      <div class="container">
+        <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+          <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
+            <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+            <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+            <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+            <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br>
+
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> <span>></span>
+      <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
+      <a href="#">Amps to VA Calculator</a>
+    </nav>
+
+    <div>
+      <!-- The code goes heare -->
+      <div class="description">
+        <h3>Amps to VA Calculator</h3>
+        <p>
+          Easily convert electric current in amps (A) to apparent power in volt-amperes (VA) using this tool. Choose between single-phase and three-phase systems.
+        </p>
+
+        <p><strong>Formula:</strong></p>
+        <ul>
+          <li>Single phase: <code>VA = V × I</code></li>
+          <li>Three phase: <code>VA = √3 × V × I</code></li>
+        </ul>
+
+        <form>
+          <div class="form-group">
+            <label for="amps">Current (Amps):</label>
+            <input type="number" class="form-control" id="amps" placeholder="Enter current in amps">
+          </div>
+          <div class="form-group">
+            <label for="volts">Voltage (Volts):</label>
+            <input type="number" class="form-control" id="volts" placeholder="Enter voltage in volts">
+          </div>
+          <div class="form-group">
+            <label>Phase Type:</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="phase" id="single" value="single" checked>
+              <label class="form-check-label" for="single">Single Phase</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="phase" id="three" value="three">
+              <label class="form-check-label" for="three">Three Phase</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="calculateVA()">Calculate VA</button>
+        </form>
+
+        <div id="result" class="mt-4 font-weight-bold"></div>
+      </div>
+    </div>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="amps-to-kva-calculator.html">Amps to kVA Calculator</a></li>
+        <li><a href="va-to-amps-calculator.html">VA to Amps Calculator</a></li>
+        <li><a href="watts-volts-amps-ohms-calculator.html">Watts-Volts-Amps-Ohms Calculator</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+        </p>
+        <p>
+          © EasyTables.com |
+          <a href="#">About</a> |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
