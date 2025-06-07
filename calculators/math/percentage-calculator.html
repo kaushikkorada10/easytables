@@ -222,36 +222,35 @@
   </div>
 </footer>
 
-<!-- JavaScript -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const totalInput = document.getElementById('total');
-    const percentageInput = document.getElementById('percentage');
-    const calculateBtn = document.getElementById('calculateBtn');
-    const resultDiv = document.getElementById('result');
+ <!-- Scripts -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-    calculateBtn.addEventListener('click', () => {
-      const total = parseFloat(totalInput.value);
-      const percentage = parseFloat(percentageInput.value);
+ <script>
+   const display = document.getElementById('display');
 
-      if (isNaN(total) || isNaN(percentage)) {
-        resultDiv.style.color = '#D32F2F';
-        resultDiv.textContent = 'Please enter valid numbers in both fields.';
-        return;
-      }
+   function append(value) {
+     display.value += value;
+   }
 
-      if (percentage < 0 || percentage > 100) {
-        resultDiv.style.color = '#D32F2F';
-        resultDiv.textContent = 'Percentage should be between 0 and 100.';
-        return;
-      }
+   function clearDisplay() {
+     display.value = '';
+   }
 
-      const value = (total * percentage) / 100;
-      resultDiv.style.color = '#2E7D32';
-      resultDiv.textContent = `${percentage}% of ${total} is ${value.toFixed(2)}`;
-    });
-  });
-</script>
+   function deleteLast() {
+     display.value = display.value.slice(0, -1);
+   }
+
+   function calculate() {
+     try {
+       const result = Function('"use strict";return (' + display.value + ')')();
+       display.value = result;
+     } catch {
+       display.value = 'Error';
+     }
+   }
+ </script>
 
 </body>
 </html>
