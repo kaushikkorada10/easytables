@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <style>
@@ -66,12 +66,30 @@
       .see-also a:hover {
         text-decoration: underline;
       }
+      .form-group label {
+        font-weight: 500;
+      }
     </style>
+
+    <script>
+      function calculateKVAtoWatts() {
+        const kva = parseFloat(document.getElementById("kva").value);
+        const pf = parseFloat(document.getElementById("pf").value);
+
+        if (isNaN(kva) || isNaN(pf)) {
+          document.getElementById("result").innerHTML = "Please enter valid values.";
+          return;
+        }
+
+        const watts = 1000 * kva * pf;
+        document.getElementById("result").innerHTML = `Power = ${watts.toFixed(2)} Watts`;
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light nav-bg">
       <div class="container">
-        <a class="navbar-brand" href="../../index.html">
+        <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
           <h1 class="nav-h1-color">EASY TABLES</h1>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -93,41 +111,46 @@
     <nav class="breadcrumb container" aria-label="Breadcrumb">
       <a href="../../index.html">Home</a> <span>></span>
       <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
-      <a href="#">Financial Calculators</a>
+      <a href="#">kVA to Watts Calculator</a>
     </nav>
 
-    <div class="description">
-      <h3>Financial Calculators</h3>
-      <p>Useful tools for a wide range of financial calculations:</p>
-     <ul>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/mortgage-calculator.html">Mortgage calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/compound-interest.html">Compound interest calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/discount-calculator.html">Discount calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/effective-interest.html">Effective interest rate calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/gst-calculator.html">GST calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/simple-interest.html">Simple interest calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/VAT.html">VAT calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/percentage-change.html">Percentage change calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/percentage-increase.html">Percentage increase calculator</a></li>
-    </ul>
+    <div>
+      <!-- The code goes heare -->
+      <div class="description">
+        <h3>kVA to Watts Calculator</h3>
+        <p>
+          Convert apparent power in kilovolt-amps (kVA) to real power in watts (W), using power factor (PF).
+        </p>
 
-<p><strong>Financial concepts and formulas:</strong></p>
+        <p><strong>Formula:</strong></p>
+        <ul>
+          <li><code>Watts (W) = 1000 × kVA × PF</code></li>
+        </ul>
 
-      <ul>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/financial-calculations1.html">Financial calculations</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/compound-interest-formula.html">Compound interest formula</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/effective-interestrate.html">Effective interest rate calculation</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/simple-interest-l.html">Simple interest calculation</a></li>
-      </ul>
+        <form>
+          <div class="form-group">
+            <label for="kva">Power (kVA):</label>
+            <input type="number" class="form-control" id="kva" placeholder="Enter power in kVA">
+          </div>
 
+          <div class="form-group">
+            <label for="pf">Power Factor (0 to 1):</label>
+            <input type="number" class="form-control" id="pf" step="0.01" min="0" max="1" placeholder="Enter power factor">
+          </div>
+
+          <button type="button" class="btn btn-primary" onclick="calculateKVAtoWatts()">Calculate Watts</button>
+        </form>
+
+        <div id="result" class="mt-4 font-weight-bold"></div>
+      </div>
     </div>
 
     <div class="see-also">
       <h4>See Also</h4>
       <ul>
-        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-        <li><a href="simple-interest-calculator.html">Simple Interest Calculator</a></li>
+        <li><a href="kva-to-kw-calculator.html">kVA to kW Calculator</a></li>
+        <li><a href="watts-to-kva-calculator.html">Watts to kVA Calculator</a></li>
+        <li><a href="amps-to-kva-calculator.html">Amps to kVA Calculator</a></li>
       </ul>
     </div>
 

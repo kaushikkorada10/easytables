@@ -37,21 +37,35 @@
         color: #0D47A1;
         margin-bottom: 10px;
       }
-      .description ul, .see-also ul {
+      .see-also ul {
         list-style: none;
         padding-left: 0;
       }
-      .description ul li, .see-also ul li {
+      .see-also ul li {
         margin-bottom: 8px;
       }
-      .description a, .see-also a {
+      .see-also a {
         color: #1976D2;
         text-decoration: none;
       }
-      .description a:hover, .see-also a:hover {
-        text-decoration: underline;
-      }
+      .see-also a:hover { text-decoration: underline; }
     </style>
+    <script>
+      function convertToGPA() {
+        const grade = document.getElementById("letter").value.trim().toUpperCase();
+        const map = {
+          'A+': 4.0, 'A': 4.0, 'A-': 3.7,
+          'B+': 3.3, 'B': 3.0, 'B-': 2.7,
+          'C+': 2.3, 'C': 2.0, 'C-': 1.7,
+          'D+': 1.3, 'D': 1.0, 'D-': 0.7,
+          'F': 0.0
+        };
+        const result = map[grade];
+        document.getElementById("result").innerHTML = result !== undefined ?
+          `GPA Equivalent: ${result.toFixed(1)}` :
+          "Please enter a valid letter grade (e.g., A, B+, C-)";
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light nav-bg">
@@ -73,39 +87,35 @@
         </div>
       </div>
     </nav>
-    <br />
 
+    <br />
     <nav class="breadcrumb container" aria-label="Breadcrumb">
       <a href="../../index.html">Home</a> <span>></span>
       <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
-      <a href="#">Grade Calculators</a>
+      <a href="#">Letter Grade to GPA Conversion</a>
     </nav>
 
-    <div>
-      <div class="description">
-        <h3>Grade Calculators</h3>
-        <p>Useful tools for calculating GPA, final grades, and conversions:</p>
-        <ul>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/college-GPA.html">College GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/final-grade.html">Final grade calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculator.html">GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/grade-calculator.html">Grade calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculation.html">GPA calculation</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/grade-calculation.html">Grade calculation</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculation.html">GPA to letter grade conversion</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/high-schoolgpa.html">High school GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/letter-grade-GPA.html">Letter grade to GPA conversion</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/test-calculator.html">Test calculator</a></li>
-        </ul>
-      </div>
+    <div class="description">
+      <h3>Letter Grade to GPA Conversion</h3>
+      <p>Convert a letter grade (A, B+, C-, etc.) to its corresponding GPA value using the standard US 4.0 scale.</p>
+
+      <form>
+        <div class="form-group">
+          <label for="letter">Enter Letter Grade:</label>
+          <input type="text" class="form-control" id="letter" placeholder="e.g., A, B+, C-">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="convertToGPA()">Convert to GPA</button>
+      </form>
+
+      <div id="result" class="mt-4 font-weight-bold"></div>
     </div>
 
     <div class="see-also">
       <h4>See Also</h4>
       <ul>
-        <li><a href="#">Weighted average calculator</a></li>
-        <li><a href="#">Percentage calculator</a></li>
-        <li><a href="#">Math Calculators</a></li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+        <li><a href="college-gpa-calculator.html">College GPA Calculator</a></li>
+        <li><a href="gpa-to-letter-grade-conversion.html">GPA to Letter Grade Conversion</a></li>
       </ul>
     </div>
 
@@ -119,7 +129,6 @@
         </p>
         <p>
           © EasyTables.com |
-          <a href="#">About</a> |
           <a href="#">Terms of Use</a> |
           <a href="#">Privacy Policy</a> |
           <a href="#">Manage Cookies</a>

@@ -66,7 +66,27 @@
       .see-also a:hover {
         text-decoration: underline;
       }
+      .form-group label {
+        font-weight: 500;
+      }
     </style>
+
+    <script>
+      function calculateEffectiveInterestRate() {
+        const nominalRate = parseFloat(document.getElementById("nominalRate").value);
+        const compoundingPeriods = parseInt(document.getElementById("compoundingPeriods").value);
+
+        if (isNaN(nominalRate) || isNaN(compoundingPeriods) || compoundingPeriods <= 0) {
+          document.getElementById("result").innerHTML = "Please enter valid values (Compounding periods must be more than 0).";
+          return;
+        }
+
+        const rateDecimal = nominalRate / 100;
+        const effectiveRate = (Math.pow(1 + rateDecimal / compoundingPeriods, compoundingPeriods) - 1) * 100;
+
+        document.getElementById("result").innerHTML = `Effective Interest Rate = ${effectiveRate.toFixed(2)}%`;
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light nav-bg">
@@ -93,41 +113,45 @@
     <nav class="breadcrumb container" aria-label="Breadcrumb">
       <a href="../../index.html">Home</a> <span>></span>
       <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
-      <a href="#">Financial Calculators</a>
+      <a href="#">Effective Interest Rate Calculator</a>
     </nav>
 
-    <div class="description">
-      <h3>Financial Calculators</h3>
-      <p>Useful tools for a wide range of financial calculations:</p>
-     <ul>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/mortgage-calculator.html">Mortgage calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/compound-interest.html">Compound interest calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/discount-calculator.html">Discount calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/effective-interest.html">Effective interest rate calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/gst-calculator.html">GST calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/simple-interest.html">Simple interest calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/VAT.html">VAT calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/percentage-change.html">Percentage change calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/percentage-increase.html">Percentage increase calculator</a></li>
-    </ul>
+    <div>
+      <div class="description">
+        <h3>Effective Interest Rate Calculator</h3>
+        <p>Calculate the effective annual interest rate based on the nominal rate and compounding frequency.</p>
 
-<p><strong>Financial concepts and formulas:</strong></p>
+        <p><strong>Formula:</strong></p>
+        <ul>
+          <li><code>Effective Rate = (1 + r / n)^n - 1</code></li>
+          <li>Where:<br />
+            <code>r</code> = Nominal interest rate (as a decimal)<br />
+            <code>n</code> = Number of compounding periods per year
+          </li>
+        </ul>
 
-      <ul>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/financial-calculations1.html">Financial calculations</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/compound-interest-formula.html">Compound interest formula</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/effective-interestrate.html">Effective interest rate calculation</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/simple-interest-l.html">Simple interest calculation</a></li>
-      </ul>
+        <form>
+          <div class="form-group">
+            <label for="nominalRate">Nominal Interest Rate (%):</label>
+            <input type="number" class="form-control" id="nominalRate" placeholder="Enter nominal interest rate">
+          </div>
+          <div class="form-group">
+            <label for="compoundingPeriods">Compounding Periods per Year:</label>
+            <input type="number" class="form-control" id="compoundingPeriods" placeholder="Enter number of periods">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="calculateEffectiveInterestRate()">Calculate</button>
+        </form>
 
+        <div id="result" class="mt-4 font-weight-bold"></div>
+      </div>
     </div>
 
     <div class="see-also">
       <h4>See Also</h4>
       <ul>
-        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
         <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
         <li><a href="simple-interest-calculator.html">Simple Interest Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
       </ul>
     </div>
 

@@ -37,21 +37,25 @@
         color: #0D47A1;
         margin-bottom: 10px;
       }
-      .description ul, .see-also ul {
-        list-style: none;
-        padding-left: 0;
-      }
-      .description ul li, .see-also ul li {
-        margin-bottom: 8px;
-      }
-      .description a, .see-also a {
-        color: #1976D2;
-        text-decoration: none;
-      }
-      .description a:hover, .see-also a:hover {
-        text-decoration: underline;
-      }
+      .form-group label { font-weight: 500; }
     </style>
+    <script>
+      function calculateFinalGrade() {
+        const currentGrade = parseFloat(document.getElementById("currentGrade").value);
+        const finalExamWeight = parseFloat(document.getElementById("finalExamWeight").value);
+        const desiredGrade = parseFloat(document.getElementById("desiredGrade").value);
+
+        if (isNaN(currentGrade) || isNaN(finalExamWeight) || isNaN(desiredGrade)) {
+          document.getElementById("result").innerHTML = "Please enter valid numeric values.";
+          return;
+        }
+
+        const requiredFinalExamGrade = (desiredGrade - (1 - finalExamWeight / 100) * currentGrade) / (finalExamWeight / 100);
+
+        document.getElementById("result").innerHTML =
+          `You need to score <strong>${requiredFinalExamGrade.toFixed(2)}%</strong> on your final exam to achieve your desired grade.`;
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light nav-bg">
@@ -78,34 +82,36 @@
     <nav class="breadcrumb container" aria-label="Breadcrumb">
       <a href="../../index.html">Home</a> <span>></span>
       <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
-      <a href="#">Grade Calculators</a>
+      <a href="#">Final Grade Calculator</a>
     </nav>
 
-    <div>
-      <div class="description">
-        <h3>Grade Calculators</h3>
-        <p>Useful tools for calculating GPA, final grades, and conversions:</p>
-        <ul>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/college-GPA.html">College GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/final-grade.html">Final grade calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculator.html">GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/grade-calculator.html">Grade calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculation.html">GPA calculation</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/grade-calculation.html">Grade calculation</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculation.html">GPA to letter grade conversion</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/high-schoolgpa.html">High school GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/letter-grade-GPA.html">Letter grade to GPA conversion</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/test-calculator.html">Test calculator</a></li>
-        </ul>
-      </div>
+    <div class="description">
+      <h3>Final Grade Calculator</h3>
+      <p>Use this calculator to determine the grade you need on your final exam to get your desired overall grade in a course.</p>
+      <form>
+        <div class="form-group">
+          <label for="currentGrade">Current Grade (%):</label>
+          <input type="number" class="form-control" id="currentGrade" placeholder="Enter your current grade">
+        </div>
+        <div class="form-group">
+          <label for="finalExamWeight">Final Exam Weight (%):</label>
+          <input type="number" class="form-control" id="finalExamWeight" placeholder="Enter the weight of the final exam">
+        </div>
+        <div class="form-group">
+          <label for="desiredGrade">Desired Grade (%):</label>
+          <input type="number" class="form-control" id="desiredGrade" placeholder="Enter your desired course grade">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateFinalGrade()">Calculate Final Grade</button>
+      </form>
+      <div id="result" class="mt-4 font-weight-bold"></div>
     </div>
 
     <div class="see-also">
       <h4>See Also</h4>
       <ul>
-        <li><a href="#">Weighted average calculator</a></li>
-        <li><a href="#">Percentage calculator</a></li>
-        <li><a href="#">Math Calculators</a></li>
+        <li><a href="#">Grade calculator</a></li>
+        <li><a href="#">GPA calculator</a></li>
+        <li><a href="#">Test calculator</a></li>
       </ul>
     </div>
 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .nav-bg { background-color: #0D47A1; }
+      .nav-h1-color { color: white; font-family: "roboto"; font-size: 2rem; }
+      #navItem2 { color: white; font-family: "Roboto"; }
+      #navItem2:hover { text-decoration: underline; }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover { text-decoration: underline; }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3, .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .form-group label { font-weight: 500; }
+    </style>
+    <script>
+      function calculateCollegeGPA() {
+        let totalCredits = 0;
+        let totalPoints = 0;
+        for (let i = 1; i <= 5; i++) {
+          const grade = document.getElementById("grade" + i).value.toUpperCase();
+          const credit = parseFloat(document.getElementById("credit" + i).value);
+          let point = 0;
+
+          if (isNaN(credit) || credit < 0) continue;
+
+          switch (grade) {
+            case "A": point = 4.0; break;
+            case "B": point = 3.0; break;
+            case "C": point = 2.0; break;
+            case "D": point = 1.0; break;
+            case "F": point = 0.0; break;
+            default: continue;
+          }
+
+          totalCredits += credit;
+          totalPoints += point * credit;
+        }
+
+        if (totalCredits === 0) {
+          document.getElementById("result").innerHTML = "Please enter at least one valid course.";
+        } else {
+          const gpa = totalPoints / totalCredits;
+          document.getElementById("result").innerHTML = `Your GPA is ${gpa.toFixed(2)}`;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html">
+          <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
+            <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+            <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+            <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+            <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br/>
+
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> <span>></span>
+      <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
+      <a href="#">College GPA Calculator</a>
+    </nav>
+
+    <div class="description">
+      <h3>College GPA Calculator</h3>
+      <p>Calculate your college GPA by entering your course grades and credit hours below.</p>
+
+      <form>
+        <div class="form-row">
+          <div class="col-md-6"><strong>Grade</strong></div>
+          <div class="col-md-6"><strong>Credit Hours</strong></div>
+        </div>
+        <div class="form-row my-1">
+          <div class="col-md-6"><input type="text" class="form-control" id="grade1" placeholder="e.g., A, B, C"></div>
+          <div class="col-md-6"><input type="number" class="form-control" id="credit1" placeholder="e.g., 3"></div>
+        </div>
+        <div class="form-row my-1">
+          <div class="col-md-6"><input type="text" class="form-control" id="grade2"></div>
+          <div class="col-md-6"><input type="number" class="form-control" id="credit2"></div>
+        </div>
+        <div class="form-row my-1">
+          <div class="col-md-6"><input type="text" class="form-control" id="grade3"></div>
+          <div class="col-md-6"><input type="number" class="form-control" id="credit3"></div>
+        </div>
+        <div class="form-row my-1">
+          <div class="col-md-6"><input type="text" class="form-control" id="grade4"></div>
+          <div class="col-md-6"><input type="number" class="form-control" id="credit4"></div>
+        </div>
+        <div class="form-row my-1">
+          <div class="col-md-6"><input type="text" class="form-control" id="grade5"></div>
+          <div class="col-md-6"><input type="number" class="form-control" id="credit5"></div>
+        </div>
+        <button type="button" class="btn btn-primary mt-3" onclick="calculateCollegeGPA()">Calculate GPA</button>
+      </form>
+
+      <div id="result" class="mt-4 font-weight-bold"></div>
+    </div>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">GPA calculator</a></li>
+        <li><a href="#">Final grade calculator</a></li>
+        <li><a href="#">Letter grade to GPA conversion</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+        </p>
+        <p>
+          © EasyTables.com |
+          <a href="#">About</a> |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

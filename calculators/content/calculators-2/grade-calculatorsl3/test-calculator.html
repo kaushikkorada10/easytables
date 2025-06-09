@@ -37,21 +37,33 @@
         color: #0D47A1;
         margin-bottom: 10px;
       }
-      .description ul, .see-also ul {
+      .see-also ul {
         list-style: none;
         padding-left: 0;
       }
-      .description ul li, .see-also ul li {
+      .see-also ul li {
         margin-bottom: 8px;
       }
-      .description a, .see-also a {
+      .see-also a {
         color: #1976D2;
         text-decoration: none;
       }
-      .description a:hover, .see-also a:hover {
-        text-decoration: underline;
-      }
+      .see-also a:hover { text-decoration: underline; }
     </style>
+    <script>
+      function calculateTestScore() {
+        const total = parseFloat(document.getElementById("total").value);
+        const correct = parseFloat(document.getElementById("correct").value);
+
+        if (isNaN(total) || isNaN(correct) || total === 0 || correct > total) {
+          document.getElementById("result").innerHTML = "Please enter valid values (correct answers should not exceed total questions).";
+          return;
+        }
+
+        const percentage = (correct / total) * 100;
+        document.getElementById("result").innerHTML = `Score: ${percentage.toFixed(2)}%`;
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light nav-bg">
@@ -73,39 +85,39 @@
         </div>
       </div>
     </nav>
-    <br />
 
+    <br />
     <nav class="breadcrumb container" aria-label="Breadcrumb">
       <a href="../../index.html">Home</a> <span>></span>
       <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
-      <a href="#">Grade Calculators</a>
+      <a href="#">Test Calculator</a>
     </nav>
 
-    <div>
-      <div class="description">
-        <h3>Grade Calculators</h3>
-        <p>Useful tools for calculating GPA, final grades, and conversions:</p>
-        <ul>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/college-GPA.html">College GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/final-grade.html">Final grade calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculator.html">GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/grade-calculator.html">Grade calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculation.html">GPA calculation</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/grade-calculation.html">Grade calculation</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculation.html">GPA to letter grade conversion</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/high-schoolgpa.html">High school GPA calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/letter-grade-GPA.html">Letter grade to GPA conversion</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/grade-calculatorsl3/test-calculator.html">Test calculator</a></li>
-        </ul>
-      </div>
+    <div class="description">
+      <h3>Test Calculator</h3>
+      <p>Calculate your test score percentage based on the number of correct answers and total number of questions.</p>
+
+      <form>
+        <div class="form-group">
+          <label for="correct">Correct Answers:</label>
+          <input type="number" class="form-control" id="correct" placeholder="Enter correct answers">
+        </div>
+        <div class="form-group">
+          <label for="total">Total Questions:</label>
+          <input type="number" class="form-control" id="total" placeholder="Enter total questions">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateTestScore()">Calculate Score</button>
+      </form>
+
+      <div id="result" class="mt-4 font-weight-bold"></div>
     </div>
 
     <div class="see-also">
       <h4>See Also</h4>
       <ul>
-        <li><a href="#">Weighted average calculator</a></li>
-        <li><a href="#">Percentage calculator</a></li>
-        <li><a href="#">Math Calculators</a></li>
+        <li><a href="grade-calculator.html">Grade Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="final-grade-calculator.html">Final Grade Calculator</a></li>
       </ul>
     </div>
 
@@ -119,7 +131,6 @@
         </p>
         <p>
           © EasyTables.com |
-          <a href="#">About</a> |
           <a href="#">Terms of Use</a> |
           <a href="#">Privacy Policy</a> |
           <a href="#">Manage Cookies</a>

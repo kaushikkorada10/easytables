@@ -2,294 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lighting Calculators & Calculations - EasyTables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <style>
-    body {
-      background-color: #F5F5F5;
-      color: black;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      padding-top: 20px;
-      padding-bottom: 40px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    header {
-      background-color: #0D47A1;
-      padding: 15px 0;
-    }
-    header h1 {
-      color: white;
-      margin: 0 0 10px 0;
-      font-size: 28px;
-      text-align: center;
-      font-weight: 700;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      font-size: 16px;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    .card-3 {
-      background-color: #FFFFFF;
-      border-radius: 10px;
-      padding: 25px 30px;
-      border: 1px solid #E0E0E0;
-      margin-bottom: 30px;
-    }
-    .card-3 h2 {
-      color: #0D47A1;
-      font-size: 26px;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    .card-3 p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .card-3 ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0;
-    }
-    .card-3 ul li {
-      padding: 8px 0;
-    }
-    .card-3 ul li a {
-      color: #1976D2;
-      text-decoration: none;
-      font-weight: 500;
-      display: inline-block;
-      background-color: #E0E0E0;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-      font-size: 15px;
-    }
-    .card-3 ul li a:hover {
-      background-color: #D0D0D0;
-    }
-    .breadcrumb {
-      background-color: transparent;
-      padding-left: 0;
-      margin-bottom: 20px;
-    }
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
     footer {
       background-color: #0D47A1;
       color: white;
       padding: 20px 0;
       text-align: center;
-      font-size: 14px;
+      font-size: 0.9rem;
     }
     footer a {
-      color: white;
-      margin: 0 10px;
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .description ul {
+      padding-left: 20px;
+    }
+    .description ul li {
+      margin-bottom: 8px;
+    }
+    .description a {
+      color: #1976D2;
       text-decoration: none;
     }
-    footer a:hover {
+    .description a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
+          <a class="nav-link" id="navItem2" href="../../index.html#contents-s">Contents</a>
+          <a class="nav-link" id="navItem2" href="../../index.html#misc-s">Miscellaneous</a>
+          <a class="nav-link" id="navItem2" href="../../index.html#Online-tools-s">Online tools</a>
+          <a class="nav-link" id="navItem2" href="../../index.html#Calculators-s">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav><br>
 
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Electricity</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Lighting Calculators</li>
-    </ol>
+  <nav class="breadcrumb container" aria-label="breadcrumb">
+    <a href="../../index.html">Home</a> <span>></span>
+    <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
+    <a href="#">Lighting Calculators</a>
   </nav>
 
-  <div class="card-3">
-    <h2>Lighting Calculators & Calculations</h2>
-    <p>Online lighting calculators and detailed calculation methods for light measurement units and conversions.</p>
-    <h3>Calculators</h3>
+  <div class="description">
+    <h3>Lighting Calculators & Calculations</h3>
+    <p>Explore various lighting conversion calculators useful for engineers, architects, and lighting designers:</p>
     <ul>
-      <li><a href="#">Candela to lumens calculator</a></li>
-      <li><a href="#">Candela to lux calculator</a></li>
-      <li><a href="#">Footcandles to lux calculator</a></li>
-      <li><a href="#">Lumens to candela calculator</a></li>
-      <li><a href="#">Lumens to lux calculator</a></li>
-      <li><a href="#">Lumens to millicandela calculator</a></li>
-      <li><a href="#">Lumens to watts calculator</a></li>
-      <li><a href="#">Lux to candela calculator</a></li>
-      <li><a href="#">Lux to footcandles calculator</a></li>
-      <li><a href="#">Lux to lumens calculator</a></li>
-      <li><a href="#">Lux to watts calculator</a></li>
-      <li><a href="#">Millicandela to lumens calculator</a></li>
-      <li><a href="#">Watts to lumens calculator</a></li>
-      <li><a href="#">Watts to lux calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/candela-lumens.html">Candela to lumens calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/candela-lux.html">Candela to lux calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/footcandles-lux.html">Footcandles to lux calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lumens-candela.html">Lumens to candela calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lumens-lux.html">Lumens to lux calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lumens-millicandela.html">Lumens to millicandela calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lumens-watts.html">Lumens to watts calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lux-candela.html">Lux to candela calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lux-footcandles.html">Lux to footcandles calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lux-lumens.html">Lux to lumens calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/lux-watts.html">Lux to watts calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/millicandela-lumens.html">Millicandela to lumens calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/watts-lumens.html">Watts to lumens calculator</a></li>
+      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/lighting-calculatorsl3/watts-lux.html">Watts to lux calculator</a></li>
     </ul>
+  </div>
 
-    <h3 style="margin-top: 30px;">Calculations Howto</h3>
-    <ul>
-      <li><a href="#">Candela to lumens calculation</a></li>
-      <li><a href="#">Candela to lux calculation</a></li>
-      <li><a href="#">Lumens to candela calculation</a></li>
-      <li><a href="#">Lumens to lux calculation</a></li>
-      <li><a href="#">Lumens to watts calculation</a></li>
-      <li><a href="#">Lux to candela calculation</a></li>
-      <li><a href="#">Lux to lumens calculation</a></li>
-      <li><a href="#">Lux to watts calculation</a></li>
-      <li><a href="#">Watts to lumens calculation</a></li>
-      <li><a href="#">Watts to lux calculation</a></li>
-    </ul>
-    <div class="card-3">
-      <h2>Lighting Calculators & Calculations</h2>
-      <p>Lighting calculators are essential tools used by electrical engineers, interior designers, architects, and homeowners to determine optimal illumination levels in residential, commercial, and industrial spaces. Proper lighting not only enhances visibility but also impacts mood, safety, productivity, and energy consumption.</p>
-    
-      <h4>Purpose of Lighting Calculators</h4>
-      <p>Lighting calculators help estimate the number and type of light fixtures required in a space. These tools ensure that lighting design meets recommended lux levels while minimizing energy usage and glare. They consider variables like room size, ceiling height, surface reflectance, fixture type, and application area.</p>
-    
-      <h4>Common Lighting Calculations</h4>
-      <ul>
-        <li><strong>Lux Level (Illuminance):</strong> Measures how much light hits a surface, expressed in lumens per square meter.</li>
-        <li><strong>Lumen Output:</strong> Total visible light emitted by a light source. High-lumen lights are brighter.</li>
-        <li><strong>Watts to Lumens:</strong> Helps convert energy consumption into brightness.</li>
-        <li><strong>Room Cavity Ratio (RCR):</strong> A geometric factor in determining reflectance and lighting distribution.</li>
-        <li><strong>Lighting Load:</strong> Total power requirement based on the number and type of fixtures used.</li>
-      </ul>
-    
-      <h4>Recommended Lux Levels by Area</h4>
-      <ul>
-        <li><strong>Living Rooms:</strong> 100–300 lux</li>
-        <li><strong>Kitchens:</strong> 300–750 lux</li>
-        <li><strong>Offices:</strong> 300–500 lux</li>
-        <li><strong>Workshops:</strong> 750–1,000 lux</li>
-        <li><strong>Hallways:</strong> 50–100 lux</li>
-        <li><strong>Retail Stores:</strong> 500–1,000 lux</li>
-      </ul>
-    
-      <h4>Benefits of Using Lighting Calculators</h4>
-      <ul>
-        <li>Ensure energy-efficient lighting plans.</li>
-        <li>Comply with national and international lighting standards.</li>
-        <li>Improve visual comfort and reduce eye strain.</li>
-        <li>Identify optimal fixture placement.</li>
-        <li>Estimate lighting cost and energy usage.</li>
-      </ul>
-    
-      <h4>Key Inputs for Accurate Calculations</h4>
-      <ul>
-        <li>Room dimensions (length × width × height)</li>
-        <li>Mounting height of fixtures</li>
-        <li>Reflection coefficients (walls, ceiling, floor)</li>
-        <li>Target lux level based on activity</li>
-        <li>Lumen output per light source</li>
-      </ul>
-    
-      <h4>Popular Tools and Apps</h4>
-      <ul>
-        <li><strong>DIALux:</strong> Professional lighting design software used by architects and lighting designers.</li>
-        <li><strong>Relux:</strong> Advanced simulation for lighting and daylight systems.</li>
-        <li><strong>Lumen Calculator (Online):</strong> Quick web tools for simple room-based calculations.</li>
-        <li><strong>LightStanza:</strong> BIM-integrated lighting analysis tool for sustainable design.</li>
-      </ul>
-    
-      <h4>Lighting Types Considered in Calculators</h4>
-      <ul>
-        <li><strong>Incandescent Bulbs:</strong> Traditional lights with high energy usage and warm glow.</li>
-        <li><strong>Compact Fluorescent Lamps (CFLs):</strong> Efficient alternatives for general lighting.</li>
-        <li><strong>LEDs:</strong> Energy-efficient, long-lasting, and color-controllable lights.</li>
-        <li><strong>Halogen Lamps:</strong> Brighter than incandescent with better energy efficiency.</li>
-      </ul>
-    
-      <h4>Lighting and Energy Regulations</h4>
-      <p>Governments and green building councils mandate minimum energy efficiency standards. For example, in commercial buildings, compliance with ASHRAE 90.1 or BEE (India) lighting codes ensures optimal energy consumption. Lighting calculators help assess adherence to these regulations.</p>
-    
-      <h4>Lighting Design for Specific Environments</h4>
-      <ul>
-        <li><strong>Industrial Warehouses:</strong> High-bay LED lighting with wide spread and low glare.</li>
-        <li><strong>Hospitals:</strong> Uniform lighting with minimal flicker and high color accuracy.</li>
-        <li><strong>Retail Stores:</strong> Accent lighting to enhance product visibility.</li>
-        <li><strong>Residential:</strong> Balanced ambient, task, and accent lighting.</li>
-      </ul>
-    
-      <h4>Real-World Application</h4>
-      <p>Consider a classroom of 60 square meters with a target of 300 lux. You need 60 × 300 = 18,000 lumens. Using LED fixtures producing 1,500 lumens each, you'd require 12 fixtures, optimally spaced. A lighting calculator helps automate such computations and refine placements based on reflection and fixture types.</p>
-    
-      <h4>Advanced Lighting Features</h4>
-      <ul>
-        <li><strong>Dimmable Fixtures:</strong> Adjust brightness to conserve energy.</li>
-        <li><strong>Motion Sensors:</strong> Trigger lighting only when needed.</li>
-        <li><strong>Daylight Harvesting:</strong> Combine artificial light with natural daylight.</li>
-        <li><strong>Smart Controls:</strong> Automate schedules and reduce human error.</li>
-      </ul>
-    
-      <h4>Environmental Impact and Sustainability</h4>
-      <p>Optimizing lighting through calculators reduces energy wastage, carbon footprint, and long-term costs. Sustainable lighting solutions support green certifications like LEED or GRIHA.</p>
-    
-      
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
     </div>
-    
-  </div>
-
-  <div class="card-3 mt-4">
-    <h3>See Also</h3>
-    <ul>
-      <li><a href="#">Lumen & Lux Converters</a></li>
-      <li><a href="#">Lighting Efficiency Tools</a></li>
-      <li><a href="#">LED Wattage Calculators</a></li>
-    </ul>
-  </div>
-</div>
-
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">About</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>

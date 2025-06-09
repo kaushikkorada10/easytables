@@ -66,12 +66,30 @@
       .see-also a:hover {
         text-decoration: underline;
       }
+      .form-group label {
+        font-weight: 500;
+      }
     </style>
+
+    <script>
+      function calculateEVFromVolts() {
+        const volts = parseFloat(document.getElementById("volts").value);
+        const charge = parseFloat(document.getElementById("charge").value);
+
+        if (isNaN(volts) || isNaN(charge)) {
+          document.getElementById("result").innerHTML = "Please enter valid numbers for both inputs.";
+          return;
+        }
+
+        const ev = volts * charge / 1.602e-19;
+        document.getElementById("result").innerHTML = `Energy = ${ev.toExponential(3)} eV`;
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light nav-bg">
       <div class="container">
-        <a class="navbar-brand" href="../../index.html">
+        <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
           <h1 class="nav-h1-color">EASY TABLES</h1>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -93,41 +111,41 @@
     <nav class="breadcrumb container" aria-label="Breadcrumb">
       <a href="../../index.html">Home</a> <span>></span>
       <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
-      <a href="#">Financial Calculators</a>
+      <a href="#">Volts to eV Calculator</a>
     </nav>
 
-    <div class="description">
-      <h3>Financial Calculators</h3>
-      <p>Useful tools for a wide range of financial calculations:</p>
-     <ul>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/mortgage-calculator.html">Mortgage calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/compound-interest.html">Compound interest calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/discount-calculator.html">Discount calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/effective-interest.html">Effective interest rate calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/gst-calculator.html">GST calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/simple-interest.html">Simple interest calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/VAT.html">VAT calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/percentage-change.html">Percentage change calculator</a></li>
-          <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/percentage-increase.html">Percentage increase calculator</a></li>
-    </ul>
+    <div>
+      <div class="description">
+        <h3>Volts to eV Calculator</h3>
+        <p>Convert voltage (V) and charge (C) to energy in electron-volts (eV).</p>
 
-<p><strong>Financial concepts and formulas:</strong></p>
+        <p><strong>Formula:</strong></p>
+        <ul>
+          <li><code>Energy (eV) = Voltage (V) × Charge (C) / 1.602×10⁻¹⁹</code></li>
+        </ul>
 
-      <ul>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/financial-calculations1.html">Financial calculations</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/compound-interest-formula.html">Compound interest formula</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/effective-interestrate.html">Effective interest rate calculation</a></li>
-        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/financial-calculatorsl3/simple-interest-l.html">Simple interest calculation</a></li>
-      </ul>
+        <form>
+          <div class="form-group">
+            <label for="volts">Voltage (Volts):</label>
+            <input type="number" class="form-control" id="volts" placeholder="Enter voltage in volts">
+          </div>
+          <div class="form-group">
+            <label for="charge">Charge (Coulombs):</label>
+            <input type="number" class="form-control" id="charge" placeholder="Enter charge in coulombs">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="calculateEVFromVolts()">Calculate eV</button>
+        </form>
 
+        <div id="result" class="mt-4 font-weight-bold"></div>
+      </div>
     </div>
 
     <div class="see-also">
       <h4>See Also</h4>
       <ul>
-        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-        <li><a href="simple-interest-calculator.html">Simple Interest Calculator</a></li>
+        <li><a href="ev-to-volts-calculator.html">eV to Volts Calculator</a></li>
+        <li><a href="volts-to-joules-calculator.html">Volts to Joules Calculator</a></li>
+        <li><a href="watts-volts-amps-ohms-calculator.html">Watts-Volts-Amps-Ohms Calculator</a></li>
       </ul>
     </div>
 
