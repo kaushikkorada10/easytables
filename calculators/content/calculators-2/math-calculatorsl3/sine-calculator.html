@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sine Calculator - Easy Tables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .nav-bg {
+        background-color: #0D47A1;
+      }
+      .nav-h1-color {
+        color: white;
+        font-family: "Roboto";
+        font-size: 2rem;
+      }
+      #navItem2 {
+        color: white;
+        font-family: "Roboto";
+      }
+      #navItem2:hover {
+        text-decoration: underline;
+      }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3,
+      .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .see-also ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .see-also ul li {
+        margin-bottom: 8px;
+      }
+      .see-also a {
+        color: #1976D2;
+        text-decoration: none;
+      }
+      .see-also a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      function calculateSine() {
+        const angle = parseFloat(document.getElementById("angle").value);
+        const unit = document.getElementById("unit").value;
+
+        if (isNaN(angle)) {
+          document.getElementById("result").innerHTML = "Please enter a valid angle.";
+          return;
+        }
+
+        const radians = unit === "degrees" ? angle * (Math.PI / 180) : angle;
+        const sineValue = Math.sin(radians);
+
+        document.getElementById("result").innerHTML = `sin(${angle} ${unit}) = <strong>${sineValue.toFixed(6)}</strong>`;
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" id="navItem2" href="#">Home</a>
+            <a class="nav-link" href="#" id="navItem2">Calculators</a>
+            <a class="nav-link" href="#" id="navItem2">Converters</a>
+            <a class="nav-link" href="#" id="navItem2">Math</a>
+            <a class="nav-link" href="#" id="navItem2">Electricity</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <a href="#">Home</a> <span>›</span>
+      <a href="#">Math Calculators</a> <span>›</span>
+      <a href="#">Sine Calculator</a>
+    </nav>
+
+    <div class="description">
+      <h3>Sine Calculator</h3>
+      <p>
+        Calculate the sine of an angle using degrees or radians.
+        This calculator supports both units and shows the result with 6 decimal precision.
+      </p>
+      <ul>
+        <li><strong>Formula:</strong> sin(θ), where θ is the angle in radians</li>
+        <li>To convert degrees to radians: radians = degrees × (π ÷ 180)</li>
+      </ul>
+      <form>
+        <div class="form-group">
+          <label for="angle">Angle:</label>
+          <input type="number" class="form-control" id="angle" placeholder="Enter angle">
+        </div>
+        <div class="form-group">
+          <label for="unit">Unit:</label>
+          <select class="form-control" id="unit">
+            <option value="degrees">Degrees</option>
+            <option value="radians">Radians</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateSine()">Calculate</button>
+      </form>
+      <div id="result" class="mt-4 font-weight-bold"></div>
+    </div>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">Cosine Calculator</a></li>
+        <li><a href="#">Tangent Calculator</a></li>
+        <li><a href="#">Unit Circle Guide</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+        </p>
+        <p>
+          © EasyTables.com |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

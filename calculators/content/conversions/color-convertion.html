@@ -4,29 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Color Converter - EasyTables</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <style>
     body {
       background-color: #F5F5F5;
       font-family: Arial, sans-serif;
       color: black;
     }
-    header, footer {
+    .nav-bg {
       background-color: #0D47A1;
+    }
+    .nav-h1-color {
       color: white;
-      padding: 20px 0;
-      text-align: center;
+      font-family: "Roboto";
+      font-size: 2rem;
     }
-    .black-bg {
+    #navItem2 {
+      color: white;
+      font-family: "Roboto";
+    }
+    #navItem2:hover {
+      text-decoration: underline;
+    }
+   
+    .description {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
       background-color: #FFFFFF;
-      color: black;
-      padding: 40px 0;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
     }
-    .card-3 {
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      border: 1px solid #E0E0E0;
-      background-color: white;
+    h2 {
+      color: #0D47A1;
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    input {
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #1976D2;
+      border-radius: 6px;
+    }
+    .btn-primary {
+      background-color: #1976D2;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0D47A1;
     }
     .btn-2 {
       margin: 4px;
@@ -36,20 +64,17 @@
       border: none;
       border-radius: 8px;
       text-align: center;
-      display: inline-block;
       text-decoration: none;
     }
     .btn-2:hover {
-      background-color: #1565C0;
+      background-color: #0D47A1;
     }
-    nav a {
+    footer {
+      background-color: #0D47A1;
       color: white;
-      margin: 0 10px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
     }
     .table thead {
       background-color: #1976D2;
@@ -59,101 +84,126 @@
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <h1>EasyTables - Color Converter</h1>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/tools">Tools</a>
+ <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
   </nav>
-</header>
 
-<!-- Color Converter Section -->
-<section class="black-bg">
-  <div class="container">
-    <h2 class="text-center mb-4">Color Converter</h2>
-    <div class="card card-3 p-4">
-      <form>
-        <div class="mb-3">
-          <label class="form-label">HEX (#):</label>
-          <input type="text" class="form-control" placeholder="#000000">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">RGB (R,G,B):</label>
-          <div class="d-flex gap-2">
-            <input type="number" class="form-control" placeholder="R">
-            <input type="number" class="form-control" placeholder="G">
-            <input type="number" class="form-control" placeholder="B">
-          </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">HSV (H,S,V):</label>
-          <div class="d-flex gap-2">
-            <input type="number" class="form-control" placeholder="H°">
-            <input type="number" class="form-control" placeholder="S%">
-            <input type="number" class="form-control" placeholder="V%">
-          </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">HSL (H,S,L):</label>
-          <div class="d-flex gap-2">
-            <input type="number" class="form-control" placeholder="H°">
-            <input type="number" class="form-control" placeholder="S%">
-            <input type="number" class="form-control" placeholder="L%">
-          </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Color Preview:</label>
-          <div style="width:100%;height:40px;border:1px solid #ccc;background:#000;"></div>
-        </div>
-        <button type="button" class="btn btn-primary">Convert</button>
-      </form>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+    <a href="../../index.html">Home </a> <span>></span>
+    <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
+    <a href="#">Temperature Converter</a>
+  </nav>
+
+
+<div class="description">
+  <h2 class="text-center mb-4">Color Converter</h2>
+  <form>
+    <div class="mb-3">
+      <label class="form-label">HEX (#):</label>
+      <input type="text" class="form-control" placeholder="#000000">
     </div>
+    <div class="mb-3">
+      <label class="form-label">RGB (R,G,B):</label>
+      <div class="row">
+        <div class="col"><input type="number" class="form-control" placeholder="R"></div>
+        <div class="col"><input type="number" class="form-control" placeholder="G"></div>
+        <div class="col"><input type="number" class="form-control" placeholder="B"></div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">HSV (H,S,V):</label>
+      <div class="row">
+        <div class="col"><input type="number" class="form-control" placeholder="H°"></div>
+        <div class="col"><input type="number" class="form-control" placeholder="S%"></div>
+        <div class="col"><input type="number" class="form-control" placeholder="V%"></div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">HSL (H,S,L):</label>
+      <div class="row">
+        <div class="col"><input type="number" class="form-control" placeholder="H°"></div>
+        <div class="col"><input type="number" class="form-control" placeholder="S%"></div>
+        <div class="col"><input type="number" class="form-control" placeholder="L%"></div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Color Preview:</label>
+      <div style="width:100%;height:40px;border:1px solid #ccc;background:#000;"></div>
+    </div>
+    <button type="button" class="btn btn-primary">Convert</button>
+  </form>
+</div>
+
+<div class="container my-5">
+  <h3 class="mb-3">Color Code Conversions</h3>
+  <div>
+    <button class="btn-2">CMYK to RGB</button>
+    <button class="btn-2">Hex to RGB</button>
+    <button class="btn-2">HSL to RGB</button>
+    <button class="btn-2">HSV to RGB</button>
+    <button class="btn-2">RGB to CMYK</button>
+    <button class="btn-2">RGB to Hex</button>
+    <button class="btn-2">RGB to HSL</button>
+    <button class="btn-2">RGB to HSV</button>
+    <button class="btn-2">How to convert RGB to Hex</button>
+    <button class="btn-2">How to convert Hex to RGB</button>
   </div>
-</section>
 
-<!-- Conversion Links -->
-<section class="py-5">
-  <div class="container">
-    <h3 class="mb-3">Color Code Conversions</h3>
-    <div>
-      <button class="btn-2">CMYK to RGB</button>
-      <button class="btn-2">Hex to RGB</button>
-      <button class="btn-2">HSL to RGB</button>
-      <button class="btn-2">HSV to RGB</button>
-      <button class="btn-2">RGB to CMYK</button>
-      <button class="btn-2">RGB to Hex</button>
-      <button class="btn-2">RGB to HSL</button>
-      <button class="btn-2">RGB to HSV</button>
-      <button class="btn-2">How to convert RGB to Hex</button>
-      <button class="btn-2">How to convert Hex to RGB</button>
-    </div>
-
-    <h4 class="mt-4">Color Codes Chart</h4>
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped mt-3">
-        <thead>
-          <tr>
-            <th>Color</th>
-            <th>Name</th>
-            <th>Hex</th>
-            <th>RGB</th>
-            <th>HSV</th>
-            <th>HSL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Sample color rows... -->
-        </tbody>
-      </table>
-    </div>
+  <h4 class="mt-4">Color Codes Chart</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped mt-3">
+      <thead>
+        <tr>
+          <th>Color</th>
+          <th>Name</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSV</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sample rows go here -->
+      </tbody>
+    </table>
   </div>
-</section>
+</div>
 
-<!-- Footer -->
 <footer>
-  <p>&copy; 2025 EasyTables. All rights reserved.</p>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a>
+    </p>
+  </div>
 </footer>
-
+<!-- Script -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

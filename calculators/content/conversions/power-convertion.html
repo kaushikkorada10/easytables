@@ -3,154 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Power Conversion - EasyTables</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <title>Power Conversion Calculator - EasyTables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <style>
     body {
       background-color: #F5F5F5;
-      font-family: Arial, sans-serif;
       color: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    header, footer {
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    .description, .see-also {
+      background: white;
+      padding: 20px;
+      border-left: 5px solid #1976D2;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .see-also ul { padding-left: 20px; }
+    .see-also ul li a { text-decoration: none; color: #1976D2; }
+    .see-also ul li a:hover { text-decoration: underline; }
+    footer {
       background-color: #0D47A1;
       color: white;
       padding: 20px 0;
       text-align: center;
+      font-size: 0.9rem;
     }
-    .container {
-      padding: 40px 20px;
-    }
-    .card {
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .btn-2 {
-      margin: 6px;
-      padding: 10px 14px;
-      background-color: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 6px;
+    footer a {
+      color: #FFFFFF;
       text-decoration: none;
+      margin: 0 5px;
     }
-    .btn-2:hover {
-      background-color: #115293;
-    }
-    nav a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .breadcrumb {
-      background-color: transparent;
-      padding: 0;
-      margin-bottom: 20px;
-    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <h1>EasyTables - Power Conversion</h1>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../tools.html">Tools</a>
-    </nav>
-  </div>
-</header>
-
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="../tools.html">Tools</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Power Conversion</li>
-    </ol>
+   <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
   </nav>
 
-  <h2 class="mb-4">Power Conversion</h2>
-  <p>Convert between different power units using this calculator.</p>
+  <!-- Breadcrumbs -->
+  <nav aria-label="breadcrumb" class="bg-light py-2">
+    <div class="container">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../../index.html#Calculators-s">Calculators</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Power Conversion</li>
+      </ol>
+    </div>
+  </nav>
 
-  <div class="card mb-5">
-    <form>
-      <div class="mb-3">
-        <label>Enter milliwatts (mW):</label>
-        <input type="number" class="form-control" placeholder="Enter value in mW">
-      </div>
-      <div class="mb-3">
-        <label>Enter watts (W):</label>
-        <input type="number" class="form-control" placeholder="Enter value in W">
-      </div>
-      <div class="mb-3">
-        <label>Enter kilowatts (kW):</label>
-        <input type="number" class="form-control" placeholder="Enter value in kW">
-      </div>
-      <div class="mb-3">
-        <label>Enter megawatts (MW):</label>
-        <input type="number" class="form-control" placeholder="Enter value in MW">
-      </div>
-      <div class="mb-3">
-        <label>Enter gigawatts (GW):</label>
-        <input type="number" class="form-control" placeholder="Enter value in GW">
-      </div>
-      <div class="mb-3">
-        <label>Enter decibel-milliwatts (dBm):</label>
-        <input type="number" class="form-control" placeholder="Enter value in dBm">
-      </div>
-      <div class="mb-3">
-        <label>Enter decibel-watts (dBW):</label>
-        <input type="number" class="form-control" placeholder="Enter value in dBW">
-      </div>
-      <div class="mb-3">
-        <label>Enter horsepower (mechanic) (hp(I)):</label>
-        <input type="number" class="form-control" placeholder="Enter value in hp(I)">
-      </div>
-      <div class="mb-3">
-        <label>Enter horsepower (electric) (hp(E)):</label>
-        <input type="number" class="form-control" placeholder="Enter value in hp(E)">
-      </div>
-      <div class="mb-3">
-        <label>Enter BTU/hr:</label>
-        <input type="number" class="form-control" placeholder="Enter value in BTU/hr">
-      </div>
-      <button type="button" class="btn btn-primary w-100">Convert</button>
-    </form>
+  <!-- Main Container -->
+  <div class="container my-5">
+    <div class="description">
+      <h2>Power Conversion Calculator</h2>
+      <p>Convert between different power units including Watts, kilowatts, dBm, horsepower, BTU/hr, and more.</p>
+      <form>
+        <div class="form-group">
+          <label for="inputValue">Enter Value:</label>
+          <input type="number" class="form-control" id="inputValue" placeholder="Enter value">
+        </div>
+        <div class="form-group">
+          <label for="fromUnit">From:</label>
+          <select class="form-control" id="fromUnit">
+            <option>mW</option>
+            <option>W</option>
+            <option>kW</option>
+            <option>MW</option>
+            <option>GW</option>
+            <option>dBm</option>
+            <option>dBW</option>
+            <option>hp(I)</option>
+            <option>hp(E)</option>
+            <option>BTU/hr</option>
+            <option>Refrigeration Tons</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="toUnit">To:</label>
+          <select class="form-control" id="toUnit">
+            <option>mW</option>
+            <option>W</option>
+            <option>kW</option>
+            <option>MW</option>
+            <option>GW</option>
+            <option>dBm</option>
+            <option>dBW</option>
+            <option>hp(I)</option>
+            <option>hp(E)</option>
+            <option>BTU/hr</option>
+            <option>Refrigeration Tons</option>
+          </select>
+        </div>
+        <button type="button" onclick="convertPower()" class="btn btn-primary btn-block">Convert</button>
+      </form>
+      <div id="result" class="mt-4 font-weight-bold"></div>
+    </div>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="../electrical/voltage-converter.html">Voltage Converter</a></li>
+        <li><a href="../energy/energy-conversion.html">Energy Conversion</a></li>
+        <li><a href="../mechanical/hp-converter.html">Horsepower Converter</a></li>
+      </ul>
+    </div>
   </div>
 
-  <h3>Power Conversions</h3>
-  <div>
-    <a href="#" class="btn-2">BHP to kW</a>
-    <a href="#" class="btn-2">BTU/hr to kW</a>
-    <a href="#" class="btn-2">dBm to Watts</a>
-    <a href="#" class="btn-2">kW to hp</a>
-    <a href="#" class="btn-2">Watts to BTU/hr</a>
-    <a href="#" class="btn-2">kW to Refrigeration Tons</a>
-    <a href="#" class="btn-2">mW to dBm</a>
-    <a href="#" class="btn-2">hp to kW</a>
-    <a href="#" class="btn-2">kVA to Watts</a>
-    <a href="#" class="btn-2">VA to kW</a>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 EasyTables. All rights reserved. | <a href="../../privacy.html">Privacy Policy</a> | <a href="../../terms.html">Terms of Service</a></p>
+  </footer>
 
-  <h4 class="mt-4">See Also</h4>
-  <div>
-    <a href="#" class="btn-2">Electrical Calculators</a>
-    <a href="#" class="btn-2">Energy Conversion</a>
-    <a href="#" class="btn-2">Voltage Converter</a>
-    <a href="#" class="btn-2">Current Converter</a>
-    <a href="#" class="btn-2">Resistance Converter</a>
-  </div>
-</div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<footer>
-  <p>&copy; 2025 EasyTables. All rights reserved. | <a href="../privacy.html" style="color:white;">Privacy Policy</a> | <a href="../terms.html" style="color:white;">Terms of Service</a></p>
-</footer>
+  <!-- Script -->
+  <script>
+    const conversionFactors = {
+      "mW": 0.001,
+      "W": 1,
+      "kW": 1000,
+      "MW": 1_000_000,
+      "GW": 1_000_000_000,
+      "dBm": (val) => Math.pow(10, val / 10) / 1000,
+      "dBW": (val) => Math.pow(10, val / 10),
+      "hp(I)": 745.7,
+      "hp(E)": 746,
+      "BTU/hr": 0.29307107,
+      "Refrigeration Tons": 3516.8528
+    };
 
+    function convertPower() {
+      const value = parseFloat(document.getElementById("inputValue").value);
+      const from = document.getElementById("fromUnit").value;
+      const to = document.getElementById("toUnit").value;
+      const resultBox = document.getElementById("result");
+
+      if (isNaN(value)) {
+        resultBox.innerText = "Please enter a valid number.";
+        return;
+      }
+
+      let watts;
+      if (typeof conversionFactors[from] === 'function') {
+        watts = conversionFactors[from](value);
+      } else {
+        watts = value * conversionFactors[from];
+      }
+
+      let result;
+      if (typeof conversionFactors[to] === 'function') {
+        if (to === 'dBm') result = 10 * Math.log10(watts * 1000);
+        else if (to === 'dBW') result = 10 * Math.log10(watts);
+        else result = NaN;
+      } else {
+        result = watts / conversionFactors[to];
+      }
+
+      if (isNaN(result)) {
+        resultBox.innerText = `Conversion from ${from} to ${to} is not supported.`;
+      } else {
+        resultBox.innerText = `Converted Value: ${result.toFixed(6)} ${to}`;
+      }
+    }
+  </script>
 </body>
 </html>

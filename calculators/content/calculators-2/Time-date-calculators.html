@@ -1,240 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Time & Date Calculators & Tools - EasyTables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-  <style>
-    body {
-      background-color: #F5F5F5;
-      color: black;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      padding-top: 20px;
-      padding-bottom: 40px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    header {
-      background-color: #0D47A1;
-      padding: 15px 0;
-    }
-    header h1 {
-      color: white;
-      margin: 0 0 10px 0;
-      font-size: 28px;
-      text-align: center;
-      font-weight: 700;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      font-size: 16px;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    .card-3 {
-      background-color: #FFFFFF;
-      border-radius: 10px;
-      padding: 25px 30px;
-      border: 1px solid #E0E0E0;
-      margin-bottom: 30px;
-    }
-    .card-3 h2 {
-      color: #0D47A1;
-      font-size: 26px;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    .card-3 p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .card-3 ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0 0 30px 0;
-      columns: 2;
-      -webkit-columns: 2;
-      -moz-columns: 2;
-    }
-    .card-3 ul li {
-      padding: 8px 0;
-    }
-    .card-3 ul li a {
-      color: #1976D2;
-      text-decoration: none;
-      font-weight: 500;
-      display: inline-block;
-      background-color: #E0E0E0;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-      font-size: 15px;
-    }
-    .card-3 ul li a:hover {
-      background-color: #D0D0D0;
-    }
-    .breadcrumb {
-      background-color: transparent;
-      padding-left: 0;
-      margin-bottom: 20px;
-    }
-    footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Time & Date Calculators & Tools - Easy Tables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .nav-bg {
+        background-color: #0D47A1;
+      }
+      .nav-h1-color {
+        color: white;
+        font-family: "Roboto";
+        font-size: 2rem;
+      }
+      #navItem2 {
+        color: white;
+        font-family: "Roboto";
+      }
+      #navItem2:hover {
+        text-decoration: underline;
+      }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3,
+      .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .see-also ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .see-also ul li {
+        margin-bottom: 8px;
+      }
+      .see-also a {
+        color: #1976D2;
+        text-decoration: none;
+      }
+      .see-also a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" id="navItem2" href="#">Home</a>
+            <a class="nav-link" href="#" id="navItem2">Calculators</a>
+            <a class="nav-link" href="#" id="navItem2">Converters</a>
+            <a class="nav-link" href="#" id="navItem2">Math</a>
+            <a class="nav-link" href="#" id="navItem2">Electricity</a>
+          </div>
+        </div>
+      </div>
     </nav>
-  </div>
-</header>
+    <br />
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <a href="#">Home</a> <span>›</span>
+      <a href="#">Date & Time Tools</a> <span>›</span>
+      <a href="#">Time & Date Calculators</a>
+    </nav>
 
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Tools</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Time & Date Calculators</li>
-    </ol>
-  </nav>
+    <div class="description">
+      <h3>Time & Date Calculators & Tools</h3>
+<ul>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /age-calculator.html">Age calculator</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /alarm-clock.html">Alarm calculator</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /alaska-time-now.html">Alaska time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /bangkok-time-now.html">Bangkok time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /beijing-time-now.html">Beijing time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /birthday-calculator.html">Birthday calculator</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /bst-time-now.html">BST time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /california-time-now.html">California time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /central-time-now.html">Central time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /chicago-time-now.html">Chicago time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /china-time-now.html">China time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /date-calculator.html">Date calculator</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /eastern-time-now.html">Eastern time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /edt-time-now.html">EDT time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /gmt-time-now.html">GMT time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /hawaii-time-now.html">Hawaii time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /hong-kong-time-now.html">Hong Kong time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /houston-time-now.html">Houston time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /india-time-now.html">India time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /japan-time-now.html">Japan time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /los-angeles-time-now.html">Los Angeles time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /mountain-time-now.html">Mountain time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /mumbai-time-now.html">Mumbai time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /nepal-time-now.html">Nepal time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /new-delhi-time-now.html">New Delhi time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /new-york-time-now.html">New York time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /pacific-time-now.html">Pacific time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /pakistan-time-now.html">Pakistan time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /philippines-time-now.html">Philippines time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /phoenix-time-now.html">Phoenix time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /seoul-time-now.html">Seoul time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /singapore-time-now.html">Singapore time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /south-korea-time-now.html">South Korea time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /taiwan-time-now.html">Taiwan time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /thailand-time-now.html">Thailand time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /time-calculator.html">Time calculator</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /tokyo-time-now.html">Tokyo time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /united-kingdom-time-now.html">United Kingdom time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /usa-time-now.html">USA time now</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/time-toolsl3 /utc-time-now.html">UTC time now</a></li>
+</ul>
 
-  <div class="card-3">
-    <h2>Time & Date Calculators & Tools</h2>
-    <p>Various online tools and calculators related to time zones, dates, clocks, and duration calculations.</p>
-    <ul>
-      <li><a href="#">Date calculator</a></li>
-      <li><a href="#">Time calculator</a></li>
-      <li><a href="#">Age calculator</a></li>
-      <li><a href="#">Birthday calculator</a></li>
-      <li><a href="#">Alaska time now</a></li>
-      <li><a href="#">Bangkok time now</a></li>
-      <li><a href="#">Beijing time now</a></li>
-      <li><a href="#">BST time now</a></li>
-      <li><a href="#">California time now</a></li>
-      <li><a href="#">Central time now</a></li>
-      <li><a href="#">Chicago time now</a></li>
-      <li><a href="#">China time now</a></li>
-      <li><a href="#">Eastern time now</a></li>
-      <li><a href="#">EDT time now</a></li>
-      <li><a href="#">GMT time now</a></li>
-      <li><a href="#">Hawaii time now</a></li>
-      <li><a href="#">Hong Kong time now</a></li>
-      <li><a href="#">Houston time now</a></li>
-      <li><a href="#">India time now</a></li>
-      <li><a href="#">IST time now</a></li>
-      <li><a href="#">Japan time now</a></li>
-      <li><a href="#">Los Angeles time now</a></li>
-      <li><a href="#">Mountain time now</a></li>
-      <li><a href="#">Mumbai time now</a></li>
-      <li><a href="#">Nepal time now</a></li>
-      <li><a href="#">New Delhi time now</a></li>
-      <li><a href="#">New York time now</a></li>
-      <li><a href="#">Pakistan time now</a></li>
-      <li><a href="#">Philippines time now</a></li>
-      <li><a href="#">Phoenix time now</a></li>
-      <li><a href="#">Pacific time now</a></li>
-      <li><a href="#">PDT time now</a></li>
-      <li><a href="#">Seoul time now</a></li>
-      <li><a href="#">Singapore time now</a></li>
-      <li><a href="#">South Korea time now</a></li>
-      <li><a href="#">Taiwan time now</a></li>
-      <li><a href="#">Thailand time now</a></li>
-      <li><a href="#">Tokyo time now</a></li>
-      <li><a href="#">United Kingdom time now</a></li>
-      <li><a href="#">USA time now</a></li>
-      <li><a href="#">UTC time now</a></li>
-      <li><a href="#">DST - When do the clocks change</a></li>
-      <li><a href="#">DST - When do the clocks go back</a></li>
-      <li><a href="#">DST - When do the clocks go forward</a></li>
-      <li><a href="#">How many days are in a year</a></li>
-      <li><a href="#">How many hours are in a week</a></li>
-      <li><a href="#">How many hours are in a year</a></li>
-      <li><a href="#">How many seconds are in a day</a></li>
-      <li><a href="#">How many seconds are in an hour</a></li>
-      <li><a href="#">How many seconds are in a year</a></li>
-      <li><a href="#">How many weeks are in a month</a></li>
-      <li><a href="#">How many weeks are in a year</a></li>
-      <li><a href="#">Months of the year</a></li>
-      <li><a href="#">Alarm Clock</a></li>
-      <li><a href="#">Calendar</a></li>
-      <li><a href="#">Countdown Timer</a></li>
-      <li><a href="#">Current Time</a></li>
-      <li><a href="#">Stopwatch</a></li>
-      <li><a href="#">Today's Date</a></li>
-    </ul>
-  </div>
 
-  <div class="card-3 mt-4">
-    <h3>See Also</h3>
-    <ul>
-      <li><a href="#">Timezone Converter</a></li>
-      <li><a href="#">Leap Year Checker</a></li>
-      <li><a href="#">Daylight Saving Tools</a></li>
-    </ul>
-  </div>
-</div>
 
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">About</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
 
-</body>
+    </div>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">World Clock</a></li>
+        <li><a href="#">Leap Year Calculator</a></li>
+        <li><a href="#">Unix Timestamp Converter</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+        </p>
+        <p>
+          © EasyTables.com |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

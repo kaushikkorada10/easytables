@@ -1,351 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wire Gauge Calculators - EasyTables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-  <style>
-    body {
-      background-color: #F5F5F5;
-      color: black;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      padding-top: 20px;
-      padding-bottom: 40px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    header {
-      background-color: #0D47A1;
-      padding: 15px 0;
-    }
-    header h1 {
-      color: white;
-      margin: 0 0 10px 0;
-      font-size: 28px;
-      text-align: center;
-      font-weight: 700;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      font-size: 16px;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    .card-3 {
-      background-color: #FFFFFF;
-      border-radius: 10px;
-      padding: 25px 30px;
-      border: 1px solid #E0E0E0;
-      margin-bottom: 30px;
-    }
-    .card-3 h2 {
-      color: #0D47A1;
-      font-size: 26px;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    .card-3 p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .card-3 ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0 0 30px 0;
-    }
-    .card-3 ul li {
-      padding: 8px 0;
-    }
-    .card-3 ul li a {
-      color: #1976D2;
-      text-decoration: none;
-      font-weight: 500;
-      display: inline-block;
-      background-color: #E0E0E0;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-      font-size: 15px;
-    }
-    .card-3 ul li a:hover {
-      background-color: #D0D0D0;
-    }
-    .see-also {
-      border-top: 1px solid #E0E0E0;
-      padding-top: 20px;
-    }
-    .see-also h3 {
-      color: #0D47A1;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    .see-also ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0;
-      columns: 2;
-      -webkit-columns: 2;
-      -moz-columns: 2;
-    }
-    .see-also ul li {
-      padding: 6px 0;
-    }
-    .see-also ul li a {
-      color: #1976D2;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-      font-size: 15px;
-    }
-    .see-also ul li a:hover {
-      text-decoration: underline;
-    }
-    .breadcrumb {
-      background-color: transparent;
-      padding-left: 0;
-      margin-bottom: 20px;
-    }
-    footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wire Gauge Calculators - Easy Tables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .nav-bg {
+        background-color: #0D47A1;
+      }
+      .nav-h1-color {
+        color: white;
+        font-family: "Roboto";
+        font-size: 2rem;
+      }
+      #navItem2 {
+        color: white;
+        font-family: "Roboto";
+      }
+      #navItem2:hover {
+        text-decoration: underline;
+      }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3,
+      .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .see-also ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .see-also ul li {
+        margin-bottom: 8px;
+      }
+      .see-also a {
+        color: #1976D2;
+        text-decoration: none;
+      }
+      .see-also a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" id="navItem2" href="#">Home</a>
+            <a class="nav-link" href="#" id="navItem2">Calculators</a>
+            <a class="nav-link" href="#" id="navItem2">Converters</a>
+            <a class="nav-link" href="#" id="navItem2">Math</a>
+            <a class="nav-link" href="#" id="navItem2">Electricity</a>
+          </div>
+        </div>
+      </div>
     </nav>
-  </div>
-</header>
+    <br />
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <a href="easytables/index.html">Home</a> <span>›</span>
+      <a href="#">Electrical Calculators</a> <span>›</span>
+      <a href="#">Wire Gauge Calculators</a>
+    </nav>
 
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Electricity</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Wire Gauge Calculators</li>
-    </ol>
-  </nav>
-
-  <div class="card-3">
-    <h2>Wire Gauge Calculators</h2>
-    <p>Calculate wire sizes, voltage drops, and conversions between wire gauge standards.</p>
-    <ul>
-      <li><a href="#">Wire gauge calculator</a></li>
-      <li><a href="#">AWG to mm calculator</a></li>
-      <li><a href="#">SWG to mm calculator</a></li>
-      <li><a href="#">Voltage drop calculator</a></li>
-      <li><a href="#">#2 gauge wire</a></li>
-    </ul>
-  </div>
-
-  <div class="card-3 see-also">
-    <h3>See Also</h3>
-    <ul>
-      <li><a href="#">Inches to mm</a></li>
-      <li><a href="#">mm to inches</a></li>
-      <li><a href="#">Electrical calculators</a></li>
-      <li><a href="#">Lighting calculators</a></li>
-      <li><a href="#">Power conversions</a></li>
-      <li><a href="#">Energy conversions</a></li>
-      <li><a href="#">Voltage conversion</a></li>
-      <li><a href="#">Charge conversion</a></li>
-      <li><a href="#">Frequency conversion</a></li>
-      <li><a href="#">Math calculators</a></li>
-      <li><a href="#">Electrical & electronic formulas</a></li>
-    </ul>
     <div class="description">
       <h3>Wire Gauge Calculators</h3>
-      <p>Wire gauge calculators are essential tools used in electrical, automotive, and engineering fields to determine the thickness (or diameter) of a wire. These calculators simplify the process of selecting appropriate wire sizes for specific current loads, voltage drops, or resistance values. They are especially valuable when working with the American Wire Gauge (AWG) system, which standardizes wire diameters used in North America.</p>
-    
-      <h4>What is Wire Gauge?</h4>
-      <p>Wire gauge refers to the physical size of the wire, defined by its diameter and cross-sectional area. In the AWG system, a lower gauge number corresponds to a thicker wire, while a higher gauge number indicates a thinner wire. For example, AWG 10 is much thicker than AWG 24.</p>
-    
-      <h4>Why Wire Gauge Matters</h4>
+      <p>Explore various tools related to wire gauge conversions and measurements:</p>
       <ul>
-        <li><strong>Safety:</strong> Choosing the correct gauge prevents overheating and potential fire hazards.</li>
-        <li><strong>Efficiency:</strong> Correct sizing minimizes power loss due to resistance.</li>
-        <li><strong>Cost:</strong> Thicker wires are more expensive; calculators help avoid over-specifying.</li>
-        <li><strong>Compliance:</strong> Many codes and standards specify minimum gauge requirements.</li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/wire-gaugel3/wire-gauge.html">Wire Gauge Calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/wire-gaugel3/awg-mm.html">AWG to mm Calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/wire-gaugel3/swg-mm.html">SWG to mm Calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/wire-gaugel3/voltage-drop.html">Voltage Drop Calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/wire-gaugel3/2-Gauge-Wire.html">#2 Gauge Wire</a></li>
       </ul>
-    
-      <h4>How Wire Gauge Calculators Work</h4>
-      <p>These tools require inputs such as:</p>
-      <ul>
-        <li>Current in Amperes (A)</li>
-        <li>Voltage (V)</li>
-        <li>Circuit length (ft or m)</li>
-        <li>Acceptable voltage drop (%)</li>
-      </ul>
-      <p>Using formulas derived from Ohm’s Law and resistance tables, the calculator suggests the appropriate gauge for the wire material—typically copper or aluminum.</p>
-    
-      <h4>Common Use Cases</h4>
-      <ul>
-        <li><strong>Residential wiring:</strong> Lighting, sockets, HVAC systems</li>
-        <li><strong>Automotive systems:</strong> Battery cables, sound systems</li>
-        <li><strong>Industrial panels:</strong> Motor and transformer wiring</li>
-        <li><strong>DIY electronics:</strong> Raspberry Pi, Arduino, and circuit boards</li>
-      </ul>
-    
-      <h4>Conversion Features</h4>
-      <p>Some advanced calculators allow:</p>
-      <ul>
-        <li>Conversion between AWG and metric mm²</li>
-        <li>Resistance per foot/meter at various temperatures</li>
-        <li>Voltage drop estimates across long distances</li>
-        <li>Maximum safe current ratings for given insulation types</li>
-      </ul>
-    
-      <h4>Key Wire Materials</h4>
-      <p>The two most common wire materials considered in calculators are:</p>
-      <ul>
-        <li><strong>Copper:</strong> Higher conductivity, flexible, widely used</li>
-        <li><strong>Aluminum:</strong> Lighter and cheaper but less conductive</li>
-      </ul>
-    
-      <h4>Accuracy and Reference Standards</h4>
-      <p>Most wire gauge calculators follow NEC (National Electrical Code) or IEC (International Electrotechnical Commission) standards. Reliable tools reference AWG and SWG (Standard Wire Gauge) charts for accuracy.</p>
-    
-      <h4>Real-World Tips</h4>
-      <ul>
-        <li>Always round up to the nearest thicker gauge for safety.</li>
-        <li>Use copper when wire flexibility and conductivity are crucial.</li>
-        <li>When voltage drop matters (e.g., solar or marine), use calculators that factor in distance.</li>
-        <li>Be cautious with extension cords; undersized cords can overheat.</li>
-      </ul>
-    
-      <h4>Digital Integration</h4>
-      <p>Online tools, mobile apps, and embedded widgets offer accessible wire gauge calculations. Some software packages also integrate wire sizing with CAD designs and simulation tools for advanced engineering purposes.</p>
-    
-      <h4>Conclusion</h4>
-      <p>Wire gauge calculators help simplify complex engineering decisions, ensuring electrical safety, performance, and code compliance. Whether you're an electrician, student, hobbyist, or engineer, this tool streamlines the wire selection process—backed by data, standards, and ease of use.</p>
     </div>
-    <div class="description">
-      <h3>Wire Gauge Calculators</h3>
-      <p>Wire gauge calculators are essential tools for determining the correct wire size based on current, voltage, and length. These calculators help prevent overheating, ensure safety, and improve efficiency in electrical installations by selecting wires that can handle the required load without excessive resistance or voltage drop.</p>
-    
-      <h4>Why Wire Gauge Matters</h4>
-      <p>The wire gauge affects the resistance, current-carrying capacity, and voltage drop in an electrical circuit. Using an incorrect gauge can lead to overheating, power loss, equipment damage, or even fire. That's why electricians and engineers rely on accurate wire gauge calculations for planning and execution.</p>
-    
-      <h4>How the Calculator Works</h4>
-      <p>A typical wire gauge calculator takes input values such as:</p>
+
+    <div class="see-also">
+      <h4>See Also</h4>
       <ul>
-        <li>Current (in amperes)</li>
-        <li>Voltage (in volts)</li>
-        <li>Length of the wire run (in feet or meters)</li>
-        <li>Material type (copper or aluminum)</li>
-        <li>Allowable voltage drop (as a percentage or value)</li>
+        <li><a href="#">Ohm's Law Calculator</a></li>
+        <li><a href="#">Resistor Color Code Calculator</a></li>
+        <li><a href="#">Amps to Watts Calculator</a></li>
       </ul>
-      <p>It then calculates the appropriate American Wire Gauge (AWG) or cross-sectional area required for safe operation.</p>
-    
-      <h4>Common Applications</h4>
-      <ul>
-        <li><strong>Residential wiring:</strong> For household circuits like lighting, air conditioners, and kitchen appliances.</li>
-        <li><strong>Automotive applications:</strong> Choosing wire size for car stereos, headlights, or battery cables.</li>
-        <li><strong>Solar installations:</strong> Determining correct cable size between solar panels, inverters, and batteries.</li>
-        <li><strong>Industrial setups:</strong> Long cable runs for motors, HVAC, or machinery.</li>
-      </ul>
-    
-      <h4>Voltage Drop Consideration</h4>
-      <p>Voltage drop is a critical factor when sizing wires. A high voltage drop can lead to equipment malfunction or reduced performance. The calculator helps ensure voltage drop stays within safe limits, usually below 3% for branch circuits and 5% for feeders.</p>
-    
-      <h4>Wire Gauge Standards</h4>
-      <p>Different standards are used globally:</p>
-      <ul>
-        <li><strong>AWG (American Wire Gauge):</strong> Common in the United States and Canada. Lower AWG numbers mean thicker wire.</li>
-        <li><strong>SWG (Standard Wire Gauge):</strong> Used in the UK.</li>
-        <li><strong>Metric (mm²):</strong> Used in Europe, Asia, and international systems.</li>
-      </ul>
-    
-      <h4>Material Differences: Copper vs. Aluminum</h4>
-      <p>Copper has higher conductivity than aluminum. Therefore, for the same current capacity, an aluminum wire needs a larger cross-section than a copper wire. The calculator adjusts for this automatically when the material is specified.</p>
-    
-      <h4>Insulation and Temperature Ratings</h4>
-      <p>Wire gauge isn't the only concern—insulation and temperature ratings also matter. A wire that runs through a hot attic may require a different gauge or insulation type than one in a cool, shaded conduit. Always check National Electrical Code (NEC) or local regulations for accurate derating factors.</p>
-    
-      <h4>Advanced Use Cases</h4>
-      <ul>
-        <li><strong>Marine wiring:</strong> Boats require low-voltage DC wiring with minimal loss over long distances.</li>
-        <li><strong>Audio/Visual setups:</strong> Speaker wires, amplifier power cables, and low-resistance paths.</li>
-        <li><strong>Battery banks and backup systems:</strong> High-current applications in limited space.</li>
-        <li><strong>Data centers:</strong> Power distribution units and rack-mounted power systems.</li>
-      </ul>
-    
-      <h4>Tips for Using Wire Gauge Calculators</h4>
-      <ul>
-        <li>Measure wire run length carefully, including return path (for DC circuits).</li>
-        <li>Include surge margins to handle occasional current spikes.</li>
-        <li>Always use standard wire sizes as per national codes.</li>
-        <li>Account for ambient temperature and bundling when applicable.</li>
-        <li>Verify output against wire capacity charts for additional safety.</li>
-      </ul>
-    
-      <h4>Conclusion</h4>
-      <p>Wire gauge calculators streamline electrical planning, reduce design errors, and support safe installation practices. Whether you're installing a home theater, wiring a solar array, or setting up an industrial control panel, a wire gauge calculator ensures your wires perform reliably without risking failure. They’re indispensable tools for every electrician, engineer, or DIYer dealing with electricity.</p>
     </div>
-        
-  </div>
-</div>
 
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">About</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
-
-</body>
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+        </p>
+        <p>
+          © EasyTables.com |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

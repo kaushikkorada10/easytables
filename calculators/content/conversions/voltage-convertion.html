@@ -4,191 +4,166 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Voltage Converter - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F5F5F5;
-      color: black;
-    }
-    header, footer {
+    body { background-color: #F5F5F5; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
       background-color: #0D47A1;
       color: white;
-      padding: 15px 20px;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    header h1 {
-      margin: 0;
-      font-weight: bold;
-    }
-    nav ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    nav ul li a {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav ul li a:hover {
-      background-color: #1976D2;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
-    main.container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 25px 30px;
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 12px;
-    }
-    .converter label, .converter input, .converter select {
-      display: block;
-      margin: 12px 0 4px;
-      width: 100%;
-    }
-    .converter input, .converter select {
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #1976D2;
-      background: white;
-      color: black;
-    }
-    .converter button {
-      margin-top: 20px;
-      padding: 12px;
-      width: 100%;
-      background: #1976D2;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .converter button:hover {
-      background: #0D47A1;
-    }
-    .section h3 {
-      margin-top: 30px;
-      color: #0D47A1;
-    }
-    .btn-2 {
-      display: inline-block;
-      margin: 6px;
-      padding: 10px 14px;
-      background: white;
-      border: 1px solid #1976D2;
-      border-radius: 6px;
-      color: black;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .btn-2:hover {
-      background-color: #1976D2;
-      color: white;
-    }
-    footer {
-      font-size: 0.9em;
+      padding: 20px 0;
       text-align: center;
-      border-top: 1px solid #E0E0E0;
-      margin-top: 50px;
+      font-size: 0.9rem;
     }
-    footer a {
-      color: white;
-      text-decoration: none;
+    footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    .description h3, .see-also h4 { color: #0D47A1; margin-bottom: 10px; }
+    .see-also ul { list-style: none; padding-left: 0; }
+    .see-also ul li { margin-bottom: 8px; }
+    .see-also a { color: #1976D2; text-decoration: none; }
+    .see-also a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-<main class="container">
-  <p><strong>Home > Converters > Voltage Converter</strong></p>
-  <h2>Voltage Converter</h2>
-  <p>Voltage unit conversion tool for engineers, students, and technicians.</p>
+<!-- Breadcrumb -->
+<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+  <a href="../../index.html">Home </a> <span>></span>
+  <a href="../../index.html#Calculators-s">Converters</a> <span>></span>
+  <a href="#">Voltage Converter</a>
+</nav>
 
-  <div class="converter">
-    <label for="voltageValue">Enter voltage</label>
-    <input type="number" id="voltageValue" placeholder="Enter voltage">
+<!-- Description -->
+<div class="description">
+  <h3>Voltage Converter</h3>
+  <p>Convert between voltage units including microvolts, millivolts, volts, kilovolts, megavolts, and gigavolts.</p>
+  <form>
+    <div class="form-group">
+      <label for="voltageValue">Enter Voltage:</label>
+      <input type="number" class="form-control" id="voltageValue" placeholder="Enter value">
+    </div>
+    <div class="form-group">
+      <label for="voltageFrom">From:</label>
+      <select class="form-control" id="voltageFrom">
+        <option value="uV">Microvolts (µV)</option>
+        <option value="mV">Millivolts (mV)</option>
+        <option value="V">Volts (V)</option>
+        <option value="kV">Kilovolts (kV)</option>
+        <option value="MV">Megavolts (MV)</option>
+        <option value="GV">Gigavolts (GV)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="voltageTo">To:</label>
+      <select class="form-control" id="voltageTo">
+        <option value="uV">Microvolts (µV)</option>
+        <option value="mV">Millivolts (mV)</option>
+        <option value="V">Volts (V)</option>
+        <option value="kV">Kilovolts (kV)</option>
+        <option value="MV">Megavolts (MV)</option>
+        <option value="GV">Gigavolts (GV)</option>
+      </select>
+    </div>
+    <button type="button" onclick="convertVoltage()" class="btn btn-primary btn-block">Convert</button>
+  </form>
+  <div id="result" class="mt-4 font-weight-bold"></div>
+</div>
 
-    <label for="voltageFrom">From</label>
-    <select id="voltageFrom">
-      <option value="uV">Microvolts (µV)</option>
-      <option value="mV">Millivolts (mV)</option>
-      <option value="V">Volts (V)</option>
-      <option value="kV">Kilovolts (kV)</option>
-      <option value="MV">Megavolts (MV)</option>
-      <option value="GV">Gigavolts (GV)</option>
-    </select>
+<!-- See Also -->
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="#">Volts to Microvolts (µV)</a></li>
+    <li><a href="#">Volts to Millivolts (mV)</a></li>
+    <li><a href="#">Volts to Kilovolts (kV)</a></li>
+    <li><a href="#">Volts to Megavolts (MV)</a></li>
+    <li><a href="#">Volts to Gigavolts (GV)</a></li>
+  </ul>
+</div>
 
-    <label for="voltageTo">To</label>
-    <select id="voltageTo">
-      <option value="uV">Microvolts (µV)</option>
-      <option value="mV">Millivolts (mV)</option>
-      <option value="V">Volts (V)</option>
-      <option value="kV">Kilovolts (kV)</option>
-      <option value="MV">Megavolts (MV)</option>
-      <option value="GV">Gigavolts (GV)</option>
-    </select>
-
-    <button type="button">Convert</button>
-  </div>
-
-  <div class="section">
-    <h3>See Also</h3>
-    <a href="#" class="btn-2">Volts to Microvolts (µV)</a>
-    <a href="#" class="btn-2">Volts to Millivolts (mV)</a>
-    <a href="#" class="btn-2">Volts to Kilovolts (kV)</a>
-    <a href="#" class="btn-2">Volts to Megavolts (MV)</a>
-    <a href="#" class="btn-2">Volts to Gigavolts (GV)</a>
-    <a href="#" class="btn-2">Microvolts to Volts</a>
-    <a href="#" class="btn-2">Millivolts to Volts</a>
-    <a href="#" class="btn-2">Kilovolts to Volts</a>
-    <a href="#" class="btn-2">Megavolts to Volts</a>
-    <a href="#" class="btn-2">Gigavolts to Volts</a>
-  </div>
-</main>
-
+<!-- Footer -->
 <footer>
   <div class="container">
     <p>
-      <a href="#">Link to Us</a> | <a href="#">Recommend Site</a> | <a href="#">Send Feedback</a> | <a href="#">About</a>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
     </p>
     <p>
-      © EasyTables.com | <a href="#">About</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a>
+      © EasyTables.com |
+      <a href="#">About</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
     </p>
   </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>
+  function convertVoltage() {
+    const value = parseFloat(document.getElementById("voltageValue").value);
+    const from = document.getElementById("voltageFrom").value;
+    const to = document.getElementById("voltageTo").value;
+    const resultBox = document.getElementById("result");
+
+    if (isNaN(value)) {
+      resultBox.innerText = "Please enter a valid number.";
+      return;
+    }
+
+    const unitFactors = {
+      uV: 1e-6,
+      mV: 1e-3,
+      V: 1,
+      kV: 1e3,
+      MV: 1e6,
+      GV: 1e9
+    };
+
+    const volts = value * unitFactors[from];
+    const converted = volts / unitFactors[to];
+
+    const toLabel = document.getElementById("voltageTo").options[document.getElementById("voltageTo").selectedIndex].text;
+    resultBox.innerText = `Converted Value: ${converted.toFixed(6)} ${toLabel}`;
+  }
+</script>
 
 </body>
 </html>

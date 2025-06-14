@@ -1,233 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Electrical Calculations - EasyTables</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <title>Energy Conversion Calculator - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
-    body {
-      background-color: #F5F5F5;
-      font-family: Arial, sans-serif;
-      color: black;
-    }
-    header {
-      background-color: #0D47A1;
-      padding: 15px 0;
-    }
-    header h1 {
-      color: white;
-      margin: 0 0 10px 0;
-      font-size: 28px;
-      text-align: center;
-      font-weight: 700;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      transition: color 0.3s;
-      font-size: 16px;
-    }
-    nav ul li a:hover {
-      color: #1976D2;
-    }
-    .breadcrumb {
-      background-color: transparent;
-      padding: 10px 0;
-      margin-bottom: 0;
-    }
-    .card-3 {
-      border-radius: 10px;
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .btn-2 {
-      margin: 4px;
-      padding: 8px 16px;
-      background-color: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-align: center;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .btn-2:hover {
-      background-color: #0D47A1;
-    }
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
     footer {
       background-color: #0D47A1;
-      color: #fff;
+      color: white;
       padding: 20px 0;
       text-align: center;
-      font-size: 14px;
+      font-size: 0.9rem;
     }
     footer a {
-      color: #FFF;
+      color: #FFFFFF;
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-      transition: color 0.3s;
+      margin: 0 5px;
     }
-    footer a:hover {
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+    .see-also a {
       color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
       text-decoration: underline;
     }
+    input[type="number"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #result {
+      font-weight: bold;
+      color: #0D47A1;
+      margin-top: 15px;
+    }
   </style>
+  <script>
+    function convertEnergy() {
+      const wh = parseFloat(document.getElementById("wh").value) || 0;
+      const kWh = wh / 1000;
+      const MWh = wh / 1e6;
+      const J = wh * 3600;
+      const kJ = J / 1000;
+      const MJ = kJ / 1000;
+      const GJ = MJ / 1000;
+      const BTU = wh * 3.41214;
+      const kBTU = BTU / 1000;
+
+      document.getElementById("result").innerHTML =
+        "kWh: " + kWh.toFixed(6) + "<br>" +
+        "MWh: " + MWh.toFixed(6) + "<br>" +
+        "Joules: " + J.toFixed(2) + "<br>" +
+        "kJ: " + kJ.toFixed(2) + "<br>" +
+        "MJ: " + MJ.toFixed(6) + "<br>" +
+        "GJ: " + GJ.toFixed(6) + "<br>" +
+        "BTU: " + BTU.toFixed(2) + "<br>" +
+        "kBTU: " + kBTU.toFixed(2);
+    }
+  </script>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Calculators</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Electrical Calculations</li>
-    </ol>
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="#"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="#">Home</a>
+          <a class="nav-link" href="#" id="navItem2">Calculators</a>
+          <a class="nav-link" href="#" id="navItem2">Converters</a>
+          <a class="nav-link" href="#" id="navItem2">Math</a>
+          <a class="nav-link" href="#" id="navItem2">Electricity</a>
+        </div>
+      </div>
+    </div>
   </nav>
 
-  <div class="card-3 mt-4">
-    <h2 class="text-center mb-4">Electrical Calculations</h2>
-    <p class="mb-3">Choose a calculation:</p>
-    <div>
-      <button class="btn-2">1 amps to watts</button>
-      <button class="btn-2">1 watt to amps</button>
-      <button class="btn-2">2 amps to watts</button>
-      <button class="btn-2">3 amps to watts</button>
-      <button class="btn-2">10 amps to watts</button>
-      <button class="btn-2">15 amps to watts</button>
-      <button class="btn-2">100 amps to watts</button>
-      <button class="btn-2">100 watts to amps</button>
-      <button class="btn-2">500 watts to amps</button>
-      <button class="btn-2">600 watts to amps</button>
-      <button class="btn-2">800 watts to amps</button>
-      <button class="btn-2">1000 watts to amps</button>
-      <button class="btn-2">1200 watts to amps</button>
-      <button class="btn-2">2000 watts to amps</button>
-      <button class="btn-2">Ah to mAh</button>
-      <button class="btn-2">Amps to kVA</button>
-      <button class="btn-2">Amps to mA</button>
-      <button class="btn-2">Amps to kW</button>
-      <button class="btn-2">Amps to ohms</button>
-      <button class="btn-2">Amps to VA</button>
-      <button class="btn-2">Amps to volts</button>
-      <button class="btn-2">Amps to watts</button>
-      <button class="btn-2">dB converter</button>
-      <button class="btn-2">eV to volts</button>
-      <button class="btn-2">Joules to kW</button>
-      <button class="btn-2">Joules to volts</button>
-      <button class="btn-2">Joules to watts</button>
-      <button class="btn-2">kW to amps</button>
-      <button class="btn-2">kJ to kW</button>
-      <button class="btn-2">kJ to watts</button>
-      <button class="btn-2">kVA to amps</button>
-      <button class="btn-2">kW to kVA</button>
-      <button class="btn-2">kW to joules</button>
-      <button class="btn-2">kVA to kW</button>
-      <button class="btn-2">kVA to VA</button>
-      <button class="btn-2">kVA to watts</button>
-      <button class="btn-2">kW to kJ</button>
-      <button class="btn-2">kW to kWh</button>
-      <button class="btn-2">kW to VA</button>
-      <button class="btn-2">kW to volts</button>
-      <button class="btn-2">kW to Wh</button>
-      <button class="btn-2">kWh to kW</button>
-      <button class="btn-2">kWh to watts</button>
-      <button class="btn-2">Lumens to watts</button>
-      <button class="btn-2">Lumens to lux</button>
-      <button class="btn-2">Lux to lumens</button>
-      <button class="btn-2">mA to amps</button>
-      <button class="btn-2">mAh to Ah</button>
-      <button class="btn-2">mAh to Wh</button>
-      <button class="btn-2">Ohms to amps</button>
-      <button class="btn-2">Ohms to volts</button>
-      <button class="btn-2">VA to amps</button>
-      <button class="btn-2">VA to watts</button>
-      <button class="btn-2">VA to kVA</button>
-      <button class="btn-2">VA to kW</button>
-      <button class="btn-2">Volts to amps</button>
-      <button class="btn-2">Volts to joules</button>
-      <button class="btn-2">Volts to kW</button>
-      <button class="btn-2">Volts to ohms</button>
-      <button class="btn-2">Volts to eV</button>
-      <button class="btn-2">Volts to watts</button>
-      <button class="btn-2">Watts to amps</button>
-      <button class="btn-2">Watts to joules</button>
-      <button class="btn-2">Watts to volts</button>
-      <button class="btn-2">Watts to VA</button>
-      <button class="btn-2">Watts to kVA</button>
-      <button class="btn-2">Watts to kWh</button>
-      <button class="btn-2">Watts to kJ</button>
-      <button class="btn-2">Watts to lumens</button>
-      <button class="btn-2">Watts to Wh</button>
-      <button class="btn-2">Wh to kW</button>
-      <button class="btn-2">Wh to mAh</button>
-      <button class="btn-2">Wh to watts</button>
+  <br/>
+  <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="#">Home</a> <span>›</span>
+    <a href="#">Electricity Calculators</a> <span>›</span>
+    <a href="#">Energy Conversion</a>
+  </nav>
+
+  <div class="description">
+    <h3>Energy Conversion</h3>
+    <p>Energy conversion calculator - convert energy units.</p>
+    <p>Enter watt-hour (Wh) value below and click "Convert":</p>
+    <input type="number" id="wh" placeholder="Enter energy in Wh">
+    <button class="btn btn-primary" onclick="convertEnergy()">Convert</button>
+    <div id="result"></div>
+  </div>
+
+  <div class="see-also">
+    <h4>Conversion</h4>
+<ul>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/btu-to-joules-conversion.html">BTU to Joules conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/btu-to-kj-conversion.html">BTU to kJ conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/btu-to-kwh-conversion.html">BTU to kWh conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/calories-to-joules-conversion.html">Calories to Joules conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/calories-to-kj-conversion.html">Calories to kJ conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/calories-to-kcal-conversion.html">Calories to kcal conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/gev-to-ev-conversion.html">GeV to eV conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/joules-to-btu-conversion.html">Joules to BTU conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/joules-to-calories-conversion.html">Joules to Calories conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/joules-to-kj-conversion.html">Joules to kJ conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/joules-to-kwh-conversion.html">Joules to kWh conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/joules-to-kcal-conversion.html">Joules to kcal conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/joules-to-ev-conversion.html">Joules to eV conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/mev-to-ev-conversion.html">MeV to eV conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/ev-to-gev-conversion.html">eV to GeV conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/ev-to-mev-conversion.html">eV to MeV conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/ev-to-kev-conversion.html">eV to keV conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/ev-to-joules-conversion.html">eV to joules conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kj-to-btu-conversion.html">kJ to BTU conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kj-to-joules-conversion.html">kJ to Joules conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kj-to-calories-conversion.html">kJ to calories conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kj-to-kcal-conversion.html">kJ to kcal conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kwh-to-btu-conversion.html">kWh to BTU conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kwh-to-joules-conversion.html">kWh to Joules conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kcal-to-calories-conversion.html">kcal to calories conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kcal-to-joules-conversion.html">kcal to joules conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kcal-to-kj-conversion.html">kcal to kJ conversion</a></li>
+  <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kev-to-ev-conversion.html">keV to eV conversion</a></li>
+</ul>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
     </div>
-  </div>
-
-  <div class="card-3 mt-4">
-    <h3 class="mb-3">See also</h3>
-    <ul class="list-unstyled">
-      <li><a href="#">Ohm's Law Calculator</a></li>
-      <li><a href="#">Power Factor Calculator</a></li>
-      <li><a href="#">Voltage Drop Calculator</a></li>
-      <li><a href="#">Resistor Color Code</a></li>
-      <li><a href="#">Electric Charge Conversion</a></li>
-      <li><a href="#">Capacitor Calculator</a></li>
-      <li><a href="#">Transformer Efficiency Calculator</a></li>
-      <li><a href="#">dBm to Watts Converter</a></li>
-    </ul>
-  </div>
-</div>
-
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">About</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>

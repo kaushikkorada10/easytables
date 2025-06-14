@@ -1,153 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Image Converters - EasyTables</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   <style>
-    body {
-      background-color: #F5F5F5;
-      font-family: Arial, sans-serif;
-      color: black;
-    }
-    header {
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
       background-color: #0D47A1;
-      padding: 15px 0;
-    }
-    header h1 {
       color: white;
-      margin: 0 0 10px 0;
-      font-size: 28px;
+      padding: 20px 0;
       text-align: center;
-      font-weight: 700;
+      font-size: 0.9rem;
     }
-    nav ul {
-      display: flex;
-      justify-content: center;
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
       list-style: none;
       padding-left: 0;
-      margin: 0;
-      gap: 20px;
-      flex-wrap: wrap;
     }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      transition: color 0.3s;
-      font-size: 16px;
+    .see-also ul li {
+      margin-bottom: 8px;
     }
-    nav ul li a:hover {
+    .see-also a {
       color: #1976D2;
+      text-decoration: none;
     }
-    .breadcrumb {
-      background-color: transparent;
-      padding: 10px 0;
-      margin-bottom: 0;
-    }
-    .card-3 {
-      border-radius: 10px;
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    .see-also a:hover {
+      text-decoration: underline;
     }
     .btn-2 {
-      margin: 4px;
-      padding: 8px 16px;
+      margin: 4px 6px;
+      padding: 10px 16px;
       background-color: #1976D2;
       color: white;
       border: none;
       border-radius: 6px;
       text-align: center;
       display: inline-block;
-      text-decoration: none;
+      font-weight: 600;
     }
     .btn-2:hover {
       background-color: #0D47A1;
-    }
-    footer {
-      background-color: #0D47A1;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer a {
-      color: #FFF;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    footer a:hover {
-      color: #1976D2;
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<header>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
   <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Converters</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Image Converters</li>
-    </ol>
-  </nav>
-
-  <div class="card-3 mt-4">
-    <h2 class="text-center mb-4">Image Converters</h2>
-    <p class="mb-3">Choose a conversion tool:</p>
-    <div>
-      <button class="btn-2">BMP to JPG converter</button>
-      <button class="btn-2">GIF to JPG converter</button>
-      <button class="btn-2">GIF to PNG converter</button>
-      <button class="btn-2">JPG to BMP converter</button>
-      <button class="btn-2">JPG to GIF converter</button>
-      <button class="btn-2">JPG to PDF converter</button>
-      <button class="btn-2">JPG to PNG converter</button>
-      <button class="btn-2">PNG to GIF converter</button>
-      <button class="btn-2">PNG to JPG converter</button>
-      <button class="btn-2">PNG to PDF converter</button>
-      <button class="btn-2">Image to black & white converter</button>
-      <button class="btn-2">Image to Base64 converter</button>
+    <a class="navbar-brand" href="../../index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
+        <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
     </div>
   </div>
+</nav>
 
-  <div class="card-3 mt-4">
-    <h3 class="mb-3">See also</h3>
-    <ul class="list-unstyled">
-      <li><a href="#">Image Compressor</a></li>
-      <li><a href="#">Resize Images</a></li>
-      <li><a href="#">Crop Images</a></li>
-      <li><a href="#">Rotate Images</a></li>
-      <li><a href="#">PDF to Image Converter</a></li>
-      <li><a href="#">Image to PDF</a></li>
-    </ul>
+<!-- Breadcrumb -->
+<br/>
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+  <a href="../../index.html">Home</a> <span>›</span>
+  <a href="#">Converters</a> <span>›</span>
+  <a href="#">Image Converters</a>
+</nav>
+
+<!-- Description -->
+<div class="description">
+  <h3>Image Converters</h3>
+  <p>Select the image format conversion you need:</p>
+  <div class="text-center">
+    <button class="btn-2">BMP to JPG</button>
+    <button class="btn-2">GIF to JPG</button>
+    <button class="btn-2">GIF to PNG</button>
+    <button class="btn-2">JPG to BMP</button>
+    <button class="btn-2">JPG to GIF</button>
+    <button class="btn-2">JPG to PDF</button>
+    <button class="btn-2">JPG to PNG</button>
+    <button class="btn-2">PNG to GIF</button>
+    <button class="btn-2">PNG to JPG</button>
+    <button class="btn-2">PNG to PDF</button>
+    <button class="btn-2">Image to B&W</button>
+    <button class="btn-2">Image to Base64</button>
   </div>
 </div>
 
+<!-- See Also Section -->
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="#">Image Compressor</a></li>
+    <li><a href="#">Resize Images</a></li>
+    <li><a href="#">Crop Images</a></li>
+    <li><a href="#">Rotate Images</a></li>
+    <li><a href="#">PDF to Image Converter</a></li>
+    <li><a href="#">Image to PDF</a></li>
+  </ul>
+</div>
+
+<!-- Footer -->
 <footer>
   <div class="container">
     <p>
@@ -158,13 +143,16 @@
     </p>
     <p>
       © EasyTables.com |
-      <a href="#">About</a> |
       <a href="#">Terms of Use</a> |
       <a href="#">Privacy Policy</a> |
       <a href="#">Manage Cookies</a>
     </p>
   </div>
 </footer>
+ <!-- Script -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </body>
 </html>

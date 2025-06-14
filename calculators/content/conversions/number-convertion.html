@@ -4,116 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Number Converter - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <style>
     body {
       background-color: #F5F5F5;
       color: black;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-    header, footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 15px 20px;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      gap: 15px;
     }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 6px 12px;
-      border-radius: 4px;
-    }
-    nav ul li a:hover {
-      background-color: #1976D2;
-    }
-    main.container {
-      max-width: 900px;
-      margin: 30px auto;
-      background-color: #FFFFFF;
-      padding: 25px;
-      border-radius: 10px;
-      border: 1px solid #E0E0E0;
-    }
-    .converter {
-      margin-bottom: 30px;
-    }
-    .converter label, .converter select, .converter input {
-      display: block;
-      width: 100%;
-      margin-top: 10px;
-    }
-    .converter input, .converter select {
-      padding: 10px;
-      background-color: white;
-      border: 1px solid #1976D2;
-      border-radius: 6px;
-    }
-    .converter button {
-      margin-top: 15px;
-      width: 100%;
-      padding: 12px;
-      background: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .converter button:hover {
-      background: #0D47A1;
-    }
-    .result {
-      margin-top: 20px;
-      padding: 12px;
-      background: #F5F5F5;
-      border-left: 4px solid #1976D2;
-      border-radius: 6px;
-    }
-    .section {
-      margin-top: 30px;
-    }
-    .section h3 {
-      color: #0D47A1;
-      margin-bottom: 10px;
-    }
-    .btn-2 {
-      display: inline-block;
-      margin: 6px;
-      padding: 10px 14px;
-      background: #1976D2;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      text-decoration: none;
-    }
-    .btn-2:hover {
+    .nav-bg {
       background-color: #0D47A1;
     }
+    .nav-h1-color {
+      color: white;
+      font-family: "Roboto";
+      font-size: 2rem;
+    }
+    #navItem2 {
+      color: white;
+      font-family: "Roboto";
+    }
+    #navItem2:hover {
+      text-decoration: underline;
+    }
+   
+    .description, .see-also {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    }
+    .description h2 {
+      color: #0D47A1;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #1976D2;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #1976D2;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #0D47A1;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0D47A1;
+    }
+    .see-also h4 {
+      color: #0D47A1;
+    }
+    .see-also ul {
+      padding-left: 20px;
+    }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
+      text-decoration: underline;
+    }
     footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
       text-align: center;
-      font-size: 0.9em;
-      border-top: 1px solid #E0E0E0;
+      font-size: 0.9rem;
     }
     footer a {
-      color: white;
+      color: #FFFFFF;
       text-decoration: none;
+      margin: 0 5px;
     }
     footer a:hover {
       text-decoration: underline;
@@ -122,102 +97,145 @@
 </head>
 <body>
 
-<header>
-  <h1>EasyTables</h1>
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
-      <li><a href="../compound-interest/compound-interest.html">Compound Interest</a></li>
-      <li><a href="../other-tools.html">Other Tools</a></li>
-    </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
   </nav>
-</header>
 
-<main class="container">
-  <h2 class="title">Number Converter</h2>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+    <a href="../../index.html">Home </a> <span>></span>
+    <a href="../../index.html#Calculators-s">Calculators</a> <span>></span>
+    <a href="#">Temperature Converter</a>
+  </nav>
 
-  <div class="converter">
-    <label>Enter number:</label>
-    <input type="text" id="numberInput" placeholder="Enter your value" />
+<div class="description">
+  <h2>Number Converter</h2>
+  <p>Convert between Binary, Decimal, Hexadecimal, Octal, ASCII, Base64 and more.</p>
 
-    <label>From:</label>
-    <select id="fromUnit">
-      <option>Binary</option>
-      <option>Decimal</option>
-      <option>Octal</option>
-      <option>Hexadecimal</option>
-      <option>Text</option>
-    </select>
+  <input type="text" id="numberInput" placeholder="Enter value" />
+  <select id="fromUnit">
+    <option>Binary</option>
+    <option>Decimal</option>
+    <option>Octal</option>
+    <option>Hexadecimal</option>
+    <option>ASCII</option>
+    <option>Text</option>
+    <option>Base64</option>
+    <option>Percent</option>
+    <option>Fraction</option>
+    <option>PPM</option>
+    <option>PPB</option>
+    <option>PPT</option>
+    <option>Roman Numerals</option>
+    <option>Scientific Notation</option>
+    <option>DMS</option>
+    <option>Degrees</option>
+    <option>Radians</option>
+  </select>
+  <select id="toUnit">
+    <option>Binary</option>
+    <option>Decimal</option>
+    <option>Octal</option>
+    <option>Hexadecimal</option>
+    <option>ASCII</option>
+    <option>Text</option>
+    <option>Base64</option>
+    <option>Percent</option>
+    <option>Fraction</option>
+    <option>PPM</option>
+    <option>PPB</option>
+    <option>PPT</option>
+    <option>Roman Numerals</option>
+    <option>Scientific Notation</option>
+    <option>DMS</option>
+    <option>Degrees</option>
+    <option>Radians</option>
+  </select>
+  <button onclick="convertNumber()">Convert</button>
+  <div id="result"></div>
+</div>
 
-    <label>To:</label>
-    <select id="toUnit">
-      <option>Binary</option>
-      <option>Decimal</option>
-      <option>Octal</option>
-      <option>Hexadecimal</option>
-      <option>Text</option>
-    </select>
-
-    <button onclick="convertNumber()">Convert</button>
-    <div class="result" id="resultBox"></div>
-  </div>
-
-  <div class="section">
-    <h3>Common Number Conversions</h3>
-    <a href="#" class="btn-2">ASCII to Binary</a>
-    <a href="#" class="btn-2">ASCII to Hex</a>
-    <a href="#" class="btn-2">Binary to ASCII</a>
-    <a href="#" class="btn-2">Binary to Decimal</a>
-    <a href="#" class="btn-2">Binary to Hex</a>
-    <a href="#" class="btn-2">Decimal to Fraction</a>
-    <a href="#" class="btn-2">Decimal to Percent</a>
-    <a href="#" class="btn-2">Decimal to Hex</a>
-    <a href="#" class="btn-2">Hex to ASCII</a>
-    <a href="#" class="btn-2">Hex to Decimal</a>
-    <a href="#" class="btn-2">Octal to Binary</a>
-    <a href="#" class="btn-2">Octal to Hex</a>
-    <a href="#" class="btn-2">Percent to PPM</a>
-    <a href="#" class="btn-2">PPM to Percent</a>
-    <a href="#" class="btn-2">String to Binary</a>
-    <a href="#" class="btn-2">Roman Numerals</a>
-    <a href="#" class="btn-2">Scientific Notation</a>
-  </div>
-</main>
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="#">ASCII to Binary</a></li>
+    <li><a href="#">Binary to Decimal</a></li>
+    <li><a href="#">Hex to ASCII</a></li>
+  </ul>
+</div>
 
 <footer>
-  <p>© 2025 EasyTables. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+  <p>
+    <a href="#">Link to Us</a> |
+    <a href="#">Send Feedback</a> |
+    <a href="#">About</a>
+  </p>
+  <p>
+    © EasyTables.com |
+    <a href="#">Terms of Use</a> |
+    <a href="#">Privacy Policy</a>
+  </p>
 </footer>
-
+<!-- Script -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script>
   function convertNumber() {
     const input = document.getElementById('numberInput').value.trim();
     const from = document.getElementById('fromUnit').value.toLowerCase();
     const to = document.getElementById('toUnit').value.toLowerCase();
-    const resultBox = document.getElementById('resultBox');
+    const resultBox = document.getElementById('result');
 
     if (!input) {
       resultBox.innerText = "Please enter a value.";
       return;
     }
 
-    try {
-      let value;
-      switch (from) {
-        case 'binary': value = parseInt(input, 2); break;
-        case 'octal': value = parseInt(input, 8); break;
-        case 'decimal': value = parseInt(input, 10); break;
-        case 'hexadecimal': value = parseInt(input, 16); break;
-        case 'text': value = input.charCodeAt(0); break;
-      }
+    let output;
 
-      let output;
-      switch (to) {
-        case 'binary': output = value.toString(2); break;
-        case 'octal': output = value.toString(8); break;
-        case 'decimal': output = value.toString(10); break;
-        case 'hexadecimal': output = value.toString(16).toUpperCase(); break;
-        case 'text': output = String.fromCharCode(value); break;
+    try {
+      if (from === to) {
+        output = input;
+      } else if (from === 'binary' && to === 'decimal') {
+        output = parseInt(input, 2).toString(10);
+      } else if (from === 'decimal' && to === 'binary') {
+        output = parseInt(input, 10).toString(2);
+      } else if (from === 'decimal' && to === 'hexadecimal') {
+        output = parseInt(input, 10).toString(16).toUpperCase();
+      } else if (from === 'hexadecimal' && to === 'decimal') {
+        output = parseInt(input, 16).toString(10);
+      } else if (from === 'binary' && to === 'hexadecimal') {
+        output = parseInt(input, 2).toString(16).toUpperCase();
+      } else if (from === 'hexadecimal' && to === 'binary') {
+        output = parseInt(input, 16).toString(2);
+      } else if (from === 'ascii' && to === 'binary') {
+        output = input.split('').map(c => c.charCodeAt(0).toString(2)).join(' ');
+      } else if (from === 'binary' && to === 'ascii') {
+        output = input.split(' ').map(b => String.fromCharCode(parseInt(b, 2))).join('');
+      } else if (from === 'ascii' && to === 'hexadecimal') {
+        output = input.split('').map(c => c.charCodeAt(0).toString(16)).join(' ');
+      } else if (from === 'hexadecimal' && to === 'ascii') {
+        output = input.split(' ').map(h => String.fromCharCode(parseInt(h, 16))).join('');
+      } else {
+        output = "Conversion logic not implemented.";
       }
 
       resultBox.innerText = `Converted: ${output}`;
@@ -226,6 +244,5 @@
     }
   }
 </script>
-
 </body>
 </html>

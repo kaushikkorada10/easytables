@@ -1,213 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Length Converter - EasyTables</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #F5F5F5;
-      font-family: Arial, sans-serif;
-      color: black;
-    }
-    header {
-      background-color: #0D47A1;
-      padding: 15px 0;
-    }
-    header h1 {
-      color: white;
-      margin: 0 0 10px 0;
-      font-size: 28px;
-      text-align: center;
-      font-weight: 700;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      transition: color 0.3s;
-      font-size: 16px;
-    }
-    nav ul li a:hover {
-      color: #1976D2;
-    }
-    .breadcrumb {
-      background-color: transparent;
-      padding: 10px 0;
-      margin-bottom: 0;
-    }
-    .card-3 {
-      border-radius: 10px;
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .btn-2 {
-      margin: 4px;
-      padding: 8px 16px;
-      background-color: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-align: center;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .btn-2:hover {
-      background-color: #0D47A1;
-    }
-    footer {
-      background-color: #0D47A1;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer a {
-      color: #FFF;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    footer a:hover {
-      color: #1976D2;
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
-        <li><a href="../compound-interest/compound-interest.html">Compound Interest</a></li>
-        <li><a href="../other-tools.html">Other Tools</a></li>
-      </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Length Converter - Easy Tables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .nav-bg { background-color: #0D47A1; }
+      .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+      #navItem2 { color: white; font-family: "Roboto"; }
+      #navItem2:hover { text-decoration: underline; }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover { text-decoration: underline; }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3, .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .see-also ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .see-also ul li {
+        margin-bottom: 8px;
+      }
+      .see-also a {
+        color: #1976D2;
+        text-decoration: none;
+      }
+      .see-also a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html">
+          <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
+            <a class="nav-link" id="navItem2" href="../../index.html#contents-s">Contents</a>
+            <a class="nav-link" id="navItem2" href="../../index.html#Calculators-s">Calculators</a>
+            <a class="nav-link" id="navItem2" href="../../index.html#Online-tools-s">Online tools</a>
+          </div>
+        </div>
+      </div>
     </nav>
-  </div>
-</header>
+    <br>
 
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="../other-tools.html">Other Tools</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Length Converter</li>
-    </ol>
-  </nav>
+    <nav class="breadcrumb container" aria-label="breadcrumb">
+      <a href="../../index.html">Home</a> <span>></span>
+      <a href="#">Length Converter</a>
+    </nav>
 
-  <div class="card-3 mt-4">
-    <h2 class="text-center mb-4">Length Converter</h2>
-    <div class="mb-3">
-      <label for="lengthInput" class="form-label">Enter Length</label>
-      <input type="number" class="form-control" id="lengthInput" placeholder="Enter value">
+    <div class="description">
+      <h3>Length Converter</h3>
+      <p>Explore our full range of length and distance converters for common unit conversions:</p>
+      <ul>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-feet.html">cm to feet</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-feetplusinches.html">cm to feet+inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-inches.html">cm to inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-km.html">cm to km</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-meters.html">cm to meters</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-miles.html">cm to miles</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-mm.html">cm to mm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-yard.html">cm to yard</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-cm.html">Feet to cm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-feetplusinches.html">Feet to feet+inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-inches.html">Feet to inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-km.html">Feet to km</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-mm.html">Feet to mm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-meters.html">Feet to meters</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-miles.html">Feet to miles</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-yards.html">Feet to yards</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feet-to-feetplusinches.html">Feet+inches to cm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feetplusinches-to-feet.html">Feet+inches to feet</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feetplusinches-to-inches.html">Feet+inches to inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feetplusinches-to-meters.html">Feet+inches to meters</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/feetplusinches-to-mm.html">Feet+inches to mm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/height-converter.html">Height converter</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/inches-to-cm.html">Inches to cm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/inches-to-feet.html">Inches to feet</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/inches-to-km.html">Inches to km</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/inches-to-meters.html">Inches to meters</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/inches-to-miles.html">Inches to miles</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/inches-to-mm.html">Inches to mm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/inches-to-yards.html">Inches to yards</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/km-to-cm.html">km to cm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/km-to-feet.html">km to feet</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/km-to-inches.html">km to inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/km-to-meters.html">km to meters</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/km-to-miles.html">km to miles</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/km-to-mm.html">km to mm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/km-to-yards.html">km to yards</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/meters-to-cm.html">Meters to cm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/meters-to-feet.html">Meters to feet</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/meters-to-inches.html">Meters to inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/meters-to-km.html">Meters to km</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/meters-to-miles.html">Meters to miles</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/meters-to-mm.html">Meters to mm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/meters-to-yards.html">Meters to yards</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/miles-to-mm.html">Miles to mm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-cm.html">Miles to cm</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-feet.html">Miles to feet</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-inches.html">Miles to inches</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-km.html">Miles to km</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-meters.html">Miles to meters</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-yards.html">Miles to yards</a></li>
+      </ul>
     </div>
-    <div class="mb-3">
-      <label for="fromUnit" class="form-label">From Unit</label>
-      <select class="form-select" id="fromUnit">
-        <option value="mm">Millimeter (mm)</option>
-        <option value="cm">Centimeter (cm)</option>
-        <option value="m">Meter (m)</option>
-        <option value="km">Kilometer (km)</option>
-        <option value="in">Inch (in)</option>
-        <option value="ft">Foot (ft)</option>
-        <option value="yd">Yard (yd)</option>
-        <option value="mi">Mile (mi)</option>
-      </select>
+
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">Area Converter</a></li>
+        <li><a href="#">Volume Converter</a></li>
+        <li><a href="#">Height Converter</a></li>
+      </ul>
     </div>
-    <div class="mb-3">
-      <label for="toUnit" class="form-label">To Unit</label>
-      <select class="form-select" id="toUnit">
-        <option value="mm">Millimeter (mm)</option>
-        <option value="cm">Centimeter (cm)</option>
-        <option value="m">Meter (m)</option>
-        <option value="km">Kilometer (km)</option>
-        <option value="in">Inch (in)</option>
-        <option value="ft">Foot (ft)</option>
-        <option value="yd">Yard (yd)</option>
-        <option value="mi">Mile (mi)</option>
-      </select>
-    </div>
-    <button onclick="convertLength()" class="btn btn-primary w-100">Convert</button>
-    <div class="mt-4 p-3 bg-light border rounded text-center" id="lengthResult"></div>
-  </div>
 
-  <div class="card-3 mt-4">
-    <h3 class="mb-3">See also</h3>
-    <ul class="list-unstyled">
-      <li><a href="#">Area Converter</a></li>
-      <li><a href="#">Volume Converter</a></li>
-      <li><a href="#">Weight Converter</a></li>
-      <li><a href="#">Speed Converter</a></li>
-      <li><a href="#">Time Converter</a></li>
-      <li><a href="#">Temperature Converter</a></li>
-    </ul>
-  </div>
-</div>
-
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © 2025 EasyTables.com |
-      <a href="#">About</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
-
-<script>
-  const conversionRates = {
-    mm: 1,
-    cm: 10,
-    m: 1000,
-    km: 1e6,
-    in: 25.4,
-    ft: 304.8,
-    yd: 914.4,
-    mi: 1.609e+6
-  };
-
-  function convertLength() {
-    const value = parseFloat(document.getElementById('lengthInput').value);
-    const fromUnit = document.getElementById('fromUnit').value;
-    const toUnit = document.getElementById('toUnit').value;
-    const resultBox = document.getElementById('lengthResult');
-
-    if (isNaN(value)) {
-      resultBox.innerHTML = "Please enter a valid number.";
-      return;
-    }
-
-    const valueInMM = value * conversionRates[fromUnit];
-    const convertedValue = valueInMM / conversionRates[toUnit];
-    resultBox.innerHTML = `Converted Value: ${convertedValue.toFixed(4)} ${toUnit}`;
-  }
-</script>
-
-</body>
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+        </p>
+        <p>
+          © EasyTables.com |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

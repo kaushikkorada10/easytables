@@ -1,212 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mathematical Formulas and Tables - EasyTables</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #F5F5F5;
-      margin: 0;
-      color: black;
-    }
-    header, footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 15px 0;
-    }
-    header .container, footer .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    header h1 {
-      margin: 0 0 10px;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 20px auto;
-    }
-    .breadcrumb {
-      font-size: 0.95em;
-      margin-bottom: 15px;
-    }
-    .breadcrumb a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    .card {
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    h2 {
-      color: #0D47A1;
-      border-bottom: 2px solid #1976D2;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-    }
-    h3 {
-      color: #0D47A1;
-      margin-top: 20px;
-    }
-    ul {
-      line-height: 1.8;
-    }
-    footer a {
-      color: white;
-      text-decoration: underline;
-      margin: 0 5px;
-    }
-    footer p {
-      margin: 5px 0;
-      font-size: 0.9em;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Math Calculators - EasyTables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+      .nav-bg { background-color: #0D47A1; }
+      .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+      #navItem2 { color: white; font-family: "Roboto"; }
+      #navItem2:hover { text-decoration: underline; }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover { text-decoration: underline; }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3, .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .see-also ul, .description ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .see-also ul li, .description ul li {
+        margin-bottom: 8px;
+      }
+      .see-also a, .description a {
+        color: #1976D2;
+        text-decoration: none;
+      }
+      .see-also a:hover, .description a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html">
+          <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
+            <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+            <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+            <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+            <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+          </div>
+        </div>
+      </div>
     </nav>
-  </div>
-</header>
+    <br />
 
-<main class="container">
-  <div class="breadcrumb">
-    <a href="#">Home</a> &gt; <a href="#">Math</a> &gt; Mathematical Formulas and Tables
-  </div>
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> <span>></span>
+      <a href="#">Math Calculators</a>
+    </nav>
 
-  <div class="card">
-    <h2>Mathematical Formulas and Tables</h2>
+    <div class="description">
+      <h3>Math Calculators</h3>
+      <p>Online math calculators and solvers for mathematical calculations:</p>
+      <ul>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/antilog.html">Antilog calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/arccos.html">Arccos calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/arcsin.html">Arcsin calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/arctan.html">Arctan calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/average.html">Average calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/base.html">Base calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/binary.html">Binary calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/complex-numbers.html">Complex numbers calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/convolution.html">Convolution calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/cosine.html">Cosine calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/dividing-fractions.html">Dividing fractions calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/division.html">Division calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/exponential-growth.html">Exponential growth calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/exponents.html">Exponents calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/fraction-simplifier.html">Fraction simplifier</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/gcf-calculator.html">GCF calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/hex-calculator.html">Hex calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/lcm-calculator.html">LCM calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/ln-calculator.html">Ln calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/log-calculator.html">Log calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/multiplying-fractions.html">Multiplying fractions calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/Percent-error.html">Percent error calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/percentage-increase.html">Percentage increase calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/pythagorean-theorem.html">Pythagorean theorem calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/quadratic-equation.html">Quadratic equation solver</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/ratio.html">Ratio calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/right-triangle.html">Right triangle calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/root.html">Root calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/simple-math.html">Simple math calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/sine-calculator.html">Sine calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/square-root.html">Square root calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/standard-deviation.html">Standard deviation calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/subtracting-fractions.html">Subtracting fractions calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/tangent-calculator.html">Tangent calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/trigonometry-calculator.html">Trigonometry calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/weighted-average.html">Weighted average calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/variance-calculator.html">Variance calculator</a></li>
+        <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/calculators-2/math-calculatorsl3/random-number-generator.html">Random number generator</a></li>
+      </ul>
+    </div>
 
-    <h3>Numbers</h3>
-    <ul>
-      <li>Multiplication table</li>
-      <li>Addition table</li>
-      <li>Exponents rules</li>
-      <li>Numeral systems</li>
-      <li>Percentage (%)</li>
-      <li>Per-mille (‰)</li>
-      <li>Parts-per million (ppm)</li>
-      <li>Zero number (0)</li>
-      <li>Prime number</li>
-      <li>e constant</li>
-      <li>Fibonacci numbers</li>
-    </ul>
+    <div class="see-also">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="#">Financial Calculators</a></li>
+        <li><a href="#">Grade Calculators</a></li>
+        <li><a href="#">Statistics Calculators</a></li>
+      </ul>
+    </div>
 
-    <h3>Algebra</h3>
-    <ul>
-      <li>Factorial</li>
-      <li>Logarithm</li>
-      <li>Logarithm rules</li>
-      <li>Logarithm table</li>
-      <li>Natural Logarithm</li>
-      <li>Quadratic equation</li>
-    </ul>
-
-    <h3>Trigonometry</h3>
-    <ul>
-      <li>Arccos</li>
-      <li>Arcsin</li>
-      <li>Arctan</li>
-    </ul>
-
-    <h3>Probability & Statistics</h3>
-    <ul>
-      <li>Basic probability</li>
-      <li>Expectation</li>
-      <li>Variance</li>
-      <li>Standard deviation</li>
-      <li>Probability distribution</li>
-      <li>Normal distribution</li>
-    </ul>
-
-    <h3>Calculus & Analysis</h3>
-    <ul>
-      <li>Derivative</li>
-      <li>Laplace transform</li>
-      <li>Convolution</li>
-    </ul>
-
-    <h3>Symbols</h3>
-    <ul>
-      <li>Math symbols</li>
-      <li>Algebra symbols</li>
-      <li>Geometry symbols</li>
-      <li>Statistical symbols</li>
-      <li>Logic symbols</li>
-      <li>Set theory symbols</li>
-      <li>Calculus & analysis symbols</li>
-      <li>Number symbols</li>
-      <li>Greek alphabet symbols</li>
-      <li>Roman numerals</li>
-    </ul>
-
-    <h3>Math Calculators</h3>
-    <ul>
-      <li>Number converters</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>See Also</h3>
-    <ul>
-      <li><a href="#">Electrical calculators</a></li>
-      <li><a href="#">Bar graph maker</a></li>
-      <li><a href="#">Line graph maker</a></li>
-      <li><a href="#">Pie chart maker</a></li>
-    </ul>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">About</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
-
-</body>
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+        </p>
+        <p>
+          © EasyTables.com |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
