@@ -1,96 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mortgage Calculator - EasyTables</title>
-  <style>
-    /* === Global styles with your color scheme === */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F5F5F5; /* Light Grey */
-      color: black;
+<html>
+  <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+<style>
+
+.nav-bg{
+    background-color:  #0D47A1;
+}
+.nav-h1-color{
+    color: white;
+    font-family: "roboto";
+    font-size: 2rem;
+}
+#navItem2 {
+  color: white;
+  font-family: "Roboto";
+}
+#navItem2:hover {
+      text-decoration: underline;
     }
 
-    a {
-      color: #1976D2; /* Accent Medium Blue */
+footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+
+    .see-also a {
+      color: #1976D2;
       text-decoration: none;
     }
-    a:hover {
+
+    .see-also a:hover {
       text-decoration: underline;
     }
-
-    /* === Header styles === */
-    header {
-      background-color: #0D47A1; /* Dark Blue */
-      color: white;
-      padding: 15px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header .container, footer .container, main.container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      header nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .calculator {
+        max-width: 100%;
+      }
     }
-    header .container {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.8em;
-      user-select: none;
-    }
-    header nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    header nav ul li {
-      display: inline;
-    }
-    header nav ul li a {
-      color: white;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-    header nav ul li a:hover,
-    header nav ul li a:focus {
-      background-color: #1976D2; /* Medium Blue */
-      color: white;
-      outline: none;
-    }
-
-    /* === Breadcrumb navigation === */
-    .breadcrumb {
-      max-width: 960px;
-      margin: 10px auto;
-      padding: 0 20px;
-      font-size: 0.9em;
-      color: #555;
-    }
-    .breadcrumb a {
-      color: #1976D2;
-    }
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    .breadcrumb span {
-      margin: 0 5px;
-      color: #999;
-    }
-
-    /* === Main container === */
+     /* === Main container === */
     main.container {
       max-width: 960px;
       margin: 20px auto 50px;
@@ -169,129 +171,48 @@
       user-select: text;
     }
 
-    /* === Description box === */
-    .description {
-      max-width: 720px;
-      margin: 30px auto 0;
-      font-size: 1.1em;
-      line-height: 1.6;
-      color: #333;
-      border-left: 5px solid #1976D2;
-      padding-left: 18px;
-      user-select: text;
-    }
-    .description h3 {
-      color: #0D47A1;
-    }
-    .description ul {
-      margin: 10px 0 0 20px;
-    }
-    .description code {
-      background-color: #F0F0F0;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: monospace;
-    }
 
-    /* === Footer styles === */
-    footer {
-      background-color: #0D47A1; /* Dark Blue */
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 0.9em;
-      user-select: none;
-    }
-    footer .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    footer a {
-      color: #1976D2;
-      margin: 0 8px;
-      font-weight: 600;
-    }
-    footer a:hover,
-    footer a:focus {
-      text-decoration: underline;
-      outline: none;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      header .container, footer .container, main.container {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      header nav ul {
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .calculator {
-        max-width: 100%;
-      }
-    }
-
-    .see-also {
-      max-width: 700px;
-      margin: 40px auto 20px;
-      font-size: 1em;
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 6px;
-      padding: 15px;
-    }
-
-    .see-also h4 {
-      margin-top: 0;
-      color: #0D47A1;
-    }
-
-    .see-also ul {
-      padding-left: 20px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-  </style>
+</style>
 </head>
-<body>
+  <body>
 
-  <!-- Header -->
-  <header>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <h1>EasyTables - Online Calculators &amp; Tools</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Web</a></li>
-          <li><a href="#">Math</a></li>
-          <li><a href="#">Electricity</a></li>
-          <li><a href="#">Calculators</a></li>
-          <li><a href="#">Converters</a></li>
-          <li><a href="#">Tools</a></li>
-        </ul>
-      </nav>
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
     </div>
-  </header>
-
-  <!-- Breadcrumb Navigation -->
-  <nav class="breadcrumb" aria-label="breadcrumb">
-    <a href="#">Home</a>
-    <span>&raquo;</span>
-    <a href="#">Calculators</a>
-    <span>&raquo;</span>
-    <span>Mortgage Calculator</span>
+</nav>
+<br>
+<!-- Breadcrumb -->
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../index.html">Home </a> <span>></span>
+    <a href="../../index.html">Calculators</a> <span>></span>
+    <a href="#">This</a>
   </nav>
 
-  <!-- Main Content -->
+<div>
+    <!-- The code goes heare-->
+
+
+
+
+
+
+
+
   <main class="container">
     <h2 class="title">Mortgage Calculator</h2>
 
@@ -309,7 +230,7 @@
 
       <div class="result" id="result" aria-live="polite" aria-atomic="true"></div>
     </div>
-
+</main>
     <div class="description">
       <h3>About This Calculator</h3>
       <p>This Mortgage Calculator helps you estimate your monthly payments based on the loan amount, interest rate, and loan term. It provides quick and clear insights into your financial commitment for home loans or real estate investments.</p>
@@ -321,7 +242,7 @@
         <li><strong>n</strong> = number of monthly payments</li>
       </ul>
     </div>
-  </main>
+  
   <div class="description">
     <h3>Mortgage Calculator – Complete Guide</h3>
     <p>A Mortgage Calculator is a vital tool for homebuyers, helping you estimate your monthly loan payments, total interest, and loan payoff schedule. Whether you're buying your first home or refinancing, understanding how your mortgage works can help you plan more effectively.</p>
@@ -494,36 +415,62 @@
     <h3>Conclusion</h3>
     <p>Mortgage calculators empower buyers by demystifying EMIs and total repayment obligations. Whether you're planning to buy your first home, refinance an existing loan, or just exploring options, using this tool gives you a realistic outlook. It ensures you stay financially prepared and confident throughout the homeownership journey.</p>
   </div>
-    
-  <div class="see-also">
-    <h4>See Also</h4>
-    <ul>
-      
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/scientific-calculactor.html">Sum Calculator</a></li>
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/percentage-calculator.html">Percentage Calculator</a></li>
-    </ul>
-  </div>
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> |
-        <a href="#">Recommend Site</a> |
-        <a href="#">Send Feedback</a> |
-        <a href="#">About</a>
-      </p>
-      <p>
-        © EasyTables.com |
-        <a href="#">About</a> |
-        <a href="#">Terms of Use</a> |
-        <a href="#">Privacy Policy</a> |
-        <a href="#">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
 
-  <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The code goes heare-->
+
+</div>
+
+
+      <div class="see-also">
+            <h4>See Also</h4>
+            <ul>
+              <li><a href="calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
+              <li><a href="calculators/math/average-calculator.html">Average Calculator</a></li>
+              <li><a href="calculators/misc-calculators/bmi-calculator.html">BMI Calculator</a></li>
+            </ul>
+          </div>
+        </main>
+
+  
+
+        <footer>
+            <div class="container">
+              <p>
+                <a href="#">Link to Us</a> |
+                <a href="#">Recommend Site</a> |
+                <a href="#">Send Feedback</a> |
+                <a href="#">About</a>
+              </p>
+              <p>
+                © EasyTables.com |
+                <a href="#">About</a> |
+                <a href="#">Terms of Use</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Manage Cookies</a>
+              </p>
+            </div>
+          </footer>
+    
+   
+<script>
     function calculateMortgage() {
       const loanAmount = parseFloat(document.getElementById('loanAmount').value);
       const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
@@ -546,5 +493,7 @@
     }
   </script>
 
-</body>
+
+    </div>
+  </body>
 </html>

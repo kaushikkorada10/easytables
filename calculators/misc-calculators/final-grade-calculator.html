@@ -1,75 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Final Grade Calculator - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/final-grade.css" />
-  <script defer src="../assets/js/final-grade.js"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #F5F5F5;
-      color: black;
+<html>
+  <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+<style>
+
+.nav-bg{
+    background-color:  #0D47A1;
+}
+.nav-h1-color{
+    color: white;
+    font-family: "roboto";
+    font-size: 2rem;
+}
+#navItem2 {
+  color: white;
+  font-family: "Roboto";
+}
+#navItem2:hover {
+      text-decoration: underline;
     }
 
-    header, footer {
+footer {
       background-color: #0D47A1;
       color: white;
-      padding: 15px 20px;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    nav ul li {
-      display: inline;
-    }
-
-    nav ul li a {
-      color: white;
+    footer a {
+      color: #FFFFFF;
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 5px;
     }
 
-    nav ul li a:hover {
+    footer a:hover {
       text-decoration: underline;
     }
 
-    .container {
+    .description, .see-also {
       max-width: 800px;
-      margin: 30px auto;
-      padding: 0 20px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
-    .breadcrumb {
-      margin: 20px 0;
-      font-size: 0.95em;
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
     }
 
-    .breadcrumb a {
-      text-decoration: none;
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+
+    .see-also a {
       color: #1976D2;
+      text-decoration: none;
     }
 
-    .breadcrumb a:hover {
+    .see-also a:hover {
       text-decoration: underline;
     }
-
-    .title {
+   
+ .title {
       text-align: center;
       margin: 20px 0;
       color: #0D47A1;
@@ -81,6 +91,8 @@
       padding: 25px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      width: 60%;
+      margin-left: 20%;
     }
 
     .calculator label {
@@ -132,113 +144,44 @@
       border-radius: 6px;
     }
 
-    .see-also {
-      margin-top: 40px;
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      padding: 20px;
-      border-radius: 6px;
-    }
-
-    .see-also h4 {
-      margin-bottom: 10px;
-      color: #0D47A1;
-    }
-
-    .see-also ul {
-      list-style: disc;
-      margin-left: 20px;
-      padding-left: 0;
-    }
-
-    .see-also ul li a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also ul li a:hover {
-      text-decoration: underline;
-    }
-
-    footer p {
-      margin: 5px 0;
-      font-size: 0.9em;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-
-    .see-also {
-      max-width: 700px;
-      margin: 40px auto 20px;
-      font-size: 1em;
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 6px;
-      padding: 15px;
-    }
-
-    .see-also h4 {
-      margin-top: 0;
-      color: #0D47A1;
-    }
-
-    .see-also ul {
-      padding-left: 20px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-  </style>
+</style>
 </head>
-<body>
+  <body>
 
-  <!-- Header -->
-  <header>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <h1>EasyTables - Online Calculators & Tools</h1>
-      <nav>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="#">Web</a></li>
-          <li><a href="#">Math</a></li>
-          <li><a href="#">Electricity</a></li>
-          <li><a href="#">Calculators</a></li>
-          <li><a href="#">Converters</a></li>
-          <li><a href="#">Tools</a></li>
-        </ul>
-      </nav>
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
     </div>
-  </header>
+</nav>
+<br>
+<!-- Breadcrumb -->
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../index.html">Home </a> <span>></span>
+    <a href="../../index.html">Calculators</a> <span>></span>
+    <a href="#">This</a>
+  </nav>
 
-  <main class="container">
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-      <a href="../index.html">Home</a> &gt;
-      <a href="#">Calculators</a> &gt;
-      Final Grade Calculator
-    </div>
+<div>
+    <!-- The code goes heare-->
 
-    <h2 class="title">Final Grade Calculator</h2>
+
+
+
+<h2 class="title">Final Grade Calculator</h2>
 
     <div class="calculator">
       <label for="currentGrade">Current Grade (%):</label>
@@ -264,15 +207,7 @@
       <p>It’s a handy tool for exam preparation planning and setting realistic academic goals.</p>
     </div>
 
-    <div class="see-also">
-      <h4>See Also</h4>
-      <ul>
-        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
-        <li><a href="../compound-interest/compound-interest.html">Compound Interest Calculator</a></li>
-        <li><a href="../average-calculator.html">Average Calculator</a></li>
-        <li><a href="../percentage-calculator.html">Percentage Calculator</a></li>
-      </ul>
-    </div>
+  
     <div class="description">
       <h3>Final Grade Calculator – Complete Guide</h3>
       <p>The Final Grade Calculator is designed to help you estimate the score you need on your final exam to achieve your target course grade. Whether you're aiming to pass, earn a distinction, or maintain a scholarship, this tool gives you clarity and control over your academic outcome.</p>
@@ -419,57 +354,85 @@
     </div>
     
   </main>
+
+
   
-  <div class="see-also">
-    <h4>See Also</h4>
-    <ul>
-      
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/scientific-calculactor.html">Sum Calculator</a></li>
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/percentage-calculator.html">Percentage Calculator</a></li>
-    </ul>
-  </div>
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> |
-        <a href="#">Recommend Site</a> |
-        <a href="#">Send Feedback</a> |
-        <a href="#">About</a>
-      </p>
-      <p>
-        © EasyTables.com |
-        <a href="#">About</a> |
-        <a href="#">Terms of Use</a> |
-        <a href="#">Privacy Policy</a> |
-        <a href="#">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
 
-  <!-- Script -->
-  <script>
-    function calculateFinalGrade() {
-      const current = parseFloat(document.getElementById('currentGrade').value);
-      const weight = parseFloat(document.getElementById('examWeight').value) / 100;
-      const desired = parseFloat(document.getElementById('desiredGrade').value);
 
-      if (isNaN(current) || isNaN(weight) || isNaN(desired) || weight <= 0 || weight >= 1) {
-        document.getElementById('result').innerText = 'Please enter valid values.';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The code goes heare-->
+
+</div>
+
+
+      <div class="see-also">
+            <h4>See Also</h4>
+            <ul>
+              <li><a href="calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
+              <li><a href="calculators/math/average-calculator.html">Average Calculator</a></li>
+              <li><a href="calculators/misc-calculators/bmi-calculator.html">BMI Calculator</a></li>
+            </ul>
+          </div>
+        </main>
+
+  
+
+        <footer>
+            <div class="container">
+              <p>
+                <a href="#">Link to Us</a> |
+                <a href="#">Recommend Site</a> |
+                <a href="#">Send Feedback</a> |
+                <a href="#">About</a>
+              </p>
+              <p>
+                © EasyTables.com |
+                <a href="#">About</a> |
+                <a href="#">Terms of Use</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Manage Cookies</a>
+              </p>
+            </div>
+          </footer>
+    
+   
+<script>
+    function calculateMortgage() {
+      const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+      const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+      const loanTerm = parseFloat(document.getElementById('loanTerm').value) * 12;
+
+      if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm) || loanTerm === 0) {
+        document.getElementById('result').innerText = 'Please enter valid numbers in all fields.';
         return;
       }
 
-      const required = (desired - (1 - weight) * current) / weight;
+      const x = Math.pow(1 + interestRate, loanTerm);
+      const monthlyPayment = (loanAmount * x * interestRate) / (x - 1);
 
-      if (required > 100) {
-        document.getElementById('result').innerText = `You need at least ${required.toFixed(2)}%, which is above 100%. Consider other grade-boosting options.`;
-      } else if (required < 0) {
-        document.getElementById('result').innerText = `You already secured your desired grade! 🎉`;
-      } else {
-        document.getElementById('result').innerText = `You need to score at least ${required.toFixed(2)}% on your final.`;
+      if (isNaN(monthlyPayment) || !isFinite(monthlyPayment)) {
+        document.getElementById('result').innerText = 'Calculation error. Please check your inputs.';
+        return;
       }
+
+      document.getElementById('result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
     }
   </script>
-</body>
+
+
+    </div>
+  </body>
 </html>

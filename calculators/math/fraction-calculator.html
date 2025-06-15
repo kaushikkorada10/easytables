@@ -148,6 +148,63 @@
         width: 100%;
       }
     }
+    
+    .title {
+      text-align: center;
+      font-size: 36px;
+      color: #0D47A1;
+      margin-bottom: 30px;
+    }
+
+    .calculator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    input, select, button {
+      font-size: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      min-width: 120px;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0D47A1;
+    }
+
+    button {
+      background-color: #0D47A1;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #08306b;
+    }
+
+    .result {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+      background-color: #f1f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      min-width: 300px;
+    }
   </style>
 </head>
 <body>
@@ -180,23 +237,26 @@
   <a href="#">Tools</a> <span>›</span>
   <a href="#">ASCII Table</a>
 </nav>
+<div class="container">
+    <h2 class="title">Fraction Calculator</h2>
 
-<div class="calculator">
-  <div class="input-group">
-    <input type="text" id="fraction1" placeholder="e.g., 1/2" />
-    <select id="operator">
-      <option value="+">+</option>
-      <option value="-">−</option>
-      <option value="*">×</option>
-      <option value="/">÷</option>
-    </select>
-    <input type="text" id="fraction2" placeholder="e.g., 3/4" />
-    <button onclick="calculateFraction()">=</button>
+    <div class="calculator">
+      <div class="input-group">
+        <input type="text" id="fraction1" placeholder="e.g., 1/2" />
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">−</option>
+          <option value="*">×</option>
+          <option value="/">÷</option>
+        </select>
+        <input type="text" id="fraction2" placeholder="e.g., 3/4" />
+        <button onclick="calculateFraction()">=</button>
+      </div>
+      <div class="result">
+        Result: <span id="result">--</span>
+      </div>
+    </div>
   </div>
-  <div class="result">
-    Result: <span id="result">--</span>
-  </div>
-</div>
 
 <div class="description">
   <h3>About This Calculator</h3>
@@ -454,30 +514,71 @@ Fractions are a foundational math concept that shows up everywhere — from basi
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
- <script>
-   const display = document.getElementById('display');
+<script>
+    function parseFraction(str) {
+      const parts = str.trim().split('/');
+      if (parts.length === 1) {
+        const whole = parseFloat(parts[0]);
+        if (isNaN(whole)) return null;
+        return { num: whole, den: 1 };
+      }
+      const num = parseFloat(parts[0]);
+      const den = parseFloat(parts[1]);
+      if (isNaN(num) || isNaN(den) || den === 0) return null;
+      return { num, den };
+    }
 
-   function append(value) {
-     display.value += value;
-   }
+    function calculateFraction() {
+      const f1 = parseFraction(document.getElementById('fraction1').value);
+      const f2 = parseFraction(document.getElementById('fraction2').value);
+      const op = document.getElementById('operator').value;
+      const resultSpan = document.getElementById('result');
 
-   function clearDisplay() {
-     display.value = '';
-   }
+      if (!f1 || !f2) {
+        resultSpan.textContent = "Invalid input!";
+        return;
+      }
 
-   function deleteLast() {
-     display.value = display.value.slice(0, -1);
-   }
+      let num1 = f1.num, den1 = f1.den;
+      let num2 = f2.num, den2 = f2.den;
+      let resultNum, resultDen;
 
-   function calculate() {
-     try {
-       const result = Function('"use strict";return (' + display.value + ')')();
-       display.value = result;
-     } catch {
-       display.value = 'Error';
-     }
-   }
- </script>
+      switch (op) {
+        case '+':
+          resultNum = num1 * den2 + num2 * den1;
+          resultDen = den1 * den2;
+          break;
+        case '-':
+          resultNum = num1 * den2 - num2 * den1;
+          resultDen = den1 * den2;
+          break;
+        case '*':
+          resultNum = num1 * num2;
+          resultDen = den1 * den2;
+          break;
+        case '/':
+          if (num2 === 0) {
+            resultSpan.textContent = "Cannot divide by zero!";
+            return;
+          }
+          resultNum = num1 * den2;
+          resultDen = den1 * num2;
+          break;
+      }
+
+      // Simplify the fraction
+      const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+      const divisor = gcd(Math.abs(resultNum), Math.abs(resultDen));
+      resultNum /= divisor;
+      resultDen /= divisor;
+
+      if (resultDen === 1) {
+        resultSpan.textContent = resultNum.toString();
+      } else {
+        resultSpan.textContent = `${resultNum}/${resultDen}`;
+      }
+    }
+  </script>
 
 </body>
 </html>

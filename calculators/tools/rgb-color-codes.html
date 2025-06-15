@@ -1,77 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>RGB Color Codes Chart</title>
+<html>
+  <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
 <style>
-  /* Global styles */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 1rem;
-    background: #F5F5F5; /* Light Grey */
-    color: black; /* Text Color */
-  }
-  h1, h2, h3 {
-    color: black;
-  }
 
-  /* Header styles */
-  header {
-    background-color: #0D47A1; /* Dark Blue */
+.nav-bg{
+    background-color:  #0D47A1;
+}
+.nav-h1-color{
     color: white;
-    padding: 1rem 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-  header .container {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  header h1 {
-    margin: 0 0 0.5rem 0;
-    font-weight: bold;
-    font-size: 1.8rem;
-  }
-  header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  header nav ul li a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  header nav ul li a:hover,
-  header nav ul li a:focus {
-    color: #1976D2; /* Accent color on hover */
-  }
+    font-family: "roboto";
+    font-size: 2rem;
+}
+#navItem2 {
+  color: white;
+  font-family: "Roboto";
+}
+#navItem2:hover {
+      text-decoration: underline;
+    }
 
-  /* Breadcrumb styles */
-  .breadcrumb {
-    max-width: 960px;
-    margin: 0 auto 1rem auto;
-    font-size: 0.9rem;
-    color: #333;
-  }
-  .breadcrumb a {
-    color: #1976D2; /* Accent */
-    text-decoration: none;
-  }
-  .breadcrumb a:hover,
-  .breadcrumb a:focus {
-    text-decoration: underline;
-  }
-  .breadcrumb span {
-    margin: 0 0.3rem;
-    color: #555;
-  }
+footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
 
-  /* Card style (for info blocks) */
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    header nav ul {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .color-picker {
+      flex-direction: column;
+    }
+  }
+  /* Section divider */
+  .section-divider {
+    border-top: 2px solid #bbb;
+    margin: 2rem auto;
+    max-width: 960px;
+  }
+   /* Card style (for info blocks) */
   .info-block, section {
     background: #FFFFFF; /* Card Background */
     border: 1px solid #E0E0E0; /* Card Border */
@@ -160,80 +183,47 @@
     margin-right: auto;
   }
 
-  /* Section divider */
-  .section-divider {
-    border-top: 2px solid #bbb;
-    margin: 2rem auto;
-    max-width: 960px;
-  }
 
-  /* Footer */
-  footer {
-    background-color: #0D47A1; /* Dark Blue */
-    color: white;
-    padding: 1rem 0.5rem;
-    margin-top: 3rem;
-  }
-  footer .container {
-    max-width: 960px;
-    margin: 0 auto;
-    font-size: 0.9rem;
-  }
-  footer a {
-    color: #1976D2; /* Accent */
-    text-decoration: none;
-    margin: 0 0.25rem;
-  }
-  footer a:hover,
-  footer a:focus {
-    text-decoration: underline;
-  }
-  footer p {
-    margin: 0.25rem 0;
-  }
 
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    header nav ul {
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .color-picker {
-      flex-direction: column;
-    }
-  }
 
 </style>
 </head>
-<body>
+  <body>
 
-<!-- Header -->
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+</nav>
+<br>
 <!-- Breadcrumb -->
-<div class="breadcrumb" aria-label="Breadcrumb">
-  <a href="#">Home</a> <span>&raquo;</span> 
-  <a href="#">Math</a> <span>&raquo;</span> 
-  <a href="#">Tools</a> <span>&raquo;</span> 
-  <span>RGB Color Codes Chart</span>
-</div>
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../index.html">Home </a> <span>></span>
+    <a href="../../index.html">Calculators</a> <span>></span>
+    <a href="#">This</a>
+  </nav>
 
-<h1>RGB Color Codes Chart</h1>
+<div>
+    <!-- The code goes heare-->
+
+<!-- Main Content -->
+
+
+<center><h1>RGB Color Codes Chart</h1></center>
 
 <section class="color-picker-section info-block" aria-label="RGB Color Picker">
   <h2>RGB Color Picker</h2>
@@ -579,107 +569,74 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
     
 </section>
 
-<!-- See Also References -->
-<section class="info-block" aria-label="See also references">
-  <h2>See Also</h2>
-  <ul>
-    <li><a href="#" title="EasyTables - Hex Color Converter Tool">Hex Color Converter</a></li>
-    <li><a href="#" title="EasyTables - Color Picker Tool">Color Picker Tool</a></li>
-    <li><a href="#" title="EasyTables - Color Palette Generator">Color Palette Generator</a></li>
-    <li><a href="#" title="EasyTables - HSV Color Calculator">HSV Color Calculator</a></li>
-  </ul>
-</section>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p>© 2025 EasyTables. All rights reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Contact</a>
-    </p>
-  </div>
-</footer>
 
-<script>
-  // JavaScript for RGB Picker update
-  const rInput = document.getElementById('r');
-  const gInput = document.getElementById('g');
-  const bInput = document.getElementById('b');
-  const colorBox = document.getElementById('colorBox');
-  const hexValue = document.getElementById('hexValue');
-  const decimalValue = document.getElementById('decimalValue');
-  const hsvValue = document.getElementById('hsvValue');
 
-  function rgbToHex(r,g,b) {
-    return "#" + [r,g,b].map(x => {
-      const hex = x.toString(16);
-      return hex.length === 1 ? "0" + hex : hex;
-    }).join('').toUpperCase();
-  }
 
-  function rgbToDecimal(r,g,b) {
-    return (r * 65536) + (g * 256) + b;
-  }
 
-  function rgbToHsv(r,g,b) {
-    r /= 255; g /= 255; b /= 255;
-    const max = Math.max(r,g,b), min = Math.min(r,g,b);
-    let h,s,v = max;
 
-    const d = max - min;
-    s = max === 0 ? 0 : d / max;
 
-    if(max === min) {
-      h = 0; // achromatic
-    } else {
-      switch(max) {
-        case r: h = ((g - b) / d) + (g < b ? 6 : 0); break;
-        case g: h = ((b - r) / d) + 2; break;
-        case b: h = ((r - g) / d) + 4; break;
-      }
-      h /= 6;
-    }
 
-    return {
-      h: Math.round(h * 360),
-      s: Math.round(s * 100),
-      v: Math.round(v * 100)
-    };
-  }
 
-  function updateColor() {
-    let r = Math.min(255, Math.max(0, parseInt(rInput.value) || 0));
-    let g = Math.min(255, Math.max(0, parseInt(gInput.value) || 0));
-    let b = Math.min(255, Math.max(0, parseInt(bInput.value) || 0));
 
-    rInput.value = r;
-    gInput.value = g;
-    bInput.value = b;
 
-    const hex = rgbToHex(r,g,b);
-    const dec = rgbToDecimal(r,g,b);
-    const hsv = rgbToHsv(r,g,b);
 
-    colorBox.style.backgroundColor = hex;
 
-    // Choose text color based on brightness (simple)
-    const brightness = (r*299 + g*587 + b*114) / 1000;
-    colorBox.style.color = brightness > 125 ? 'black' : 'white';
-    colorBox.textContent = `Sample Text`;
 
-    hexValue.textContent = hex;
-    decimalValue.textContent = dec;
-    hsvValue.textContent = `${hsv.h}°, ${hsv.s}%, ${hsv.v}%`;
-  }
 
-  rInput.addEventListener('input', updateColor);
-  gInput.addEventListener('input', updateColor);
-  bInput.addEventListener('input', updateColor);
 
-  updateColor();
-</script>
 
-</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The code goes heare-->
+
+</div>
+
+
+      <div class="see-also">
+            <h4>See Also</h4>
+            <ul>
+              <li><a href="calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
+              <li><a href="calculators/math/average-calculator.html">Average Calculator</a></li>
+              <li><a href="calculators/misc-calculators/bmi-calculator.html">BMI Calculator</a></li>
+            </ul>
+          </div>
+        </main>
+
+  
+
+        <footer>
+            <div class="container">
+              <p>
+                <a href="#">Link to Us</a> |
+                <a href="#">Recommend Site</a> |
+                <a href="#">Send Feedback</a> |
+                <a href="#">About</a>
+              </p>
+              <p>
+                © EasyTables.com |
+                <a href="#">About</a> |
+                <a href="#">Terms of Use</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Manage Cookies</a>
+              </p>
+            </div>
+          </footer>
+    
+   
+
+
+    </div>
+  </body>
 </html>

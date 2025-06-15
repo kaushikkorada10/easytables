@@ -1,79 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Compound Interest Calculator - EasyTables</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/compound-interest.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F5F5F5;
-      color: black;
-    }
+<html>
+  <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+<style>
 
-    header, footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 20px 15px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    nav ul li {
-      display: inline;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 6px 12px;
-      border-radius: 5px;
-    }
-
-    nav ul li a:hover {
-      background-color: #1976D2;
-    }
-
-    main.container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 10px;
-    }
-
-    .breadcrumb {
-      font-size: 0.9em;
-      margin-bottom: 20px;
-    }
-
-    .breadcrumb a {
-      text-decoration: none;
-      color: #1976D2;
-    }
-
-    .breadcrumb a:hover {
+.nav-bg{
+    background-color:  #0D47A1;
+}
+.nav-h1-color{
+    color: white;
+    font-family: "roboto";
+    font-size: 2rem;
+}
+#navItem2 {
+  color: white;
+  font-family: "Roboto";
+}
+#navItem2:hover {
       text-decoration: underline;
     }
 
-    .title {
+footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+
+@media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      .calculator input,
+      .calculator select,
+      .calculator button {
+        font-size: 1em;
+      }
+    }
+ .title {
       text-align: center;
       color: #0D47A1;
       margin-bottom: 20px;
@@ -118,7 +135,7 @@
     .result {
       margin-top: 20px;
       font-size: 1.1em;
-      background: #F5F5F5;
+      background: white;
       padding: 12px;
       border: 1px solid #E0E0E0;
       border-radius: 6px;
@@ -127,111 +144,67 @@
 
     .description {
       margin-top: 40px;
-      background: #F5F5F5;
+      background: white;
       padding: 15px 20px;
       border-left: 4px solid #1976D2;
       border-radius: 6px;
       font-size: 1em;
       line-height: 1.6;
     }
-
-    .see-also {
-      margin-top: 40px;
-      background: #F5F5F5;
-      padding: 15px 20px;
-      border-left: 4px solid #1976D2;
-      border-radius: 6px;
-    }
-
-    .see-also ul {
-      padding-left: 20px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      line-height: 1.6;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: underline;
-      margin: 0 6px;
-    }
-
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-      }
-
-      .calculator input,
-      .calculator select,
-      .calculator button {
-        font-size: 1em;
-      }
-    }
-
-    .see-also {
-      max-width: 700px;
-      margin: 40px auto 20px;
-      font-size: 1em;
-      background-color: #FFFFFF;
+ main.container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
       border: 1px solid #E0E0E0;
-      border-radius: 6px;
-      padding: 15px;
+      border-radius: 10px;
     }
 
-    .see-also h4 {
-      margin-top: 0;
-      color: #0D47A1;
-    }
 
-    .see-also ul {
-      padding-left: 20px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-  </style>
+</style>
 </head>
-<body>
+  <body>
 
-  <header>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <h1>EasyTables - Online Calculators & Tools</h1>
-      <nav>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="#">Web</a></li>
-          <li><a href="#">Math</a></li>
-          <li><a href="#">Electricity</a></li>
-          <li><a href="#">Calculators</a></li>
-          <li><a href="#">Converters</a></li>
-          <li><a href="#">Tools</a></li>
-        </ul>
-      </nav>
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
     </div>
-  </header>
+</nav>
+<br>
+<!-- Breadcrumb -->
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../index.html">Home </a> <span>></span>
+    <a href="../../index.html">Calculators</a> <span>></span>
+    <a href="#">This</a>
+  </nav>
 
-  <main class="container">
-    <div class="breadcrumb">
-      <a href="../index.html">Home</a> › <a href="#">Calculators</a> › Compound Interest Calculator
-    </div>
+<div>
+    <!-- The code goes heare-->
+
+
+
+
+
+
+
+
+
+ <main class="container">
+    
 
     <h2 class="title">Compound Interest Calculator</h2>
 
@@ -258,21 +231,13 @@
 
       <div class="result" id="result"></div>
     </div>
-
+ </main>
     <div class="description">
       <h3>What is Compound Interest?</h3>
       <p>Compound interest is calculated on the initial principal and also on the accumulated interest of previous periods. This calculator helps you determine the total value of your investment after interest is compounded over time.</p>
     </div>
 
-    <div class="see-also">
-      <h3>See Also:</h3>
-      <ul>
-        <li><a href="../bmi/bmi.html">BMI Calculator</a></li>
-        <li><a href="../average/average.html">Average Calculator</a></li>
-        <li><a href="../fraction/fraction.html">Fraction Calculator</a></li>
-        <li><a href="../scientific/scientific.html">Scientific Calculator</a></li>
-      </ul>
-    </div>
+   
     <div class="description">
       <h3>Understanding Compound Interest</h3>
       <p>Compound interest is one of the most powerful financial concepts. Unlike simple interest, which is calculated only on the principal amount, compound interest earns interest on both the principal and the previously earned interest. This leads to exponential growth over time, making it essential for savings, investments, and loans.</p>
@@ -448,58 +413,94 @@
       <h3>Get Started Today</h3>
       <p>Whether you're a student learning about interest, a parent saving for education, or a business planning expansion—understanding and using compound interest can give you a significant advantage. Use this calculator to test scenarios and map out your financial future with confidence.</p>
     </div>    
-  </main>
+ 
 
-  <div class="see-also">
-    <h4>See Also</h4>
-    <ul>
-      
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/scientific-calculactor.html">Sum Calculator</a></li>
-      <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/math/percentage-calculator.html">Percentage Calculator</a></li>
-    </ul>
-  </div>
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> |
-        <a href="#">Recommend Site</a> |
-        <a href="#">Send Feedback</a> |
-        <a href="#">About</a>
-      </p>
-      <p>
-        © EasyTables.com |
-        <a href="#">About</a> |
-        <a href="#">Terms of Use</a> |
-        <a href="#">Privacy Policy</a> |
-        <a href="#">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
 
-  <script>
-    function calculateCI() {
-      const principal = parseFloat(document.getElementById('principal').value);
-      const rate = parseFloat(document.getElementById('rate').value);
-      const time = parseFloat(document.getElementById('time').value);
-      const frequency = parseInt(document.getElementById('frequency').value);
-      const resultBox = document.getElementById('result');
 
-      if (isNaN(principal) || isNaN(rate) || isNaN(time) || isNaN(frequency)) {
-        resultBox.innerHTML = "Please fill in all fields with valid numbers.";
-        return;
-      }
 
-      const r = rate / 100;
-      const amount = principal * Math.pow(1 + r / frequency, frequency * time);
-      const interest = amount - principal;
 
-      resultBox.innerHTML = `
-        Total Amount: $${amount.toFixed(2)} <br/>
-        Compound Interest: $${interest.toFixed(2)}
-      `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The code goes heare-->
+
+</div>
+
+
+      <div class="see-also">
+            <h4>See Also</h4>
+            <ul>
+              <li><a href="calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
+              <li><a href="calculators/math/average-calculator.html">Average Calculator</a></li>
+              <li><a href="calculators/misc-calculators/bmi-calculator.html">BMI Calculator</a></li>
+            </ul>
+          </div>
+        </main>
+
+  
+
+        <footer>
+            <div class="container">
+              <p>
+                <a href="#">Link to Us</a> |
+                <a href="#">Recommend Site</a> |
+                <a href="#">Send Feedback</a> |
+                <a href="#">About</a>
+              </p>
+              <p>
+                © EasyTables.com |
+                <a href="#">About</a> |
+                <a href="#">Terms of Use</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Manage Cookies</a>
+              </p>
+            </div>
+          </footer>
+    
+   
+<script>
+  function calculateCI() {
+    // Get input values
+    const principal = parseFloat(document.getElementById('principal').value);
+    const rate = parseFloat(document.getElementById('rate').value);
+    const time = parseFloat(document.getElementById('time').value);
+    const frequency = parseInt(document.getElementById('frequency').value);
+    const resultDiv = document.getElementById('result');
+
+    // Validate inputs
+    if (isNaN(principal) || isNaN(rate) || isNaN(time) || isNaN(frequency) ||
+        principal <= 0 || rate <= 0 || time <= 0 || frequency <= 0) {
+      resultDiv.innerHTML = "<span style='color: red;'>Please enter valid positive numbers in all fields.</span>";
+      return;
     }
-  </script>
 
-</body>
+    // Compound Interest formula: A = P * (1 + r/n)^(nt)
+    const r = rate / 100;
+    const amount = principal * Math.pow(1 + r / frequency, frequency * time);
+    const interest = amount - principal;
+
+    // Display result
+    resultDiv.innerHTML = `
+      <p>Total Amount: <strong>$${amount.toFixed(2)}</strong></p>
+      <p>Compound Interest: <strong>$${interest.toFixed(2)}</strong></p>
+    `;
+  }
+</script>
+
+
+    </div>
+  </body>
 </html>

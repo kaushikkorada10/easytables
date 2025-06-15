@@ -1,113 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Online Tools - EasyTables</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #F5F5F5;
-      margin: 0;
-      color: black;
+<html>
+  <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+<style>
+
+.nav-bg{
+    background-color:  #0D47A1;
+}
+.nav-h1-color{
+    color: white;
+    font-family: "roboto";
+    font-size: 2rem;
+}
+#navItem2 {
+  color: white;
+  font-family: "Roboto";
+}
+#navItem2:hover {
+      text-decoration: underline;
     }
-    header, footer {
+
+footer {
       background-color: #0D47A1;
       color: white;
-      padding: 15px 0;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
     }
-    header .container, footer .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    header h1 {
-      margin: 0 0 10px;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    nav ul li a {
-      color: white;
+
+    footer a {
+      color: #FFFFFF;
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 5px;
     }
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 20px auto;
+
+    footer a:hover {
+      text-decoration: underline;
     }
-    .breadcrumb {
-      font-size: 0.95em;
-      margin-bottom: 15px;
+
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
-    .breadcrumb a {
+
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+
+    .see-also a {
       color: #1976D2;
       text-decoration: none;
     }
-    .breadcrumb a:hover {
+
+    .see-also a:hover {
       text-decoration: underline;
     }
-    .card {
-      background-color: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    h2 {
-      color: #0D47A1;
-      border-bottom: 2px solid #1976D2;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-    }
-    ul {
-      line-height: 1.8;
-    }
-    footer a {
-      color: white;
-      text-decoration: underline;
-      margin: 0 5px;
-    }
-    footer p {
-      margin: 5px 0;
-      font-size: 0.9em;
-    }
-    h3 {
-      color: #0D47A1;
-      margin-top: 20px;
-    }
-  </style>
+
+</style>
 </head>
-<body>
+  <body>
 
-<header>
-  <div class="container">
-    <h1>EasyTables - Online Calculators & Tools</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Web</a></li>
-        <li><a href="#">Math</a></li>
-        <li><a href="#">Electricity</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Converters</a></li>
-        <li><a href="#">Tools</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="/Users/kaushikkorada/Documents/easy tables/easytables/index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+</nav>
+<br>
+<!-- Breadcrumb -->
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../index.html">Home </a> <span>></span>
+    <a href="../../index.html">Calculators</a> <span>></span>
+    <a href="#">This</a>
+  </nav>
 
+<div>
+    <!-- The code goes heare-->
 <main class="container">
-  <div class="breadcrumb">
-    <a href="#">Home</a> &gt; <a href="#">Tools</a> &gt; Online Tools
-  </div>
-
-  <div class="card">
+  <div class="card description">
     <h2>Online Tools</h2>
     <ul>
       <li>Alarm Clock</li>
@@ -150,189 +156,92 @@
       <li>Voice recorder online</li>
       <li>Webcam test</li>
     </ul>
-    <div class="description">
-      ...[existing content]...
+  </div>
+
+  <!-- Description blocks -->
+  <div class="description">
+    <h3>What Are Online Tools?</h3>
+    <p>Online tools are web-based applications designed to perform a wide variety of tasks directly through your browser...</p>
+    <!-- Continue full content -->
+  </div>
+
+  <div class="description">
+    <h3>Collaboration Features in Online Tools</h3>
+    <p>One of the standout advantages of many modern online tools is built-in collaboration...</p>
+    <!-- Continue full content -->
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The code goes heare-->
+
+</div>
+
+
+      <div class="see-also">
+            <h4>See Also</h4>
+            <ul>
+              <li><a href="calculators/math/fraction-calculator.html">Fraction Calculator</a></li>
+              <li><a href="calculators/math/average-calculator.html">Average Calculator</a></li>
+              <li><a href="calculators/misc-calculators/bmi-calculator.html">BMI Calculator</a></li>
+            </ul>
+          </div>
+        </main>
+
+  
+
+        <footer>
+            <div class="container">
+              <p>
+                <a href="#">Link to Us</a> |
+                <a href="#">Recommend Site</a> |
+                <a href="#">Send Feedback</a> |
+                <a href="#">About</a>
+              </p>
+              <p>
+                © EasyTables.com |
+                <a href="#">About</a> |
+                <a href="#">Terms of Use</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Manage Cookies</a>
+              </p>
+            </div>
+          </footer>
     
-      <h3>What Are Online Tools?</h3>
-      <p>Online tools are web-based applications designed to perform a wide variety of tasks directly through your browser. These include calculators, converters, editors, and generators that help automate daily routines, solve problems, or boost productivity—without needing to install software.</p>
-    
-      <h3>Categories of Online Tools</h3>
-      <ul>
-        <li><strong>Text & Writing:</strong> Notepads, grammar checkers, paraphrasers, summarizers</li>
-        <li><strong>Math & Science:</strong> Equation solvers, unit converters, graphing calculators</li>
-        <li><strong>Web Development:</strong> JSON formatters, HTML minifiers, favicon generators</li>
-        <li><strong>Productivity:</strong> Time trackers, Pomodoro timers, checklist apps</li>
-        <li><strong>Design:</strong> Color pickers, font generators, image resizers</li>
-      </ul>
-    
-      <h3>Advantages of Using Online Tools</h3>
-      <ul>
-        <li>No downloads or installations required</li>
-        <li>Access from any device with internet</li>
-        <li>Always up-to-date</li>
-        <li>Often free or freemium</li>
-        <li>Work across operating systems (Windows, macOS, Linux, etc.)</li>
-      </ul>
-    
-      <h3>Top Online Tools in 2025</h3>
-      <ul>
-        <li><strong>Canva:</strong> For creating professional designs without graphic design knowledge</li>
-        <li><strong>ChatGPT:</strong> For brainstorming, summarizing, and content creation</li>
-        <li><strong>Remove.bg:</strong> For removing backgrounds from photos instantly</li>
-        <li><strong>Grammarly:</strong> For checking grammar and clarity in writing</li>
-        <li><strong>TinyPNG:</strong> For compressing image files without losing quality</li>
-      </ul>
-    
-      <h3>Security and Privacy</h3>
-      <p>Modern online tools prioritize user privacy and often run entirely in-browser without saving data on servers. Always check for:</p>
-      <ul>
-        <li>HTTPS encryption</li>
-        <li>No-login or anonymous modes</li>
-        <li>Clear privacy policies</li>
-      </ul>
-    
-      <h3>Offline Alternatives</h3>
-      <p>While online tools are convenient, some also offer offline desktop versions or browser extensions for use without internet:</p>
-      <ul>
-        <li><strong>LibreOffice:</strong> Alternative to online word processors</li>
-        <li><strong>Obsidian:</strong> Markdown editor for note-taking</li>
-        <li><strong>XnConvert:</strong> Image converter and resizer</li>
-      </ul>
-    
-      <h3>Accessibility Considerations</h3>
-      <ul>
-        <li>Keyboard shortcuts for quicker interactions</li>
-        <li>Dark mode and contrast modes for visual comfort</li>
-        <li>Language translation support</li>
-        <li>Voice input and screen reader compatibility</li>
-      </ul>
-    
-      <h3>Fun and Utility</h3>
-      <ul>
-        <li>Random password generators</li>
-        <li>Name or username generators</li>
-        <li>ASCII art creators</li>
-        <li>QR code makers for websites or WiFi credentials</li>
-      </ul>
-    
-      <h3>Tips for Choosing the Right Tool</h3>
-      <ul>
-        <li>Check for ads and popups—some tools are cleaner than others</li>
-        <li>Read user reviews if available</li>
-        <li>Test input/output accuracy for calculators and converters</li>
-        <li>Look for mobile responsiveness if using on phones/tablets</li>
-      </ul>
-    
-      <h3>The Future of Online Tools</h3>
-      <ul>
-        <li>AI-based personalization and automation</li>
-        <li>Browser-based IDEs and design studios</li>
-        <li>Augmented reality (AR) measuring tools</li>
-        <li>Offline-ready progressive web apps (PWAs)</li>
-      </ul>
+   
+
+
     </div>
-    <div class="description">
-      
-      <h3>Collaboration Features in Online Tools</h3>
-      <p>One of the standout advantages of many modern online tools is built-in collaboration. These tools allow multiple users to work on the same file or task in real time, often with version history and comment features included.</p>
-      <ul>
-        <li><strong>Google Docs & Sheets:</strong> Multiple users editing a document simultaneously with commenting and suggestions.</li>
-        <li><strong>Miro:</strong> Collaborative whiteboard for team brainstorming and strategy planning.</li>
-        <li><strong>Trello:</strong> Project management with card-based collaboration and notifications.</li>
-      </ul>
-    
-      <h3>Integration with Cloud Services</h3>
-      <p>Online tools increasingly integrate with popular cloud services to streamline workflows. Users can connect tools to Google Drive, Dropbox, OneDrive, and more to store, access, or sync data effortlessly.</p>
-    
-      <h3>Mobile vs Desktop Experience</h3>
-      <p>Many online tools are mobile-friendly or offer dedicated apps. However, some features may be optimized for desktop interfaces. When choosing a tool, consider the platform you'll use most often and check for cross-platform compatibility.</p>
-      <ul>
-        <li>Ensure responsive layout for small screens</li>
-        <li>Check if mobile apps exist for offline access</li>
-        <li>Test usability of input forms and buttons on touch devices</li>
-      </ul>
-    
-      <h3>Data Export & Import Options</h3>
-      <p>Users often want the flexibility to download their work or upload external data. Good online tools provide:</p>
-      <ul>
-        <li>Export formats (PDF, CSV, DOCX, PNG, etc.)</li>
-        <li>Import from spreadsheet files, JSON, or cloud platforms</li>
-        <li>Direct copy/paste integration with external tools</li>
-      </ul>
-    
-      <h3>Open Source Online Tools</h3>
-      <p>Some online tools are open source, giving users transparency and customization options. These can be self-hosted or used via hosted versions:</p>
-      <ul>
-        <li><strong>Jitsi Meet:</strong> Video conferencing without needing Zoom or Google Meet</li>
-        <li><strong>Etherpad:</strong> Real-time collaborative document editor</li>
-        <li><strong>CryptPad:</strong> Secure, encrypted suite of productivity tools</li>
-      </ul>
-    
-      <h3>Online Tools in Education</h3>
-      <p>Educational institutions leverage online tools for quizzes, class scheduling, grading, communication, and engagement.</p>
-      <ul>
-        <li><strong>Kahoot!:</strong> Live quiz games to make learning fun</li>
-        <li><strong>Edmodo:</strong> Classroom management and messaging</li>
-        <li><strong>Desmos:</strong> Graphing calculator for math and geometry classes</li>
-      </ul>
-    
-      <h3>Business Use Cases</h3>
-      <ul>
-        <li><strong>Document management:</strong> eSign tools, PDF editors</li>
-        <li><strong>Analytics dashboards:</strong> Visualization tools for metrics</li>
-        <li><strong>Customer service:</strong> Live chat plugins, CRM tools</li>
-      </ul>
-    
-      <h3>Freelancer & Creator Tools</h3>
-      <ul>
-        <li><strong>Invoice generators:</strong> Easily create and send invoices</li>
-        <li><strong>Portfolio builders:</strong> Showcase projects and services</li>
-        <li><strong>Writing aids:</strong> AI blog writers, email builders</li>
-      </ul>
-    
-      <h3>Popular Tool Stacks</h3>
-      <p>Users often combine several tools for a seamless workflow:</p>
-      <ul>
-        <li><strong>Content creation stack:</strong> Grammarly + Canva + Hemingway</li>
-        <li><strong>Developer stack:</strong> JSONLint + Regex101 + GitHub Gist</li>
-        <li><strong>Project management:</strong> Notion + Trello + Google Calendar</li>
-      </ul>
-    
-      <h3>Conclusion</h3>
-      <p>Online tools have revolutionized how we work, learn, and create—bringing accessibility, efficiency, and innovation to everyone with an internet connection. Whether you're a student, developer, teacher, or entrepreneur, the right tool can save time, simplify tasks, and unlock creativity. Stay curious, and explore what’s new in the online tools ecosystem!</p>
-    </div>
-    
-    
-  </div>
-
-  <div class="card">
-    <h3>See Also</h3>
-    <ul>
-      <li><a href="#">Electrical calculators</a></li>
-      <li><a href="#">Math formulas</a></li>
-      <li><a href="#">Graph tools</a></li>
-      <li><a href="#">Number converters</a></li>
-    </ul>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">About</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
-
-</body>
+  </body>
 </html>
