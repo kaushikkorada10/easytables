@@ -3,156 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Image Converters - EasyTables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <title>Image Converters - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
     #navItem2 { color: white; font-family: "Roboto"; }
     #navItem2:hover { text-decoration: underline; }
-    footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: #FFFFFF;
-      text-decoration: none;
-      margin: 0 5px;
-    }
+    footer { background-color: #0D47A1; color: white; padding: 20px 0; text-align: center; font-size: 0.9rem; }
+    footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
     footer a:hover { text-decoration: underline; }
-    .description, .see-also {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #FFFFFF;
-      border-left: 5px solid #1976D2;
-      border-radius: 10px;
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-    .description h3,
-    .see-also h4 {
-      color: #0D47A1;
-      margin-bottom: 10px;
-    }
-    .see-also ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .see-also ul li {
-      margin-bottom: 8px;
-    }
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-    .btn-2 {
-      margin: 4px 6px;
-      padding: 10px 16px;
-      background-color: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-align: center;
-      display: inline-block;
-      font-weight: 600;
-    }
-    .btn-2:hover {
-      background-color: #0D47A1;
-    }
+    .description, .see-also { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #FFFFFF; border-left: 5px solid #1976D2; border-radius: 10px; line-height: 1.6; font-size: 1.05rem; }
+    .description h3, .see-also h4 { color: #0D47A1; margin-bottom: 10px; }
+    .see-also ul { list-style: none; padding-left: 0; }
+    .see-also ul li { margin-bottom: 8px; }
+    .see-also a { color: #1976D2; text-decoration: none; }
+    .see-also a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
-  <div class="container">
-    <a class="navbar-brand" href="../../index.html">
-      <h1 class="nav-h1-color">EASY TABLES</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
-        <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
-        <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-        <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-        <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <div class="collapse navbar-collapse">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="index.html#Online-tools-s">Online Tools</a>
+          <a class="nav-link" href="index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
       </div>
     </div>
+  </nav>
+
+  <nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+    <a href="index.html">Home</a> <span>›</span>
+    <a href="#">Image Converters</a>
+  </nav>
+
+  <div class="description">
+    <h3>Image Converters</h3>
+    <p>Select the conversion type and upload an image file. Your image will be converted directly in your browser.</p>
+    
+    <div class="form-group">
+      <label for="conversionType"><strong>Choose conversion type:</strong></label>
+      <select id="conversionType" class="form-control">
+        <option value="jpeg-png">JPEG to PNG</option>
+        <option value="png-webp">PNG to WebP</option>
+        <option value="bmp-jpg">BMP to JPG</option>
+        <option value="gif-png">GIF to PNG</option>
+        <option value="svg-png">SVG to PNG</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="fileInput"><strong>Upload Image:</strong></label>
+      <input type="file" id="fileInput" class="form-control-file" accept="image/*,.svg" />
+    </div>
+
+    <button class="btn btn-primary" onclick="convertImage()">Convert Image</button>
+    <div id="downloadLink" class="mt-3"></div>
   </div>
-</nav>
 
-<!-- Breadcrumb -->
-<br/>
-<nav class="breadcrumb container" aria-label="Breadcrumb">
-  <a href="../../index.html">Home</a> <span>›</span>
-  <a href="#">Converters</a> <span>›</span>
-  <a href="#">Image Converters</a>
-</nav>
-
-<!-- Description -->
-<div class="description">
-  <h3>Image Converters</h3>
-  <p>Select the image format conversion you need:</p>
-  <div class="text-center">
-    <button class="btn-2">BMP to JPG</button>
-    <button class="btn-2">GIF to JPG</button>
-    <button class="btn-2">GIF to PNG</button>
-    <button class="btn-2">JPG to BMP</button>
-    <button class="btn-2">JPG to GIF</button>
-    <button class="btn-2">JPG to PDF</button>
-    <button class="btn-2">JPG to PNG</button>
-    <button class="btn-2">PNG to GIF</button>
-    <button class="btn-2">PNG to JPG</button>
-    <button class="btn-2">PNG to PDF</button>
-    <button class="btn-2">Image to B&W</button>
-    <button class="btn-2">Image to Base64</button>
+  <div class="see-also">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="pdf-tools.html">PDF Tools</a></li>
+      <li><a href="web-tools.html">Web Tools</a></li>
+      <li><a href="text-tools.html">Text Tools</a></li>
+    </ul>
   </div>
-</div>
 
-<!-- See Also Section -->
-<div class="see-also">
-  <h4>See Also</h4>
-  <ul>
-    <li><a href="#">Image Compressor</a></li>
-    <li><a href="#">Resize Images</a></li>
-    <li><a href="#">Crop Images</a></li>
-    <li><a href="#">Rotate Images</a></li>
-    <li><a href="#">PDF to Image Converter</a></li>
-    <li><a href="#">Image to PDF</a></li>
-  </ul>
-</div>
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a>
+      </p>
+      <p>© EasyTables.com</p>
+    </div>
+  </footer>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-    </p>
-    <p>
-      © EasyTables.com |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-    </p>
-  </div>
-</footer>
- <!-- Script -->
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script>
+    function convertImage() {
+      const file = document.getElementById("fileInput").files[0];
+      const type = document.getElementById("conversionType").value;
 
+      if (!file) {
+        alert("Please upload an image file.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+
+          let format, mime;
+          switch (type) {
+            case "jpeg-png": mime = "image/png"; format = "png"; break;
+            case "png-webp": mime = "image/webp"; format = "webp"; break;
+            case "bmp-jpg": mime = "image/jpeg"; format = "jpg"; break;
+            case "gif-png": mime = "image/png"; format = "png"; break;
+            case "svg-png": mime = "image/png"; format = "png"; break;
+            default: mime = "image/png"; format = "png";
+          }
+
+          const dataURL = canvas.toDataURL(mime);
+          const link = document.createElement("a");
+          link.href = dataURL;
+          link.download = `converted.${format}`;
+          link.textContent = "Download Converted Image";
+          link.className = "btn btn-success mt-3";
+          const output = document.getElementById("downloadLink");
+          output.innerHTML = "";
+          output.appendChild(link);
+        };
+
+        // Special handling for SVG files
+        if (type === "svg-png" && file.type === "image/svg+xml") {
+          const svgBlob = new Blob([e.target.result], {type: 'image/svg+xml'});
+          const url = URL.createObjectURL(svgBlob);
+          img.src = url;
+        } else {
+          img.src = e.target.result;
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
 </body>
 </html>
