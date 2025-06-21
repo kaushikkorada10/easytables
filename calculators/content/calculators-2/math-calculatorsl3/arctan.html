@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arctan Calculator - EasyTables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <style>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>  <style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
     #navItem2 { color: white; font-family: "Roboto"; }
@@ -116,7 +118,314 @@
     <div id="result" class="mt-4 font-weight-bold"></div>
   </div>
 
-      <div class="see-also">
+      
+    <div class="description">
+  <h2>Arctan Calculator – Calculate the Inverse Tangent (tan⁻¹) of Any Value Instantly</h2>
+
+  <p>
+    Welcome to the Easy Tables Arctan Calculator — a free, fast, and accurate tool to find the inverse tangent (arctan or tan⁻¹) of any real number. Whether you're a student studying trigonometry, a teacher preparing classroom material, or an engineer working on angular problems, this calculator gives you reliable results in both degrees and radians.
+  </p>
+
+  <h3>🔍 What is Arctan?</h3>
+  <p>
+    The **arctan** (also called inverse tangent or tan⁻¹) is the inverse function of the tangent function. It determines the angle whose tangent is a given value.
+    <br><br>
+    In mathematical terms:
+    <br>
+    If <code>tan(θ) = x</code>, then <code>arctan(x) = θ</code>
+  </p>
+  <p>
+    For example, <code>tan(45°) = 1</code> ⇒ <code>arctan(1) = 45°</code>
+  </p>
+
+  <h3>📐 Key Properties of Arctan</h3>
+  <ul>
+    <li><strong>Domain:</strong> All real numbers (–∞ to ∞)</li>
+    <li><strong>Range:</strong> –π/2 to π/2 (or –90° to 90°)</li>
+    <li><strong>Function Type:</strong> One-to-one (inverse of tangent)</li>
+    <li><strong>Result:</strong> Angle in radians or degrees</li>
+  </ul>
+
+  <h3>✅ How to Use the Arctan Calculator</h3>
+  <ol>
+    <li>Enter any real number (positive, negative, or zero).</li>
+    <li>Select whether you want the output in <strong>degrees</strong> or <strong>radians</strong>.</li>
+    <li>Click "Calculate" to get your result instantly.</li>
+  </ol>
+
+  <h3>📘 Arctan Formula</h3>
+  <p>
+    The basic formula for inverse tangent is:
+    <br>
+    <code>θ = arctan(x)</code>
+  </p>
+  <p>
+    Where <code>θ</code> is the angle whose tangent is <code>x</code>. This formula helps you determine the angle when you know the ratio of the opposite side to the adjacent side of a right triangle.
+  </p>
+
+  <h3>🔢 Arctan Value Table (Common Inputs)</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Value (x)</th>
+        <th>arctan(x) in Degrees</th>
+        <th>arctan(x) in Radians</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>0°</td><td>0</td></tr>
+      <tr><td>1</td><td>45°</td><td>π/4</td></tr>
+      <tr><td>√3</td><td>60°</td><td>π/3</td></tr>
+      <tr><td>–1</td><td>–45°</td><td>–π/4</td></tr>
+      <tr><td>∞</td><td>90°</td><td>π/2</td></tr>
+    </tbody>
+  </table>
+
+  <h3>📚 Real-World Applications of Arctan</h3>
+  <ul>
+    <li><strong>Geometry:</strong> Solving right triangles when opposite and adjacent sides are known</li>
+    <li><strong>Engineering:</strong> Calculating slope angles, gear rotations, and projectile angles</li>
+    <li><strong>Physics:</strong> Angle of incline, motion, force vectors</li>
+    <li><strong>Robotics:</strong> Finding joint angles from position vectors</li>
+    <li><strong>Navigation:</strong> Calculating heading angles from x/y coordinates (atan2)</li>
+  </ul>
+
+  <h3>📏 Practical Example</h3>
+  <p>
+    Imagine you have a right triangle where the opposite side is 5 and the adjacent side is 5.
+    <br>
+    <code>tan(θ) = 5 / 5 = 1</code>
+    <br>
+    Therefore, <code>arctan(1) = 45°</code>
+  </p>
+
+  <h3>🌀 Visualizing Arctan on a Graph</h3>
+  <p>
+    The graph of arctan(x) is an S-shaped curve that passes through the origin and approaches ±π/2 as x approaches ±∞.
+    <br>
+    Key points:
+  </p>
+  <ul>
+    <li>arctan(0) = 0</li>
+    <li>arctan(1) = π/4</li>
+    <li>arctan(–1) = –π/4</li>
+    <li>The function is continuous and increasing</li>
+  </ul>
+
+  <h3>💡 Arctan vs Atan vs atan2</h3>
+  <p>
+    In most programming languages:
+  </p>
+  <ul>
+    <li><code>arctan(x)</code> or <code>atan(x)</code> gives the angle of the slope (opposite/adjacent)</li>
+    <li><code>atan2(y, x)</code> gives the angle considering the quadrant (useful in 2D vector math)</li>
+  </ul>
+
+  <h3>💻 Arctan in Programming</h3>
+  <ul>
+    <li><code>Math.atan(x)</code> in JavaScript</li>
+    <li><code>math.atan(x)</code> in Python</li>
+    <li><code>atan(x)</code> in C/C++</li>
+  </ul>
+  <p>
+    Always returns the result in radians. Use:
+    <br>
+    <code>degrees = radians × (180 / π)</code>
+  </p>
+
+  <h3>📘 Trigonometric Identity Involving Arctan</h3>
+  <ul>
+    <li><code>tan(arctan(x)) = x</code></li>
+    <li><code>arctan(tan(x)) = x</code> (for –π/2 < x < π/2)</li>
+  </ul>
+
+  <h3>📱 Features of Easy Tables Arctan Calculator</h3>
+  <ul>
+    <li>Fast, accurate, and intuitive interface</li>
+    <li>Switch between degrees and radians easily</li>
+    <li>Supports all real-number inputs</li>
+    <li>Mobile-optimized for on-the-go use</li>
+    <li>No login, no popups — 100% free</li>
+  </ul>
+
+  <h3>📈 SEO Keywords Covered</h3>
+  <ul>
+    <li>arctan calculator</li>
+    <li>inverse tangent calculator</li>
+    <li>tan inverse calculator online</li>
+    <li>arctan radians and degrees</li>
+    <li>free online arctan calculator</li>
+    <li>arctan value tool</li>
+  </ul>
+
+  <h3>📂 Related Tools</h3>
+  <ul>
+    <li><a href="/calculators/tan-calculator.html">Tangent Calculator</a></li>
+    <li><a href="/calculators/arcsin-calculator.html">Arcsin Calculator</a></li>
+    <li><a href="/calculators/arccos-calculator.html">Arccos Calculator</a></li>
+    <li><a href="/calculators/angle-converter.html">Angle Converter</a></li>
+  </ul>
+
+  <h3>🙋 Frequently Asked Questions</h3>
+  <p><strong>Q: What is arctan?</strong></p>
+  <p>A: It is the inverse of the tangent function. It returns the angle whose tangent is a given number.</p>
+
+  <p><strong>Q: What is the domain of arctan?</strong></p>
+  <p>A: The domain is all real numbers (–∞ to ∞).</p>
+
+  <p><strong>Q: What is the range of arctan?</strong></p>
+  <p>A: The range is –π/2 to π/2 radians or –90° to 90°.</p>
+
+  <p><strong>Q: Is tan⁻¹(x) the same as 1/tan(x)?</strong></p>
+  <p>A: No. tan⁻¹(x) means the inverse function of tangent, not the reciprocal.</p>
+
+  <h3>🎯 Final Thoughts</h3>
+  <p>
+    The Easy Tables Arctan Calculator is designed for simplicity and accuracy. From school assignments to real-world engineering challenges, this tool helps you calculate angles from slope values effortlessly. Whether you’re learning trigonometry or solving vector problems, this is your go-to resource for arctan functions.
+  </p>
+  <p>
+    Try it now, bookmark the page, and simplify your math tasks instantly!
+  </p>
+</div>
+<div class="description">
+  <h3>🧠 Deeper Understanding of Arctan (tan⁻¹)</h3>
+  <p>
+    The arctan function is one of the most useful inverse trigonometric functions. It allows you to find the angle in a right triangle when you know the ratio of the opposite side to the adjacent side. This makes it a powerful tool in geometry, physics, engineering, and computer science.
+  </p>
+  <p>
+    Since the tangent function is periodic and not one-to-one over its entire domain, arctan is defined only for values between –π/2 and π/2 to ensure a unique result. This is called the **principal value** range.
+  </p>
+
+  <h3>📈 Graphical Characteristics of Arctan</h3>
+  <ul>
+    <li>The graph passes through the origin (0, 0)</li>
+    <li>It is always increasing — arctan is a strictly monotonic function</li>
+    <li>Horizontal asymptotes occur at <code>y = –π/2</code> and <code>y = π/2</code></li>
+    <li>As x → ∞, arctan(x) → π/2</li>
+    <li>As x → –∞, arctan(x) → –π/2</li>
+  </ul>
+  <p>
+    This makes arctan an ideal choice when modeling phenomena that saturate or level off, such as population growth or signal response in electronics.
+  </p>
+
+  <h3>📚 Advanced Math Identities Using Arctan</h3>
+  <ul>
+    <li><code>arctan(a) + arctan(b) = arctan((a + b) / (1 – ab))</code> (when ab &lt; 1)</li>
+    <li><code>tan(arctan(x)) = x</code> for all real x</li>
+    <li><code>arctan(x) + arctan(1/x) = π/2</code> if x &gt; 0</li>
+    <li><code>arctan(–x) = –arctan(x)</code> (odd function)</li>
+  </ul>
+  <p>
+    These identities are essential when simplifying expressions, solving integrals, and working in complex number analysis.
+  </p>
+
+  <h3>🧮 Real-Life Use Case: Slope Angle Calculation</h3>
+  <p>
+    In civil engineering or construction, determining the angle of elevation or slope of a ramp or road is crucial.
+    <br>
+    For instance, if a ramp rises 2 meters over a horizontal distance of 8 meters, then:
+    <br>
+    <code>θ = arctan(2 / 8) = arctan(0.25) ≈ 14.04°</code>
+  </p>
+  <p>
+    This type of problem is common in accessibility planning, railway engineering, and robotics.
+  </p>
+
+  <h3>⚙️ Arctan in Coordinate Geometry</h3>
+  <p>
+    Arctan is often used to find the angle a line makes with the x-axis using the slope <code>m</code>:
+    <br>
+    <code>θ = arctan(m)</code>
+  </p>
+  <p>
+    This is especially useful when analyzing direction angles of vectors or determining the orientation of lines in a 2D plane.
+  </p>
+
+  <h3>🌐 Arctan in Polar Coordinates and Navigation</h3>
+  <p>
+    In polar coordinate systems, the angle of a vector from the origin to a point (x, y) is given by:
+    <br>
+    <code>θ = arctan(y / x)</code>
+  </p>
+  <p>
+    However, since this doesn’t account for the sign of x and y (i.e., quadrant), most systems use:
+    <br>
+    <code>θ = atan2(y, x)</code>
+  </p>
+  <p>
+    The <code>atan2</code> function is a safer alternative that returns the correct angle considering all four quadrants, and is widely used in robotics, GPS tracking, and flight control systems.
+  </p>
+
+  <h3>💡 Using Arctan for Angle Normalization</h3>
+  <p>
+    When calculating angles from vectors or slopes, arctan provides the correct magnitude and sign of the angle. However, it may need normalization:
+    <br>
+    If you require angles in the range [0, 360°], you can adjust:
+    <br>
+    <code>
+      if (x &lt; 0) → θ = θ + 180°
+    </code>
+    <br>
+    This ensures the result fits your desired application domain — useful in CNC machines, astronomy, and drone navigation.
+  </p>
+
+  <h3>📚 Arctan in Calculus</h3>
+  <p>
+    Arctan has a unique derivative that’s easy to remember:
+    <br>
+    <code>d/dx [arctan(x)] = 1 / (1 + x²)</code>
+  </p>
+  <p>
+    It’s commonly used in integration techniques and appears in the integrals of rational functions.
+  </p>
+
+  <h3>🧩 Arctan Series Expansion</h3>
+  <p>
+    For small values of x, arctan can be approximated using the Taylor Series:
+  </p>
+  <code>
+    arctan(x) ≈ x – x³/3 + x⁵/5 – x⁷/7 + ...
+  </code>
+  <p>
+    This expansion is useful for calculators and numerical algorithms, especially in embedded systems or scientific computing where fast approximations are needed.
+  </p>
+
+  <h3>📈 SEO Keyword Expansion</h3>
+  <ul>
+    <li>calculate arctan value instantly</li>
+    <li>inverse tan calculator online free</li>
+    <li>tan inverse function calculator with explanation</li>
+    <li>arctan graph interpretation</li>
+    <li>angle from slope calculator</li>
+    <li>math tool for arctangent conversion</li>
+  </ul>
+
+  <h3>📲 Device Compatibility and Offline Use</h3>
+  <p>
+    Our Arctan Calculator is built using lightweight code, optimized for speed and minimal data usage. It works across all modern browsers and mobile devices. If accessed once and cached, it can even work offline, making it perfect for field engineers, students in classrooms, or researchers in remote areas.
+  </p>
+
+  <h3>🔐 Privacy and Accessibility</h3>
+  <p>
+    No data is stored or shared. The tool is fully client-side, meaning your calculations are done securely in your browser. It's also accessible via screen readers and keyboard navigation for enhanced usability.
+  </p>
+
+  <h3>📎 Bookmark and Share</h3>
+  <p>
+    Found this tool helpful? Bookmark it for quick access or share it with classmates, students, or co-workers. Whether for daily homework or large-scale design work, a simple tool like this can save hours of manual calculation.
+  </p>
+
+  <h3>🎯 Final Summary</h3>
+  <p>
+    The Arctan Calculator from Easy Tables is a reliable and intuitive tool built for both learning and application. Whether you're analyzing mechanical rotation, plotting angles, or solving advanced trigonometric problems, this calculator gives you confidence, speed, and clarity.
+  </p>
+  <p>
+    Try it out now and see how much easier trigonometry becomes with the right tools at your fingertips.
+  </p>
+</div>
+
+
+<div class="see-also">
       <h4>See Also</h4>
       <ul>
        <li><a href="arccos.html">Arccos calculator</a></li>
