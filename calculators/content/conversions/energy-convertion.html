@@ -64,6 +64,7 @@
       color: #0D47A1;
       margin-top: 15px;
     }
+    .result { margin-top: 20px; font-weight: bold; font-size: 1.2em; }
   </style>
   <script>
     function convertEnergy() {
@@ -111,17 +112,52 @@
   </nav>
   <nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
     <a href="../../../index.html">Home</a> <span>›</span>
-    <a href="#">Image Converters</a>
+    <a href="#">Energy Conversion</a>
   </nav>
-  <div class="description">
-    <h3>Energy Conversion</h3>
-    <p>Energy conversion calculator - convert energy units.</p>
-    <p>Enter watt-hour (Wh) value below and click "Convert":</p>
-    <input type="number" id="wh" placeholder="Enter energy in Wh">
+
+
+ <div class="description">
+    <h2>Energy Conversion Calculator</h2>
+    <div class="form-group">
+      <label for="inputValue">Enter Energy:</label>
+      <input type="number" id="inputValue" class="form-control" placeholder="Enter value">
+    </div>
+    <div class="form-group">
+      <label for="fromUnit">From:</label>
+      <select id="fromUnit" class="form-control">
+        <option value="J">Joules</option>
+        <option value="kJ">Kilojoules</option>
+        <option value="kWh">Kilowatt-hours</option>
+        <option value="BTU">BTU</option>
+        <option value="Cal">Calories</option>
+        <option value="kcal">Kilocalories</option>
+        <option value="eV">Electronvolts</option>
+        <option value="keV">keV</option>
+        <option value="MeV">MeV</option>
+        <option value="GeV">GeV</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="toUnit">To:</label>
+      <select id="toUnit" class="form-control">
+        <option value="J">Joules</option>
+        <option value="kJ">Kilojoules</option>
+        <option value="kWh">Kilowatt-hours</option>
+        <option value="BTU">BTU</option>
+        <option value="Cal">Calories</option>
+        <option value="kcal">Kilocalories</option>
+        <option value="eV">Electronvolts</option>
+        <option value="keV">keV</option>
+        <option value="MeV">MeV</option>
+        <option value="GeV">GeV</option>
+      </select>
+    </div>
     <button class="btn btn-primary" onclick="convertEnergy()">Convert</button>
-    <div id="result"></div>
+    <div id="result" class="result"></div>
   </div>
 
+
+<!--
   <div class="see-also">
     <h4>Conversion</h4>
 <ul>
@@ -155,7 +191,7 @@
   <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/energy-conversionl3/kev-to-ev-conversion.html">keV to eV conversion</a></li>
 </ul>
 
-  </div>
+  </div>-->
   <div class="description">
   <h2>Energy Conversion – Transforming Units Across Joules, Calories, kWh, BTUs, and More</h2>
   <p>Energy is the cornerstone of all physical activity, engineering, and biological systems. Whether it's powering machines, sustaining human life, or running a lightbulb, energy is always being used, transferred, and converted. Understanding how to convert between various energy units is crucial in science, technology, manufacturing, fitness, and daily life. Easy Tables' Energy Conversion tool makes this process simple and precise, offering seamless conversions between kilowatt-hours (kWh), joules, calories, BTUs, electronvolts, and more.</p>
@@ -362,5 +398,36 @@
       </p>
     </div>
   </footer>
+   <script>
+    const conversionsToJoules = {
+      J: 1,
+      kJ: 1000,
+      kWh: 3.6e6,
+      BTU: 1055.06,
+      Cal: 4.184,
+      kcal: 4184,
+      eV: 1.60218e-19,
+      keV: 1.60218e-16,
+      MeV: 1.60218e-13,
+      GeV: 1.60218e-10
+    };
+
+    function convertEnergy() {
+      const inputValue = parseFloat(document.getElementById("inputValue").value);
+      const fromUnit = document.getElementById("fromUnit").value;
+      const toUnit = document.getElementById("toUnit").value;
+
+      if (isNaN(inputValue)) {
+        document.getElementById("result").textContent = "Please enter a valid number.";
+        return;
+      }
+
+      const joules = inputValue * conversionsToJoules[fromUnit];
+      const result = joules / conversionsToJoules[toUnit];
+
+      document.getElementById("result").textContent = 
+        `${inputValue} ${fromUnit} = ${result.toExponential(6)} ${toUnit}`;
+    }
+  </script>
 </body>
 </html>

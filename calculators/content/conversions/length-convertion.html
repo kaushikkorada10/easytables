@@ -54,6 +54,24 @@
       .see-also a:hover {
         text-decoration: underline;
       }
+         .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    #result {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
     </style>
   </head>
   <body>
@@ -85,6 +103,25 @@
     <div class="description">
       <h3>Length Converter</h3>
       <p>Explore our full range of length and distance converters for common unit conversions:</p>
+      <div class="converter">
+    <div class="form-group">
+      <label for="inputValue">Enter Value:</label>
+      <input type="number" id="inputValue" placeholder="Enter a value">
+    </div>
+    <div class="form-group">
+      <label for="fromUnit">From:</label>
+      <select id="fromUnit"></select>
+    </div>
+    <div class="form-group">
+      <label for="toUnit">To:</label>
+      <select id="toUnit"></select>
+    </div>
+    <button onclick="convertLength()">Convert</button>
+    <div id="result"></div>
+  </div>
+  </div>
+ <!--   <div class="description">
+    
       <ul>
         <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-feet.html">cm to feet</a></li>
         <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/cm-to-feetplusinches.html">cm to feet+inches</a></li>
@@ -137,7 +174,7 @@
         <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-meters.html">Miles to meters</a></li>
         <li><a href="/Users/kaushikkorada/Documents/easy tables/easytables/calculators/content/conversions/length-conversionl3/mm-to-yards.html">Miles to yards</a></li>
       </ul>
-    </div>
+    </div>-->
     <div class="description">
   <h2>Length Converter – Convert Between Inches, Feet, Meters, Kilometers, and More</h2>
   <p>Length is one of the most fundamental measurements used across the globe — in construction, science, travel, education, and daily life. Converting between different length units is essential when dealing with global projects, understanding metric and imperial systems, or even adjusting measurements for precision. Easy Tables’ Length Converter offers an instant, accurate, and user-friendly way to convert between major length units including inches, feet, meters, kilometers, miles, and more.</p>
@@ -313,5 +350,66 @@
         </p>
       </div>
     </footer>
+     <script>
+    const unitMap = {
+      "cm": 0.01,
+      "feet": 0.3048,
+      "inches": 0.0254,
+      "km": 1000,
+      "meters": 1,
+      "miles": 1609.34,
+      "mm": 0.001,
+      "yard": 0.9144,
+      "feet+inches": 0.3048, // approx by foot base
+    };
+
+    const unitList = [
+      "cm", "feet", "inches", "km", "meters", "miles", "mm", "yard",
+      "feet+inches to cm", "feet+inches to feet", "feet+inches to inches",
+      "feet+inches to meters", "feet+inches to mm", "Height converter"
+    ];
+
+    const allUnits = [
+      ...Object.keys(unitMap),
+      ...unitList
+    ];
+
+    const fromSelect = document.getElementById("fromUnit");
+    const toSelect = document.getElementById("toUnit");
+
+    allUnits.forEach(unit => {
+      const opt1 = document.createElement("option");
+      opt1.value = unit;
+      opt1.textContent = unit;
+      fromSelect.appendChild(opt1);
+
+      const opt2 = document.createElement("option");
+      opt2.value = unit;
+      opt2.textContent = unit;
+      toSelect.appendChild(opt2);
+    });
+
+    function convertLength() {
+      let inputValue = parseFloat(document.getElementById("inputValue").value);
+      const fromUnit = document.getElementById("fromUnit").value;
+      const toUnit = document.getElementById("toUnit").value;
+      const resultBox = document.getElementById("result");
+
+      if (isNaN(inputValue)) {
+        resultBox.textContent = "Please enter a valid number.";
+        return;
+      }
+
+      if (!unitMap[fromUnit] || !unitMap[toUnit]) {
+        resultBox.textContent = "Unsupported conversion. Try again.";
+        return;
+      }
+
+      const inMeters = inputValue * unitMap[fromUnit];
+      const outputValue = inMeters / unitMap[toUnit];
+
+      resultBox.textContent = `${inputValue} ${fromUnit} = ${outputValue.toFixed(4)} ${toUnit}`;
+    }
+  </script>
   </body>
 </html>
