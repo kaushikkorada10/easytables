@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Line Counter - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;        
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    #result {
+      font-weight: bold;
+      color: #0D47A1;
+      margin-top: 15px;
+    }
+    .result { margin-top: 20px; font-weight: bold; font-size: 1.2em; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+    <a href="../../../index.html">Home</a> <span>›</span>
+    <a href="#">Line Counter</a>
+  </nav>
+
+  <div class="description">
+    <h2>Line Counter</h2>
+    <p>Use this free line counter tool to count the number of lines in any block of text. Ideal for analyzing code files, essays, scripts, and formatted documents.</p>
+
+    <div class="form-group">
+      <label for="textInput">Enter your text below:</label>
+      <textarea id="textInput" class="form-control" placeholder="Paste your text here..." oninput="countLines()"></textarea>
+    </div>
+
+    <div id="result" class="result">Lines: 0</div>
+  </div>
+
+  <div class="description">
+    <h3>What is a Line Counter?</h3>
+    <p>A line counter is a simple yet powerful tool that calculates the total number of lines in a given block of text. This is particularly useful when working with programming scripts, log files, formatted documents, or poetry where line count is significant.</p>
+
+    <h3>Why Use a Line Counter?</h3>
+    <ul>
+      <li><strong>Code Review:</strong> Determine the size or complexity of source code.</li>
+      <li><strong>Writing & Publishing:</strong> Track line usage in screenplays, books, or essays.</li>
+      <li><strong>Education:</strong> Evaluate answer length in exams or reports.</li>
+      <li><strong>Data Logs:</strong> Count entries in system or server logs.</li>
+    </ul>
+
+    <h3>Features</h3>
+    <ul>
+      <li>Real-time line counting</li>
+      <li>Accurate count including blank lines</li>
+      <li>Instant updates while typing or pasting</li>
+      <li>Supports all modern browsers and devices</li>
+    </ul>
+
+    <h3>Tip:</h3>
+    <p>If you're copying from a code editor, the line breaks are preserved, making this tool perfect for quick statistics or documentation summaries.</p>
+  </div>
+  <div class="description">
+  <h2>Line Counter – Instantly Count Lines in Your Text or Code</h2>
+
+  <p>Whether you’re writing content, editing code, or analyzing large datasets, counting lines is a simple yet powerful function that can streamline your workflow. The <strong>Line Counter</strong> tool offers a fast, reliable, and user-friendly way to determine the exact number of lines in any block of text — be it a plain document, source code, or even a spreadsheet export.</p>
+
+  <p>This tool is ideal for content creators, developers, students, and data professionals who need to quickly assess the length, complexity, or structure of their content. With just a paste or upload, you get real-time results showing how many lines your input contains, helping you stay organized and efficient.</p>
+
+  <h3>What Is a Line Counter?</h3>
+  <p>A line counter is a utility that counts the number of lines in a given text. A line is typically defined as a segment of text ending in a newline character (e.g., \n or \r\n). These tools help users quickly determine document length, code complexity, or formatting errors. They’re especially useful when working with:</p>
+  <ul>
+    <li>📝 Text documents</li>
+    <li>📜 Code files (JavaScript, Python, HTML, etc.)</li>
+    <li>📄 Logs and reports</li>
+    <li>📊 CSV and data exports</li>
+    <li>📚 Essays and manuscripts</li>
+  </ul>
+
+  <h3>Why Use a Line Counter Tool?</h3>
+  <p>Line counters are indispensable in many industries. Here’s why professionals use them regularly:</p>
+  <ul>
+    <li>✔️ Developers use it to measure the size of their codebase and monitor changes over time.</li>
+    <li>✔️ Content creators use it to track paragraph or line count for formatting and readability.</li>
+    <li>✔️ Data analysts use it to check the number of records in plain-text CSV or JSON files.</li>
+    <li>✔️ Writers and editors use it to ensure documents conform to publishing or submission rules.</li>
+    <li>✔️ Teachers and students use it to verify formatting for assignments or projects.</li>
+  </ul>
+
+  <h3>Features of Our Line Counter Tool</h3>
+  <ul>
+    <li>📌 Instant line count with live updates</li>
+    <li>📌 Handles large input blocks efficiently</li>
+    <li>📌 Works with any text – code, articles, logs, or data</li>
+    <li>📌 No file upload needed – 100% browser-based</li>
+    <li>📌 Counts blank lines, non-blank lines, and total characters</li>
+    <li>📌 Option to ignore empty lines or count only lines with content</li>
+  </ul>
+
+  <h3>Common Use Cases for a Line Counter</h3>
+  <p>Below are some practical examples of how a line counter improves productivity across various professions:</p>
+
+  <h4>1. For Programmers</h4>
+  <p>Knowing the number of lines in your source code can help you:</p>
+  <ul>
+    <li>🧮 Estimate development time or code complexity</li>
+    <li>🔄 Track changes across commits in version control (e.g., Git)</li>
+    <li>🛠️ Set goals for refactoring, reducing bloated code</li>
+    <li>🧪 Compare different codebases or modules</li>
+  </ul>
+
+  <h4>2. For Content Writers</h4>
+  <p>Line counts help content writers and editors manage formatting, especially when working with:</p>
+  <ul>
+    <li>📖 Poetry or script formatting</li>
+    <li>📰 News articles with line-limited column formats</li>
+    <li>📤 Submissions for websites or journals with line restrictions</li>
+    <li>📚 eBook formatting for mobile devices</li>
+  </ul>
+
+  <h4>3. For Students and Teachers</h4>
+  <p>Students writing essays or assignments may need to meet a required line count. Similarly, educators can use this tool to:</p>
+  <ul>
+    <li>📑 Evaluate paper length without manually counting lines</li>
+    <li>📎 Create structured exercises with a line limit</li>
+    <li>📝 Format handwritten notes into digital line-limited text</li>
+  </ul>
+
+  <h4>4. For Data Analysts and Engineers</h4>
+  <p>Line counters are great for analyzing flat files:</p>
+  <ul>
+    <li>📊 Count number of records in a CSV</li>
+    <li>🔢 Validate batch size before importing to a database</li>
+    <li>🧾 Parse log files for error line tracking</li>
+  </ul>
+
+  <h3>How Does the Line Counter Work?</h3>
+  <p>The tool works by detecting newline characters. Every new line, whether it's empty or has content, counts as one. It also provides:</p>
+  <ul>
+    <li>📌 Total line count</li>
+    <li>📌 Non-empty lines only</li>
+    <li>📌 Optionally: word count and character count</li>
+  </ul>
+  <p>Here’s a simple logic in JavaScript for how it works:</p>
+  <pre><code>
+  const text = document.getElementById("input").value;
+  const lines = text.split(/\r\n|\r|\n/);
+  const nonEmptyLines = lines.filter(line => line.trim() !== '');
+  console.log("Total lines: " + lines.length);
+  console.log("Non-empty lines: " + nonEmptyLines.length);
+  </code></pre>
+
+  <h3>Line Counting vs Word Counting</h3>
+  <p>Line count and word count are often confused but serve different purposes:</p>
+  <ul>
+    <li><strong>Line Count:</strong> Useful for formatting, code review, and fixed-layout publishing.</li>
+    <li><strong>Word Count:</strong> Ideal for content volume analysis, essay writing, and SEO.</li>
+  </ul>
+  <p>Combining both provides a full overview of your content’s structure and length.</p>
+
+  <h3>SEO and Writing Optimization</h3>
+  <p>When preparing content for web publishing, it's important to break text into manageable chunks. Using line count, you can:</p>
+  <ul>
+    <li>📏 Keep paragraphs short and scannable</li>
+    <li>📄 Optimize HTML line spacing for readability</li>
+    <li>🧠 Align content structure with reader expectations</li>
+  </ul>
+
+  <h3>Benefits of Using This Tool</h3>
+  <ul>
+    <li>🚀 Saves time on manual counting</li>
+    <li>🎯 Increases accuracy in content management</li>
+    <li>📉 Helps track and reduce unnecessary code bloat</li>
+    <li>📤 Useful for bulk data validation before uploads</li>
+    <li>🧩 Lightweight and browser-based – no install needed</li>
+  </ul>
+
+  <h3>Who Can Use This Tool?</h3>
+  <ul>
+    <li>✅ Writers and bloggers</li>
+    <li>✅ Developers and software engineers</li>
+    <li>✅ Editors and proofreaders</li>
+    <li>✅ Teachers and examiners</li>
+    <li>✅ Data entry and IT professionals</li>
+  </ul>
+
+  <h3>FAQs – Line Counter</h3>
+
+  <h4>Q: Does it count blank lines?</h4>
+  <p>A: Yes. The tool gives you both total lines and non-blank lines separately for detailed insights.</p>
+
+  <h4>Q: Can I paste code into this tool?</h4>
+  <p>A: Absolutely. This line counter works with any plain text including programming languages like Python, JavaScript, C++, HTML, and more.</p>
+
+  <h4>Q: Is my input text stored?</h4>
+  <p>A: No. This is a secure, client-side tool. Your text never leaves your browser.</p>
+
+  <h4>Q: What’s the maximum limit?</h4>
+  <p>A: There's no strict limit — you can paste thousands of lines, and it will still perform efficiently.</p>
+
+  <h3>Conclusion</h3>
+  <p>The <strong>Line Counter</strong> is a simple yet versatile tool that supports anyone dealing with text-based work — from coders to content creators. It improves productivity, ensures formatting accuracy, and provides quick validation for various tasks. Whether you're managing documents, reviewing code, analyzing logs, or writing assignments, this tool helps you keep track with ease.</p>
+
+  <p>🔍 Try the Line Counter now and streamline your text management like never before!</p>
+    <h3>How the Line Counter Supports Developers and Coders</h3>
+  <p>In the software development world, understanding code length is crucial for performance, maintainability, and collaboration. A line counter helps you identify how large or complex a program is, especially in collaborative environments like GitHub or GitLab. Many development teams use line count statistics to:</p>
+  <ul>
+    <li>📁 Evaluate codebase size across different repositories</li>
+    <li>⏱️ Estimate time and resources needed for audits or code reviews</li>
+    <li>🔁 Track productivity by comparing lines added or deleted per sprint</li>
+    <li>📦 Monitor open-source contributions and pull request changes</li>
+    <li>🔍 Identify bloated files that need refactoring or splitting</li>
+  </ul>
+  <p>While “lines of code” (LOC) isn’t the only indicator of complexity, it is often the starting point for deeper analysis like cyclomatic complexity or documentation ratios.</p>
+
+  <h3>Perfect Tool for Writers and Editors</h3>
+  <p>Writers often face strict formatting requirements when submitting content to publications, online journals, or even clients. Editors may need to:</p>
+  <ul>
+    <li>✍️ Format text to fit a layout (e.g., 60 lines max)</li>
+    <li>📤 Match publishing platform specifications (e.g., Kindle Direct Publishing)</li>
+    <li>📚 Review poetry or scriptwriting that relies on line-based structure</li>
+    <li>📊 Perform content audits on long documents</li>
+  </ul>
+  <p>In digital publishing, line counts can also affect how content is paginated across screens. Keeping line count in check ensures smoother user experience and layout predictability.</p>
+
+  <h3>Educational Use: Empowering Students and Teachers</h3>
+  <p>Educators use line counters to create precise, measurable assignments. Here’s how:</p>
+  <ul>
+    <li>📓 Limit answers to a certain number of lines (e.g., 10-line summaries)</li>
+    <li>🧾 Analyze student submissions for completeness or conciseness</li>
+    <li>📈 Offer real-time feedback on writing structure</li>
+    <li>📋 Use for programming assignments that require minimal code</li>
+  </ul>
+  <p>On the other side, students benefit by being able to measure their writing progress. For example, knowing how many lines they've written helps them match teacher expectations and avoid unnecessary fluff or repetition.</p>
+
+  <h3>How Bloggers and SEO Writers Benefit</h3>
+  <p>When writing for online visibility, structure is everything. A line counter helps you:</p>
+  <ul>
+    <li>🔠 Break content into SEO-friendly chunks</li>
+    <li>📌 Keep headers and paragraphs within recommended line lengths</li>
+    <li>📈 Optimize featured snippets and meta descriptions</li>
+    <li>📚 Avoid overly long or dense text that reduces readability</li>
+  </ul>
+  <p>Tools like Google’s Page Experience metrics reward clear, scannable content — and keeping track of line length helps create such optimized content.</p>
+
+  <h3>Boosting Productivity and Workflow</h3>
+  <p>Whether you’re a solo writer or part of a large development team, tracking lines in your documents or code can help you:</p>
+  <ul>
+    <li>✅ Set measurable writing or coding goals (e.g., 200 lines/day)</li>
+    <li>📆 Track progress over time on long-form projects</li>
+    <li>🛠️ Clean up cluttered files by reviewing empty or redundant lines</li>
+    <li>🗃️ Manage large documents more efficiently by chunking them by line sections</li>
+  </ul>
+  <p>By integrating line counting into your routine, you streamline your workflow and gain visibility into your own efficiency.</p>
+
+  <h3>Line Counter vs Word/Character Counters</h3>
+  <p>While line, word, and character counters are often bundled together, they serve distinct roles:</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Purpose</th>
+        <th>Common Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Line Counter</td>
+        <td>Counts rows separated by line breaks</td>
+        <td>Code, logs, poetry, layout control</td>
+      </tr>
+      <tr>
+        <td>Word Counter</td>
+        <td>Counts words separated by spaces</td>
+        <td>Essays, SEO writing, journalism</td>
+      </tr>
+      <tr>
+        <td>Character Counter</td>
+        <td>Counts every letter, space, and punctuation mark</td>
+        <td>SMS, tweets, meta descriptions</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Each tool has its place. A line counter is particularly effective when content format and layout matter more than raw volume.</p>
+
+  <h3>Analytics and Reporting with Line Counts</h3>
+  <p>In large organizations, content and code reporting is critical. Adding line count statistics to your reports allows you to:</p>
+  <ul>
+    <li>📊 Audit file structures for redundancies</li>
+    <li>🧩 Visualize content density across platforms</li>
+    <li>📋 Generate documentation summaries by file size</li>
+    <li>💬 Estimate processing or review time based on length</li>
+  </ul>
+  <p>This makes the Line Counter not just a writing aid, but a lightweight analytics tool as well.</p>
+
+  <h3>Offline Use and Browser-Based Reliability</h3>
+  <p>Our Line Counter is built with JavaScript and works 100% client-side. That means:</p>
+  <ul>
+    <li>🛡️ Your content never leaves your device</li>
+    <li>🌐 Works offline once loaded in the browser</li>
+    <li>🧪 Zero dependencies, no installations needed</li>
+    <li>🚫 No ads, no distractions, no data collection</li>
+  </ul>
+  <p>It’s especially handy for sensitive data or when working in secure development environments.</p>
+
+  <h3>Conclusion</h3>
+  <p>The Line Counter tool is more than just a utility — it's a versatile productivity enhancer across creative, technical, academic, and business workflows. With fast performance, zero privacy risks, and flexible features, it empowers anyone dealing with text to work smarter.</p>
+
+  <p>Whether you’re a student formatting your homework, a coder reviewing source files, or a copywriter ensuring layout consistency, this tool will save you time and effort.</p>
+
+  <p>⚡ <strong>Use the Line Counter today</strong> — and streamline your writing, coding, or analysis one line at a time!</p>
+
+</div>
+
+
+ <div class="see-also">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="ocr-image-text.html">OCR - Image to text</a></li>
+      <li><a href="pdf-reader.html">PDF Reader</a></li>
+      <li><a href="line-counter.html">Line counter</a></li>
+      <li><a href="character-counter.html">Character counter</a></li>
+     <li><a href="word-frequency.html">Word frequency</a></li>
+
+    </ul>
+  </div>
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function countLines() {
+      const text = document.getElementById("textInput").value;
+      const lineCount = text === "" ? 0 : text.split(/\n/).length;
+      document.getElementById("result").textContent = `Lines: ${lineCount}`;
+    }
+  </script>
+</body>
+</html>

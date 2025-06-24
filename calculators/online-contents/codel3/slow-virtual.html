@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slow VirtualBox Ubuntu - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3, .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li { margin-bottom: 8px; }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
+          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+
+  <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../index.html">Home</a> <span>></span>
+    <a href="../../index.html#misc-s">Miscellaneous</a> <span>></span>
+    <a href="#">Slow VirtualBox Ubuntu</a>
+  </nav>
+
+  <div class="description">
+    <h3>Fixing Slow Ubuntu in VirtualBox</h3>
+    <p>Running Ubuntu in VirtualBox can sometimes feel sluggish, especially if default settings are used. Here’s how to improve performance and make your virtual machine faster and smoother.</p>
+
+    <h4>1. Allocate More RAM and CPU</h4>
+    <ul>
+      <li>Go to **Settings > System > Motherboard**</li>
+      <li>Increase the base memory (at least 2GB, ideally 4GB+ for Ubuntu Desktop)</li>
+      <li>Under **Processor**, allow 2 or more CPU cores (if available)</li>
+    </ul>
+
+    <h4>2. Enable 3D Acceleration</h4>
+    <ul>
+      <li>Go to **Display > Screen**</li>
+      <li>Check “Enable 3D Acceleration”</li>
+      <li>Increase **Video Memory** to 128MB</li>
+    </ul>
+
+    <h4>3. Install Guest Additions</h4>
+    <p>Guest Additions improve graphics, mouse integration, and overall system responsiveness.</p>
+    <pre><code>sudo apt update
+sudo apt install build-essential dkms linux-headers-$(uname -r)</code></pre>
+    <p>Then insert the Guest Additions CD from the VirtualBox menu and run the installer.</p>
+
+    <h4>4. Disable Unused Startup Services</h4>
+    <p>Use the command below to manage startup services:</p>
+    <pre><code>sudo systemctl disable service-name</code></pre>
+    <p>Or use GUI tools like “Startup Applications” to turn off unnecessary programs at boot.</p>
+
+    <h4>5. Use a Lighter Ubuntu Flavor</h4>
+    <ul>
+      <li>Try <strong>Xubuntu</strong> or <strong>Lubuntu</strong> instead of full Ubuntu for better performance in VMs</li>
+    </ul>
+
+    <h4>6. Enable Host I/O Cache</h4>
+    <ul>
+      <li>Go to **Settings > Storage > Controller: SATA**</li>
+      <li>Check the “Use Host I/O Cache” option</li>
+    </ul>
+
+    <h4>7. Update VirtualBox and Extension Pack</h4>
+    <p>Make sure you're using the latest version of VirtualBox and that the Extension Pack is also installed for enhanced VM support.</p>
+
+    <h4>8. Use SSD for VM Disk Location</h4>
+    <p>Store your virtual machine files on an SSD instead of an HDD for faster boot and loading times.</p>
+
+    <h4>9. Disable Animations</h4>
+    <p>In Ubuntu Settings → Accessibility or Tweaks, disable interface animations for a snappier experience.</p>
+
+    <h4>10. Keep Ubuntu Updated</h4>
+    <pre><code>sudo apt update && sudo apt upgrade</code></pre>
+    <p>Latest patches often include performance improvements and fixes for known bugs.</p>
+
+    <h4>Bonus: Try Virtual Machine Tools Like VMware</h4>
+    <p>Sometimes, VMware Workstation Player offers better graphics acceleration than VirtualBox, especially on lower-end hardware.</p>
+  </div>
+
+  <div class="see-also">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="cat-cmd.html">cat command</a></li>
+      <li><a href="cd-cmd.html">cd command</a></li>
+      <li><a href="cp-cmd.html">cp command</a></li>
+      <li><a href="mv-command.html">mv command</a></li>
+      <li><a href="pwd-command.html">pwd command</a></li>
+      <li><a href="linux-view.html">Linux view files</a></li>
+      <li><a href="linux-current.html">Linux current directory</a></li>
+
+    </ul>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">About</a> |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

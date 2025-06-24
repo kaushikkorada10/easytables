@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>cat Command - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3, .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li { margin-bottom: 8px; }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../index.html">
+        <h1 class="nav-h1-color">EASY TABLES</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
+          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+
+  <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../../index.html">Home</a> <span>></span>
+    <a href="../../../index.html#Online-tools-s">Online Tools</a> <span>></span>
+    <a href="#">cat Command</a>
+  </nav>
+
+  <div class="description">
+    <h3>cat Command in Linux</h3>
+    <p>The <code>cat</code> command in Linux is used to display, combine, and create text files. It's short for “concatenate,” and is one of the most frequently used commands for working with file contents directly from the terminal.</p>
+
+    <h4>Basic Syntax</h4>
+    <pre><code>cat [options] [filename(s)]</code></pre>
+
+    <h4>Common Uses</h4>
+    <ul>
+      <li><strong>View file content:</strong> <code>cat file.txt</code></li>
+      <li><strong>Concatenate files:</strong> <code>cat file1.txt file2.txt > merged.txt</code></li>
+      <li><strong>Create a file:</strong> <code>cat > newfile.txt</code> (press Ctrl+D to save)</li>
+      <li><strong>Append to file:</strong> <code>cat >> file.txt</code></li>
+      <li><strong>Show line numbers:</strong> <code>cat -n file.txt</code></li>
+    </ul>
+
+    <h4>Useful Options</h4>
+    <ul>
+      <li><code>-n</code> : Number all lines</li>
+      <li><code>-b</code> : Number non-empty lines only</li>
+      <li><code>-s</code> : Squeeze multiple blank lines</li>
+      <li><code>-E</code> : Show <code>$</code> at the end of each line</li>
+    </ul>
+
+    <h4>Example</h4>
+    <pre><code>$ cat notes.txt
+Linux is fun!
+Learning commands.
+
+$ cat -n notes.txt
+     1  Linux is fun!
+     2  Learning commands.</code></pre>
+
+    <h4>Best Practices</h4>
+    <p>Use <code>cat</code> for quick reading and file concatenation. For long files, tools like <code>less</code> or <code>more</code> may be better for scrolling. Always redirect output to avoid overwriting unintentionally.</p>
+  </div>
+<div class="description">
+  <h2>cat Command in Linux – Concatenate and Display File Content</h2>
+  <p>The <code>cat</code> command is one of the most frequently used commands in Linux and UNIX systems. Short for “concatenate,” it is primarily used to read and combine files, displaying their contents on the standard output. It's fast, efficient, and incredibly flexible, making it an essential part of any Linux user’s toolkit.</p>
+
+  <h3>Basic Syntax</h3>
+  <pre><code>cat [options] [file...]
+  </code></pre>
+  <p>The command works with one or multiple files and outputs the results to the terminal screen unless redirected.</p>
+
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li>📄 View the contents of a file</li>
+    <li>📎 Concatenate multiple files into one</li>
+    <li>📤 Redirect output to create new files</li>
+    <li>📚 Display text files line by line</li>
+    <li>🛠 Combine configuration or log files for scripting</li>
+  </ul>
+
+  <h3>Examples of Using the cat Command</h3>
+  <h4>1. View a Single File</h4>
+  <pre><code>cat filename.txt</code></pre>
+  <p>This will output the contents of <code>filename.txt</code> to the terminal.</p>
+
+  <h4>2. Concatenate Multiple Files</h4>
+  <pre><code>cat file1.txt file2.txt</code></pre>
+  <p>This command displays the contents of both files, one after the other.</p>
+
+  <h4>3. Redirect Output to Another File</h4>
+  <pre><code>cat file1.txt file2.txt > combined.txt</code></pre>
+  <p>Combines the contents of two files into a new file <code>combined.txt</code>.</p>
+
+  <h4>4. Create a New File with cat</h4>
+  <pre><code>cat > newfile.txt</code></pre>
+  <p>After executing this command, you can type the file’s contents directly into the terminal. Press <code>Ctrl+D</code> to save and exit.</p>
+
+  <h4>5. Append to an Existing File</h4>
+  <pre><code>cat additional.txt >> existing.txt</code></pre>
+  <p>This appends the contents of <code>additional.txt</code> to <code>existing.txt</code>.</p>
+
+  <h3>Useful Options</h3>
+  <ul>
+    <li><code>-n</code>: Number all output lines</li>
+    <li><code>-b</code>: Number only non-blank lines</li>
+    <li><code>-s</code>: Squeeze multiple blank lines into one</li>
+    <li><code>-T</code>: Show tab characters as <code>^I</code></li>
+    <li><code>-E</code>: Show end of lines with <code>$</code></li>
+  </ul>
+
+  <h4>Example with Options:</h4>
+  <pre><code>cat -n filename.txt</code></pre>
+  <p>This will display the file with line numbers.</p>
+
+  <h3>Tips and Best Practices</h3>
+  <ul>
+    <li>✅ Use <code>cat</code> only for small to medium-sized files to avoid overwhelming your terminal.</li>
+    <li>✅ Use <code>more</code> or <code>less</code> for paging through large files.</li>
+    <li>✅ Combine with pipes to process text: <code>cat file.txt | grep "keyword"</code></li>
+    <li>✅ Use in shell scripts for file merging, log capturing, and automated outputs.</li>
+  </ul>
+
+  <h3>cat Command vs. less and more</h3>
+  <p>While <code>cat</code> is ideal for quickly viewing content, <code>less</code> and <code>more</code> allow for paginated viewing:</p>
+  <ul>
+    <li><code>cat</code>: Shows all content at once.</li>
+    <li><code>more</code>: Displays content one page at a time (forward only).</li>
+    <li><code>less</code>: Allows forward and backward navigation, search, and more.</li>
+  </ul>
+
+  <h3>Use in Scripting</h3>
+  <p>The <code>cat</code> command is frequently used in bash scripts for tasks like:</p>
+  <ul>
+    <li>📜 Reading configuration files</li>
+    <li>📁 Combining log files</li>
+    <li>🛠 Preparing system or app setups</li>
+    <li>📧 Email automation using text templates</li>
+  </ul>
+
+  <h3>Security Tips</h3>
+  <ul>
+    <li>🛡️ Avoid using <code>cat *</code> in sensitive directories</li>
+    <li>🕵️ Use <code>head</code> or <code>tail</code> for previewing contents before viewing full files</li>
+    <li>📁 Be careful with redirected outputs to avoid unintentional overwrites</li>
+  </ul>
+
+  <h3>Common Errors</h3>
+  <ul>
+    <li>❌ <code>No such file or directory</code> – File path is incorrect</li>
+    <li>❌ <code>Permission denied</code> – Use <code>sudo</code> if required</li>
+    <li>❌ <code>Too many arguments</code> – Double check input files and syntax</li>
+  </ul>
+
+  <h3>Alternatives to cat</h3>
+  <p>While <code>cat</code> is popular, you can also use:</p>
+  <ul>
+    <li><code>more</code> – Basic paginated viewer</li>
+    <li><code>less</code> – Advanced pager with search and navigation</li>
+    <li><code>tac</code> – Like <code>cat</code> but outputs file content in reverse</li>
+  </ul>
+
+  <h3>SEO Keywords and Phrases</h3>
+  <ul>
+    <li>cat command in Linux</li>
+    <li>how to use cat command</li>
+    <li>Linux cat command examples</li>
+    <li>concatenate files with cat</li>
+    <li>bash script cat command</li>
+  </ul>
+
+  <h3>Conclusion</h3>
+  <p>The <code>cat</code> command is a simple yet powerful Linux utility that every user and developer should understand. Whether you’re viewing logs, merging files, or writing scripts, it serves as a quick go-to solution. Mastering <code>cat</code> not only enhances your command line efficiency but also sets the stage for more advanced shell scripting techniques.</p>
+</div>
+
+  <div class="see-also">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="cat-cmd.html">cat command</a></li>
+      <li><a href="cd-cmd.html">cd command</a></li>
+      <li><a href="cp-cmd.html">cp command</a></li>
+      <li><a href="mv-command.html">mv command</a></li>
+      <li><a href="pwd-command.html">pwd command</a></li>
+      <li><a href="linux-view.html">Linux view files</a></li>
+      <li><a href="linux-current.html">Linux current directory</a></li>
+
+    </ul>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">About</a> |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
