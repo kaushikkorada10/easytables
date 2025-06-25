@@ -55,7 +55,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../../index.html">
         <h1 class="nav-h1-color">EASY TABLES</h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -63,11 +63,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
-          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
+          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
         </div>
       </div>
     </div>
@@ -75,11 +75,10 @@
   <br>
 
   <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../index.html">Home</a> <span>></span>
-    <a href="../../index.html#Online-tools-s">Online Tools</a> <span>></span>
-    <a href="#">pwd Command</a>
+    <a href="../../../index.html">Home</a> <span>></span>
+    <a href="../../../index.html#Online-tools-s">Online Tools</a> <span>></span>
+    <a href="#">cat Command</a>
   </nav>
-
   <div class="description">
     <h3>pwd Command in Linux</h3>
     <p>The <code>pwd</code> command stands for "print working directory". It displays the full path of the current directory you are working in. It’s a simple yet essential command used frequently in Linux terminal sessions.</p>
@@ -115,6 +114,302 @@ $ pwd
       <li>It's often used in combination with scripting and automation to ensure file paths are correct.</li>
     </ul>
   </div>
+  <div class="description">
+  <h1>pwd Command in Linux – Print Working Directory Explained</h1>
+
+  <p>The <code>pwd</code> command in Linux is one of the simplest yet most essential commands for any user working in a terminal. Whether you’re navigating directories, writing shell scripts, or managing file paths, knowing your current location in the filesystem is crucial. This is where the <code>pwd</code> command comes in. In this comprehensive guide, we will explore what <code>pwd</code> does, how it works, syntax, real-world use cases, options, and advanced usage patterns.</p>
+
+  <h2>What is pwd in Linux?</h2>
+  <p>The <code>pwd</code> command stands for “Print Working Directory.” It displays the full path of the current directory you're working in. It is especially useful when you’ve navigated deep into nested folders and need to confirm your exact location in the file system.</p>
+
+  <h2>Basic Syntax</h2>
+  <pre><code>pwd [OPTION]</code></pre>
+  <p>The command has no required arguments but accepts a few optional flags.</p>
+
+  <h2>Simple Example</h2>
+  <pre><code>$ pwd
+/home/venkatesh/projects/webapp</code></pre>
+  <p>This output shows that the user is currently in the <code>webapp</code> directory inside <code>/home/venkatesh/projects/</code>.</p>
+
+  <h2>Why Use the pwd Command?</h2>
+  <ul>
+    <li>To confirm your current directory in a shell session</li>
+    <li>To debug scripts involving relative file paths</li>
+    <li>To set environment variables based on your current path</li>
+    <li>To document paths in logs or automation scripts</li>
+    <li>To avoid path confusion when switching between directories</li>
+  </ul>
+
+  <h2>Options Available with pwd</h2>
+  <p>The <code>pwd</code> command supports a few options that influence its behavior.</p>
+
+  <h3>1. -L (Logical)</h3>
+  <p>This is the default. It prints the logical path, including symbolic links.</p>
+  <pre><code>pwd -L</code></pre>
+
+  <h3>2. -P (Physical)</h3>
+  <p>This prints the actual physical directory path, resolving all symbolic links to their real targets.</p>
+  <pre><code>pwd -P</code></pre>
+
+  <h3>Example of Logical vs Physical</h3>
+  <pre><code>cd /var/www/html
+ln -s /var/www/html /home/user/website
+cd /home/user/website
+pwd -L  # Output: /home/user/website
+pwd -P  # Output: /var/www/html</code></pre>
+
+  <p>This demonstrates how <code>-L</code> shows the path with symlinks, while <code>-P</code> resolves them.</p>
+
+  <h2>Understanding Absolute and Relative Paths</h2>
+  <p><code>pwd</code> always returns an <strong>absolute path</strong>, which starts from the root directory (<code>/</code>). It’s useful for creating scripts that require full directory references rather than relative paths like <code>../</code>.</p>
+
+  <h2>Integration with Other Commands</h2>
+  <p>You can combine <code>pwd</code> with other Linux commands using shell features like variables and piping.</p>
+
+  <h3>1. Assign Current Directory to a Variable</h3>
+  <pre><code>CUR_DIR=$(pwd)</code></pre>
+  <p>This stores the current directory path in a variable.</p>
+
+  <h3>2. Use in Bash Scripts</h3>
+  <pre><code>
+#!/bin/bash
+echo "Current Directory: $(pwd)"
+cd /tmp
+echo "Now in: $(pwd)"
+  </code></pre>
+
+  <h2>Using pwd in Shell Prompt Customization</h2>
+  <p>You can modify your shell prompt to include the current directory using <code>pwd</code> or shell variables like <code>$PWD</code>.</p>
+  <pre><code>PS1="\u@\h:\$(pwd)\$ "</code></pre>
+  <p>This custom prompt shows username, host, and current directory.</p>
+
+  <h2>pwd vs $PWD</h2>
+  <p><code>pwd</code> is a command, whereas <code>$PWD</code> is a shell variable holding the current directory path. Both generally show the same output, but <code>pwd</code> always invokes a command while <code>$PWD</code> is faster in scripts.</p>
+
+  <h2>Use Cases of pwd in Real Life</h2>
+  <ul>
+    <li>Setting the base path in automation scripts</li>
+    <li>Logging directory structure in error reports</li>
+    <li>Building dynamic file paths</li>
+    <li>Debugging unexpected behavior in shell scripts</li>
+    <li>Using with <code>cd</code> and <code>ls</code> in complex workflows</li>
+  </ul>
+
+  <h2>pwd in Different Shells</h2>
+  <p>Most Unix-like shells (bash, zsh, sh, fish) support <code>pwd</code>. Some implement it as a shell builtin for speed.</p>
+
+  <h3>Check if pwd is Built-in</h3>
+  <pre><code>type pwd</code></pre>
+  <p>Output: <code>pwd is a shell builtin</code></p>
+
+  <h2>Limitations of pwd</h2>
+  <ul>
+    <li>Cannot display relative paths</li>
+    <li>When directories are renamed/deleted during a session, it may return outdated paths unless refreshed</li>
+    <li>Behavior may slightly differ across shells (e.g., Bash vs Dash)</li>
+  </ul>
+
+  <h2>pwd and Symbolic Links</h2>
+  <p>Symbolic links are shortcuts pointing to other directories. The <code>pwd</code> command helps you detect whether you're in a real directory or a symlinked path using <code>-P</code>.</p>
+
+  <h2>Security and Scripting Caution</h2>
+  <ul>
+    <li>Don’t hard-code <code>pwd</code> results unless the environment is controlled</li>
+    <li>In scripts, test <code>pwd</code> output to avoid unexpected behavior if the directory doesn’t exist</li>
+    <li>Combine with <code>if</code> conditions or <code>[[ -d $(pwd) ]]</code> checks</li>
+  </ul>
+
+  <h2>Examples for Practice</h2>
+  <ul>
+    <li><code>echo "You are in: $(pwd)"</code></li>
+    <li><code>tar -czvf archive.tar.gz $(pwd)</code> – Compress current folder</li>
+    <li><code>scp file.txt user@remote:$(pwd)</code> – Transfer file to current remote dir</li>
+    <li><code>ls -la $(pwd)</code> – List all files in the current directory</li>
+  </ul>
+
+  <h2>Common Errors and Fixes</h2>
+  <ul>
+    <li><strong>Command not found:</strong> Extremely rare; occurs if the shell environment is broken.</li>
+    <li><strong>Stale output:</strong> Run <code>cd .</code> to force shell to refresh <code>pwd</code> info after moving directories externally.</li>
+  </ul>
+
+  <h2>How pwd Works Internally</h2>
+  <p>Under the hood, <code>pwd</code> uses the system call <code>getcwd()</code> (get current working directory) to retrieve the absolute path. In shells, <code>$PWD</code> is often updated dynamically by the shell during each <code>cd</code> command.</p>
+
+  <h2>pwd in GUI vs CLI</h2>
+  <p>While graphical file managers display your location in a window, CLI users rely on <code>pwd</code> to show the same. It's often more efficient to use CLI in server environments or when scripting.</p>
+
+  <h2>pwd Command in Job Interviews</h2>
+  <p>Interviewers often ask about <code>pwd</code> to test a candidate’s understanding of directory structures, absolute vs relative paths, and script-writing fundamentals.</p>
+  <p><strong>Sample Question:</strong> How does <code>pwd -L</code> differ from <code>pwd -P</code>?</p>
+
+  <h2>Aliases and Shortcuts</h2>
+  <pre><code>alias mydir='pwd -P'</code></pre>
+  <p>This alias helps quickly get the resolved physical path of the current directory.</p>
+
+  <h2>Conclusion</h2>
+  <p>The <code>pwd</code> command might seem basic, but it's an indispensable tool for Linux users, from beginners to seasoned system administrators. Its ability to provide the absolute path of the working directory plays a vital role in navigation, automation, and scripting. When combined with other commands and used wisely, <code>pwd</code> enhances efficiency, accuracy, and control in terminal-based workflows.</p>
+
+  <h2>Related Commands</h2>
+  <ul>
+    <li><a href="#cd-command">cd</a> – Change current directory</li>
+    <li><a href="#ls-command">ls</a> – List files in current directory</li>
+    <li><a href="#echo-command">echo</a> – Print text or variable values</li>
+    <li><a href="#whoami-command">whoami</a> – Display current user</li>
+  </ul>
+</div>
+<div class="description">
+  <h2>Advanced Scripting with pwd</h2>
+  <p>In advanced scripting scenarios, <code>pwd</code> becomes a critical component. Especially in CI/CD pipelines, Dockerfile creation, deployment tasks, and bash automation, the current working directory is used to determine context and execution locations.</p>
+
+  <h3>Example: Save Current Path, Change Directory Temporarily</h3>
+  <pre><code>
+#!/bin/bash
+ORIGINAL_DIR=$(pwd)
+cd /tmp
+# Do something in /tmp
+cd "$ORIGINAL_DIR"
+  </code></pre>
+  <p>This snippet ensures that a script always returns to the original location, which is useful for writing reliable and reversible shell scripts.</p>
+
+  <h3>Dynamic Path Generation</h3>
+  <p>When working on large projects with multiple folders, dynamically capturing the current working directory using <code>pwd</code> helps in:</p>
+  <ul>
+    <li>Logging where a script is executed from</li>
+    <li>Referencing local files relative to the script’s execution</li>
+    <li>Generating reports with full paths for traceability</li>
+  </ul>
+
+  <h2>pwd in Docker and Containers</h2>
+  <p>Within Docker containers, <code>pwd</code> is used to understand the context of the running container. Developers often use it while building images or writing Dockerfiles.</p>
+
+  <h3>Example: Dockerfile with pwd</h3>
+  <pre><code>
+FROM ubuntu:latest
+WORKDIR /app
+RUN echo "Current directory is $(pwd)"
+  </code></pre>
+  <p>Note: The shell may not interpret <code>$(pwd)</code> at Dockerfile build time without a wrapper script, but it’s still conceptually valuable.</p>
+
+  <h2>Using pwd with Git Repositories</h2>
+  <p>Developers frequently work within Git repositories and use <code>pwd</code> to determine if they're in the correct working directory before issuing Git commands.</p>
+
+  <h3>Example: Git Safety Check</h3>
+  <pre><code>
+if [[ $(pwd) == *"/my-project"* ]]; then
+  git pull origin main
+else
+  echo "Not inside my-project repo"
+fi
+  </code></pre>
+
+  <h2>pwd Command in Python Scripts</h2>
+  <p>Even though <code>pwd</code> is a Linux command, it’s often mimicked in programming languages like Python to get the current working directory.</p>
+
+  <h3>Equivalent in Python</h3>
+  <pre><code>
+import os
+print("Current directory:", os.getcwd())
+  </code></pre>
+  <p>This is functionally the same as <code>pwd</code> in a bash terminal.</p>
+
+  <h2>Combining pwd with Tar or Rsync</h2>
+  <p>Backup and archive scripts often use <code>pwd</code> to dynamically create archive names or destination folders.</p>
+
+  <h3>Example: Tar Backup with pwd</h3>
+  <pre><code>
+tar -czf "$(basename $(pwd))_backup.tar.gz" .
+  </code></pre>
+  <p>This archives the current folder with a name based on the directory you're in.</p>
+
+  <h3>Example: Rsync Backup</h3>
+  <pre><code>
+rsync -avz ./ /mnt/backup/$(basename $(pwd))/
+  </code></pre>
+  <p>Perfect for automated scripts that run in multiple project folders.</p>
+
+  <h2>pwd with Pipes and Command Substitution</h2>
+  <p>You can use <code>pwd</code> in command substitution (<code>$(pwd)</code>) to inject the current directory path into other commands.</p>
+
+  <h3>Copy File to Another Folder Named After Current Directory</h3>
+  <pre><code>
+cp file.txt /backups/$(basename $(pwd))/
+  </code></pre>
+
+  <h2>pwd in Cron Jobs</h2>
+  <p>Cron runs in a limited environment and doesn’t always have predictable starting directories. Using <code>pwd</code> inside cron jobs helps you log or verify where the task was executed.</p>
+
+  <h3>Example Cron Script</h3>
+  <pre><code>
+#!/bin/bash
+echo "Running backup from $(pwd) at $(date)" >> /var/log/cron-backup.log
+  </code></pre>
+
+  <h2>Security Use Cases</h2>
+  <ul>
+    <li>Log every command execution along with directory location</li>
+    <li>Track unauthorized navigation in secure environments</li>
+    <li>Forensically analyze where commands were run by logging <code>pwd</code> before and after execution</li>
+  </ul>
+
+  <h2>Environment Variable: $PWD vs pwd</h2>
+  <p>While <code>pwd</code> is a command that runs a system-level or shell builtin, <code>$PWD</code> is a shell variable. In many cases, they behave the same, but here are some differences:</p>
+
+  <h3>Performance</h3>
+  <p><code>$PWD</code> is faster since it doesn’t invoke a subprocess.</p>
+
+  <h3>Accuracy</h3>
+  <p><code>pwd -P</code> is more accurate if you want the true path (resolving symlinks), which <code>$PWD</code> doesn’t always provide.</p>
+
+  <h2>Checking Script Location Using pwd</h2>
+  <p>In bash, you can determine the directory of the script itself using <code>pwd</code> combined with <code>${BASH_SOURCE[0]}</code>.</p>
+
+  <h3>Example</h3>
+  <pre><code>
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo "Script is in $SCRIPT_DIR"
+  </code></pre>
+  <p>This is widely used in complex bash applications and software install scripts.</p>
+
+  <h2>pwd in Multi-User Environments</h2>
+  <p>System administrators use <code>pwd</code> to confirm the working directory while switching between multiple user sessions, especially using <code>su</code> or <code>sudo -i</code>.</p>
+
+  <h2>pwd with Tmux or Screen Sessions</h2>
+  <p>When running terminal multiplexers like <code>tmux</code> or <code>screen</code>, each session may run in a different working directory. <code>pwd</code> helps identify where you are inside each pane.</p>
+
+  <h2>Internationalization and pwd</h2>
+  <p>In non-English locales, directory names can include UTF-8 or Unicode characters. <code>pwd</code> still returns the full path correctly if your locale settings are configured to support Unicode (like <code>en_US.UTF-8</code>).</p>
+
+  <h2>pwd with ANSI Escape Sequences</h2>
+  <p>Some shells allow embedding <code>pwd</code> in colorful prompts using ANSI escape sequences. This improves readability in complex terminal sessions.</p>
+
+  <h3>Example Bash Prompt with pwd</h3>
+  <pre><code>
+PS1='\[\e[32m\]\u@\h:\w\$\[\e[m\] '
+  </code></pre>
+
+  <h2>Fun Fact: pwd is Over 40 Years Old!</h2>
+  <p>The <code>pwd</code> command has existed since the early days of Unix (1970s). It was part of the original Unix operating system developed at Bell Labs and has since become a standard in all POSIX-compliant systems.</p>
+
+  <h2>Quick Recap: pwd Highlights</h2>
+  <ul>
+    <li>Stands for “Print Working Directory”</li>
+    <li>Displays absolute path of the current location</li>
+    <li>Supports <code>-L</code> (logical) and <code>-P</code> (physical) options</li>
+    <li>Used in shell scripts, automation, and daily command-line tasks</li>
+    <li>Extremely useful in debugging, deployment, and file path management</li>
+  </ul>
+
+  <h2>FAQs – Quick Answers About pwd</h2>
+  <ul>
+    <li><strong>Is pwd case-sensitive?</strong><br>Yes. All commands and paths in Linux are case-sensitive.</li>
+    <li><strong>Can I alias pwd to something else?</strong><br>Yes. Example: <code>alias whereami='pwd'</code></li>
+    <li><strong>Is pwd safe to use in scripts?</strong><br>Yes. Just ensure proper quoting and use <code>-P</code> if symlink resolution is important.</li>
+    <li><strong>Does pwd work in Windows?</strong><br>Not directly. In Windows CMD, use <code>cd</code>. In WSL or Git Bash, <code>pwd</code> works.</li>
+    <li><strong>How to go to the directory printed by pwd?</strong><br>You're already in it! Use <code>cd $(pwd)</code> to re-enter the same directory.</li>
+  </ul>
+</div>
+
 
   <div class="see-also">
     <h4>See Also</h4>

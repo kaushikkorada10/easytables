@@ -55,7 +55,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../../index.html">
         <h1 class="nav-h1-color">EASY TABLES</h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -63,11 +63,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
-          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
+          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
         </div>
       </div>
     </div>
@@ -75,9 +75,9 @@
   <br>
 
   <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../index.html">Home</a> <span>></span>
-    <a href="../../index.html#Online-tools-s">Online Tools</a> <span>></span>
-    <a href="#">cd Command</a>
+    <a href="../../../index.html">Home</a> <span>></span>
+    <a href="../../../index.html#Online-tools-s">Online Tools</a> <span>></span>
+    <a href="#">cat Command</a>
   </nav>
 
   <div class="description">
@@ -111,6 +111,170 @@ $ pwd
       <li>Remember, directories are case-sensitive in Linux.</li>
     </ul>
   </div>
+  <div class="description">
+  <h2>cd Command in Linux – Change Directory Explained</h2>
+  <p>The <code>cd</code> command in Linux stands for “change directory.” It is one of the most basic and frequently used commands in any Unix-based system, including Linux distributions like Ubuntu, Fedora, Debian, and Arch Linux. This command allows users to navigate the file system by changing their current working directory.</p>
+
+  <h3>Syntax of the cd Command</h3>
+  <pre><code>cd [directory]</code></pre>
+  <p>Here, <code>[directory]</code> is the path to the directory you want to move to. This can be either an absolute path or a relative path.</p>
+
+  <h3>Examples of Using the cd Command</h3>
+  <ul>
+    <li><strong>Go to a specific directory:</strong> <code>cd /home/username/Documents</code></li>
+    <li><strong>Go up one level:</strong> <code>cd ..</code></li>
+    <li><strong>Go to the home directory:</strong> <code>cd ~</code> or simply <code>cd</code></li>
+    <li><strong>Go to the previous directory:</strong> <code>cd -</code></li>
+    <li><strong>Use relative path:</strong> <code>cd ../Downloads</code></li>
+  </ul>
+
+  <h3>Absolute vs. Relative Paths</h3>
+  <p>An <strong>absolute path</strong> starts from the root (/) and shows the full path to the destination. A <strong>relative path</strong> starts from the current directory.</p>
+  <ul>
+    <li><strong>Absolute:</strong> <code>cd /var/log</code></li>
+    <li><strong>Relative:</strong> <code>cd ../../myfolder</code></li>
+  </ul>
+
+  <h3>Shortcuts and Symbols in cd</h3>
+  <ul>
+    <li><code>~</code> – Represents the home directory</li>
+    <li><code>..</code> – Refers to the parent directory</li>
+    <li><code>.</code> – Refers to the current directory</li>
+    <li><code>-</code> – Switches to the previous directory</li>
+  </ul>
+
+  <h3>Tips for Using cd Effectively</h3>
+  <ul>
+    <li>Use <code>pwd</code> before and after <code>cd</code> to verify your current location.</li>
+    <li>Create aliases for frequently accessed directories in your <code>.bashrc</code> file.</li>
+    <li>Use tab completion to auto-complete directory names.</li>
+  </ul>
+
+  <h3>cd with Environment Variables</h3>
+  <p>You can use environment variables with the <code>cd</code> command. For example:</p>
+  <pre><code>cd $HOME
+cd $OLDPWD</code></pre>
+
+  <h3>Error Handling with cd</h3>
+  <p>If the directory doesn't exist or you mistype the name, Linux will return an error such as:</p>
+  <pre><code>bash: cd: foldername: No such file or directory</code></pre>
+
+  <h3>Use Cases of cd in Shell Scripting</h3>
+  <p>In shell scripts, <code>cd</code> is used to navigate to working directories before executing commands or compiling files.</p>
+  <pre><code>#!/bin/bash
+cd /path/to/project
+make all</code></pre>
+
+  <h3>Combining cd with Other Commands</h3>
+  <p>Use <code>cd</code> in a chain of commands:</p>
+  <pre><code>cd /var/www && ls</code></pre>
+  <p>This changes to the directory and lists its contents.</p>
+
+  <h3>Security Considerations</h3>
+  <ul>
+    <li>Always verify your current directory before running sensitive commands like <code>rm</code>.</li>
+    <li>Don’t rely solely on relative paths in production scripts.</li>
+  </ul>
+
+  <h3>Conclusion</h3>
+  <p>The <code>cd</code> command is essential for navigating the Linux filesystem. It’s simple yet incredibly powerful when combined with relative paths, aliases, and scripts. Mastering <code>cd</code> is a foundational skill for anyone working in Linux environments.</p>
+</div>
+<div class="description">
+  <h2>cd Command in Linux – Change Directory Explained</h2>
+  <p>The <code>cd</code> command in Linux stands for “change directory.” It is one of the most basic and frequently used commands in any Unix-based system, including Linux distributions like Ubuntu, Fedora, Debian, and Arch Linux. This command allows users to navigate the file system by changing their current working directory.</p>
+
+  <h3>Syntax of the cd Command</h3>
+  <pre><code>cd [directory]</code></pre>
+  <p>Here, <code>[directory]</code> is the path to the directory you want to move to. This can be either an absolute path or a relative path.</p>
+
+  <h3>Examples of Using the cd Command</h3>
+  <ul>
+    <li><strong>Go to a specific directory:</strong> <code>cd /home/username/Documents</code></li>
+    <li><strong>Go up one level:</strong> <code>cd ..</code></li>
+    <li><strong>Go to the home directory:</strong> <code>cd ~</code> or simply <code>cd</code></li>
+    <li><strong>Go to the previous directory:</strong> <code>cd -</code></li>
+    <li><strong>Use relative path:</strong> <code>cd ../Downloads</code></li>
+  </ul>
+
+  <h3>Absolute vs. Relative Paths</h3>
+  <p>An <strong>absolute path</strong> starts from the root (/) and shows the full path to the destination. A <strong>relative path</strong> starts from the current directory.</p>
+  <ul>
+    <li><strong>Absolute:</strong> <code>cd /var/log</code></li>
+    <li><strong>Relative:</strong> <code>cd ../../myfolder</code></li>
+  </ul>
+
+  <h3>Shortcuts and Symbols in cd</h3>
+  <ul>
+    <li><code>~</code> – Represents the home directory</li>
+    <li><code>..</code> – Refers to the parent directory</li>
+    <li><code>.</code> – Refers to the current directory</li>
+    <li><code>-</code> – Switches to the previous directory</li>
+  </ul>
+
+  <h3>Tips for Using cd Effectively</h3>
+  <ul>
+    <li>Use <code>pwd</code> before and after <code>cd</code> to verify your current location.</li>
+    <li>Create aliases for frequently accessed directories in your <code>.bashrc</code> file.</li>
+    <li>Use tab completion to auto-complete directory names.</li>
+  </ul>
+
+  <h3>cd with Environment Variables</h3>
+  <p>You can use environment variables with the <code>cd</code> command. For example:</p>
+  <pre><code>cd $HOME
+cd $OLDPWD</code></pre>
+
+  <h3>Error Handling with cd</h3>
+  <p>If the directory doesn't exist or you mistype the name, Linux will return an error such as:</p>
+  <pre><code>bash: cd: foldername: No such file or directory</code></pre>
+
+  <h3>Use Cases of cd in Shell Scripting</h3>
+  <p>In shell scripts, <code>cd</code> is used to navigate to working directories before executing commands or compiling files.</p>
+  <pre><code>#!/bin/bash
+cd /path/to/project
+make all</code></pre>
+
+  <h3>Combining cd with Other Commands</h3>
+  <p>Use <code>cd</code> in a chain of commands:</p>
+  <pre><code>cd /var/www && ls</code></pre>
+  <p>This changes to the directory and lists its contents.</p>
+
+  <h3>Security Considerations</h3>
+  <ul>
+    <li>Always verify your current directory before running sensitive commands like <code>rm</code>.</li>
+    <li>Don’t rely solely on relative paths in production scripts.</li>
+  </ul>
+
+  <h3>Persistent Navigation Shortcuts</h3>
+  <p>Users can enhance their workflow by creating symbolic links to frequently accessed directories or using <code>alias</code>:</p>
+  <pre><code>alias proj='cd /home/user/myproject'</code></pre>
+  <p>This saves time when navigating deeply nested directories.</p>
+
+  <h3>Advanced Terminal Features</h3>
+  <ul>
+    <li>Press <code>Ctrl+R</code> to reverse search your terminal history and reuse old <code>cd</code> commands.</li>
+    <li>Use the up/down arrows to cycle through previous commands.</li>
+    <li>Use <code>pushd</code> and <code>popd</code> for stack-based directory navigation.</li>
+  </ul>
+
+  <h3>cd in Different Shells</h3>
+  <p>While <code>cd</code> behaves similarly across shells like Bash, Zsh, and Fish, some enhancements exist:</p>
+  <ul>
+    <li><strong>Zsh:</strong> Autojump and directory auto-suggestions</li>
+    <li><strong>Fish:</strong> Smart tab completion and colored prompts</li>
+  </ul>
+
+  <h3>FAQs – cd Command</h3>
+  <h4>1. What happens if I run cd with no arguments?</h4>
+  <p>It will take you to your home directory.</p>
+  <h4>2. Can I use cd to go to a directory with spaces?</h4>
+  <p>Yes, use quotes or escape the space: <code>cd "My Folder"</code> or <code>cd My\ Folder</code></p>
+  <h4>3. How do I return to the last visited directory?</h4>
+  <p>Use <code>cd -</code> to switch back to the previous directory.</p>
+
+  <h3>Conclusion</h3>
+  <p>The <code>cd</code> command is one of the cornerstones of Linux file navigation. Understanding its options, shortcuts, and behavior across shells helps streamline development and system administration tasks. Practice it alongside commands like <code>ls</code>, <code>pwd</code>, and <code>mkdir</code> for effective command-line mastery.</p>
+</div>
+
 
   <div class="see-also">
     <h4>See Also</h4>

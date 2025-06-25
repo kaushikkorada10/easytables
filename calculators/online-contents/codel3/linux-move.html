@@ -55,7 +55,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../../index.html">
         <h1 class="nav-h1-color">EASY TABLES</h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -63,11 +63,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
-          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
+          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
         </div>
       </div>
     </div>
@@ -75,9 +75,9 @@
   <br>
 
   <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../index.html">Home</a> <span>></span>
-    <a href="../../index.html#Online-tools-s">Online Tools</a> <span>></span>
-    <a href="#">Linux Move Files</a>
+    <a href="../../../index.html">Home</a> <span>></span>
+    <a href="../../../index.html#Online-tools-s">Online Tools</a> <span>></span>
+    <a href="#">cat Command</a>
   </nav>
 
   <div class="description">
@@ -119,6 +119,321 @@ file1.txt</code></pre>
       <li>Always check your current directory with <code>pwd</code> before moving files.</li>
     </ul>
   </div>
+  <div class="description">
+  <h1>How to Move Files in Linux – Complete Guide</h1>
+
+  <p>Moving files in Linux is a fundamental task for organizing, managing, and manipulating your system’s filesystem. Whether you’re a beginner looking to understand the command-line interface or an experienced system administrator writing automation scripts, learning how to move files efficiently is essential. In this comprehensive guide, we’ll cover various methods to move files in Linux using the command line, GUI, automation scripts, and best practices.</p>
+
+  <h2>Why Move Files in Linux?</h2>
+  <p>Moving files is necessary for many use cases such as:</p>
+  <ul>
+    <li>Organizing documents or media</li>
+    <li>Backing up or archiving files</li>
+    <li>Deploying applications</li>
+    <li>Cleaning up temporary or log files</li>
+    <li>Transferring files between users or systems</li>
+  </ul>
+
+  <h2>1. Using the mv Command</h2>
+  <p>The most common way to move files in Linux is with the <code>mv</code> (move) command. It is used both to move files to new directories and to rename them.</p>
+
+  <h3>Basic Syntax</h3>
+  <pre><code>mv [options] source destination</code></pre>
+
+  <h3>Example: Move a file to another directory</h3>
+  <pre><code>mv myfile.txt /home/user/Documents/</code></pre>
+
+  <h3>Example: Rename a file</h3>
+  <pre><code>mv report.txt summary.txt</code></pre>
+
+  <h3>Example: Move multiple files</h3>
+  <pre><code>mv file1.txt file2.txt /home/user/Backup/</code></pre>
+
+  <h3>Important mv Options</h3>
+  <ul>
+    <li><code>-i</code>: Prompt before overwrite</li>
+    <li><code>-f</code>: Force overwrite without prompt</li>
+    <li><code>-n</code>: Do not overwrite existing files</li>
+    <li><code>-v</code>: Verbose – show what’s being moved</li>
+  </ul>
+
+  <h2>2. Moving Directories</h2>
+  <p>You can also move entire folders, including their contents, with the <code>mv</code> command.</p>
+
+  <h3>Example: Move a directory</h3>
+  <pre><code>mv old_folder/ /home/user/Projects/</code></pre>
+
+  <h3>Example: Rename a directory</h3>
+  <pre><code>mv temp_files/ archive_2024/</code></pre>
+
+  <h2>3. Using Wildcards to Move Files by Pattern</h2>
+  <p>Wildcards like <code>*</code> and <code>?</code> can be used to move multiple files matching a pattern.</p>
+
+  <h3>Example: Move all .jpg files</h3>
+  <pre><code>mv *.jpg /home/user/Pictures/</code></pre>
+
+  <h3>Example: Move files starting with "log"</h3>
+  <pre><code>mv log* /var/log/old_logs/</code></pre>
+
+  <h2>4. Using GUI to Move Files (for Desktop Users)</h2>
+  <p>If you're using a desktop environment like GNOME, KDE, or XFCE, you can move files with a drag-and-drop action in the file manager (Nautilus, Dolphin, Thunar, etc.).</p>
+
+  <h3>Steps:</h3>
+  <ol>
+    <li>Open the file manager</li>
+    <li>Select the file or folder</li>
+    <li>Right-click and choose “Cut”</li>
+    <li>Navigate to the destination</li>
+    <li>Right-click and choose “Paste”</li>
+  </ol>
+
+  <h2>5. Moving Files with rsync</h2>
+  <p>Though <code>rsync</code> is typically used for copying, it can also be used to move files with the <code>--remove-source-files</code> option.</p>
+
+  <h3>Example:</h3>
+  <pre><code>rsync -av --remove-source-files ./source_dir/ /destination_dir/</code></pre>
+
+  <h2>6. Moving Files Across Partitions or Disks</h2>
+  <p>When you use <code>mv</code> to move files across partitions or external drives, Linux copies the file and then deletes the original.</p>
+
+  <h3>Example: Move a file to USB drive</h3>
+  <pre><code>mv myvideo.mp4 /media/user/USB_Drive/</code></pre>
+
+  <h2>7. Automating File Movement with Scripts</h2>
+  <p>In bash or shell scripts, you can automate moving files based on conditions like age, size, or name patterns.</p>
+
+  <h3>Example: Move files older than 30 days</h3>
+  <pre><code>
+find /home/user/Downloads -type f -mtime +30 -exec mv {} /home/user/OldDownloads/ \;
+  </code></pre>
+
+  <h3>Example: Move today's logs</h3>
+  <pre><code>
+TODAY=$(date +%F)
+mkdir -p /backup/$TODAY
+mv /var/log/*.log /backup/$TODAY/
+  </code></pre>
+
+  <h2>8. Move Files with Cron Jobs</h2>
+  <p>You can schedule file movements with <code>cron</code> for automated cleanup or archival.</p>
+
+  <h3>Example Cron Job:</h3>
+  <pre><code>
+0 2 * * * mv /tmp/*.bak /home/user/backup/
+  </code></pre>
+
+  <h2>9. Move Hidden Files</h2>
+  <p>To move hidden files (starting with a <code>.</code>), you must reference them explicitly or use shell options to include them.</p>
+
+  <h3>Example:</h3>
+  <pre><code>mv .env .config /backup/</code></pre>
+
+  <h2>10. Move Files Using Midnight Commander (MC)</h2>
+  <p><code>mc</code> is a terminal-based file manager that allows you to move files interactively with keyboard shortcuts.</p>
+
+  <pre><code>sudo apt install mc</code></pre>
+  <p>Launch with:</p>
+  <pre><code>mc</code></pre>
+
+  <h2>11. Safe Practices While Moving Files</h2>
+  <ul>
+    <li>Use <code>-i</code> flag to avoid overwriting important files</li>
+    <li>Use absolute paths when scripting</li>
+    <li>Double-check paths with <code>pwd</code> and <code>ls</code> before moving</li>
+    <li>Log every move operation when writing system-level scripts</li>
+    <li>Use backup commands before large moves</li>
+  </ul>
+
+  <h2>12. Troubleshooting Common mv Errors</h2>
+  <ul>
+    <li><strong>Permission denied:</strong> You lack ownership or write access to source or destination</li>
+    <li><strong>File not found:</strong> Typo or the file doesn't exist</li>
+    <li><strong>Is a directory:</strong> You’re trying to rename a file to an existing directory without specifying a filename</li>
+    <li><strong>Disk full:</strong> The destination filesystem lacks space</li>
+  </ul>
+
+  <h2>13. Move Files Between Remote Systems (via scp or rsync)</h2>
+  <p>To move files between systems, you can use:</p>
+
+  <h3>Using scp:</h3>
+  <pre><code>scp myfile.txt user@remote_host:/home/user/</code></pre>
+
+  <h3>Using rsync with deletion:</h3>
+  <pre><code>rsync -av --remove-source-files myfile.txt user@remote:/home/user/</code></pre>
+
+  <h2>14. Move Files Based on File Type or Size</h2>
+  <pre><code>find . -type f -name "*.pdf" -exec mv {} ~/Documents/PDFs/ \;</code></pre>
+  <pre><code>find . -type f -size +100M -exec mv {} ~/BigFiles/ \;</code></pre>
+
+  <h2>15. Move Files Using xargs (for speed)</h2>
+  <pre><code>find . -name "*.zip" | xargs -I {} mv {} /archive/zips/</code></pre>
+
+  <h2>Conclusion</h2>
+  <p>Mastering how to move files in Linux is a core skill for every user. Whether through simple <code>mv</code> commands or advanced automation with <code>find</code>, <code>cron</code>, and <code>rsync</code>, Linux provides numerous flexible and efficient ways to manage your files. Following best practices ensures safe operations and reduces the risk of file loss, especially in production systems or during administrative tasks. Once you’re familiar with the basic and advanced techniques covered in this guide, you’ll be able to move and organize your files in Linux like a pro.</p>
+
+  <h2>Related Topics</h2>
+  <ul>
+    <li><a href="#mv-command">mv Command in Linux</a></li>
+    <li><a href="#cp-command">cp Command – Copy files</a></li>
+    <li><a href="#rsync-command">rsync Command – Sync files</a></li>
+    <li><a href="#cron-jobs">Cron Jobs – Automate file movement</a></li>
+    <li><a href="#file-permissions">Linux File Permissions</a></li>
+  </ul>
+</div>
+<div class="description">
+  <h2>16. Using find + mv to Organize Files by Extension</h2>
+  <p>When you have a large number of files of different types, you can use the <code>find</code> command in combination with <code>mv</code> to sort files into folders by their extensions.</p>
+
+  <h3>Example: Move all .mp4 files to “Videos” folder</h3>
+  <pre><code>
+mkdir -p ~/Videos
+find . -type f -name "*.mp4" -exec mv {} ~/Videos/ \;
+  </code></pre>
+
+  <h3>Example: Move .docx and .pdf files to “Documents”</h3>
+  <pre><code>
+mkdir -p ~/Documents
+find . -type f \( -name "*.docx" -o -name "*.pdf" \) -exec mv {} ~/Documents/ \;
+  </code></pre>
+
+  <h2>17. Move Files and Preserve Timestamps</h2>
+  <p>By default, <code>mv</code> preserves the file's timestamps. However, when moving between filesystems, this may not hold. If preserving timestamps is important, consider using <code>rsync</code>:</p>
+
+  <pre><code>rsync -a --remove-source-files file1.txt /destination/</code></pre>
+
+  <h2>18. Move Files Based on Modified Date</h2>
+  <p>You can move files based on how recently they were modified using the <code>-mtime</code> or <code>-newermt</code> flag with <code>find</code>.</p>
+
+  <h3>Move files modified in the last 7 days</h3>
+  <pre><code>find . -type f -mtime -7 -exec mv {} /recent-files/ \;</code></pre>
+
+  <h3>Move files modified before a specific date</h3>
+  <pre><code>find . -type f ! -newermt "2024-01-01" -exec mv {} /archive/pre2024/ \;</code></pre>
+
+  <h2>19. Using GUI Automation Tools to Move Files</h2>
+  <p>On Linux desktops, you can also use automation tools like:</p>
+  <ul>
+    <li><strong>KDE’s KIO/Activities:</strong> Define folder behavior (e.g., auto-move downloaded PDFs)</li>
+    <li><strong>GNOME’s File Roller with Scripts:</strong> Right-click scripts that move files based on rules</li>
+    <li><strong>Cronopete or Déjà Dup:</strong> Use backup tools to move files on schedule</li>
+  </ul>
+
+  <h2>20. Move Files in a Loop with Bash</h2>
+  <p>When automating with shell scripts, you may want to loop through files and move them based on custom logic:</p>
+
+  <h3>Example: Move only files larger than 5MB</h3>
+  <pre><code>
+for file in *; do
+  if [[ -f "$file" && $(stat -c%s "$file") -gt 5242880 ]]; then
+    mv "$file" /large-files/
+  fi
+done
+  </code></pre>
+
+  <h2>21. Dry Run Before Moving Files</h2>
+  <p>To avoid mistakes, simulate file movement before actually doing it. Use <code>echo</code> in place of <code>mv</code> in scripts:</p>
+
+  <pre><code>
+find . -name "*.bak" -exec echo mv {} /backup/ \;
+  </code></pre>
+
+  <p>Once verified, remove <code>echo</code> to execute the move.</p>
+
+  <h2>22. Move Files Based on Ownership or Permissions</h2>
+  <p>You can identify and move files based on their owner or permission settings.</p>
+
+  <h3>Move all files owned by user 'john'</h3>
+  <pre><code>find /data -user john -exec mv {} /home/john/files/ \;</code></pre>
+
+  <h3>Move all files with write permission for others</h3>
+  <pre><code>find . -type f -perm -002 -exec mv {} /unsafe-files/ \;</code></pre>
+
+  <h2>23. Move Files While Renaming with Date/Time</h2>
+  <p>To avoid overwriting or to timestamp files, you can rename them as you move them:</p>
+
+  <pre><code>
+for file in *.log; do
+  mv "$file" "/logs/${file%.log}_$(date +%F).log"
+done
+  </code></pre>
+
+  <p>This moves and appends a date suffix to all <code>.log</code> files.</p>
+
+  <h2>24. Handling Spaces in Filenames</h2>
+  <p>When moving files with spaces, wrap variables in quotes to avoid syntax errors:</p>
+
+  <pre><code>
+mv "file with spaces.txt" /destination/
+  </code></pre>
+
+  <h2>25. Move All Except Certain Files</h2>
+  <p>Sometimes you may want to move all files except specific types or names.</p>
+
+  <h3>Example: Move everything except .zip files</h3>
+  <pre><code>
+shopt -s extglob
+mv !(*.zip) /destination/
+  </code></pre>
+
+  <h2>26. Check Disk Space Before Moving</h2>
+  <p>Ensure you have space before moving large files:</p>
+
+  <pre><code>df -h /destination/</code></pre>
+
+  <h2>27. Moving Files Using mc (Midnight Commander)</h2>
+  <p>If you're working in a terminal and want a visual tool:</p>
+  <ul>
+    <li>Install: <code>sudo apt install mc</code></li>
+    <li>Navigate with arrow keys</li>
+    <li>Use <code>F6</code> to move selected files</li>
+  </ul>
+
+  <h2>28. Secure File Movement Over SSH</h2>
+  <p>If you're moving files securely between machines, <code>scp</code> or <code>rsync</code> over SSH are best:</p>
+
+  <h3>Example:</h3>
+  <pre><code>scp file.sql user@remote:/var/backups/</code></pre>
+
+  <h2>29. Moving System Files – Use with Caution</h2>
+  <p>When moving files in system-critical directories like <code>/etc</code> or <code>/usr</code>, always take a backup and double-check permissions.</p>
+
+  <h3>Best Practice:</h3>
+  <pre><code>cp -rp /etc/important.conf /etc/important.conf.bak && mv /etc/important.conf /etc/config/</code></pre>
+
+  <h2>30. Recap: Essential Tips for Moving Files in Linux</h2>
+  <ul>
+    <li>Use <code>mv</code> for simple moves and renames</li>
+    <li>Use <code>rsync</code> for cross-disk or remote moves</li>
+    <li>Combine <code>find</code> with <code>mv</code> for powerful batch operations</li>
+    <li>Use wildcards and conditions to organize massive folders</li>
+    <li>Quote paths and filenames with spaces</li>
+    <li>Always confirm permissions and available disk space</li>
+    <li>Use <code>-i</code> flag or <code>--dry-run</code> in scripts for safety</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>Moving files in Linux is more than just shifting data—it’s about organizing your system, automating tasks, and maintaining efficiency. From using simple <code>mv</code> commands to advanced file movement strategies with <code>find</code>, <code>rsync</code>, and cron, Linux provides unparalleled flexibility. Whether you're building scripts, cleaning up your workspace, or managing servers, mastering file movement techniques will make you a more efficient and confident Linux user.</p>
+
+  <h2>FAQs – How to Move Files in Linux</h2>
+  <ul>
+    <li><strong>Q: How do I move all files except directories?</strong><br>
+    A: <code>find . -maxdepth 1 -type f -exec mv {} /target/ \;</code></li>
+
+    <li><strong>Q: Can I undo a move command?</strong><br>
+    A: Not directly. You’ll need to manually move the file back if you remember the original location.</li>
+
+    <li><strong>Q: Does mv overwrite existing files?</strong><br>
+    A: Yes, unless you use <code>-i</code> (interactive) or <code>-n</code> (no-clobber) options.</li>
+
+    <li><strong>Q: How do I move a file and log the operation?</strong><br>
+    A: <code>mv file.txt /newpath/ && echo "Moved at $(date)" >> move.log</code></li>
+
+    <li><strong>Q: Can I move files with a GUI instead of terminal?</strong><br>
+    A: Yes, all Linux desktops support file managers where you can cut and paste files easily.</li>
+  </ul>
+</div>
+
+
 
   <div class="see-also">
     <h4>See Also</h4>

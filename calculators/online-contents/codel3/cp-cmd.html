@@ -55,7 +55,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
-      <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../../index.html">
         <h1 class="nav-h1-color">EASY TABLES</h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -63,11 +63,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../index.html#maths-s">Home</a>
-          <a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
+          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
         </div>
       </div>
     </div>
@@ -75,9 +75,9 @@
   <br>
 
   <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../index.html">Home</a> <span>></span>
-    <a href="../../index.html#Online-tools-s">Online Tools</a> <span>></span>
-    <a href="#">cp Command</a>
+    <a href="../../../index.html">Home</a> <span>></span>
+    <a href="../../../index.html#Online-tools-s">Online Tools</a> <span>></span>
+    <a href="#">cat Command</a>
   </nav>
 
   <div class="description">
@@ -115,6 +115,196 @@
       <li>Use absolute paths to avoid confusion with relative directories.</li>
     </ul>
   </div>
+  <div class="description">
+  <h2>cp Command in Linux – Copy Files and Directories</h2>
+  <p>The <code>cp</code> command in Linux is used to copy files and directories from one location to another. It's one of the fundamental file manipulation commands and supports a wide range of options to handle various file operations efficiently.</p>
+
+  <h3>Basic Syntax</h3>
+  <pre><code>cp [options] source destination</code></pre>
+  <p>Here, <code>source</code> is the file or directory you want to copy, and <code>destination</code> is the target file or directory where the copy will be placed.</p>
+
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li><strong>Copy a file:</strong> <code>cp file1.txt file2.txt</code></li>
+    <li><strong>Copy multiple files:</strong> <code>cp file1.txt file2.txt backup_folder/</code></li>
+    <li><strong>Copy a directory:</strong> <code>cp -r myfolder backup_folder/</code></li>
+    <li><strong>Copy and preserve attributes:</strong> <code>cp -p file1.txt backup.txt</code></li>
+    <li><strong>Interactive copy (ask before overwrite):</strong> <code>cp -i file1.txt file2.txt</code></li>
+  </ul>
+
+  <h3>Important cp Command Options</h3>
+  <ul>
+    <li><code>-r</code> or <code>--recursive</code>: Copy directories recursively</li>
+    <li><code>-i</code>: Prompt before overwrite</li>
+    <li><code>-u</code>: Copy only when the source file is newer than the destination</li>
+    <li><code>-v</code>: Verbose output showing files being copied</li>
+    <li><code>-p</code>: Preserve file attributes such as timestamp and permissions</li>
+    <li><code>-f</code>: Force overwrite if needed</li>
+  </ul>
+
+  <h3>Examples with Explanations</h3>
+  <pre><code># Copying a file to a new directory
+cp myfile.txt /home/user/Documents/
+
+# Copy a folder recursively
+cp -r project_folder /home/user/Backups/
+
+# Copy with progress and details
+cp -v largefile.iso /media/usbdrive/</code></pre>
+
+  <h3>Using cp with Wildcards</h3>
+  <p>Wildcards help copy multiple files matching a pattern:</p>
+  <pre><code>cp *.jpg /home/user/Pictures/
+cp file?.txt backup/</code></pre>
+
+  <h3>Handling Hidden Files</h3>
+  <p>Use dotglob in bash or wildcard with dot:</p>
+  <pre><code>shopt -s dotglob
+cp * /destination/folder</code></pre>
+
+  <h3>Copying Over Network</h3>
+  <p>Use cp in combination with SSH or other protocols for remote copies. For advanced cases, consider <code>scp</code> or <code>rsync</code>.</p>
+
+  <h3>Using cp in Shell Scripts</h3>
+  <p>The <code>cp</code> command is often used in automation for backups, installations, or configuration setups:</p>
+  <pre><code>#!/bin/bash
+cp -r /var/www/html /var/backups/site_$(date +%F)</code></pre>
+
+  <h3>FAQs – cp Command in Linux</h3>
+  <h4>1. Can cp overwrite files?</h4>
+  <p>Yes, by default. Use <code>-i</code> to prompt before overwriting.</p>
+
+  <h4>2. How to copy symbolic links instead of their targets?</h4>
+  <p>Use <code>-d</code> or <code>--no-dereference</code>.</p>
+
+  <h4>3. How to copy files and display progress?</h4>
+  <p>Use <code>-v</code> for verbose mode or combine with <code>rsync --progress</code> for large files.</p>
+
+  <h4>4. What happens if the destination is a directory?</h4>
+  <p>The file is copied into that directory with the same filename.</p>
+
+  <h3>Conclusion</h3>
+  <p>The <code>cp</code> command is a foundational tool in Linux file management. From simple file copies to complex directory trees, its flexibility and options make it essential for both beginners and advanced users. Understanding how to use <code>cp</code> efficiently can significantly enhance your productivity on the command line.</p>
+</div>
+<div class="description">
+  <h2>cp Command in Linux – Copy Files and Directories</h2>
+  <p>The <code>cp</code> command in Linux is used to copy files and directories from one location to another. It's one of the fundamental file manipulation commands and supports a wide range of options to handle various file operations efficiently.</p>
+
+  <h3>Basic Syntax</h3>
+  <pre><code>cp [options] source destination</code></pre>
+  <p>Here, <code>source</code> is the file or directory you want to copy, and <code>destination</code> is the target file or directory where the copy will be placed.</p>
+
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li><strong>Copy a file:</strong> <code>cp file1.txt file2.txt</code></li>
+    <li><strong>Copy multiple files:</strong> <code>cp file1.txt file2.txt backup_folder/</code></li>
+    <li><strong>Copy a directory:</strong> <code>cp -r myfolder backup_folder/</code></li>
+    <li><strong>Copy and preserve attributes:</strong> <code>cp -p file1.txt backup.txt</code></li>
+    <li><strong>Interactive copy (ask before overwrite):</strong> <code>cp -i file1.txt file2.txt</code></li>
+  </ul>
+
+  <h3>Important cp Command Options</h3>
+  <ul>
+    <li><code>-r</code> or <code>--recursive</code>: Copy directories recursively</li>
+    <li><code>-i</code>: Prompt before overwrite</li>
+    <li><code>-u</code>: Copy only when the source file is newer than the destination</li>
+    <li><code>-v</code>: Verbose output showing files being copied</li>
+    <li><code>-p</code>: Preserve file attributes such as timestamp and permissions</li>
+    <li><code>-f</code>: Force overwrite if needed</li>
+  </ul>
+
+  <h3>Examples with Explanations</h3>
+  <pre><code># Copying a file to a new directory
+cp myfile.txt /home/user/Documents/
+
+# Copy a folder recursively
+cp -r project_folder /home/user/Backups/
+
+# Copy with progress and details
+cp -v largefile.iso /media/usbdrive/</code></pre>
+
+  <h3>Using cp with Wildcards</h3>
+  <p>Wildcards help copy multiple files matching a pattern:</p>
+  <pre><code>cp *.jpg /home/user/Pictures/
+cp file?.txt backup/</code></pre>
+
+  <h3>Handling Hidden Files</h3>
+  <p>Use dotglob in bash or wildcard with dot:</p>
+  <pre><code>shopt -s dotglob
+cp * /destination/folder</code></pre>
+
+  <h3>Copying Over Network</h3>
+  <p>Use cp in combination with SSH or other protocols for remote copies. For advanced cases, consider <code>scp</code> or <code>rsync</code>.</p>
+
+  <h3>Using cp in Shell Scripts</h3>
+  <p>The <code>cp</code> command is often used in automation for backups, installations, or configuration setups:</p>
+  <pre><code>#!/bin/bash
+cp -r /var/www/html /var/backups/site_$(date +%F)</code></pre>
+
+  <h3>Best Practices for Using cp</h3>
+  <ul>
+    <li><strong>Use <code>-i</code> for safety:</strong> Prevents accidental overwrites.</li>
+    <li><strong>Use <code>-u</code> in backups:</strong> Only updates outdated files, saving time and resources.</li>
+    <li><strong>Combine with <code>find</code>:</strong> To selectively copy files matching conditions (e.g., by size, date).</li>
+  </ul>
+
+  <h3>Advanced Techniques</h3>
+  <ul>
+    <li><strong>Copy files and rename:</strong> <code>cp oldname.txt newname.txt</code></li>
+    <li><strong>Copy with timestamp:</strong> <code>cp file.txt file_$(date +%F).txt</code></li>
+    <li><strong>Copy files larger than 10MB:</strong> <code>find . -type f -size +10M -exec cp {} /large/ \;</code></li>
+  </ul>
+
+  <h3>Combining cp with xargs</h3>
+  <p>Useful for handling large lists of files:</p>
+  <pre><code>find . -name "*.log" | xargs -I {} cp {} /backup/logs/</code></pre>
+
+  <h3>Error Messages and Troubleshooting</h3>
+  <ul>
+    <li><strong>Permission denied:</strong> Use <code>sudo</code> or check file permissions.</li>
+    <li><strong>No such file or directory:</strong> Check for typos or missing files.</li>
+    <li><strong>Is a directory:</strong> Add <code>-r</code> if copying folders.</li>
+  </ul>
+
+  <h3>cp vs scp vs rsync</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Command</th>
+        <th>Use Case</th>
+        <th>Network Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>cp</td><td>Local copy</td><td>No</td></tr>
+      <tr><td>scp</td><td>Remote copy over SSH</td><td>Yes</td></tr>
+      <tr><td>rsync</td><td>Efficient syncing and backup</td><td>Yes</td></tr>
+    </tbody>
+  </table>
+
+  <h3>FAQs – cp Command in Linux</h3>
+  <h4>1. Can cp overwrite files?</h4>
+  <p>Yes, by default. Use <code>-i</code> to prompt before overwriting.</p>
+
+  <h4>2. How to copy symbolic links instead of their targets?</h4>
+  <p>Use <code>-d</code> or <code>--no-dereference</code>.</p>
+
+  <h4>3. How to copy files and display progress?</h4>
+  <p>Use <code>-v</code> for verbose mode or combine with <code>rsync --progress</code> for large files.</p>
+
+  <h4>4. What happens if the destination is a directory?</h4>
+  <p>The file is copied into that directory with the same filename.</p>
+
+  <h4>5. Does cp work across filesystems?</h4>
+  <p>Yes, cp works across mounted filesystems seamlessly.</p>
+
+  <h4>6. How to preserve directory structure?</h4>
+  <p>Use <code>rsync -a</code> or <code>cp -r --parents</code> (if supported).</p>
+
+  <h3>Conclusion</h3>
+  <p>The <code>cp</code> command in Linux is essential for copying files and directories effectively. Whether you're backing up data, organizing your system, or writing shell scripts, knowing the different options and behaviors of <code>cp</code> will make you a more efficient and confident Linux user. Master this command, and you'll have a core tool for everyday terminal operations.</p>
+</div>
+
 
    <div class="see-also">
     <h4>See Also</h4>
