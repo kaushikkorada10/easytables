@@ -8,6 +8,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+
   <style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
@@ -52,6 +54,10 @@
       max-width: 100%;
       margin-top: 10px;
     }
+    .ocr-container { max-width:700px; margin:50px auto; padding:30px; background:#f9f9f9; border-radius:10px; text-align:center; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    #imagePreview { max-width:100%; margin-bottom:20px; }
+    #extractedText { width:100%; height:200px; padding:10px; }
+    .loader { display:none; margin-top:10px; }
   </style>
 </head>
 <body>
@@ -80,16 +86,14 @@
     <a href="#">OCR - Image to Text</a>
   </nav>
 
-  <div class="description">
-    <h2>Image to Text (OCR)</h2>
-    <p>Upload an image and extract text using Optical Character Recognition (OCR) technology. This tool uses Tesseract.js and runs directly in your browser — no upload required!</p>
-
-    <input type="file" accept="image/*" class="form-control mb-3" onchange="readImage(event)">
-    <img id="preview" src="" alt="Image Preview" class="img-fluid d-none" />
-    <button class="btn btn-primary mt-2" onclick="performOCR()">Extract Text</button>
-    <div id="output" class="mt-3">Text output will appear here...</div>
-  </div>
-
+<div class="ocr-container">
+  <h3>OCR – Image to Text</h3>
+  <input type="file" accept="image/*" onchange="previewFile(event)" class="form-control mb-3"/>
+  <img id="imagePreview" src="" alt="Image preview"/>
+  <button id="startBtn" class="btn btn-primary" onclick="startOCR()" disabled>Start OCR</button>
+  <div class="loader" id="loader">🔄 Processing image, please wait...</div>
+  <textarea id="extractedText" placeholder="Extracted text will appear here"></textarea>
+</div>
   <div class="description">
     <h3>What is OCR?</h3>
     <p>OCR (Optical Character Recognition) is a technology that converts printed, handwritten, or scanned image content into machine-readable text. With this tool, you can extract text from images, screenshots, scanned documents, and handwritten notes using your browser.</p>
@@ -414,43 +418,31 @@
     </div>
   </footer>
 
-  <script>
-    let imageData = null;
+<script>
+  let selectedFile;
+  function previewFile(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    selectedFile = file;
+    const reader = new FileReader();
+    reader.onload = () => {
+      document.getElementById('imagePreview').src = reader.result;
+      document.getElementById('imagePreview').style.display = 'block';
+      document.getElementById('startBtn').disabled = false;
+      document.getElementById('extractedText').value = '';
+    };
+    reader.readAsDataURL(file);
+  }
 
-    function readImage(event) {
-      const file = event.target.files[0];
-      if (!file || !file.type.startsWith('image/')) {
-        alert("Please select a valid image file.");
-        return;
-      }
+  async function startOCR() {
+    if (!selectedFile) return;
+    document.getElementById('loader').style.display = 'block';
+    const image = document.getElementById('imagePreview').src;
+    const result = await Tesseract.recognize(image, 'eng');
+    document.getElementById('extractedText').value = result.data.text;
+    document.getElementById('loader').style.display = 'none';
+  }
+</script>
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        imageData = e.target.result;
-        const preview = document.getElementById("preview");
-        preview.src = imageData;
-        preview.classList.remove("d-none");
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function performOCR() {
-      if (!imageData) {
-        alert("Please upload an image first.");
-        return;
-      }
-
-      document.getElementById("output").innerHTML = "Processing image, please wait...";
-
-      Tesseract.recognize(imageData, 'eng')
-        .then(({ data: { text } }) => {
-          document.getElementById("output").textContent = text.trim() || "No readable text found.";
-        })
-        .catch(err => {
-          document.getElementById("output").textContent = "Error processing image.";
-          console.error(err);
-        });
-    }
-  </script>
 </body>
 </html>

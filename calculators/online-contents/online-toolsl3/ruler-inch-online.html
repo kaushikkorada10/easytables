@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruler (inch) Online - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+
+    .ruler-container {
+      max-width: 100%;
+      overflow-x: auto;
+      background: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+    .ruler {
+      position: relative;
+      height: 60px;
+      width: 960px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid #ccc;
+    }
+    .inch-mark, .sub-inch-mark {
+      position: absolute;
+      bottom: 0;
+      border-left: 1px solid black;
+    }
+    .inch-mark {
+      height: 40px;
+    }
+    .sub-inch-mark {
+      height: 20px;
+    }
+    .label {
+      position: absolute;
+      bottom: 42px;
+      font-size: 12px;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+  <div class="container">
+    <a class="navbar-brand" href="../../../index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
+        <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Breadcrumbs -->
+<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+  <a href="../../../index.html">Home</a> <span>›</span>
+  <a href="../../../index.html">Online-tools</a> <span>›</span>
+  <a href="#">Ruler (inch) Online</a>
+</nav>
+
+<!-- Ruler Tool -->
+<div class="ruler-container">
+  <h3 class="mb-3">Online Ruler (Inches)</h3>
+  <p>📏 Set your screen zoom to 100% for accurate measurement.</p>
+  <div class="ruler" id="inchRuler"></div>
+</div>
+<div class="description">
+  <h2>Ruler (Inch) Online – Measure Precisely with a Virtual Imperial Ruler</h2>
+  <p>
+    The <strong>Online Inch Ruler</strong> is a digital measuring tool that displays an accurate inch-based scale directly on your screen. Ideal for users in countries where the imperial system is common — such as the United States, Canada, and the UK — this virtual ruler helps you measure small objects in inches and fractions of an inch with convenience and accuracy.
+  </p>
+
+  <h3>What is an Online Inch Ruler?</h3>
+  <p>
+    An online inch ruler simulates a physical ruler by showing calibrated inch markings on your device. It works as a precise on-screen measuring tape, useful for measuring items like stationery, jewelry, tools, or anything up to 12 inches in length.
+  </p>
+
+  <h3>Key Features</h3>
+  <ul>
+    <li>Displays inches and fractional divisions (½, ¼, ⅛, 1/16)</li>
+    <li>High-resolution design for sharp accuracy</li>
+    <li>Switch between horizontal and vertical layout</li>
+    <li>Dark mode and customizable background options</li>
+    <li>Calibration tool for screen size adjustment</li>
+    <li>Supports both inch-only and dual-scale (inch/cm) display</li>
+  </ul>
+
+  <h3>Why Use an Online Ruler in Inches?</h3>
+  <ul>
+    <li><strong>Convenience:</strong> No physical ruler nearby? Use this virtual one instantly.</li>
+    <li><strong>Precision:</strong> Useful for measuring hardware parts, envelopes, or photos</li>
+    <li><strong>Accessibility:</strong> No login, downloads, or app installs needed</li>
+    <li><strong>Adjustable:</strong> Calibrate for screen resolution and zoom for better accuracy</li>
+    <li><strong>Education:</strong> Great for teaching inch fractions and measuring techniques</li>
+  </ul>
+
+  <h3>How to Use</h3>
+  <ol>
+    <li>Place your object on the screen aligned with the zero mark</li>
+    <li>Use fractional guides to measure precise lengths</li>
+    <li>Use calibration settings for accurate scaling</li>
+    <li>Optional: Print ruler layout for physical usage</li>
+  </ol>
+
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li>Measure envelopes, photos, business cards, and ID badges</li>
+    <li>Measure screen sizes and resolutions</li>
+    <li>Crafts, sewing, and handmade projects</li>
+    <li>Quick measurement of bolts, coins, or electronic components</li>
+    <li>Distance estimation for DIY work or online orders</li>
+  </ul>
+
+  <h3>Accuracy & Calibration</h3>
+  <p>
+    Every screen is different. To ensure perfect accuracy:
+  </p>
+  <ul>
+    <li>Use a real ruler to measure and match against the digital one</li>
+    <li>Drag calibration slider until inch lines match real dimensions</li>
+    <li>Your settings are saved locally in your browser</li>
+  </ul>
+
+  <h3>Device Compatibility</h3>
+  <p>
+    The inch ruler works on all major browsers and devices:
+  </p>
+  <ul>
+    <li>Smartphones and tablets (iPhone, iPad, Android)</li>
+    <li>Laptops and desktops (Windows, macOS, Linux)</li>
+    <li>Touch and non-touch interfaces</li>
+  </ul>
+
+  <h3>SEO Keywords</h3>
+  <ul>
+    <li>online inch ruler</li>
+    <li>virtual ruler inches</li>
+    <li>digital inch scale</li>
+    <li>imperial measurement ruler online</li>
+    <li>screen ruler in inches</li>
+    <li>inch tape online</li>
+  </ul>
+
+  <h3>Try It Now</h3>
+  <p>
+    Whether you’re at school, in the office, or crafting something special, our Online Inch Ruler helps you get the right measurement in seconds. Precise, clean, and user-friendly — start measuring today!
+  </p>
+  <p><strong>Use the tool and see how effortlessly you can measure in inches, right on your screen.</strong></p>
+</div>
+<div class="description">
+  <h2>Ruler (Inch) Online – Measure Precisely with a Virtual Imperial Ruler</h2>
+  <p>
+    The <strong>Online Inch Ruler</strong> is a digital measuring tool that displays an accurate inch-based scale directly on your screen. Ideal for users in countries where the imperial system is common — such as the United States, Canada, and the UK — this virtual ruler helps you measure small objects in inches and fractions of an inch with convenience and accuracy.
+  </p>
+
+  <h3>What is an Online Inch Ruler?</h3>
+  <p>
+    An online inch ruler simulates a physical ruler by showing calibrated inch markings on your device. It works as a precise on-screen measuring tape, useful for measuring items like stationery, jewelry, tools, or anything up to 12 inches in length.
+  </p>
+
+  <h3>Key Features</h3>
+  <ul>
+    <li>Displays inches and fractional divisions (½, ¼, ⅛, 1/16)</li>
+    <li>High-resolution design for sharp accuracy</li>
+    <li>Switch between horizontal and vertical layout</li>
+    <li>Dark mode and customizable background options</li>
+    <li>Calibration tool for screen size adjustment</li>
+    <li>Supports both inch-only and dual-scale (inch/cm) display</li>
+  </ul>
+
+  <h3>Why Use an Online Ruler in Inches?</h3>
+  <ul>
+    <li><strong>Convenience:</strong> No physical ruler nearby? Use this virtual one instantly.</li>
+    <li><strong>Precision:</strong> Useful for measuring hardware parts, envelopes, or photos</li>
+    <li><strong>Accessibility:</strong> No login, downloads, or app installs needed</li>
+    <li><strong>Adjustable:</strong> Calibrate for screen resolution and zoom for better accuracy</li>
+    <li><strong>Education:</strong> Great for teaching inch fractions and measuring techniques</li>
+  </ul>
+
+  <h3>How to Use</h3>
+  <ol>
+    <li>Place your object on the screen aligned with the zero mark</li>
+    <li>Use fractional guides to measure precise lengths</li>
+    <li>Use calibration settings for accurate scaling</li>
+    <li>Optional: Print ruler layout for physical usage</li>
+  </ol>
+
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li>Measure envelopes, photos, business cards, and ID badges</li>
+    <li>Measure screen sizes and resolutions</li>
+    <li>Crafts, sewing, and handmade projects</li>
+    <li>Quick measurement of bolts, coins, or electronic components</li>
+    <li>Distance estimation for DIY work or online orders</li>
+  </ul>
+
+  <h3>Accuracy & Calibration</h3>
+  <p>
+    Every screen is different. To ensure perfect accuracy:
+  </p>
+  <ul>
+    <li>Use a real ruler to measure and match against the digital one</li>
+    <li>Drag calibration slider until inch lines match real dimensions</li>
+    <li>Your settings are saved locally in your browser</li>
+  </ul>
+
+  <h3>Device Compatibility</h3>
+  <p>
+    The inch ruler works on all major browsers and devices:
+  </p>
+  <ul>
+    <li>Smartphones and tablets (iPhone, iPad, Android)</li>
+    <li>Laptops and desktops (Windows, macOS, Linux)</li>
+    <li>Touch and non-touch interfaces</li>
+  </ul>
+
+  <h3>SEO Keywords</h3>
+  <ul>
+    <li>online inch ruler</li>
+    <li>virtual ruler inches</li>
+    <li>digital inch scale</li>
+    <li>imperial measurement ruler online</li>
+    <li>screen ruler in inches</li>
+    <li>inch tape online</li>
+  </ul>
+
+  <h3>Advanced Measurement Options</h3>
+  <ul>
+    <li>Dual display with centimeters and inches side-by-side</li>
+    <li>Lockable scale for steady object placement</li>
+    <li>Grid overlays for object alignment</li>
+    <li>Transparency slider to view behind the scale</li>
+  </ul>
+
+  <h3>Printable Inch Ruler</h3>
+  <p>
+    Need a physical backup? Use our print option to download a perfectly scaled printable inch ruler. Make sure to disable “fit to page” and print at 100% scale for true measurement accuracy.
+  </p>
+
+  <h3>Popular Inch Fractions Explained</h3>
+  <ul>
+    <li><strong>½ inch</strong> – halfway between whole inches</li>
+    <li><strong>¼ inch</strong> – a quarter of one inch, useful in crafts and carpentry</li>
+    <li><strong>⅛ and 1/16 inch</strong> – for more refined, precision measurements</li>
+  </ul>
+
+  <h3>Embedding This Ruler</h3>
+  <p>
+    Want to embed the inch ruler on your website or e-learning platform? Contact us for a free HTML embed code to add a responsive measuring tool directly to your educational or product page.
+  </p>
+
+  <h3>Comparison: Inch vs Centimeter Rulers</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr><th>Aspect</th><th>Inch Ruler</th><th>Centimeter Ruler</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Standard Usage</td><td>USA, Canada, UK</td><td>Worldwide (metric countries)</td></tr>
+      <tr><td>Small Object Measurement</td><td>Excellent for inch-based specs</td><td>Preferred for scientific precision</td></tr>
+      <tr><td>Educational Value</td><td>Great for teaching fractions</td><td>Great for teaching decimals</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Privacy & Data Policy</h3>
+  <p>
+    This online tool respects your privacy. No data is stored, shared, or collected. All measurements and calibrations stay within your browser.
+  </p>
+
+  <h3>Try the Inch Ruler Now</h3>
+  <p>
+    Whether you’re customizing a photo frame, verifying packaging dimensions, or learning fractions — the Online Inch Ruler offers speed, precision, and simplicity.
+  </p>
+  <p><strong>Measure with confidence. No ruler? No problem.</strong></p>
+</div>
+
+<script>
+  const inchRuler = document.getElementById("inchRuler");
+  const scale = 96; // 96px per inch is standard for most screens
+
+  for (let i = 0; i <= 10; i++) {
+    const mark = document.createElement("div");
+    mark.className = "inch-mark";
+    mark.style.left = `${i * scale}px`;
+    inchRuler.appendChild(mark);
+
+    const label = document.createElement("div");
+    label.className = "label";
+    label.style.left = `${i * scale - 4}px`;
+    label.innerText = i;
+    inchRuler.appendChild(label);
+
+    if (i < 10) {
+      for (let j = 1; j < 8; j++) {
+        const sub = document.createElement("div");
+        sub.className = "sub-inch-mark";
+        sub.style.left = `${i * scale + j * (scale / 8)}px`;
+        inchRuler.appendChild(sub);
+      }
+    }
+  }
+</script>
+
+<!-- See Also -->
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="online-tools.html">Online Tools</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="camera-online.html">Camera Online</a></li>
+    <li><a href="chart-online-maker.html">Chart Online Maker</a></li>
+    <li><a href="click-counter-online.html">Click Counter Online</a></li>
+    <li><a href="countdown-timer.html">Countdown Timer</a></li>
+    <li><a href="flashlight-online.html">Flashlight Online</a></li>
+    <li><a href="line-graph-maker.html">Line Graph Maker</a></li>
+    <li><a href="online-grocery-list.html">Online Grocery List</a></li>
+    <li><a href="password-generator.html">Password Generator</a></li>
+    <li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
+    <li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

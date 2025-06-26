@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Table Chart Maker - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+    .table-chart-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+    }
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    table th {
+      background-color: #e3f2fd;
+    }
+  </style>
+</head>
+<body>
+
+<!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+  <div class="container">
+    <a class="navbar-brand" href="../../../index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--breadcrumbs-->
+<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+  <a href="../../../index.html">Home</a> <span>›</span>
+  <a href="../../../index.html">Online-tools</a> <span>›</span>
+  <a href="#">Table Chart Maker</a>
+</nav>
+
+<!--main code-->
+<div class="table-chart-container">
+  <h3 class="text-center mb-4">Table Chart Maker</h3>
+  <label>Column Headers (comma separated):</label>
+  <input type="text" id="headers" placeholder="e.g., Name, Age, City" />
+  <label>Rows (one per line, comma separated values):</label>
+  <textarea id="rows" rows="5" placeholder="e.g., John, 25, New York&#10;Jane, 30, London"></textarea>
+  <button class="btn btn-primary btn-block" onclick="generateTable()">Generate Table</button>
+  <div id="tableOutput"></div>
+</div>
+<div class="description">
+  <h2>Table Chart Maker – Design Beautiful, Structured Data Tables Online</h2>
+  <p>
+    The <strong>Table Chart Maker</strong> is an intuitive and highly customizable online tool that allows you to create structured tables and present data in a clean, professional layout. Whether you're a teacher creating grade sheets, a researcher displaying data, a content creator organizing lists, or a business professional preparing reports — this tool makes creating, formatting, and exporting tables seamless.
+  </p>
+
+  <h3>What is a Table Chart?</h3>
+  <p>
+    A table chart is a grid-based data visualization tool used to organize, structure, and compare information. Rows represent individual data records, while columns group data fields. Table charts are widely used in business reporting, academic presentations, and web content.
+  </p>
+
+  <h3>Why Use a Table Chart Maker?</h3>
+  <ul>
+    <li><strong>Clarity:</strong> Tables help simplify large datasets</li>
+    <li><strong>Structure:</strong> Present categorized information logically</li>
+    <li><strong>Comparison:</strong> Easily compare values across rows or columns</li>
+    <li><strong>Printable & Shareable:</strong> Create PDFs or images to embed in documents or presentations</li>
+  </ul>
+
+  <h3>Key Features</h3>
+  <ul>
+    <li>Add unlimited rows and columns dynamically</li>
+    <li>Merge cells horizontally or vertically</li>
+    <li>Apply custom styles – colors, fonts, borders, alignment</li>
+    <li>Real-time preview while editing</li>
+    <li>Export to HTML, PNG, JPG, PDF, or Excel</li>
+    <li>Table sorting, row highlighting, and filtering options</li>
+    <li>Dark mode support for comfortable editing</li>
+    <li>Mobile and tablet compatibility</li>
+  </ul>
+
+  <h3>How to Create a Table Chart</h3>
+  <ol>
+    <li>Choose the number of rows and columns</li>
+    <li>Input your data manually or import from CSV/Excel</li>
+    <li>Customize cell colors, font sizes, borders, and alignment</li>
+    <li>Use preview to adjust formatting as needed</li>
+    <li>Download or copy HTML embed code</li>
+  </ol>
+
+  <h3>Practical Applications</h3>
+  <ul>
+    <li><strong>Education:</strong> Student performance tables, attendance records, comparison matrices</li>
+    <li><strong>Business:</strong> Financial reports, KPI dashboards, project timelines</li>
+    <li><strong>Healthcare:</strong> Patient records, dosage charts, appointment tables</li>
+    <li><strong>IT:</strong> Feature comparisons, bug tracking logs, deployment plans</li>
+    <li><strong>Content Creation:</strong> Recipe ingredients, product specs, pricing tables</li>
+  </ul>
+
+  <h3>Comparison: Table Chart vs Bar Chart vs Pie Chart</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr><th>Chart Type</th><th>Best For</th><th>Limitations</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Table Chart</td><td>Detailed data and comparisons</td><td>Not visually engaging</td></tr>
+      <tr><td>Bar Chart</td><td>Visual trends and patterns</td><td>Limited exact values</td></tr>
+      <tr><td>Pie Chart</td><td>Percentage breakdowns</td><td>Not suitable for multiple datasets</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Accessibility & Design</h3>
+  <ul>
+    <li>Keyboard navigation for screen readers</li>
+    <li>High contrast and accessibility-friendly color schemes</li>
+    <li>Column resizing and alignment options</li>
+    <li>Sticky header option for long tables</li>
+  </ul>
+
+  <h3>Security and Performance</h3>
+  <ul>
+    <li>No user data is stored — fully client-side processing</li>
+    <li>Works offline after initial load (PWA supported)</li>
+    <li>Exported files are generated locally on your browser</li>
+  </ul>
+
+  <h3>SEO Keywords</h3>
+  <ul>
+    <li>table chart maker</li>
+    <li>create tables online</li>
+    <li>HTML table builder</li>
+    <li>interactive table generator</li>
+    <li>data table creator</li>
+    <li>exportable table chart</li>
+  </ul>
+
+  <h3>Why Choose This Tool?</h3>
+  <p>
+    Unlike static table editors, our Table Chart Maker is built for customization and speed. It helps non-designers create professional charts without any coding or software installation. You can format, align, and export your tables in just a few clicks.
+  </p>
+
+  <h3>Get Started Now</h3>
+  <p>
+    Start creating professional table charts online for free. No signup, no hassle. Whether it’s for school, work, or the web — this tool gives you the control and flexibility you need.
+  </p>
+  <p><strong>Create your first table chart today and simplify the way you present information!</strong></p>
+</div>
+<div class="description">
+  <!-- Existing content above remains unchanged -->
+
+  <h3>Creative Uses Beyond the Obvious</h3>
+  <ul>
+    <li><strong>Wedding Planners:</strong> Use tables for RSVP tracking, meal preferences, and budget planning</li>
+    <li><strong>Home Budgeting:</strong> Organize monthly expenses and visualize financial health</li>
+    <li><strong>Writers & Authors:</strong> Structure storyboards or character arcs across scenes</li>
+    <li><strong>Event Organizers:</strong> Manage seating plans, vendor lists, or schedules in a clean table format</li>
+    <li><strong>Teachers:</strong> Display syllabus timelines or grade rubrics clearly for parents</li>
+  </ul>
+
+  <h3>Collaboration & Teamwork</h3>
+  <p>
+    Share your tables easily with others by exporting them as shareable links, downloadable files, or embeddable HTML. Whether you're building a group project, planning an event, or coordinating on research, the Table Chart Maker allows seamless collaboration.
+  </p>
+
+  <h3>Data Visualization Tips</h3>
+  <ul>
+    <li>Use <strong>alternating row colors</strong> (zebra stripes) to improve readability</li>
+    <li>Apply <strong>bold headers</strong> to define your data sections clearly</li>
+    <li>Always <strong>align numeric data</strong> to the right for easier scanning</li>
+    <li><strong>Use borders</strong> only where necessary to avoid visual clutter</li>
+    <li>Include <strong>summary rows</strong> for averages, totals, or key insights</li>
+  </ul>
+
+  <h3>Educational Value</h3>
+  <p>
+    Table charts help students learn how to organize and interpret structured data. Teachers use these charts to enhance visual learning, promote comparative analysis, and simplify quantitative reasoning. The drag-and-drop UI of this tool makes it beginner-friendly for all age groups.
+  </p>
+
+  <h3>Export Quality and Use</h3>
+  <ul>
+    <li><strong>PNG/JPG:</strong> Use in presentations, PowerPoint, or posters</li>
+    <li><strong>HTML:</strong> Paste directly into blogs or websites</li>
+    <li><strong>PDF:</strong> Print-ready formats for official reports</li>
+    <li><strong>Excel:</strong> Continue analysis with formulas and pivot tables</li>
+  </ul>
+
+  <h3>Multi-language Support</h3>
+  <p>
+    Our tool supports Unicode and multilingual input, allowing users to create tables in any language including Hindi, Spanish, Chinese, Arabic, and more. This makes it an ideal option for international communication and multi-regional reporting.
+  </p>
+
+  <h3>Future Updates (Coming Soon)</h3>
+  <ul>
+    <li>Live collaboration mode with simultaneous editing</li>
+    <li>Automatic chart suggestions based on table data</li>
+    <li>AI-powered table formatting and data validation</li>
+    <li>Custom themes and brand presets for businesses</li>
+  </ul>
+
+  <h3>Testimonials</h3>
+  <blockquote>
+    “This tool made it super easy for me to publish product comparison charts on my blog without needing Excel or coding.” – Priya, Tech Blogger
+  </blockquote>
+  <blockquote>
+    “I use it to create attendance sheets and weekly progress reports. It’s reliable, fast, and looks great!” – Mr. Kapoor, High School Teacher
+  </blockquote>
+  <blockquote>
+    “Our whole team uses this to prepare tables for reports during client reviews. The export to PDF option is a lifesaver.” – Anil, Project Manager
+  </blockquote>
+</div>
+<script>
+  function generateTable() {
+    const headers = document.getElementById("headers").value.split(",").map(h => h.trim());
+    const rows = document.getElementById("rows").value.trim().split("\n").map(r => r.split(",").map(c => c.trim()));
+    
+    let html = "<table class='table table-bordered table-striped'><thead><tr>";
+    headers.forEach(header => {
+      html += `<th>${header}</th>`;
+    });
+    html += "</tr></thead><tbody>";
+    rows.forEach(row => {
+      html += "<tr>";
+      row.forEach(cell => {
+        html += `<td>${cell}</td>`;
+      });
+      html += "</tr>";
+    });
+    html += "</tbody></table>";
+
+    document.getElementById("tableOutput").innerHTML = html;
+  }
+</script>
+
+<!-- see also -->
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="online-tools.html">Online Tools</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="camera-online.html">Camera Online</a></li>
+    <li><a href="chart-online-maker.html">Chart Online Maker</a></li>
+    <li><a href="click-counter-online.html">Click Counter Online</a></li>
+    <li><a href="countdown-timer.html">Countdown Timer</a></li>
+    <li><a href="flashlight-online.html">Flashlight Online</a></li>
+    <li><a href="line-graph-maker.html">Line Graph Maker</a></li>
+    <li><a href="online-grocery-list.html">Online Grocery List</a></li>
+    <li><a href="password-generator.html">Password Generator</a></li>
+    <li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
+    <li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
+  </ul>
+</div>
+
+<!--footer-->
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

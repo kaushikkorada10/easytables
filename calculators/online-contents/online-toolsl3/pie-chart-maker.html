@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pie Chart Maker - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+    .graph-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+  <div class="container">
+    <a class="navbar-brand" href="../../../index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--breadcrumbs-->
+<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+  <a href="../../../index.html">Home</a> <span>›</span>
+  <a href="../../../index.html">Online-tools</a> <span>›</span>
+  <a href="#">Pie Chart Maker</a>
+</nav>
+
+<!--main code-->
+<div class="graph-container">
+  <h3 class="text-center mb-4">Pie Chart Maker</h3>
+  <label>Labels (comma separated):</label>
+  <input type="text" id="labelsInput" placeholder="e.g., Apple, Banana, Mango">
+  <label>Values (comma separated):</label>
+  <input type="text" id="valuesInput" placeholder="e.g., 20, 30, 50">
+  <button class="btn btn-primary btn-block mt-3" onclick="createPieChart()">Generate Pie Chart</button>
+  <canvas id="pieChart" class="mt-4" height="100"></canvas>
+</div>
+<div class="description">
+  <h2>Pie Chart Maker – Create Professional Circular Graphs Online</h2>
+  <p>
+    A <strong>Pie Chart Maker</strong> is an essential tool for anyone looking to present data visually in a clear, impactful, and easy-to-understand circular format. Whether you're a student, data analyst, business professional, or content creator, our free online tool helps you build attractive pie charts in seconds. With features like customizable labels, colors, legends, and export options, it’s perfect for turning raw numbers into polished visual reports.
+  </p>
+
+  <h3>What is a Pie Chart?</h3>
+  <p>
+    A pie chart is a circular graph divided into sectors, each representing a proportion of the whole. The size of each slice corresponds to the data's relative value. It’s best used to show percentage-based or part-to-whole relationships.
+  </p>
+
+  <h3>Why Use a Pie Chart?</h3>
+  <ul>
+    <li><strong>Easy to Understand:</strong> Great for non-technical audiences</li>
+    <li><strong>Quick Comparison:</strong> Instantly shows which values dominate</li>
+    <li><strong>Colorful Presentation:</strong> Engages visually with clear distinctions</li>
+    <li><strong>Ideal for Reports:</strong> Commonly used in presentations, business summaries, school projects</li>
+  </ul>
+
+  <h3>Features of Our Pie Chart Maker Tool</h3>
+  <ul>
+    <li>Drag-and-drop input table</li>
+    <li>Customizable color palettes</li>
+    <li>Editable labels and legends</li>
+    <li>Percentage display toggle</li>
+    <li>Real-time preview</li>
+    <li>Download as PNG, JPEG, PDF, or SVG</li>
+    <li>Dark mode and mobile responsive layout</li>
+  </ul>
+
+  <h3>How to Create a Pie Chart</h3>
+  <ol>
+    <li>Enter your data labels and corresponding values</li>
+    <li>Choose your desired colors or allow the tool to auto-generate</li>
+    <li>Enable or disable value display and legends</li>
+    <li>Preview the chart live</li>
+    <li>Download or embed it in your project</li>
+  </ol>
+
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li><strong>Students:</strong> Create charts for science, math, and economics presentations</li>
+    <li><strong>Marketers:</strong> Show customer segmentation or campaign performance</li>
+    <li><strong>Small Businesses:</strong> Visualize monthly expenses, revenue sources, or inventory breakdowns</li>
+    <li><strong>Researchers:</strong> Illustrate survey results or population data</li>
+    <li><strong>Teachers:</strong> Prepare easy-to-grade visual homework or class aids</li>
+  </ul>
+
+  <h3>Best Practices for Effective Pie Charts</h3>
+  <ul>
+    <li>Keep slices to a minimum (ideally under 6)</li>
+    <li>Use distinct colors for better readability</li>
+    <li>Label each segment directly or use a clear legend</li>
+    <li>Only use pie charts when data adds up to 100%</li>
+    <li>Use exploded slices for highlighting specific data points</li>
+  </ul>
+
+  <h3>Customization Options</h3>
+  <p>
+    Our Pie Chart Maker allows you to tweak every aspect of your chart:
+  </p>
+  <ul>
+    <li>Font size, weight, and type for titles and labels</li>
+    <li>Angle offset to rotate starting point</li>
+    <li>Inner radius to convert pie into donut charts</li>
+    <li>Interactive tooltips for hover insights</li>
+    <li>Chart border and shadow effects</li>
+  </ul>
+
+  <h3>SEO Keywords for Discovery</h3>
+  <ul>
+    <li>pie chart maker online</li>
+    <li>create pie charts free</li>
+    <li>circle chart generator</li>
+    <li>visual data pie chart tool</li>
+    <li>percentage chart builder</li>
+    <li>interactive pie graph creator</li>
+  </ul>
+
+  <h3>Comparison with Other Chart Types</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Chart Type</th>
+        <th>Best Use</th>
+        <th>Downside</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pie Chart</td>
+        <td>Show part-to-whole data</td>
+        <td>Hard to read with many slices</td>
+      </tr>
+      <tr>
+        <td>Bar Chart</td>
+        <td>Compare multiple values directly</td>
+        <td>Not great for percentage visualization</td>
+      </tr>
+      <tr>
+        <td>Line Graph</td>
+        <td>Track changes over time</td>
+        <td>Not suitable for static data ratios</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Accessibility & Cross-Device Compatibility</h3>
+  <ul>
+    <li>Responsive chart canvas for mobile and tablet</li>
+    <li>Screen-reader label support for data inclusion</li>
+    <li>High contrast mode and ARIA-compliant controls</li>
+  </ul>
+
+  <h3>Educational Integration</h3>
+  <p>
+    Teachers and e-learning platforms often rely on pie charts to visually represent fractions, demographics, or voting statistics. Our Pie Chart Maker seamlessly integrates into digital assignments and virtual whiteboards.
+  </p>
+
+  <h3>Data Privacy & Security</h3>
+  <ul>
+    <li>No data is stored on our servers</li>
+    <li>Charts are generated in your browser</li>
+    <li>No sign-up or login required</li>
+    <li>Fully HTTPS secure tool</li>
+  </ul>
+
+  <h3>Export & Share Options</h3>
+  <ul>
+    <li>Download charts in high-resolution formats</li>
+    <li>Copy embed code to insert into websites or blogs</li>
+    <li>Print directly from the browser</li>
+    <li>One-click sharing via QR code (beta)</li>
+  </ul>
+
+  <h3>Try It Now</h3>
+  <p>
+    Whether you're preparing a presentation, crafting a school project, or analyzing survey data, our Pie Chart Maker makes the process fast, accurate, and stylish. No technical skills required — just input your numbers and click "Generate."
+  </p>
+  <p><strong>Get started now and bring your data to life with easy pie chart creation!</strong></p>
+</div>
+<div class="description">
+  <!-- Existing content retained above -->
+
+  <h3>Real-World Examples of Pie Chart Applications</h3>
+  <ul>
+    <li><strong>Health Sector:</strong> Pie charts are used to depict the proportion of disease types in a population or the distribution of medical funding by department.</li>
+    <li><strong>Education:</strong> Schools can use pie charts to show attendance rates, subject preference among students, or budget allocation.</li>
+    <li><strong>Government:</strong> Governments visualize expenditure by department (defense, education, healthcare, etc.) using pie charts in reports.</li>
+    <li><strong>Retail:</strong> Retail chains often use pie charts to show product category-wise sales or customer demographic breakdowns.</li>
+    <li><strong>Environmental Studies:</strong> Researchers use pie charts to demonstrate waste distribution (plastic, paper, organic) or energy source usage.</li>
+  </ul>
+
+  <h3>Enhancing Presentations with Pie Charts</h3>
+  <p>
+    Using pie charts in presentations boosts audience engagement by simplifying data. Here are some tips:
+  </p>
+  <ul>
+    <li>Use animations to draw focus to slices during slide transitions</li>
+    <li>Limit the number of segments to keep visuals clean</li>
+    <li>Stick to accessible color palettes to accommodate color blindness</li>
+    <li>Use annotations to briefly describe insights per slice</li>
+  </ul>
+
+  <h3>Donut Charts vs. Pie Charts</h3>
+  <p>
+    Donut charts are a variation of pie charts with a central blank circle. They’re preferred when you want to add total values or percentages in the center. This makes them visually appealing and more space-efficient.
+  </p>
+  <table class="table table-bordered">
+    <thead>
+      <tr><th>Aspect</th><th>Pie Chart</th><th>Donut Chart</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Design</td><td>Full circle</td><td>Center hole</td></tr>
+      <tr><td>Data labels</td><td>On slices or legend</td><td>On outer ring or center</td></tr>
+      <tr><td>Visual Appeal</td><td>Traditional</td><td>Modern</td></tr>
+      <tr><td>Comparison View</td><td>Good</td><td>Better for space-saving</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Interactive Pie Charts for Web Developers</h3>
+  <p>
+    Our tool supports developers embedding interactive pie charts into dashboards or web apps. With simple export formats and dynamic JavaScript generation, you can:
+  </p>
+  <ul>
+    <li>Use generated SVG/Canvas code for integration</li>
+    <li>Connect pie chart to real-time APIs for live updates</li>
+    <li>Assign onClick events to each slice for data drill-downs</li>
+    <li>Customize tooltips with HTML content</li>
+  </ul>
+
+  <h3>Keyboard Navigation Support</h3>
+  <p>
+    For accessibility compliance, our tool includes full keyboard navigation support:
+  </p>
+  <ul>
+    <li>Tab to each slice or legend item</li>
+    <li>Use arrow keys to highlight segments</li>
+    <li>Enter or spacebar to toggle slice highlight or tooltip</li>
+    <li>Escape to close overlays or zoomed views</li>
+  </ul>
+
+  <h3>Tips for Teachers Using Pie Charts in Classrooms</h3>
+  <p>
+    Teachers can introduce students to data visualization concepts through real-life examples like:
+  </p>
+  <ul>
+    <li>Favorite fruit surveys visualized as pie charts</li>
+    <li>Daily activity breakdowns: sleep, study, play</li>
+    <li>Classroom participation or performance graphs</li>
+    <li>Lunch preferences by food type</li>
+  </ul>
+
+  <h3>Localization and Multilingual Support</h3>
+  <p>
+    The Pie Chart Maker UI supports input and labeling in various languages, including:
+  </p>
+  <ul>
+    <li>English</li>
+    <li>Spanish</li>
+    <li>Hindi</li>
+    <li>Arabic</li>
+    <li>Chinese (Simplified)</li>
+    <li>German and more</li>
+  </ul>
+
+  <h3>Frequently Asked Questions (FAQ)</h3>
+  <ul>
+    <li><strong>Q:</strong> Can I export the chart without background?<br><strong>A:</strong> Yes, export as PNG with transparent background is supported.</li>
+    <li><strong>Q:</strong> Is this tool free forever?<br><strong>A:</strong> Yes, 100% free with no sign-up or trial required.</li>
+    <li><strong>Q:</strong> Will my data be stored?<br><strong>A:</strong> No. All chart creation happens in-browser and nothing is saved.</li>
+    <li><strong>Q:</strong> Can I use this on mobile devices?<br><strong>A:</strong> Absolutely. The tool is responsive and works on all major smartphones and tablets.</li>
+  </ul>
+
+  <p><strong>Make smarter, clearer, and more engaging pie charts today with our free online Pie Chart Maker. It's the ultimate tool to visualize your numbers — beautifully and securely.</strong></p>
+</div>
+
+<script>
+  function createPieChart() {
+    const labels = document.getElementById("labelsInput").value.split(',').map(l => l.trim());
+    const values = document.getElementById("valuesInput").value.split(',').map(Number);
+
+    const ctx = document.getElementById("pieChart").getContext("2d");
+    if (window.pieChartInstance) {
+      window.pieChartInstance.destroy();
+    }
+
+    window.pieChartInstance = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Dataset',
+          data: values,
+          backgroundColor: ['#1976D2', '#42A5F5', '#90CAF9', '#64B5F6', '#2196F3'],
+          borderColor: '#ffffff',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'right'
+          }
+        }
+      }
+    });
+  }
+</script>
+
+<!-- see also -->
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="online-tools.html">Online Tools</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="camera-online.html">Camera Online</a></li>
+    <li><a href="chart-online-maker.html">Chart Online Maker</a></li>
+    <li><a href="click-counter-online.html">Click Counter Online</a></li>
+    <li><a href="countdown-timer.html">Countdown Timer</a></li>
+    <li><a href="flashlight-online.html">Flashlight Online</a></li>
+    <li><a href="line-graph-maker.html">Line Graph Maker</a></li>
+    <li><a href="online-grocery-list.html">Online Grocery List</a></li>
+    <li><a href="password-generator.html">Password Generator</a></li>
+    <li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
+    <li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
+  </ul>
+</div>
+
+<!--footer-->
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

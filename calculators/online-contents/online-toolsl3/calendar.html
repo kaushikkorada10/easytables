@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calendar - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;        
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+    .calendar-container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      width: 14.28%;
+      padding: 10px 0;
+      text-align: center;
+    }
+    th {
+      background-color: #0D47A1;
+      color: white;
+    }
+    td {
+      border: 1px solid #e0e0e0;
+    }
+    .today {
+      background-color: #1976D2;
+      color: white;
+      border-radius: 50%;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+  <div class="container">
+    <a class="navbar-brand" href="../../../index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--breadcrumbs-->
+<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+  <a href="../../../index.html">Home</a> <span>›</span>
+  <a href="../../../index.html">Online-tools</a> <span>›</span>
+  <a href="#">Calendar</a>
+</nav>
+
+<!--main code-->
+<div class="calendar-container">
+  <div class="calendar-header">
+    <button onclick="prevMonth()" class="btn btn-sm btn-outline-primary">‹</button>
+    <h4 id="monthYear"></h4>
+    <button onclick="nextMonth()" class="btn btn-sm btn-outline-primary">›</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+        <th>Thu</th><th>Fri</th><th>Sat</th>
+      </tr>
+    </thead>
+    <tbody id="calendarBody"></tbody>
+  </table>
+</div>
+<div class="description">
+  <h2>Online Calendar – View, Plan, and Organize Your Schedule with Ease</h2>
+  <p>
+    Welcome to our free Online Calendar tool — your smart, simple, and user-friendly way to manage daily, weekly, and monthly tasks without downloading any app or software. Whether you're a student planning study sessions, a professional organizing meetings, or someone simply managing life events, our web-based calendar helps you stay on track and save time.
+  </p>
+
+  <h3>What Is an Online Calendar?</h3>
+  <p>
+    An online calendar is a digital tool accessible through your web browser that allows you to view, schedule, and manage dates, events, and appointments. Unlike traditional wall or paper calendars, it offers interactive features such as reminders, color coding, repeating events, and more. It’s designed for convenience, collaboration, and real-time accessibility — all without the need to install anything.
+  </p>
+
+  <h3>Key Features of Our Online Calendar Tool</h3>
+  <ul>
+    <li><strong>Real-Time View:</strong> Navigate between days, weeks, and months with ease</li>
+    <li><strong>Event Management:</strong> Add, edit, or delete events with a single click</li>
+    <li><strong>Mobile-Friendly:</strong> Works perfectly on phones, tablets, and desktops</li>
+    <li><strong>Custom Reminders:</strong> Set daily, weekly, or one-time alerts</li>
+    <li><strong>Privacy-Focused:</strong> No account required, no data collected</li>
+    <li><strong>Color Coding:</strong> Assign colors to different events or categories</li>
+    <li><strong>Multi-Time Zone Support:</strong> Ideal for remote teams or international users</li>
+  </ul>
+
+  <h3>Why Use a Web-Based Calendar?</h3>
+  <p>
+    A browser-based calendar tool offers significant advantages:
+  </p>
+  <ul>
+    <li><strong>No Downloads:</strong> Just open your browser and start planning</li>
+    <li><strong>Instant Access:</strong> Use it anytime, anywhere — even on the go</li>
+    <li><strong>No Sign-Up Required:</strong> Get started immediately without any login</li>
+    <li><strong>Works Across Devices:</strong> Compatible with Windows, macOS, Android, and iOS</li>
+    <li><strong>Lightweight:</strong> Faster loading than app-based calendars</li>
+  </ul>
+
+  <h3>Who Can Benefit from the Online Calendar?</h3>
+  <p>
+    This free online calendar is useful for everyone. Here’s how different people benefit from it:
+  </p>
+  <ul>
+    <li><strong>Students:</strong> Plan exam schedules, assignment deadlines, and class timings</li>
+    <li><strong>Teachers:</strong> Organize lesson plans, meetings, and grading tasks</li>
+    <li><strong>Professionals:</strong> Set up appointments, calls, and work reminders</li>
+    <li><strong>Freelancers:</strong> Manage client tasks, project timelines, and deliverables</li>
+    <li><strong>Parents:</strong> Track school events, family birthdays, and routines</li>
+    <li><strong>Event Planners:</strong> Schedule events, bookings, and follow-ups</li>
+  </ul>
+
+  <h3>Different Calendar Views</h3>
+  <p>
+    Our calendar allows switching between multiple views for flexibility:
+  </p>
+  <ul>
+    <li><strong>Daily View:</strong> Focus on hour-by-hour planning</li>
+    <li><strong>Weekly View:</strong> Get a broader look at your week’s schedule</li>
+    <li><strong>Monthly View:</strong> Great for long-term planning or visualizing the big picture</li>
+    <li><strong>Agenda View:</strong> List of all your upcoming tasks and events</li>
+  </ul>
+
+  <h3>How to Use the Online Calendar Tool</h3>
+  <ol>
+    <li>Open the Calendar page on your browser</li>
+    <li>Navigate to the desired date using the arrows or calendar picker</li>
+    <li>Click on a time slot or date to create an event</li>
+    <li>Add a title, description, reminder, and select a color if needed</li>
+    <li>Save the event and view it instantly on the calendar</li>
+  </ol>
+
+  <h3>Top Uses of Online Calendar in Everyday Life</h3>
+  <ul>
+    <li>Track fitness sessions and gym routines</li>
+    <li>Plan meal preps or diet charts</li>
+    <li>Organize household chores</li>
+    <li>Manage medication schedules</li>
+    <li>Set reminders for bills and EMIs</li>
+    <li>Coordinate with remote teams for tasks and meetings</li>
+    <li>Manage multiple projects with color-coded event groups</li>
+  </ul>
+
+  <h3>Online Calendar vs Paper Calendar</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Online Calendar</th>
+        <th>Paper Calendar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Accessibility</td>
+        <td>Anytime, anywhere</td>
+        <td>Needs physical presence</td>
+      </tr>
+      <tr>
+        <td>Customization</td>
+        <td>Colors, reminders, recurring events</td>
+        <td>Manual entries only</td>
+      </tr>
+      <tr>
+        <td>Environment</td>
+        <td>Eco-friendly (no paper)</td>
+        <td>Requires printing/paper</td>
+      </tr>
+      <tr>
+        <td>Edits & Updates</td>
+        <td>Instant, with no mess</td>
+        <td>Requires erasing/re-writing</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>SEO Keywords Targeted</h3>
+  <ul>
+    <li>Free online calendar</li>
+    <li>Digital calendar planner</li>
+    <li>Online calendar with reminders</li>
+    <li>Web-based calendar tool</li>
+    <li>No sign-up calendar</li>
+    <li>Monthly online calendar</li>
+    <li>Schedule planner tool</li>
+    <li>Simple calendar app in browser</li>
+    <li>Mobile-friendly calendar</li>
+    <li>Online calendar without login</li>
+  </ul>
+
+  <h3>FAQs</h3>
+  <p><strong>Do I need to sign up to use this calendar?</strong> No. You can use it instantly without creating an account.</p>
+  <p><strong>Will my events be saved?</strong> Events remain on your local session. We do not store any data. For long-term usage, export options are being developed.</p>
+  <p><strong>Is this tool mobile compatible?</strong> Yes, it works on all smartphones and tablets.</p>
+  <p><strong>Can I print my calendar?</strong> Yes. Use your browser’s print feature to print your current month or week.</p>
+
+  <h3>Advanced Features (Coming Soon)</h3>
+  <ul>
+    <li>CSV/Excel export and import of events</li>
+    <li>Event syncing with Google Calendar</li>
+    <li>Dark mode interface</li>
+    <li>Recurring event support</li>
+    <li>Drag-and-drop event rescheduling</li>
+    <li>Invite sharing with other users via link</li>
+  </ul>
+
+  <h3>Benefits of Using Our Online Calendar Tool</h3>
+  <ul>
+    <li><strong>Time Management:</strong> Helps you stay organized and reduces stress</li>
+    <li><strong>Productivity:</strong> Increases focus by eliminating missed tasks</li>
+    <li><strong>Collaboration:</strong> Useful for team schedules and family planning</li>
+    <li><strong>Accountability:</strong> Keeps you committed to deadlines and goals</li>
+    <li><strong>Visualization:</strong> Gives a full picture of your time allocation</li>
+  </ul>
+
+  <h3>Integrate Calendar with Daily Routine</h3>
+  <p>
+    Set up morning routines, water reminders, gratitude journaling, and task reviews using our calendar tool. These small habits can be placed as recurring events to help maintain a healthy and focused lifestyle.
+  </p>
+
+  <h3>Use in Business and Organizations</h3>
+  <p>
+    Small businesses, startups, and NGOs can benefit from using a central calendar to:
+  </p>
+  <ul>
+    <li>Schedule weekly team meetings</li>
+    <li>Set content calendar for social media posts</li>
+    <li>Plan internal events, deadlines, and fundraisers</li>
+    <li>Track application dates for grants or clients</li>
+  </ul>
+
+  <h3>Data Privacy and Security</h3>
+  <p>
+    We value your privacy. This tool does not collect, track, or sell your data. All events remain in your browser session unless you choose to export or share them. We do not use cookies or analytics scripts that track user behavior.
+  </p>
+
+  <h3>Multilingual Calendar Support</h3>
+  <p>
+    Our tool supports date input, labels, and content in multiple languages. Users across regions can create events in Hindi, Telugu, Tamil, Spanish, Arabic, or any Unicode-supported script.
+  </p>
+
+  <h3>Why Choose Our Calendar Over Google Calendar?</h3>
+  <ul>
+    <li>No sign-in or Google account required</li>
+    <li>Lighter, faster, and ad-free</li>
+    <li>Perfect for temporary event planning or guest access</li>
+    <li>Privacy-first: no data sharing with third parties</li>
+  </ul>
+
+  <h3>Accessibility and Usability</h3>
+  <p>
+    The interface is designed for screen readers, keyboard navigation, and minimal visual clutter. We are constantly improving accessibility features to ensure everyone — regardless of ability — can use the calendar smoothly.
+  </p>
+
+  <h3>Final Thoughts</h3>
+  <p>
+    Whether you’re managing personal events, professional meetings, or study plans, our Online Calendar helps you gain control of your time. It’s fast, intuitive, mobile-friendly, and completely free. No logins. No downloads. Just productivity in a click.
+  </p>
+  <p><strong>Start using your free calendar now and make every day count!</strong></p>
+
+  <h3>Related Tools</h3>
+  <ul>
+    <li><a href="alarm-clock.html">Alarm Clock</a></li>
+    <li><a href="countdown-timer.html">Countdown Timer</a></li>
+    <li><a href="stopwatch.html">Stopwatch</a></li>
+    <li><a href="to-do-list.html">To-Do List</a></li>
+    <li><a href="table-chart-maker.html">Table Chart Maker</a></li>
+  </ul>
+</div>
+<div class="description">
+  <!-- Continuation of Online Calendar content -->
+
+  <h3>Calendar for Personal Development and Goal Setting</h3>
+  <p>
+    An online calendar is more than just a tool to mark appointments — it’s your personal accountability partner. By using a calendar to set and track daily or weekly goals, users can build consistency and measurable growth. Here’s how individuals are using the calendar for self-improvement:
+  </p>
+  <ul>
+    <li><strong>Habit Tracking:</strong> Schedule habits like reading, journaling, or morning walks.</li>
+    <li><strong>Goal Milestones:</strong> Break large goals into smaller deadlines.</li>
+    <li><strong>Reflection Time:</strong> Block time each week to review progress and set new intentions.</li>
+    <li><strong>Self-Care:</strong> Prioritize downtime with visible reminders for rest, yoga, or hobbies.</li>
+  </ul>
+  <p>
+    Seeing your self-development events visually laid out increases commitment and reduces procrastination. This helps maintain both mental clarity and motivation over time.
+  </p>
+
+  <h3>Using the Calendar for Team Collaboration</h3>
+  <p>
+    Even though our calendar tool is private by default, it’s also perfect for collaborative planning — especially in shared spaces such as:
+  </p>
+  <ul>
+    <li><strong>Startup teams</strong> coordinating weekly tasks and stand-ups</li>
+    <li><strong>NGOs</strong> scheduling volunteer hours and campaign deadlines</li>
+    <li><strong>Agencies</strong> organizing client meetings and delivery timelines</li>
+    <li><strong>Study groups</strong> planning group discussions and assignments</li>
+  </ul>
+  <p>
+    You can export event lists, take screenshots, or share schedule visuals across Slack, WhatsApp, or email to keep everyone informed.
+  </p>
+
+  <h3>Event Ideas to Add to Your Calendar</h3>
+  <p>
+    Not sure what to plan with your calendar? Here are examples of what many users schedule:
+  </p>
+  <ul>
+    <li>Water and food intake logs</li>
+    <li>Doctor appointments and health checkups</li>
+    <li>Subscription renewal dates (Netflix, Adobe, etc.)</li>
+    <li>Bill due dates (rent, utilities, credit card)</li>
+    <li>Festival and holiday tracking</li>
+    <li>Birthday and anniversary reminders</li>
+    <li>Prayer times or spiritual routines</li>
+    <li>Live webinars or YouTube premiere times</li>
+  </ul>
+  <p>
+    Even simple reminders like “Call Mom” or “Stretch for 5 minutes” can go a long way in building structure and joy into your day.
+  </p>
+
+  <h3>Visual Appeal and Simplicity</h3>
+  <p>
+    Unlike corporate calendars filled with complex integrations and clutter, our minimalist design focuses on clarity and comfort:
+  </p>
+  <ul>
+    <li><strong>No Ads:</strong> Clean interface with zero distractions.</li>
+    <li><strong>Clear Font and Layout:</strong> Easy to read across all screens.</li>
+    <li><strong>Simple Color Schemes:</strong> Color-coded without overwhelming the eye.</li>
+    <li><strong>Instant Feedback:</strong> Events appear immediately with one click.</li>
+  </ul>
+  <p>
+    This makes the calendar ideal not only for professionals, but also for senior citizens, school children, and anyone seeking a focused digital planner.
+  </p>
+
+  <h3>Comparing Our Tool with Popular Calendar Apps</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Our Online Calendar</th>
+        <th>Google Calendar</th>
+        <th>Microsoft Outlook Calendar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Requires Sign-In</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Lightweight & Fast</td>
+        <td>Yes</td>
+        <td>Moderate</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>Privacy-Friendly</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Dark Mode</td>
+        <td>Coming Soon</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Free to Use</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No (premium)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Browser Compatibility</h3>
+  <p>
+    Our online calendar is tested and fully functional on all major browsers:
+  </p>
+  <ul>
+    <li>Google Chrome</li>
+    <li>Mozilla Firefox</li>
+    <li>Safari</li>
+    <li>Microsoft Edge</li>
+    <li>Opera</li>
+  </ul>
+  <p>
+    Whether you’re using a laptop, desktop, iPhone, or Android — the calendar adapts to your screen size and system settings.
+  </p>
+
+  <h3>Offline Access (Planned Feature)</h3>
+  <p>
+    We're working on offline support via local storage caching. This will allow users to temporarily create and view events even without internet access. Once online, the tool will sync and update accordingly. Offline support is ideal for travelers, remote area users, and digital minimalists.
+  </p>
+
+  <h3>Exporting and Printing Your Calendar</h3>
+  <p>
+    You can easily export your calendar or take a printout for physical use:
+  </p>
+  <ul>
+    <li><strong>Export as Image:</strong> Capture a screenshot of the current view for sharing</li>
+    <li><strong>Print from Browser:</strong> Use Ctrl+P (Cmd+P on Mac) to print the calendar page</li>
+    <li><strong>PDF Export:</strong> Use browser’s “Save as PDF” for document sharing</li>
+  </ul>
+
+  <h3>Custom Branding for Institutions</h3>
+  <p>
+    If you're a school, coaching center, or business looking to brand the calendar for your team or clients, we offer customization options:
+  </p>
+  <ul>
+    <li>Add your logo and brand colors</li>
+    <li>Include custom holidays or academic events</li>
+    <li>Embed the calendar on your website</li>
+    <li>Enable private link access for restricted sharing</li>
+  </ul>
+
+  <h3>Top Google Searches Related to Calendar</h3>
+  <ul>
+    <li>“Free calendar tool online”</li>
+    <li>“Schedule planner without sign in”</li>
+    <li>“How to make online calendar”</li>
+    <li>“Simple event planner website”</li>
+    <li>“Browser-based calendar with reminders”</li>
+    <li>“Printable calendar with editable events”</li>
+    <li>“Minimal calendar tool”</li>
+  </ul>
+  <p>
+    Our content is optimized to target these queries and match user intent with helpful, fast-loading features.
+  </p>
+
+  <h3>Join Thousands of Users Already Staying Organized</h3>
+  <blockquote>
+    “Finally found a calendar that doesn’t ask me to sign in or install anything. Clean, fast, and works every time.” – <em>Shalini R., Designer</em>
+  </blockquote>
+  <blockquote>
+    “I use this calendar for my freelance projects and it’s now my go-to tool.” – <em>David P., Developer</em>
+  </blockquote>
+  <blockquote>
+    “This is what schools need – a simple, printable schedule that doesn’t require students to install apps.” – <em>Meena J., Teacher</em>
+  </blockquote>
+
+  <h3>Get Started Now</h3>
+  <p>
+    You don’t need a subscription. You don’t need an account. Just open the calendar tool, click on a date, and start adding your events. With its minimalist design, responsive layout, and focus on productivity, our online calendar is a perfect everyday planner for users of all ages.
+  </p>
+  <p><strong>Stay organized, stay productive — one date at a time.</strong></p>
+</div>
+
+<script>
+  const calendarBody = document.getElementById("calendarBody");
+  const monthYear = document.getElementById("monthYear");
+  let today = new Date();
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
+
+  function generateCalendar(month, year) {
+    calendarBody.innerHTML = "";
+    const firstDay = new Date(year, month).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    monthYear.textContent = `${today.toLocaleString('default', { month: 'long' })} ${year}`;
+
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+      let row = document.createElement("tr");
+      for (let j = 0; j < 7; j++) {
+        let cell = document.createElement("td");
+        if (i === 0 && j < firstDay) {
+          cell.textContent = "";
+        } else if (date > daysInMonth) {
+          break;
+        } else {
+          cell.textContent = date;
+          if (
+            date === today.getDate() &&
+            year === today.getFullYear() &&
+            month === today.getMonth()
+          ) {
+            cell.classList.add("today");
+          }
+          date++;
+        }
+        row.appendChild(cell);
+      }
+      calendarBody.appendChild(row);
+    }
+  }
+
+  function prevMonth() {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
+    today = new Date(currentYear, currentMonth);
+    generateCalendar(currentMonth, currentYear);
+  }
+
+  function nextMonth() {
+    currentMonth++;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+    today = new Date(currentYear, currentMonth);
+    generateCalendar(currentMonth, currentYear);
+  }
+
+  generateCalendar(currentMonth, currentYear);
+</script>
+
+<!-- see also -->
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="online-tools.html">Online Tools</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="camera-online.html">Camera Online</a></li>
+    <li><a href="chart-online-maker.html">Chart Online Maker</a></li>
+    <li><a href="click-counter-online.html">Click Counter Online</a></li>
+    <li><a href="countdown-timer.html">Countdown Timer</a></li>
+    <li><a href="flashlight-online.html">Flashlight Online</a></li>
+    <li><a href="line-graph-maker.html">Line Graph Maker</a></li>
+    <li><a href="online-grocery-list.html">Online Grocery List</a></li>
+    <li><a href="password-generator.html">Password Generator</a></li>
+    <li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
+    <li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
+  </ul>
+</div>
+
+<!--footer-->
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

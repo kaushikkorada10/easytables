@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Line Graph Maker - Easy Tables</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: white; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover { text-decoration: underline; }
+    .description, .see-also {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-left: 5px solid #1976D2;
+      border-radius: 10px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .description h3,
+    .see-also h4 {
+      color: #0D47A1;
+      margin-bottom: 10px;
+    }
+    .see-also ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .see-also ul li {
+      margin-bottom: 8px;
+    }
+    .see-also a {
+      color: #1976D2;
+      text-decoration: none;
+    }
+    .see-also a:hover {
+      text-decoration: underline;
+    }
+    .graph-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+  <div class="container">
+    <a class="navbar-brand" href="../../../index.html">
+      <h1 class="nav-h1-color">EASY TABLES</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+        <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+        <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+        <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--breadcrumbs-->
+<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
+  <a href="../../../index.html">Home</a> <span>›</span>
+  <a href="../../../index.html">Online-tools</a> <span>›</span>
+  <a href="#">Line Graph Maker</a>
+</nav>
+
+<!--main code-->
+<div class="graph-container description">
+  <h3 class="text-center mb-4">Line Graph Maker</h3>
+  <label>Labels (comma separated):</label>
+  <input type="text" id="labelsInput" placeholder="e.g., Jan, Feb, Mar">
+  <label>Values (comma separated):</label>
+  <input type="text" id="valuesInput" placeholder="e.g., 10, 20, 30">
+  <button class="btn btn-primary btn-block mt-3" onclick="createLineGraph()">Generate Line Graph</button>
+  <canvas id="lineChart" class="mt-4" height="100"></canvas>
+</div>
+<div class="description">
+  <h2>Line Graph Maker – Create Line Charts Online Instantly</h2>
+  <p>
+    Welcome to the free Line Graph Maker — your go-to tool for visualizing data trends and patterns over time. Whether you're a student, teacher, analyst, scientist, business owner, or project manager, our browser-based line chart generator helps you transform numerical values into clean, accurate, and presentable visual graphs. No installation or signup required — simply enter your data, customize your graph, and download or share it within seconds.
+  </p>
+
+  <h3>What is a Line Graph?</h3>
+  <p>
+    A line graph, also known as a line chart, is a type of data visualization that displays information as a series of data points connected by straight line segments. It is ideal for showing changes over time, identifying trends, and comparing multiple datasets across continuous intervals.
+  </p>
+
+  <h3>Key Features of Our Online Line Graph Maker</h3>
+  <ul>
+    <li><strong>Interactive Input:</strong> Add data points manually or paste directly from Excel/CSV</li>
+    <li><strong>Multiple Data Series:</strong> Plot and compare two or more datasets on the same graph</li>
+    <li><strong>Custom Labels:</strong> Add X and Y-axis titles, gridlines, and tooltips</li>
+    <li><strong>Real-Time Graph Preview:</strong> Watch your graph update live as you input data</li>
+    <li><strong>Export Options:</strong> Download as PNG, JPG, or PDF for use in reports or presentations</li>
+    <li><strong>Color & Style Customization:</strong> Choose colors, line styles, point markers, and background themes</li>
+    <li><strong>Fully Responsive:</strong> Works seamlessly on desktop, tablet, or mobile</li>
+  </ul>
+
+  <h3>How to Use the Line Graph Maker</h3>
+  <ol>
+    <li>Open the Line Graph Maker in your browser</li>
+    <li>Enter your X-axis labels (e.g., months, years, time)</li>
+    <li>Enter corresponding Y-axis values (e.g., sales, temperature, performance)</li>
+    <li>Add additional datasets if needed (e.g., comparisons)</li>
+    <li>Customize chart appearance and labels</li>
+    <li>Preview your chart live on-screen</li>
+    <li>Click "Download" to save or "Reset" to start over</li>
+  </ol>
+
+  <h3>Popular Use Cases</h3>
+  <ul>
+    <li><strong>Academic Reports:</strong> Students can plot experiment results or statistical analysis</li>
+    <li><strong>Business Analytics:</strong> Track revenue growth, sales cycles, or user engagement</li>
+    <li><strong>Financial Tracking:</strong> Show monthly income, expenses, or investment returns</li>
+    <li><strong>Marketing:</strong> Display campaign performance or website traffic trends</li>
+    <li><strong>Science Projects:</strong> Chart temperature changes, chemical reactions, or population growth</li>
+    <li><strong>Fitness Tracking:</strong> Visualize weight loss, steps, or calories burned over time</li>
+    <li><strong>Weather Analysis:</strong> Graph historical temperatures or rainfall trends</li>
+  </ul>
+
+  <h3>Benefits of Using an Online Line Chart Tool</h3>
+  <ul>
+    <li><strong>Time-Saving:</strong> No need for Excel formulas or coding knowledge</li>
+    <li><strong>Instant Results:</strong> Graph appears as you enter values — no wait time</li>
+    <li><strong>Customizable:</strong> Tailor the graph to match your brand or theme</li>
+    <li><strong>Exportable:</strong> Save and use in PowerPoint, Word, or school projects</li>
+    <li><strong>Sharable:</strong> Easily embed on websites or send to team members</li>
+    <li><strong>Beginner-Friendly:</strong> No charting experience required</li>
+  </ul>
+
+  <h3>Line Graph vs Bar Graph – When to Use Which?</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Line Graph</th>
+        <th>Bar Graph</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Best For</td>
+        <td>Trends over time</td>
+        <td>Comparing categories</td>
+      </tr>
+      <tr>
+        <td>Data Type</td>
+        <td>Continuous</td>
+        <td>Discrete</td>
+      </tr>
+      <tr>
+        <td>Visual Style</td>
+        <td>Lines and dots</td>
+        <td>Bars or columns</td>
+      </tr>
+      <tr>
+        <td>Example</td>
+        <td>Monthly website traffic</td>
+        <td>Product sales per region</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>SEO Keywords for This Page</h3>
+  <ul>
+    <li>line graph maker</li>
+    <li>online line chart generator</li>
+    <li>plot line graph online</li>
+    <li>free chart creator</li>
+    <li>make a line graph</li>
+    <li>line chart tool</li>
+    <li>graphing calculator online</li>
+    <li>line plot visualization</li>
+    <li>draw line chart from data</li>
+  </ul>
+
+  <h3>Tips for Effective Line Graphs</h3>
+  <ul>
+    <li><strong>Label Axes Clearly:</strong> Include units (e.g., $ for money, °C for temperature)</li>
+    <li><strong>Choose the Right Scale:</strong> Avoid distortion with improper axis ranges</li>
+    <li><strong>Limit Data Series:</strong> Too many lines can confuse the reader</li>
+    <li><strong>Use Contrasting Colors:</strong> Help viewers distinguish between multiple lines</li>
+    <li><strong>Keep It Clean:</strong> Remove unnecessary gridlines or labels for simplicity</li>
+  </ul>
+
+  <h3>Accessibility and Compatibility</h3>
+  <ul>
+    <li>Supports keyboard input and screen readers</li>
+    <li>High-contrast mode for better visibility</li>
+    <li>Mobile-first design for smartphones and tablets</li>
+    <li>Compatible with Chrome, Firefox, Safari, Edge</li>
+  </ul>
+
+  <h3>Student-Friendly Learning Tool</h3>
+  <p>
+    This line graph maker is also an excellent educational tool. Teachers and students use it to:
+  </p>
+  <ul>
+    <li>Practice data visualization skills in math and science</li>
+    <li>Plot datasets for assignments or classroom presentations</li>
+    <li>Understand relationships between variables</li>
+    <li>Learn the importance of slope, peaks, and trends</li>
+  </ul>
+
+  <h3>Data Privacy and Security</h3>
+  <p>
+    Your data stays private. This is a secure, client-side tool that never uploads your input or charts to a server unless you choose to export and share. No login or cookies are required.
+  </p>
+
+  <h3>Frequently Asked Questions</h3>
+  <p><strong>Is the line graph maker free?</strong><br>Yes, 100% free for personal, academic, or commercial use.</p>
+  <p><strong>Can I save my graph as an image?</strong><br>Yes, download as PNG, JPG, or even PDF with one click.</p>
+  <p><strong>Is it mobile-friendly?</strong><br>Absolutely. Works perfectly on Android and iOS devices.</p>
+  <p><strong>Do I need Excel?</strong><br>No, just copy-paste data or enter it manually in our interface.</p>
+  <p><strong>Can I plot negative values?</strong><br>Yes, our graph engine supports both positive and negative Y-values.</p>
+
+  <h3>Coming Soon</h3>
+  <ul>
+    <li>Export animated graphs for presentations</li>
+    <li>Live link sharing with version history</li>
+    <li>Google Sheets import support</li>
+    <li>Templates for business and education</li>
+    <li>Dark mode for presentations</li>
+  </ul>
+
+  <h3>Why Choose This Line Graph Tool?</h3>
+  <p>
+    Our goal is to simplify charting for everyone — no matter your background. This graphing tool is designed to make data beautiful and understandable. With instant visuals, customizable options, and high-resolution exports, it’s perfect for classrooms, boardrooms, and everything in between.
+  </p>
+
+  <h3>Related Tools</h3>
+
+
+  <p><strong>Start building your line chart now — it's fast, free, and requires no signup!</strong></p>
+</div>
+<div class="description">
+  <!-- Previous content retained -->
+
+  <h3>Advanced Line Graph Features for Professionals</h3>
+  <p>
+    For professionals in data science, finance, or operations, a line graph isn’t just a visual — it's a decision-making tool. Our Line Graph Maker offers flexibility for deeper analysis:
+  </p>
+  <ul>
+    <li><strong>Tooltip Insights:</strong> Hover to see exact values on data points</li>
+    <li><strong>Zoomable Graph Area:</strong> Focus on specific data periods</li>
+    <li><strong>Legends and Grouping:</strong> Show/hide datasets dynamically</li>
+    <li><strong>Dashed or Solid Lines:</strong> Differentiate projections vs actuals</li>
+    <li><strong>Multi-axis Support:</strong> Plot different units on left and right Y-axes</li>
+  </ul>
+
+  <h3>Integrating Line Graphs Into Projects</h3>
+  <p>
+    Our tool integrates easily into work and study flows. After creating a graph, you can:
+  </p>
+  <ul>
+    <li><strong>Embed the chart:</strong> Copy the image into blog posts or Word documents</li>
+    <li><strong>Insert into Google Slides:</strong> Add visual support to your pitch or research</li>
+    <li><strong>Use in Excel:</strong> Download as PNG and include in spreadsheets</li>
+    <li><strong>Print for classroom or field reports:</strong> High resolution ensures clarity</li>
+  </ul>
+
+  <h3>Global Use Case Examples</h3>
+  <ul>
+    <li><strong>India:</strong> Students plot monsoon rainfall over years in science class</li>
+    <li><strong>USA:</strong> Financial advisors chart 5-year portfolio returns</li>
+    <li><strong>UK:</strong> NGOs visualize poverty decline across districts</li>
+    <li><strong>Australia:</strong> Health researchers monitor COVID-19 spread trends</li>
+    <li><strong>Canada:</strong> Teachers help students understand linear functions using line plots</li>
+  </ul>
+
+  <h3>Educational Value of Line Graphs</h3>
+  <p>
+    Visual learning enhances comprehension. When students create and interpret line graphs, they:
+  </p>
+  <ul>
+    <li>Learn to identify variables and relationships</li>
+    <li>Develop logical reasoning about patterns and fluctuations</li>
+    <li>Understand slope and directionality in real-world scenarios</li>
+    <li>Build confidence in handling data — a critical 21st-century skill</li>
+  </ul>
+
+  <h3>Line Graph Examples</h3>
+  <ul>
+    <li><strong>Sales Growth Over Time:</strong> Monthly revenue trends (X-axis: months, Y-axis: dollars)</li>
+    <li><strong>Climate Change:</strong> CO2 levels from 1900 to 2025</li>
+    <li><strong>Weight Tracker:</strong> User weight loss progress weekly</li>
+    <li><strong>App Downloads:</strong> Daily installations of a mobile app during a launch campaign</li>
+  </ul>
+
+  <h3>Line Graph Maker for Content Creators</h3>
+  <p>
+    Bloggers and YouTubers use our tool to show:
+  </p>
+  <ul>
+    <li>Follower growth over time</li>
+    <li>Income progression as freelancers</li>
+    <li>Comparisons of engagement between platforms</li>
+    <li>Milestone visualizations in creator journeys</li>
+  </ul>
+
+  <h3>Why This Line Chart Tool is Better Than Excel (For Quick Use)</h3>
+  <ul>
+    <li><strong>No Installation:</strong> Use from any browser, no need for software</li>
+    <li><strong>Faster:</strong> No spreadsheet setup or formula work</li>
+    <li><strong>Cleaner:</strong> Automatically styled visuals with modern designs</li>
+    <li><strong>Accessible:</strong> Great for quick demos, school projects, or last-minute reports</li>
+  </ul>
+
+  <h3>Support and Feedback</h3>
+  <p>
+    We're constantly improving the Line Graph Maker. If you encounter bugs or want to suggest new features (like 3D lines, animations, or CSV imports), reach out through our feedback form. Every suggestion helps us build a better tool for you.
+  </p>
+
+  <h3>Conclusion</h3>
+  <p>
+    A line graph is more than just lines on a page — it's a story of change, growth, and comparison. With our Line Graph Maker, you can craft this story with clarity and precision, whether you're analyzing trends, making forecasts, or simply learning how data behaves.
+  </p>
+  <p><strong>Create your first line chart now — it's fast, powerful, and 100% free!</strong></p>
+</div>
+<div class="description">
+  <h2>Online Grocery List – Simplify Your Shopping Experience</h2>
+  <p>
+    Welcome to the ultimate Online Grocery List tool — designed for efficiency, convenience, and clarity. Whether you're shopping for a small household, planning meals for the week, or organizing supplies for a large event, our online grocery list helps you create, categorize, and manage your shopping seamlessly across devices. No sign-up required — just start adding items and save time at the store.
+  </p>
+
+  <h3>What is an Online Grocery List?</h3>
+  <p>
+    An online grocery list is a digital checklist that helps individuals or families track and organize the items they need to purchase from a grocery store. Unlike paper lists that can get lost or torn, digital lists offer easy access, editing, sharing, and real-time updates — all from your phone, tablet, or desktop.
+  </p>
+
+  <h3>Why Use a Digital Grocery List?</h3>
+  <ul>
+    <li><strong>Efficiency:</strong> Quickly add, remove, or check off items</li>
+    <li><strong>Organization:</strong> Categorize items by food group or store aisle</li>
+    <li><strong>Clarity:</strong> Reduce duplicates and avoid forgetting essentials</li>
+    <li><strong>Eco-Friendly:</strong> Go paperless and reduce waste</li>
+    <li><strong>Portability:</strong> Access your list anywhere, anytime</li>
+  </ul>
+
+  <h3>How to Use the Online Grocery List</h3>
+  <ol>
+    <li>Open the Online Grocery List tool in your browser</li>
+    <li>Add items by typing them into the input field</li>
+    <li>Organize into categories (e.g., Produce, Dairy, Pantry, Frozen)</li>
+    <li>Mark items as purchased with a single click</li>
+    <li>Clear the list or export it when done</li>
+  </ol>
+
+  <h3>Top Categories to Add to Your Grocery List</h3>
+  <ul>
+    <li><strong>Produce:</strong> Apples, bananas, carrots, spinach</li>
+    <li><strong>Dairy:</strong> Milk, yogurt, cheese, butter</li>
+    <li><strong>Bakery:</strong> Bread, bagels, muffins</li>
+    <li><strong>Pantry:</strong> Rice, pasta, oil, canned beans</li>
+    <li><strong>Frozen:</strong> Ice cream, frozen vegetables, pizzas</li>
+    <li><strong>Snacks:</strong> Chips, biscuits, chocolate</li>
+    <li><strong>Beverages:</strong> Juice, tea, coffee, soft drinks</li>
+    <li><strong>Personal Care:</strong> Shampoo, soap, toothpaste</li>
+    <li><strong>Cleaning:</strong> Detergent, disinfectant, wipes</li>
+  </ul>
+
+  <h3>Benefits for Families and Individuals</h3>
+  <ul>
+    <li><strong>Couples:</strong> Share one list, update in real time</li>
+    <li><strong>Parents:</strong> Involve kids in meal planning and shopping</li>
+    <li><strong>College Students:</strong> Stick to a budget and essentials</li>
+    <li><strong>Busy Professionals:</strong> Stay organized and save time</li>
+  </ul>
+
+  <h3>Weekly Meal Planning Integration</h3>
+  <p>
+    Use our tool alongside a meal planner to streamline your entire week. Plan meals in advance, generate an auto-list of ingredients, and sync them with your grocery checklist. You’ll save time and avoid impulse buying.
+  </p>
+
+  <h3>Shareable Grocery Lists</h3>
+  <p>
+    Easily share your grocery list with:
+  </p>
+  <ul>
+    <li>Roommates for shared apartment shopping</li>
+    <li>Partners for split errands</li>
+    <li>Parents helping children shop independently</li>
+  </ul>
+
+  <h3>Mobile-Friendly and Offline Capable</h3>
+  <p>
+    Our online grocery list works great on smartphones. Even if your internet drops while you’re shopping, the list remains cached in your browser for offline use — never lose track.
+  </p>
+
+  <h3>Smart Add Suggestions (Coming Soon)</h3>
+  <p>
+    Based on your input patterns, we’ll suggest frequently used items or offer one-click pre-filled list templates such as:
+  </p>
+  <ul>
+    <li><strong>Weekly Indian Household Essentials</strong></li>
+    <li><strong>Vegetarian Meal Prep</strong></li>
+    <li><strong>Kids’ Tiffin Planner</strong></li>
+    <li><strong>Festival Grocery Checklist</strong></li>
+  </ul>
+
+  <h3>SEO Keywords to Help Users Find This Page</h3>
+  <ul>
+    <li>online grocery list</li>
+    <li>digital grocery checklist</li>
+    <li>grocery list maker</li>
+    <li>shopping list app online</li>
+    <li>food shopping planner</li>
+    <li>grocery list tool free</li>
+    <li>printable grocery list</li>
+    <li>weekly grocery list template</li>
+  </ul>
+
+  <h3>Data Privacy & Simplicity</h3>
+  <p>
+    We do not collect or store any list data on our servers. Your list stays local in your browser until you refresh or export. No login, no ads, no tracking.
+  </p>
+
+  <h3>Conclusion</h3>
+  <p>
+    With our Online Grocery List, your shopping experience becomes more efficient, organized, and stress-free. Whether you're a planner, a parent, or just trying to remember the milk, this tool puts convenience in your hands.
+  </p>
+  <p><strong>Start building your grocery list now – it’s fast, free, and mobile-ready!</strong></p>
+</div>
+
+<script>
+  function createLineGraph() {
+    const labels = document.getElementById("labelsInput").value.split(",").map(l => l.trim());
+    const values = document.getElementById("valuesInput").value.split(",").map(v => parseFloat(v));
+
+    const ctx = document.getElementById("lineChart").getContext("2d");
+    if (window.lineChartInstance) {
+      window.lineChartInstance.destroy();
+    }
+
+    window.lineChartInstance = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Data",
+          data: values,
+          fill: false,
+          borderColor: "#1976D2",
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+</script>
+
+<!-- see also -->
+<div class="see-also">
+  <h4>See Also</h4>
+  <ul>
+    <li><a href="online-tools.html">Online Tools</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="camera-online.html">Camera Online</a></li>
+    <li><a href="chart-online-maker.html">Chart Online Maker</a></li>
+    <li><a href="click-counter-online.html">Click Counter Online</a></li>
+    <li><a href="countdown-timer.html">Countdown Timer</a></li>
+    <li><a href="flashlight-online.html">Flashlight Online</a></li>
+    <li><a href="line-graph-maker.html">Line Graph Maker</a></li>
+    <li><a href="online-grocery-list.html">Online Grocery List</a></li>
+    <li><a href="password-generator.html">Password Generator</a></li>
+    <li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
+    <li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
+  </ul>
+</div>
+
+<!--footer-->
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Link to Us</a> |
+      <a href="#">Recommend Site</a> |
+      <a href="#">Send Feedback</a> |
+      <a href="#">About</a>
+    </p>
+    <p>
+      © EasyTables.com |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Manage Cookies</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

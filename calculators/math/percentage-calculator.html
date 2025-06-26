@@ -55,56 +55,28 @@
       font-size: 2rem;
     }
 
-    .calculator-card {
-      max-width: 420px;
-      margin: 30px auto;
-      background-color: #FFFFFF;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #E0E0E0;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+       .calculator-box {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 10px;
     }
 
-    .calculator-card label {
-      display: block;
-      margin: 15px 0 5px;
+    .calculator-box h4 {
+      margin-top: 30px;
+      color: #0D47A1;
+    }
+
+    input {
+      margin: 10px 0;
+    }
+
+    .result {
+      margin: 10px 0;
       font-weight: bold;
-      color: black;
+      color: #0D47A1;
     }
-
-    .calculator-card input[type="number"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      background-color: #FFFFFF;
-      color: black;
-    }
-
-    .calculator-card input:focus {
-      border-color: #1976D2;
-      outline: none;
-    }
-
-    #calculateBtn {
-      margin-top: 20px;
-      width: 100%;
-      padding: 14px;
-      font-size: 1.1rem;
-      background-color: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    #calculateBtn:hover {
-      background-color: #0D47A1;
-    }
-
     #result {
       margin-top: 15px;
       font-size: 1.3rem;
@@ -194,20 +166,41 @@
   <a href="#">Percentage Calculator</a>
 </nav>
 
-<!-- Main content (unchanged) -->
-<main>
-  <h2 class="title">Percentage Calculator</h2>
-  <div class="calculator-card">
-    <label for="total">Total Value:</label>
-    <input type="number" id="total" placeholder="Enter total value" />
+<!-- Calculator Sections -->
+<div class="calculator-box description">
 
-    <label for="percentage">Percentage (%):</label>
-    <input type="number" id="percentage" placeholder="Enter percentage" />
+  <h3 class="text-center">🧮 Percentage Calculator</h3>
 
-    <button id="calculateBtn">Calculate</button>
+  <h4>1. What is X% of Y?</h4>
+  <input type="number" id="x1" class="form-control" placeholder="Enter X%">
+  <input type="number" id="y1" class="form-control" placeholder="Enter Y">
+  <button onclick="calc1()" class="btn btn-primary">Calculate</button>
+  <div class="result" id="r1"></div>
 
-    <div id="result"></div>
-  </div>
+  <h4>2. X is what percent of Y?</h4>
+  <input type="number" id="x2" class="form-control" placeholder="Enter X">
+  <input type="number" id="y2" class="form-control" placeholder="Enter Y">
+  <button onclick="calc2()" class="btn btn-primary">Calculate</button>
+  <div class="result" id="r2"></div>
+
+  <h4>3. Increase Y by X%</h4>
+  <input type="number" id="y3" class="form-control" placeholder="Enter Y">
+  <input type="number" id="x3" class="form-control" placeholder="Enter X%">
+  <button onclick="calc3()" class="btn btn-primary">Calculate</button>
+  <div class="result" id="r3"></div>
+
+  <h4>4. Decrease Y by X%</h4>
+  <input type="number" id="y4" class="form-control" placeholder="Enter Y">
+  <input type="number" id="x4" class="form-control" placeholder="Enter X%">
+  <button onclick="calc4()" class="btn btn-primary">Calculate</button>
+  <div class="result" id="r4"></div>
+
+  <h4>5. Percentage Increase/Decrease from X to Y</h4>
+  <input type="number" id="x5" class="form-control" placeholder="Enter Original Value (X)">
+  <input type="number" id="y5" class="form-control" placeholder="Enter New Value (Y)">
+  <button onclick="calc5()" class="btn btn-primary">Calculate</button>
+  <div class="result" id="r5"></div>
+</div>
 
   <div class="description">
   <h2>Percentage Calculator</h2>
@@ -467,30 +460,43 @@
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
- <script>
-   const display = document.getElementById('display');
+<script>
+  function calc1() {
+    const x = parseFloat(document.getElementById('x1').value);
+    const y = parseFloat(document.getElementById('y1').value);
+    if (isNaN(x) || isNaN(y)) return;
+    document.getElementById('r1').textContent = `${x}% of ${y} is ${(x / 100 * y).toFixed(2)}`;
+  }
 
-   function append(value) {
-     display.value += value;
-   }
+  function calc2() {
+    const x = parseFloat(document.getElementById('x2').value);
+    const y = parseFloat(document.getElementById('y2').value);
+    if (isNaN(x) || isNaN(y) || y === 0) return;
+    document.getElementById('r2').textContent = `${x} is ${(x / y * 100).toFixed(2)}% of ${y}`;
+  }
 
-   function clearDisplay() {
-     display.value = '';
-   }
+  function calc3() {
+    const y = parseFloat(document.getElementById('y3').value);
+    const x = parseFloat(document.getElementById('x3').value);
+    if (isNaN(x) || isNaN(y)) return;
+    document.getElementById('r3').textContent = `${y} increased by ${x}% is ${(y + y * x / 100).toFixed(2)}`;
+  }
 
-   function deleteLast() {
-     display.value = display.value.slice(0, -1);
-   }
+  function calc4() {
+    const y = parseFloat(document.getElementById('y4').value);
+    const x = parseFloat(document.getElementById('x4').value);
+    if (isNaN(x) || isNaN(y)) return;
+    document.getElementById('r4').textContent = `${y} decreased by ${x}% is ${(y - y * x / 100).toFixed(2)}`;
+  }
 
-   function calculate() {
-     try {
-       const result = Function('"use strict";return (' + display.value + ')')();
-       display.value = result;
-     } catch {
-       display.value = 'Error';
-     }
-   }
- </script>
+  function calc5() {
+    const x = parseFloat(document.getElementById('x5').value);
+    const y = parseFloat(document.getElementById('y5').value);
+    if (isNaN(x) || isNaN(y) || x === 0) return;
+    const change = ((y - x) / x * 100).toFixed(2);
+    document.getElementById('r5').textContent = `Change from ${x} to ${y} is ${change}% (${change > 0 ? 'increase' : 'decrease'})`;
+  }
+</script>
 
 </body>
 </html>
