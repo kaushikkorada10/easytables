@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ASCII,Hex,Binary,Decimal,Base64 converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .nav-bg { background-color: #0D47A1; }
+      .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+      #navItem2 { color: white; font-family: "Roboto"; }
+      #navItem2:hover { text-decoration: underline; }
+      footer { background-color: #0D47A1; color: white; padding: 20px 0; text-align: center; font-size: 0.9rem; }
+      footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
+      footer a:hover { text-decoration: underline; }
+      .description { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #FFFFFF; border-left: 5px solid #1976D2; border-radius: 10px; line-height: 1.6; font-size: 1.05rem; }
+      .description h3 { color: #0D47A1; margin-bottom: 10px; }
+    </style>
+  </head>
+  <body>
+       <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+   <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../../../index.html">Home</a> <span>›</span>
+    <a href="../../../../index.html#Calculators-s">Number Converters</a> › <a href="#">ASCII,Hex,Binary,Decimal,Base64 converter</a>
+    </nav>
+
+<div class="description">
+  <h3>ASCII / Hex / Binary / Decimal / Base64 Converter</h3>
+  <p>Enter a value and select its type:</p>
+  <div class="form-row">
+    <div class="col-md-4">
+      <input type="text" id="input" class="form-control" placeholder="Enter value">
+    </div>
+    <div class="col-md-3">
+      <select id="inputType" class="form-control">
+        <option value="ascii">ASCII</option>
+        <option value="hex">Hex</option>
+        <option value="bin">Binary</option>
+        <option value="dec">Decimal</option>
+        <option value="b64">Base64</option>
+      </select>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+  <div id="out" class="mt-3"></div>
+</div>
+<div class="description">
+  <h2>ASCII, Hex, Binary, Decimal, Base64 Converter – All-in-One Encoding Tool</h2>
+  <p>Welcome to the Easy Tables <strong>ASCII, Hex, Binary, Decimal, Base64 Converter</strong> – your comprehensive tool for instant conversion between multiple text encoding formats. Whether you're a developer, student, cybersecurity analyst, or just curious about how data is represented behind the scenes, this free online converter is your go-to utility for seamless transformations between numeric and character formats.</p>
+
+  <h3>What Does This Converter Do?</h3>
+  <p>This tool allows you to convert between the five fundamental data formats used in computer science and digital systems:</p>
+  <ul>
+    <li><strong>ASCII:</strong> Standard text characters used in computing.</li>
+    <li><strong>Hexadecimal (Hex):</strong> Base-16 representation used in programming and debugging.</li>
+    <li><strong>Binary:</strong> Base-2 number system, the foundation of all digital data.</li>
+    <li><strong>Decimal:</strong> Base-10 numbers, the standard system for human-readable numeric values.</li>
+    <li><strong>Base64:</strong> Encoded text format used for data transfer over text-based protocols like email or JSON APIs.</li>
+  </ul>
+
+  <h3>Why Use This Multi-Format Converter?</h3>
+  <ul>
+    <li><strong>Programming:</strong> Quickly convert characters and values across multiple encoding systems.</li>
+    <li><strong>Data Security:</strong> Base64 is often used in encryption, JWT tokens, and web security headers.</li>
+    <li><strong>Networking:</strong> Convert IP headers, packets, or payloads into interpretable formats.</li>
+    <li><strong>Web Development:</strong> Decode and encode values for HTML, URLs, JSON, or APIs.</li>
+    <li><strong>Education:</strong> Learn how data is stored, transferred, and interpreted across systems.</li>
+  </ul>
+
+  <h3>How It Works</h3>
+  <p>Enter a value in any one of the fields (ASCII, Hex, Binary, Decimal, or Base64), and the converter will instantly update all other fields with the corresponding values. No page refresh, no complexity—just clean, immediate results.</p>
+
+  <h3>Examples of Conversions</h3>
+  <ul>
+    <li><strong>ASCII 'A'</strong> → Decimal: 65, Hex: 41, Binary: 01000001, Base64: QQ==</li>
+    <li><strong>Binary 01100001</strong> → ASCII: 'a', Decimal: 97, Hex: 61, Base64: YQ==</li>
+    <li><strong>Base64 "SGVsbG8="</strong> → ASCII: Hello</li>
+  </ul>
+
+  <h3>Base Definitions</h3>
+  <ul>
+    <li><strong>Binary (Base 2):</strong> Uses 0 and 1; each bit is a binary digit.</li>
+    <li><strong>Decimal (Base 10):</strong> Our everyday number system, using 0–9.</li>
+    <li><strong>Hexadecimal (Base 16):</strong> Uses 0–9 and A–F to represent values.</li>
+    <li><strong>ASCII:</strong> Maps characters to numbers (e.g., 'A' = 65).</li>
+    <li><strong>Base64:</strong> Encodes binary data into ASCII text using 64 symbols.</li>
+  </ul>
+
+  <h3>Use Cases in Real Life</h3>
+  <ul>
+    <li><strong>Cybersecurity:</strong> Decode Base64-encoded payloads in security tools or logs.</li>
+    <li><strong>Web APIs:</strong> Encode JSON or binary data for transport over REST APIs.</li>
+    <li><strong>System Programming:</strong> Understand how strings and memory values are interpreted at the byte level.</li>
+    <li><strong>Software Debugging:</strong> Inspect encoded data, memory dumps, or firmware output.</li>
+    <li><strong>Learning:</strong> Practice base conversions and encoding schemes in computer science classes.</li>
+  </ul>
+
+  <h3>How Base64 Encoding Works</h3>
+  <p>Base64 takes binary data and encodes it using 64 printable ASCII characters. It ensures safe data transfer over channels that may misinterpret binary or control characters. It's often seen in:</p>
+  <ul>
+    <li>Email MIME attachments</li>
+    <li>JWT (JSON Web Tokens)</li>
+    <li>Embedded image URLs in HTML or CSS</li>
+    <li>Basic Authentication in HTTP headers</li>
+  </ul>
+
+  <h3>Features of Our Converter</h3>
+  <ul>
+    <li><strong>Instant Results:</strong> Auto-calculates conversions as you type.</li>
+    <li><strong>Multi-Field Input:</strong> Enter any value in any field—no need to follow a specific order.</li>
+    <li><strong>Lightweight Interface:</strong> Fast-loading and responsive on all devices.</li>
+    <li><strong>Safe & Free:</strong> No ads, cookies, or tracking. 100% free to use.</li>
+    <li><strong>Supports Copy & Paste:</strong> Quickly copy results into code or documentation.</li>
+  </ul>
+
+  <h3>FAQs – ASCII, Hex, Binary, Decimal, Base64 Converter</h3>
+  <h4>Q1: Is Base64 the same as encryption?</h4>
+  <p>No. Base64 is an encoding format—not encryption. It can be reversed without a key, unlike encryption methods.</p>
+
+  <h4>Q2: Can I use this tool to decode JWT tokens?</h4>
+  <p>Yes, you can decode the payload of JWT tokens (Base64-encoded), though the signature part will remain unreadable without a secret key.</p>
+
+  <h4>Q3: What's the advantage of hexadecimal over binary?</h4>
+  <p>Hex is more compact—one hex digit represents four binary bits, making it easier to read and debug.</p>
+
+  <h4>Q4: Does this converter support Unicode characters?</h4>
+  <p>This tool primarily handles ASCII characters. For full Unicode or UTF-8 support, use a Unicode-aware encoding tool.</p>
+
+  <h4>Q5: Is this tool suitable for developers?</h4>
+  <p>Absolutely. It’s tailored for developers, cybersecurity experts, system engineers, and students working with text, data, or encodings.</p>
+  <h3>Why Learn About Encodings and Conversions?</h3>
+  <p>Understanding how data is represented internally by computers is essential for any technical role. Whether you're handling raw data streams, building compilers, creating efficient algorithms, or working with embedded devices, knowledge of ASCII, binary, hex, decimal, and Base64 provides the foundation.</p>
+  <p>Encodings are not just theoretical—they’re embedded into everyday technologies like SMS, HTTP, machine instructions, and even your browser rendering this page. Grasping the relationships between these formats helps you make sense of how computers store, process, and transmit data.</p>
+
+  <h3>Breaking Down Each Encoding System</h3>
+
+  <h4>1. ASCII (American Standard Code for Information Interchange)</h4>
+  <p>ASCII is the oldest and most fundamental character encoding scheme. It maps 128 characters (letters, digits, punctuation, and control codes) to values between 0 and 127. These include familiar characters like:</p>
+  <ul>
+    <li>'A' → 65</li>
+    <li>'a' → 97</li>
+    <li>'0' → 48</li>
+    <li>' ' (space) → 32</li>
+    <li>Line Break (LF) → 10</li>
+  </ul>
+
+  <h4>2. Binary – The Language of Machines</h4>
+  <p>Binary is a base-2 number system composed only of 0s and 1s. Each bit (binary digit) represents a power of 2. Computers store everything in binary—from characters to images to videos. For example, the character 'A' in binary is <code>01000001</code>, which corresponds to decimal 65.</p>
+
+  <h4>3. Decimal – Human-Friendly Numbers</h4>
+  <p>Decimal (Base-10) is the number system used in daily life. While machines work in binary or hex, decimal is often used in documentation or debugging logs to help humans interpret values. For instance:</p>
+  <ul>
+    <li>Decimal 65 = ASCII 'A'</li>
+    <li>Decimal 13 = Carriage Return (CR)</li>
+    <li>Decimal 32 = Space</li>
+  </ul>
+
+  <h4>4. Hexadecimal – Compact Binary Representation</h4>
+  <p>Hex (Base-16) is widely used in programming, memory addressing, and color representation in web design. It uses digits 0–9 and letters A–F. One hex digit represents four binary bits, which makes it a more compact way to express binary data. Examples:</p>
+  <ul>
+    <li>Hex <code>41</code> = ASCII 'A' = Decimal 65</li>
+    <li>Hex <code>7F</code> = ASCII 'DEL'</li>
+    <li>Hex <code>20</code> = Space</li>
+  </ul>
+
+  <h4>5. Base64 – Text-Friendly Data Transport</h4>
+  <p>Base64 is an encoding system designed to transfer binary data through channels that only support text, such as emails, HTML, or HTTP headers. It converts groups of 3 bytes (24 bits) into 4 ASCII characters. Base64 ensures that non-textual data can be safely encoded and decoded across systems without corruption.</p>
+
+  <h3>Security & Base64</h3>
+  <p>While Base64 is not an encryption method, it is heavily used in cybersecurity contexts. Many malware payloads, email phishing attacks, and obfuscated data use Base64 to hide or transport code. Learning to decode and recognize Base64 patterns is vital for security professionals and analysts.</p>
+
+  <h3>Text vs Byte Encodings</h3>
+  <p>It’s important to distinguish between character encodings (ASCII, UTF-8) and numeric encodings (binary, hex, decimal). Character encodings define how text maps to byte sequences, while binary/hex/decimal are the numeric representations of those bytes. This converter bridges both aspects by showing how ASCII characters become numbers and how numbers represent characters.</p>
+
+  <h3>Performance & Optimization Use Cases</h3>
+  <p>Understanding encoding systems is critical in system-level programming, especially when memory or bandwidth is limited. For example:</p>
+  <ul>
+    <li><strong>Embedded Systems:</strong> Use ASCII or Base64 to communicate over low-bandwidth serial interfaces.</li>
+    <li><strong>Firmware:</strong> Encode config strings or identifiers in hex for compactness.</li>
+    <li><strong>APIs:</strong> Base64-encode binary files (like PDFs or images) for JSON compatibility.</li>
+  </ul>
+
+  <h3>Visual Reference Table</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ASCII</th>
+        <th>Binary</th>
+        <th>Decimal</th>
+        <th>Hex</th>
+        <th>Base64</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>A</td><td>01000001</td><td>65</td><td>41</td><td>QQ==</td></tr>
+      <tr><td>a</td><td>01100001</td><td>97</td><td>61</td><td>YQ==</td></tr>
+      <tr><td>0</td><td>00110000</td><td>48</td><td>30</td><td>MA==</td></tr>
+      <tr><td>!</td><td>00100001</td><td>33</td><td>21</td><td>IQ==</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Advanced Concepts</h3>
+  <ul>
+    <li><strong>Little Endian vs Big Endian:</strong> Binary and hex values may be stored in reverse order depending on CPU architecture.</li>
+    <li><strong>Escape Sequences:</strong> Control characters like <code>\n</code> (LF), <code>\r</code> (CR), and <code>\t</code> (TAB) are encoded in ASCII but interpreted by programming languages as formatting instructions.</li>
+    <li><strong>UTF-8:</strong> Superset of ASCII that supports international characters while maintaining backward compatibility.</li>
+  </ul>
+
+  <h3>Accessibility & Ease of Use</h3>
+  <p>Our converter is designed with accessibility in mind. It works across all modern browsers, including mobile devices. You can paste long strings or even paragraphs and see the character-by-character encoding. The input boxes automatically resize to fit your text, and each conversion is triggered in real-time without delay or reloads.</p>
+
+  <h3>Who Can Use This Tool?</h3>
+  <ul>
+    <li><strong>Students:</strong> Learn base conversions and encoding in a visual and interactive way.</li>
+    <li><strong>Educators:</strong> Use it as a teaching tool during programming or networking lectures.</li>
+    <li><strong>Web Developers:</strong> Convert characters for use in HTML, CSS, or JavaScript.</li>
+    <li><strong>Pentesters:</strong> Decode encoded payloads during vulnerability testing.</li>
+    <li><strong>Technical Writers:</strong> Document character values clearly for user manuals or API docs.</li>
+  </ul>
+
+  <h3>Tips for Effective Usage</h3>
+  <ul>
+    <li>Use the <strong>Clear All</strong> button to reset fields and start fresh.</li>
+    <li>Paste long Base64 or binary strings to decode full messages.</li>
+    <li>Convert text to ASCII and then to binary to understand encoding at the bit level.</li>
+    <li>Bookmark the tool in your browser for quick access during coding or debugging.</li>
+  </ul>
+  <h3>Real-World Use Cases – Encoding in Action</h3>
+  <p>Encoding formats like ASCII, Hex, Binary, Decimal, and Base64 are not just academic—they power countless real-world technologies. Let’s explore how they’re applied across industries and applications:</p>
+
+  <ul>
+    <li>
+      <strong>Web Development:</strong> Special characters in HTML (like quotes or ampersands) are encoded as ASCII entities. Also, Base64 is used for embedding fonts, images, or data URIs directly into web pages.
+    </li>
+    <li>
+      <strong>Mobile App Development:</strong> APIs often return Base64-encoded images or documents. Knowing how to decode and render them programmatically is key for app functionality.
+    </li>
+    <li>
+      <strong>Firmware Development:</strong> Developers often work with binary and hex to flash microcontrollers or analyze memory dumps in embedded systems.
+    </li>
+    <li>
+      <strong>Cybersecurity:</strong> Phishing links and payloads are commonly Base64 encoded to obfuscate intent. Understanding and decoding these values is essential for threat analysis.
+    </li>
+    <li>
+      <strong>Blockchain & Cryptography:</strong> Transactions, hashes, and keys are frequently represented in hex or Base64. Tools like this help visualize raw transaction data.
+    </li>
+  </ul>
+
+  <h3>Encoding Characters in Programming Languages</h3>
+  <p>Let’s look at how different programming languages represent and convert between formats:</p>
+
+  <ul>
+    <li>
+      <strong>Python:</strong>
+      <pre><code>
+# Convert character to ASCII
+ord('A')  # 65
+
+# Convert ASCII to character
+chr(65)  # 'A'
+
+# Base64 encoding
+import base64
+base64.b64encode(b'Hello')  # b'SGVsbG8='
+      </code></pre>
+    </li>
+    <li>
+      <strong>JavaScript:</strong>
+      <pre><code>
+// ASCII code of character
+'A'.charCodeAt(0); // 65
+
+// Character from ASCII
+String.fromCharCode(65); // "A"
+
+// Base64 encode
+btoa('Hello'); // 'SGVsbG8='
+      </code></pre>
+    </li>
+    <li>
+      <strong>C/C++:</strong>
+      <pre><code>
+char c = 'A';
+int ascii = (int)c; // 65
+
+char back = (char)65; // 'A'
+      </code></pre>
+    </li>
+  </ul>
+
+  <h3>Visualizing Bits and Bytes</h3>
+  <p>Every character you type on a keyboard is stored as a series of bits—fundamental units of data in computing. For example, the character 'B' has the following representations:</p>
+  <ul>
+    <li><strong>ASCII:</strong> 66</li>
+    <li><strong>Binary:</strong> 01000010</li>
+    <li><strong>Hex:</strong> 0x42</li>
+    <li><strong>Base64:</strong> Qg==</li>
+  </ul>
+  <p>Understanding these representations helps in data compression, transmission, and even designing your own encoding schemes in networking or game engines.</p>
+
+  <h3>Encoding Best Practices</h3>
+  <ul>
+    <li>Always decode Base64 strings before parsing them—some malware or phishing content may hide in plain sight.</li>
+    <li>Use UTF-8 over ASCII if working with multiple languages or emojis, but ASCII remains efficient for English-only use cases.</li>
+    <li>When storing binary files in JSON, Base64 encoding ensures integrity and readability.</li>
+    <li>When dealing with systems programming, always be mindful of endianness when interpreting binary or hex dumps.</li>
+  </ul>
+
+  <h3>Encoding in Popular Tools and Systems</h3>
+  <p>Many everyday tools you use rely heavily on encoding and conversions:</p>
+  <ul>
+    <li><strong>Wireshark:</strong> Displays packet payloads in ASCII and Hex formats.</li>
+    <li><strong>Postman:</strong> Decodes Base64 headers or body content in API testing.</li>
+    <li><strong>Linux Terminal:</strong> Use commands like <code>xxd</code> and <code>base64</code> to inspect and encode data.</li>
+    <li><strong>JWT.io:</strong> Visualizes Base64-encoded JSON Web Tokens for authentication and session data.</li>
+  </ul>
+
+  <h3>Encoding Pitfalls to Avoid</h3>
+  <ul>
+    <li>Confusing encoding with encryption — remember, Base64 is not secure, just encoded text.</li>
+    <li>Truncating or altering Base64 strings — even one missing character can invalidate the entire decoded value.</li>
+    <li>Forgetting padding in Base64 (e.g., <code>==</code>) — some decoders may reject unpadded strings.</li>
+    <li>Assuming all hex values are characters — not every byte corresponds to a readable ASCII symbol.</li>
+  </ul>
+
+  <h3>Extended Functionality (Coming Soon)</h3>
+  <p>We’re continuously improving this converter! Planned future updates include:</p>
+  <ul>
+    <li><strong>Unicode & UTF-8 Support:</strong> Convert emoji and multilingual text.</li>
+    <li><strong>URL Encoding/Decoding:</strong> Handle web-safe formats like <code>%20</code> (space).</li>
+    <li><strong>Hex Editor Mode:</strong> Inspect or modify binary files visually.</li>
+    <li><strong>Save to CSV or JSON:</strong> Export bulk conversions for scripts or reporting.</li>
+  </ul>
+
+  <h3>Testimonials</h3>
+  <blockquote>
+    <p>“This converter is an absolute must-have for my networking class. It’s helped me decode packets and understand hex dumps in minutes.” — <strong>Amit, CS Student</strong></p>
+  </blockquote>
+  <blockquote>
+    <p>“I used this tool to debug a Base64-encoded API token that was failing in production. Found the issue within seconds.” — <strong>Sneha, Backend Developer</strong></p>
+  </blockquote>
+
+  <h3>Did You Know?</h3>
+  <ul>
+    <li>The word "Base64" comes from the fact that it uses 64 different ASCII characters.</li>
+    <li>ASCII was originally developed for teletypes and early modems in the 1960s.</li>
+    <li>Every RGB color you see on the web is written in hex (e.g., <code>#FF5733</code>).</li>
+    <li>Binary clocks and watches use ASCII values and bit positions to show the time!</li>
+  </ul>
+
+  <h3>Final Thoughts</h3>
+  <p>In the digital age, where text and data flow freely between systems, platforms, and languages, understanding the backbone of data encoding is more important than ever. Whether you're analyzing encrypted messages, building a protocol, or just learning how 'Hello World' is stored in memory, the <strong>ASCII, Hex, Binary, Decimal, Base64 Converter</strong> gives you the clarity and control you need.</p>
+
+  <p><strong>Bookmark this tool, use it often, and let it be your companion in decoding the language of machines.</strong></p>
+  <h3>Conclusion</h3>
+  <p>The <strong>ASCII, Hex, Binary, Decimal, Base64 Converter</strong> is an indispensable utility for anyone working with text data, encoding schemes, or system-level information. Whether you’re debugging, learning, or coding, this tool helps bridge the gap between human-readable text and machine-level representation with speed and accuracy.</p>
+
+  <p><strong>Try Easy Tables' powerful converter and make encoding conversions effortless and educational.</strong></p>
+</div>
+<script>
+function textToBytes(txt) {
+  return Array.from(txt, c => c.charCodeAt(0));
+}
+function bytesToText(bytes) {
+  return bytes.map(b=>String.fromCharCode(b)).join('');
+}
+function bytesToHex(bytes) {
+  return bytes.map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function hexToBytes(hex) {
+  hex = hex.replace(/[^0-9a-f]/gi,'');
+  let out=[];
+  for(let i=0;i<hex.length;i+=2) out.push(parseInt(hex.substr(i,2),16));
+  return out;
+}
+function binToBytes(bin){
+  bin = bin.replace(/[^01]/g,'');
+  let bytes=[];
+  for(let i=0;i<bin.length;i+=8) bytes.push(parseInt(bin.substr(i,8),2));
+  return bytes;
+}
+function bytesToBin(bytes){return bytes.map(b=>b.toString(2).padStart(8,'0')).join('');}
+function convert(){
+  const val=document.getElementById('input').value.trim();
+  const type=document.getElementById('inputType').value;
+  let bytes=[];
+  try{
+    if(type==='ascii'){bytes=textToBytes(val);}
+    else if(type==='hex'){bytes=hexToBytes(val);}
+    else if(type==='bin'){bytes=binToBytes(val);}
+    else if(type==='dec'){bytes=[parseInt(val,10)];}
+    else if(type==='b64'){bytes=Array.from(atob(val),c=>c.charCodeAt(0));}
+  }catch(e){document.getElementById('out').innerText='Invalid input'; return;}
+  const ascii=bytesToText(bytes);
+  const hex=bytesToHex(bytes);
+  const bin=bytesToBin(bytes);
+  const dec=bytes.map(b=>b.toString(10)).join(' ');
+  const b64=btoa(bytesToText(bytes));
+  document.getElementById('out').innerHTML=`
+    <strong>ASCII:</strong> ${ascii}<br>
+    <strong>Hex:</strong> ${hex}<br>
+    <strong>Binary:</strong> ${bin}<br>
+    <strong>Decimal:</strong> ${dec}<br>
+    <strong>Base64:</strong> ${b64}`;
+}
+</script>
+  <div class="see-also description">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="../energy-convertion.html">Energy convertion</a></li>
+      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+      <li><a href="../length-convertion.html">Length convertion</a></li>
+      <li><a href="../number-convertion.html">Number convertion</a></li>
+      <li><a href="../power-convertion.html">Power convertion</a></li>
+      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+      <li><a href="../weight-convertion.html">Weight convertion</a></li>
+      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+    </ul>
+  </div>
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>

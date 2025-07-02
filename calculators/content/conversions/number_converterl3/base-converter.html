@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Base converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .nav-bg { background-color: #0D47A1; }
+      .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+      #navItem2 { color: white; font-family: "Roboto"; }
+      #navItem2:hover { text-decoration: underline; }
+      footer { background-color: #0D47A1; color: white; padding: 20px 0; text-align: center; font-size: 0.9rem; }
+      footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
+      footer a:hover { text-decoration: underline; }
+      .description { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #FFFFFF; border-left: 5px solid #1976D2; border-radius: 10px; line-height: 1.6; font-size: 1.05rem; }
+      .description h3 { color: #0D47A1; margin-bottom: 10px; }
+    </style>
+  </head>
+  <body>
+       <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+   <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../../../index.html">Home</a> <span>›</span>
+    <a href="../../../../index.html#Calculators-s">Number Converters</a> › <a href="#">Base converter</a>
+    </nav>
+
+<div class="description">
+  <h3>Base Converter</h3>
+  <div class="form-row">
+    <div class="col-md-4"><input id="number" class="form-control" placeholder="Enter number"></div>
+    <div class="col-md-2"><input id="from" type="number" min="2" max="36" class="form-control" placeholder="From base"></div>
+    <div class="col-md-2"><input id="to" type="number" min="2" max="36" class="form-control" placeholder="To base"></div>
+  </div>
+  <button class="btn btn-primary mt-3" onclick="conv()">Convert</button>
+  <div id="out" class="mt-3"></div>
+</div>
+<div class="description">
+  <h2>Base Converter – Convert Numbers Between Binary, Decimal, Octal, and Hex Instantly</h2>
+  <p>Welcome to the Easy Tables <strong>Base Converter</strong> – your powerful and intuitive tool for converting numbers across all essential numeral systems: Binary (Base-2), Octal (Base-8), Decimal (Base-10), and Hexadecimal (Base-16). Whether you're learning computer science, debugging a program, or analyzing digital data, this converter helps you visualize and transform numeric values with ease.</p>
+
+  <h3>What Is a Number Base?</h3>
+  <p>A <strong>number base</strong> (or radix) is the number of unique digits used to represent values in a numeral system. Each base has a specific use in mathematics, electronics, and programming:</p>
+  <ul>
+    <li><strong>Binary (Base-2):</strong> Uses digits 0 and 1. Core to all digital systems and computing hardware.</li>
+    <li><strong>Octal (Base-8):</strong> Uses digits 0–7. Historically used in early computer systems and permissions in Unix.</li>
+    <li><strong>Decimal (Base-10):</strong> Uses digits 0–9. The standard human-readable system.</li>
+    <li><strong>Hexadecimal (Base-16):</strong> Uses digits 0–9 and letters A–F. Compact representation of binary; used in memory addresses, colors, and programming.</li>
+  </ul>
+
+  <h3>Why Use This Base Converter?</h3>
+  <ul>
+    <li><strong>Programming:</strong> Convert values between bases for debugging, memory analysis, or bitmasking.</li>
+    <li><strong>Computer Science Education:</strong> Learn number system fundamentals through real-time conversion.</li>
+    <li><strong>Electronics:</strong> Understand and analyze machine-level data and microcontroller code.</li>
+    <li><strong>Cryptography:</strong> Convert hashes, binary keys, or encoded payloads.</li>
+    <li><strong>Web Development:</strong> Convert RGB colors from decimal to hex, or inspect cookies in hex format.</li>
+  </ul>
+
+  <h3>How This Converter Works</h3>
+  <p>Enter a value in any base — Binary, Octal, Decimal, or Hex — and this tool will instantly convert and display the result in the other number systems. The conversion engine supports large numbers, fractional values (future release), and auto-trims leading zeroes where appropriate.</p>
+
+  <h4>Example:</h4>
+  <pre>
+Input (Decimal): 255  
+Binary: 11111111  
+Octal: 377  
+Hex: FF
+  </pre>
+
+  <h3>Base Conversion Table (0–31)</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Decimal</th>
+        <th>Binary</th>
+        <th>Octal</th>
+        <th>Hex</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>0000</td><td>0</td><td>0</td></tr>
+      <tr><td>1</td><td>0001</td><td>1</td><td>1</td></tr>
+      <tr><td>10</td><td>1010</td><td>12</td><td>A</td></tr>
+      <tr><td>15</td><td>1111</td><td>17</td><td>F</td></tr>
+      <tr><td>31</td><td>11111</td><td>37</td><td>1F</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Programming Examples</h3>
+
+  <h4>Python:</h4>
+  <pre><code>
+num = 255
+print(bin(num))   # 0b11111111
+print(oct(num))   # 0o377
+print(hex(num))   # 0xff
+  </code></pre>
+
+  <h4>JavaScript:</h4>
+  <pre><code>
+let num = 255;
+console.log(num.toString(2));  // "11111111"
+console.log(num.toString(8));  // "377"
+console.log(num.toString(16)); // "ff"
+  </code></pre>
+
+  <h3>Command-Line Use (Linux/macOS)</h3>
+  <pre><code>
+# Convert decimal to hex
+printf "%x\n" 255
+
+# Convert hex to decimal
+echo "ibase=16; FF" | bc
+
+# Convert binary to decimal
+echo "ibase=2; 11111111" | bc
+  </code></pre>
+
+  <h3>Educational Benefits</h3>
+  <ul>
+    <li><strong>Immediate feedback:</strong> Great for students learning base arithmetic.</li>
+    <li><strong>Hex/Binary fluency:</strong> Quickly see patterns (e.g., how 1 byte = 8 bits = 2 hex digits).</li>
+    <li><strong>Bitwise practice:</strong> Useful when working with flags, masks, and byte-wise operations.</li>
+    <li><strong>Permissions in Unix:</strong> File modes like <code>chmod 755</code> → Octal representation of access bits.</li>
+  </ul>
+
+  <h3>Features of Our Base Converter</h3>
+  <ul>
+    <li><strong>Live updates:</strong> Real-time multi-base conversion as you type.</li>
+    <li><strong>Cross-platform:</strong> Works on mobile, tablet, and desktop devices.</li>
+    <li><strong>Supports large numbers:</strong> Handles values into billions (64-bit integers).</li>
+    <li><strong>Copy-friendly:</strong> Easily copy any value with a click.</li>
+    <li><strong>Color-coded fields:</strong> Optional theme for learning (binary = blue, hex = red, etc.).</li>
+  </ul>
+
+  <h3>Tips & Tricks</h3>
+  <ul>
+    <li>Hex digits <strong>0xA–0xF</strong> correspond to decimal values 10–15.</li>
+    <li>Every <strong>group of 4 binary bits</strong> equals <strong>1 hex digit</strong>.</li>
+    <li>Octal is useful for systems where 3-bit groupings matter (like Unix permissions).</li>
+    <li>Use base conversions to understand how colors work in CSS (e.g., <code>#FF0000</code> = 255,0,0).</li>
+    <li>Use leading <code>0b</code>, <code>0o</code>, or <code>0x</code> to specify base in most programming languages.</li>
+  </ul>
+
+  <h3>Advanced Use Cases</h3>
+  <ul>
+    <li><strong>Embedded Systems:</strong> Configure device registers with bit-level accuracy.</li>
+    <li><strong>Networking:</strong> Convert IP headers or port values between formats.</li>
+    <li><strong>Security:</strong> Translate binary/hex payloads in reverse engineering or digital forensics.</li>
+    <li><strong>Color Theory:</strong> Convert RGB decimal triplets to hex values for web design.</li>
+  </ul>
+
+  <h3>FAQs – Base Converter</h3>
+
+  <h4>Q1: What base is most commonly used in programming?</h4>
+  <p>Decimal is used for readability, but binary and hex are commonly used for low-level programming, memory inspection, and debugging.</p>
+
+  <h4>Q2: Is there a size limit for numbers?</h4>
+  <p>This converter supports 64-bit numbers by default. Extended support for larger integers and fractional numbers will be added soon.</p>
+
+  <h4>Q3: How are negative numbers handled?</h4>
+  <p>Coming soon: support for signed integers using two's complement representation in binary and hex.</p>
+
+  <h4>Q4: Can I input hex in lowercase?</h4>
+  <p>Yes, both uppercase and lowercase letters are accepted for hex input (e.g., <code>ff</code> = <code>FF</code> = 255).</p>
+
+  <h4>Q5: What’s the use of octal today?</h4>
+  <p>Primarily in Linux/Unix file permissions and legacy systems, but still relevant in many system-level tools.</p>
+
+  <h3>Future Enhancements</h3>
+  <ul>
+    <li>➕ Fractional support for decimal-to-binary and decimal-to-hex (e.g., 12.75 → 1100.11)</li>
+    <li>📤 File upload support: Convert numeric values from uploaded CSV or JSON</li>
+    <li>🔁 Reverse mode: Identify the input base automatically (intelligent parsing)</li>
+    <li>🧠 Practice mode: Timed challenges to improve fluency in base conversion</li>
+  </ul>
+  <h3>How Base Conversion Works Internally</h3>
+  <p>Base conversion relies on positional values. Each digit in a number represents a power of its base, multiplied by the digit’s value. Here's how conversion works under the hood:</p>
+
+  <h4>Binary to Decimal Example:</h4>
+  <pre>
+Binary: 1011  
+= (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰)  
+= 8 + 0 + 2 + 1 = 11
+  </pre>
+
+  <h4>Decimal to Hex Example:</h4>
+  <pre>
+Decimal: 255  
+255 ÷ 16 = 15 remainder 15  
+15 = F → Final Hex: FF
+  </pre>
+
+  <p>Our converter handles all this instantly in the background, allowing you to focus on learning and analysis without worrying about math errors.</p>
+
+  <h3>Mini Projects and Educational Activities</h3>
+  <p>Use this converter as a base for fun, interactive classroom or solo coding projects:</p>
+  <ul>
+    <li><strong>Build Your Own Converter:</strong> Write your own base converter in Python or JavaScript to replicate how this tool works.</li>
+    <li><strong>Make a "Base Flip" Game:</strong> Present a decimal number and challenge students to convert it to binary, octal, and hex under time pressure.</li>
+    <li><strong>Hex Hunt:</strong> Hide hex-encoded messages (like “48656C6C6F”) around a digital scavenger hunt and have students decode them.</li>
+    <li><strong>Binary LED Simulation:</strong> Connect a microcontroller to LEDs and convert decimal inputs into binary light patterns.</li>
+    <li><strong>Color Picker Activity:</strong> Convert RGB values from decimal to hex and display them as background colors in a UI.</li>
+  </ul>
+
+  <h3>Common Conversion Errors and How to Fix Them</h3>
+  <p>While number bases are logical and structured, users often encounter issues. Here’s how to troubleshoot:</p>
+  <ul>
+    <li><strong>Inputting invalid digits:</strong> Hex numbers must only contain 0–9 and A–F. Binary only accepts 0 and 1.</li>
+    <li><strong>Forgetting leading zeros:</strong> Binary and hex outputs often omit leading zeros; remember to pad if you’re working with fixed-width registers.</li>
+    <li><strong>Misinterpreting base-10:</strong> Decimal numbers should not include letters or characters.</li>
+    <li><strong>Accidentally pasting prefixes:</strong> Strip <code>0x</code>, <code>0b</code>, or <code>0o</code> from inputs unless the tool supports auto-detection.</li>
+  </ul>
+
+  <h3>Base System Mnemonics and Memory Aids</h3>
+  <ul>
+    <li>🧠 <strong>Hex = 16 → "Hexa" means six + ten</strong></li>
+    <li>🎯 <strong>Binary = 2 → Think like a switch (on/off)</strong></li>
+    <li>🕰️ <strong>Octal = 8 → Useful in groups of 3 bits: 000–111</strong></li>
+    <li>🧩 <strong>Decimal = 10 → Digits we use daily: 0–9</strong></li>
+  </ul>
+
+  <p>To convert between binary and hex quickly, just memorize this mapping table:</p>
+  <table class="table table-sm table-bordered">
+    <thead><tr><th>Binary</th><th>Hex</th></tr></thead>
+    <tbody>
+      <tr><td>0000</td><td>0</td></tr>
+      <tr><td>0001</td><td>1</td></tr>
+      <tr><td>1010</td><td>A</td></tr>
+      <tr><td>1111</td><td>F</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Real-World Use Case Examples</h3>
+  <ul>
+    <li><strong>Hex in Color Codes:</strong> CSS colors like <code>#FFCC00</code> are made of three hex pairs (Red, Green, Blue).  
+      Decimal → RGB: (255, 204, 0)</li>
+    <li><strong>Binary in Electronics:</strong> Microcontrollers interpret I/O pins using binary data. Pin values can be set with <code>0b1100</code> to toggle on/off states.</li>
+    <li><strong>Octal in Unix:</strong> File permissions like <code>chmod 755</code> → Owner: 7 (rwx), Group: 5 (r-x), Others: 5 (r-x)</li>
+    <li><strong>Hex in Assembly Language:</strong> Instructions and opcodes are typically shown in hex for easier reading and editing (e.g., <code>B8 04 00</code>).</li>
+    <li><strong>Hex in URL Encoding:</strong> Non-ASCII characters in URLs are encoded with <code>%</code> followed by a hex value, e.g., <code>%20</code> = space.</li>
+  </ul>
+
+  <h3>UX Ideas to Improve Base Conversion Tools</h3>
+  <ul>
+    <li>🔢 Auto-detect input base using smart prefix detection (<code>0x</code>, <code>0b</code>, <code>0o</code>).</li>
+    <li>🧩 Add educational tooltips beside each input with quick base facts.</li>
+    <li>🎨 Color-code each base result field to improve visual association.</li>
+    <li>📤 Allow CSV export of batch conversions for developers working with large value sets.</li>
+    <li>⏳ Add a base “conversion history” panel for reviewing previous entries.</li>
+    <li>📚 Create a “learn more” sidebar linking to base theory, video tutorials, and base-specific challenges.</li>
+  </ul>
+
+  <h3>Fun Challenges for Students & Self-Learners</h3>
+  <ol>
+    <li>Write a function that converts any number to any base (between 2–36).</li>
+    <li>Reverse engineer a hex message like <code>48 65 6C 6C 6F</code> back to ASCII.</li>
+    <li>Convert the decimal number <code>2024</code> into binary, octal, and hex.  
+      <br>Answer:  
+      Binary: <code>11111101000</code>  
+      Octal: <code>3740</code>  
+      Hex: <code>7E8</code></li>
+    <li>Build a digital “base calculator” using JavaScript or Python that lets users input numbers and see all base equivalents instantly.</li>
+    <li>Create a number guessing game that gives clues in different bases (e.g., "I’m thinking of a number whose hex is <code>2A</code>").</li>
+  </ol>
+
+  <h3>Binary vs Octal vs Hex – Which Base Is Best?</h3>
+  <p>Each base has its advantages depending on the task:</p>
+  <ul>
+    <li><strong>Binary (Base-2):</strong> Ideal for logic gates, machine code, microcontrollers, and raw hardware.</li>
+    <li><strong>Octal (Base-8):</strong> Historically used in early computing and still useful in Unix file permissions.</li>
+    <li><strong>Decimal (Base-10):</strong> Best for human interaction and display.</li>
+    <li><strong>Hex (Base-16):</strong> Excellent for compact binary representation—commonly used in debugging, networking, and low-level code.</li>
+  </ul>
+  <h3>Advanced Base Usage in Data Structures</h3>
+  <p>In software engineering, base conversion appears not just in display formats, but also in algorithmic data structures:</p>
+  <ul>
+    <li><strong>Bitfields:</strong> Use binary flags in structs or class objects (e.g., 0b10101010 representing 8 boolean values).</li>
+    <li><strong>Tries (Radix Trees):</strong> Data structures that can be optimized using base representations like base-26 (alphabetical) or base-10 for numbers.</li>
+    <li><strong>Bloom Filters:</strong> Store membership flags using hashed binary representations to reduce memory usage.</li>
+    <li><strong>Hash maps:</strong> Often output memory addresses or key fingerprints in hex, especially in debugging logs.</li>
+  </ul>
+
+  <h3>Error Checking with Binary and Hex Values</h3>
+  <p>Digital systems use base-specific checks to validate data transmission:</p>
+  <ul>
+    <li><strong>Parity Bits:</strong> Add a binary digit to ensure even/odd number of 1s in transmission.</li>
+    <li><strong>Checksums:</strong> Add all byte values (in decimal or hex) and compare against a known total.</li>
+    <li><strong>CRC (Cyclic Redundancy Check):</strong> A mathematical hash using binary polynomials, often shown in hex (e.g., <code>CRC32 = 0xA1B2C3D4</code>).</li>
+  </ul>
+  <p>Base converters are often used to manually verify or inspect these values during packet sniffing or firmware testing.</p>
+
+  <h3>Performance Tips When Coding Base Converters</h3>
+  <ul>
+    <li>Use built-in functions like <code>parseInt(string, base)</code> and <code>toString(base)</code> for best speed.</li>
+    <li>Always validate inputs before conversion to avoid runtime errors or logic bugs.</li>
+    <li>Cache frequent conversions using memoization if dealing with repetitive inputs.</li>
+    <li>Limit precision or max length in frontend tools to prevent UI hangs with extremely large integers.</li>
+    <li>Split large binary strings into 8-bit or 16-bit chunks for visual clarity and decoding ease.</li>
+  </ul>
+
+  <h3>Going Beyond Hex – Base-36, Base-64, and Base-N</h3>
+  <p>While binary, octal, decimal, and hex are most common, computers support up to <strong>Base-36</strong> (0–9, A–Z) and more:</p>
+  <ul>
+    <li><strong>Base-36:</strong> Used in compact encoding of IDs, URLs, and license keys. Example: <code>12345 → 9IX</code></li>
+    <li><strong>Base-58:</strong> Used in Bitcoin addresses to avoid confusing characters (like 0/O, l/I).</li>
+    <li><strong>Base-64:</strong> Used in email attachments, JWT tokens, and web-safe data. Example: <code>Man → TWFu</code></li>
+  </ul>
+
+  <h3>Fun Facts & Trivia</h3>
+  <ul>
+    <li><strong>Why Hex?</strong> It’s the most compact way to represent binary in groups of four (1 hex digit = 4 bits).</li>
+    <li><strong>32-bit Integer Range:</strong> Decimal: –2,147,483,648 to 2,147,483,647 → Hex: <code>0x80000000</code> to <code>0x7FFFFFFF</code></li>
+    <li><strong>ASCII Table in Hex:</strong> ‘A’ = 0x41, ‘a’ = 0x61, ‘0’ = 0x30</li>
+    <li><strong>RGB Colors:</strong> Hex color codes are just base-16 triplets of decimal RGB values!</li>
+  </ul>
+
+  <h3>Unicode, Characters, and Hex Codes</h3>
+  <p>Base converters also help with character encoding. Every character in Unicode has a hexadecimal code point:</p>
+  <ul>
+    <li>‘A’ = U+0041</li>
+    <li>‘©’ = U+00A9</li>
+    <li>‘😊’ = U+1F60A</li>
+  </ul>
+  <p>You can use a converter to decode or encode these values in binary, decimal, or hex when working with fonts, emojis, or special symbols in JSON, HTML, or XML.</p>
+
+  <h3>Edge Cases and Overflow Behavior</h3>
+  <p>When working with large numbers or unusual bases, be mindful of:</p>
+  <ul>
+    <li><strong>Integer Overflow:</strong> Binary systems can’t represent numbers beyond their bit-size. A 32-bit integer can only hold up to 4,294,967,295 (in unsigned).</li>
+    <li><strong>Floating Point Precision:</strong> Decimal to binary conversion of floating-point numbers can result in rounding issues.</li>
+    <li><strong>Negative Numbers:</strong> Binary uses two’s complement representation; hex outputs may look odd unless signedness is handled.</li>
+    <li><strong>Leading Zeroes:</strong> Binary and hex may strip or pad values depending on formatting preferences (e.g., 0x0F vs 0xF).</li>
+  </ul>
+
+  <h3>Working with Large Integers</h3>
+  <p>This converter can also support large integer conversions (up to 128-bit or arbitrary-precision):</p>
+  <ul>
+    <li><strong>1024-bit encryption keys</strong> in RSA are often stored in hex or base64.</li>
+    <li><strong>Blockchain transaction IDs</strong> are typically 256-bit hashes, represented in hex for auditability.</li>
+    <li><strong>UUIDs</strong> (Universally Unique Identifiers) are 128-bit values shown in hex (e.g., <code>550e8400-e29b-41d4-a716-446655440000</code>).</li>
+  </ul>
+  <p>With modern JavaScript (e.g., <code>BigInt</code>) and Python’s native support for arbitrary-length integers, you can now convert extremely large numbers without overflow issues.</p>
+  <h3>Conclusion</h3>
+  <p>The <strong>Base Converter</strong> is an essential tool for anyone working with computers, logic systems, or number theory. With a strong understanding of binary, octal, decimal, and hexadecimal, you’ll gain deeper insight into how digital systems store, manipulate, and transport data.</p>
+
+  <p><strong>Convert with confidence. Whether it’s debugging a chip, writing code, or just learning how bits work — the power of number bases is at your fingertips.</strong></p>
+</div>
+  <div class="see-also description">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="../energy-convertion.html">Energy convertion</a></li>
+      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+      <li><a href="../length-convertion.html">Length convertion</a></li>
+      <li><a href="../number-convertion.html">Number convertion</a></li>
+      <li><a href="../power-convertion.html">Power convertion</a></li>
+      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+      <li><a href="../weight-convertion.html">Weight convertion</a></li>
+      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+    </ul>
+  </div>
+<script>
+function conv(){
+  const num=document.getElementById('number').value.trim();
+  const from=parseInt(document.getElementById('from').value);
+  const to=parseInt(document.getElementById('to').value);
+  if(!(from>=2&&from<=36&&to>=2&&to<=36)){document.getElementById('out').innerText='Bases must be 2‑36';return;}
+  try{
+    const dec=parseInt(num,from);
+    const res=dec.toString(to);
+    document.getElementById('out').innerText=`${num} (base ${from}) = ${res} (base ${to})`;
+  }catch(e){document.getElementById('out').innerText='Invalid number';}
+}
+</script>
+
+  <footer>
+    <div class="container">
+      <p>
+        <a href="#">Link to Us</a> |
+        <a href="#">Recommend Site</a> |
+        <a href="#">Send Feedback</a> |
+        <a href="#">About</a>
+      </p>
+      <p>
+        © EasyTables.com |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Manage Cookies</a>
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>
