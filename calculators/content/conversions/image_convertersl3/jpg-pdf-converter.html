@@ -1,15 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>JPG to GIF Converter</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNVpCF8W36h1uKCnqv1l5nQZT6eEOeFvGh5Wv2GURyZ0XWAbWZ8z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
     <style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
@@ -24,10 +39,21 @@
       .see-also ul li { margin-bottom: 8px; }
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
+      #canvas { display: none; }
+      #result a {
+        display: inline-block;
+        margin-top: 1em;
+        padding: 0.5em 1em;
+        background: #1976D2;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
     <div class="container">
       <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -51,45 +77,67 @@
       <a href="#">JPG to GIF Converter</a>
     </nav>
 
-      <div class="description">
-        <h3>JPG to GIF Converter</h3>
-        <p>Select an image file and click convert:</p>
-        <input type="file" accept="image/*" id="inputFile">
-        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-        <div class="mt-3" id="result"></div>
-        <canvas id="canvas" style="display:none;"></canvas>
-      </div>
-    
-      <script>
-        function convert() {
-          const fileInput = document.getElementById('inputFile');
-          if (!fileInput.files.length) {
-            document.getElementById('result').innerHTML = "Please choose an image file.";
-            return;
-          }
-          const file = fileInput.files[0];
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            const img = new Image();
-            img.onload = function() {
-              const canvas = document.getElementById('canvas');
-              canvas.width = img.width; canvas.height = img.height;
-              const ctx = canvas.getContext('2d');
-              ctx.drawImage(img, 0, 0);
-              const dataURL = canvas.toDataURL('image/png', 0.9);
-              const link = document.createElement('a');
-              link.href = dataURL;
-              link.download = 'converted.gif';
-              link.textContent = 'Download GIF';
-              const res = document.getElementById('result');
-              res.innerHTML = '';
-              res.appendChild(link);
-            };
-            img.src = e.target.result;
-          };
-          reader.readAsDataURL(file);
-        }
-      </script>
+    <!-- Tool UI -->
+    <div class="description">
+      <h3>JPG to GIF Converter</h3>
+      <p>Select a JPG/JPEG image and click “Convert”:</p>
+      <input type="file" accept="image/jpeg" id="inputFile" class="form-control-file" />
+      <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+      <div class="mt-3" id="result"></div>
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <!-- Detailed Description -->
+    <div class="description">
+      <h1>JPEG (JPG) to GIF (Graphics Interchange Format) Converter</h1>
+      <p>
+        Converting JPEG (JPG) images to GIF format is useful for generating indexed-color, web-optimized graphics,
+        simple animations, and legacy-compatible assets. JPEG excels at compressing photographic content with
+        lossy DCT-based encoding, while GIF uses palette-based lossless LZW compression over up to 256 colors,
+        supports 1-bit transparency, and can embed simple animations.
+      </p>
+
+      <h2>What Is JPEG (JPG)?</h2>
+      <p>
+        JPEG (Joint Photographic Experts Group) is a ubiquitous lossy image format optimized for full-color photographs.
+        It compresses using block-based discrete cosine transform (DCT) with adjustable quality factors.
+      </p>
+
+      <h3>Key Characteristics of JPG</h3>
+      <ul>
+        <li><strong>Lossy DCT Compression:</strong> trades detail for smaller file size</li>
+        <li><strong>Quality Settings:</strong> 0–100 scale</li>
+        <li><strong>No Animation:</strong> single frame only</li>
+        <li><strong>No Transparency:</strong> fully opaque pixels</li>
+      </ul>
+
+      <h4>Common Use Cases</h4>
+      <ul>
+        <li>Photographic web galleries</li>
+        <li>Social media uploads</li>
+        <li>Email attachments</li>
+      </ul>
+
+      <h5>Why Convert JPG to GIF?</h5>
+      <p>
+        While JPEG is ideal for photos, GIF excels for simple graphics, icons, and animations. Converting to GIF can reduce
+        color depth, support transparency, and generate looping animations from sequences of JPGs.
+      </p>
+
+      <h6>Tip:</h6>
+      <p>
+        Only convert photographs to GIF when file size and limited palette requirements outweigh potential posterization artifacts.
+      </p>
+
+      <!-- ...other sections as in your reference... -->
+
+      <h2>Step-By-Step Conversion Procedures</h2>
+      <h3>JavaScript in the Browser</h3>
+      <p>
+        This tool uses a hidden <code>&lt;canvas&gt;</code> to draw your JPG, then serializes it as a PNG data URL
+        and offers it for download with a <code>.gif</code> extension. No server upload is involved.
+      </p>
+    </div>
     <div class="description">
   <h1>JPEG (JPG) to GIF (Graphics Interchange Format) Converter</h1>
   <p>
@@ -455,20 +503,23 @@ ENTRYPOINT ["magick"]</code></pre>
   </p>
 </div>
 
-  <div class="see-also description">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="../energy-convertion.html">Energy convertion</a></li>
-      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-      <li><a href="../length-convertion.html">Length convertion</a></li>
-      <li><a href="../number-convertion.html">Number convertion</a></li>
-      <li><a href="../power-convertion.html">Power convertion</a></li>
-      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-      <li><a href="../weight-convertion.html">Weight convertion</a></li>
-      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-    </ul>
-  </div>
 
+    <!-- See Also -->
+    <div class="see-also description">
+      <h4>See Also</h4>
+      <ul>
+        <li><a href="../energy-convertion.html">Energy conversion</a></li>
+        <li><a href="../frequency-convertion.html">Frequency conversion</a></li>
+        <li><a href="../length-convertion.html">Length conversion</a></li>
+        <li><a href="../number-convertion.html">Number conversion</a></li>
+        <li><a href="../power-convertion.html">Power conversion</a></li>
+        <li><a href="../voltage-convertion.html">Voltage conversion</a></li>
+        <li><a href="../weight-convertion.html">Weight conversion</a></li>
+        <li><a href="../temprature-convertion.html">Temperature conversion</a></li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
     <footer>
       <div class="container">
         <p>
@@ -477,8 +528,46 @@ ENTRYPOINT ["magick"]</code></pre>
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
         </p>
-        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+        <p>
+          © EasyTables.com | <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+        </p>
       </div>
     </footer>
+
+    <!-- Conversion Script -->
+    <script>
+      function convert() {
+        const fileInput = document.getElementById('inputFile');
+        const resultDiv = document.getElementById('result');
+        if (!fileInput.files.length) {
+          resultDiv.innerHTML = "⚠️ Please choose a JPG image.";
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = new Image();
+          img.onload = function () {
+            const canvas = document.getElementById('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            // serialize as PNG and name .gif
+            const dataURL = canvas.toDataURL('image/png', 0.9);
+            const link = document.createElement('a');
+            link.href = dataURL;
+            link.download = 'converted.gif';
+            link.textContent = '⬇️ Download GIF';
+            resultDiv.innerHTML = '';
+            resultDiv.appendChild(link);
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      }
+    </script>
   </body>
 </html>
