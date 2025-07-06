@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Watts to MW Converter</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
+<head>
+<meta content="EasyTables: Free online Watts to MW conversion. Access at https://easytables.vercel.app/calculators/content/conversions/power_convertersl3/watts-to-mw.html for a fast and accurate Watts to MW conversion tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Watts to MW Converter</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -24,41 +25,40 @@
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
     </style>
-  </head>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-    <div class="container">
-      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <br>
-    <nav class="breadcrumb container" aria-label="Breadcrumb">
-       <a href="../../../../index.html">Home</a> <span>›</span>
-    <a href="../../../../index.html#Calculators-s">Power Converters</a> <span>></span>
-      <a href="#">Watts to MW Converter</a>
-    </nav>
-
-      <div class="description">
-        <h3>Watts to MW Converter</h3>
-        <p>Enter value in W:</p>
-        <input type="number" id="val" class="form-control" placeholder="Enter W">
-        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-        <div class="mt-3" id="result"></div>
-        <p class="mt-4"><strong>Formula:</strong> MW = W × 1e-06</p>
-      </div>
-      <script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="Breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>›</span>
+<a href="../../../../index.html#Calculators-s">Power Converters</a> <span>&gt;</span>
+<a href="#">Watts to MW Converter</a>
+</nav>
+<div class="description">
+<h3>Watts to MW Converter</h3>
+<p>Enter value in W:</p>
+<input class="form-control" id="val" placeholder="Enter W" type="number"/>
+<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+<div class="mt-3" id="result"></div>
+<p class="mt-4"><strong>Formula:</strong> MW = W × 1e-06</p>
+</div>
+<script>
         function convert() {
           const v = parseFloat(document.getElementById('val').value);
           const res = document.getElementById('result');
@@ -67,119 +67,105 @@
           res.innerHTML = `${v} W = ${out.toExponential(6)} MW`;
         }
       </script>
-
- <div class="description">
-  <h1>Watts (W) to Milliwatts (mW) Converter</h1>
-
-  <h2>Introduction to Power Units</h2>
-  <p>
+<div class="description">
+<h1>Watts (W) to Milliwatts (mW) Converter</h1>
+<h2>Introduction to Power Units</h2>
+<p>
     Converting between watts (W) and milliwatts (mW) is a fundamental task in electronics, instrumentation,
     and scientific measurement. Watts quantify power at the base SI scale, while milliwatts—one-thousandth
     of a watt—provide a convenient unit for low-power devices such as sensors, RF modules, and microcontrollers.
     Mastering this conversion ensures precise component selection, accurate data logging, and clear reporting.
   </p>
-
-  <h2>Definition of the Watt</h2>
-  <h3>SI Base Unit of Power</h3>
-  <p>
+<h2>Definition of the Watt</h2>
+<h3>SI Base Unit of Power</h3>
+<p>
     The watt is defined as one joule of energy transferred or converted per second:
   </p>
-  <p style="text-align: center;"><em>1 W = 1 J/s</em></p>
-  <p>
+<p style="text-align: center;"><em>1 W = 1 J/s</em></p>
+<p>
     This universal definition underpins electrical, mechanical, and thermal power measurements across
     laboratories, industry, and research.
   </p>
-
-  <h2>Definition of the Milliwatt</h2>
-  <h3>Scaling Down the Watt</h3>
-  <p>
+<h2>Definition of the Milliwatt</h2>
+<h3>Scaling Down the Watt</h3>
+<p>
     A milliwatt represents one-thousandth of a watt:
   </p>
-  <p style="text-align: center;"><em>1 mW = 0.001 W = 1 × 10<sup>−3</sup> W</em></p>
-  <p>
+<p style="text-align: center;"><em>1 mW = 0.001 W = 1 × 10<sup>−3</sup> W</em></p>
+<p>
     Using milliwatts simplifies representation of small power levels—common in wireless transmitters,
     low-power LEDs, and battery-powered sensors.
   </p>
-
-  <h2>The Conversion Formula</h2>
-  <h3>Basic Relationship</h3>
-  <p>
+<h2>The Conversion Formula</h2>
+<h3>Basic Relationship</h3>
+<p>
     Since 1 mW = 0.001 W, converting watts to milliwatts involves multiplication by 1,000:
   </p>
-  <p style="text-align: center;"><em>mW = W × 1,000</em></p>
-  <p>
+<p style="text-align: center;"><em>mW = W × 1,000</em></p>
+<p>
     Conversely, to convert milliwatts to watts, divide by 1,000:
   </p>
-  <p style="text-align: center;"><em>W = mW ÷ 1,000</em></p>
-
-  <h4>Quick Conversion Table</h4>
-  <table>
-    <thead>
-      <tr><th>Watts (W)</th><th>Mill watts (mW)</th><th>Operation</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1 W</td><td>1,000 mW</td><td>× 1,000</td></tr>
-      <tr><td>0.5 W</td><td>500 mW</td><td>0.5 × 1,000</td></tr>
-      <tr><td>0.002 W</td><td>2 mW</td><td>0.002 × 1,000</td></tr>
-      <tr><td>250 mW</td><td>0.25 W</td><td>÷ 1,000</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Step‐by‐Step Conversion Process</h2>
-  <ol>
-    <li><strong>Identify Input Value:</strong> Confirm the power in watts you wish to convert.</li>
-    <li><strong>Multiply by 1,000:</strong> Apply the factor to obtain milliwatts.</li>
-    <li><strong>Round as Needed:</strong> Depending on precision requirements, round final result appropriately.</li>
-  </ol>
-
-  <h3>Example Calculation</h3>
-  <p>
+<p style="text-align: center;"><em>W = mW ÷ 1,000</em></p>
+<h4>Quick Conversion Table</h4>
+<table>
+<thead>
+<tr><th>Watts (W)</th><th>Mill watts (mW)</th><th>Operation</th></tr>
+</thead>
+<tbody>
+<tr><td>1 W</td><td>1,000 mW</td><td>× 1,000</td></tr>
+<tr><td>0.5 W</td><td>500 mW</td><td>0.5 × 1,000</td></tr>
+<tr><td>0.002 W</td><td>2 mW</td><td>0.002 × 1,000</td></tr>
+<tr><td>250 mW</td><td>0.25 W</td><td>÷ 1,000</td></tr>
+</tbody>
+</table>
+<h2>Step‐by‐Step Conversion Process</h2>
+<ol>
+<li><strong>Identify Input Value:</strong> Confirm the power in watts you wish to convert.</li>
+<li><strong>Multiply by 1,000:</strong> Apply the factor to obtain milliwatts.</li>
+<li><strong>Round as Needed:</strong> Depending on precision requirements, round final result appropriately.</li>
+</ol>
+<h3>Example Calculation</h3>
+<p>
     Convert 0.037 W to mW:
   </p>
-  <p style="text-align: center;"><em>0.037 W × 1,000 = 37 mW</em></p>
-
-  <h2>Why Convert to Milliwatts?</h2>
-  <p>
+<p style="text-align: center;"><em>0.037 W × 1,000 = 37 mW</em></p>
+<h2>Why Convert to Milliwatts?</h2>
+<p>
     Milliwatts provide readability and resolution for low-power applications:
   </p>
-  <ul>
-    <li>RF transmitters often specify output in dBm, which relates directly to mW.</li>
-    <li>LED datasheets list forward power in milliwatts for precise brightness control.</li>
-    <li>Sensor modules measure consumption in tens of milliwatts to assess battery life.</li>
-  </ul>
-
-  <h2>Applications and Use Cases</h2>
-  <h3>Wireless Communications</h3>
-  <p>
+<ul>
+<li>RF transmitters often specify output in dBm, which relates directly to mW.</li>
+<li>LED datasheets list forward power in milliwatts for precise brightness control.</li>
+<li>Sensor modules measure consumption in tens of milliwatts to assess battery life.</li>
+</ul>
+<h2>Applications and Use Cases</h2>
+<h3>Wireless Communications</h3>
+<p>
     Transmitter power is quoted in mW before converting to decibels:
   </p>
-  <p style="text-align: center;"><em>dBm = 10 × log₁₀(Power (mW))</em></p>
-  <p>
+<p style="text-align: center;"><em>dBm = 10 × log₁₀(Power (mW))</em></p>
+<p>
     For a 50 mW transmitter, dBm = 10 × log₁₀(50) ≈ 17 dBm.
   </p>
-
-  <h3>Battery‐Powered Electronics</h3>
-  <p>
+<h3>Battery‐Powered Electronics</h3>
+<p>
     Designers calculate total draw in mW to estimate battery runtime:
   </p>
-  <p style="text-align: center;"><em>Runtime (h) = Battery Capacity (mAh) × Battery Voltage (V) ÷ Load Power (mW)</em></p>
-
-  <h2>Integration in Spreadsheets</h2>
-  <h3>Excel Formula</h3>
-  <p>
+<p style="text-align: center;"><em>Runtime (h) = Battery Capacity (mAh) × Battery Voltage (V) ÷ Load Power (mW)</em></p>
+<h2>Integration in Spreadsheets</h2>
+<h3>Excel Formula</h3>
+<p>
     If cell A2 contains watts:
   </p>
-  <pre><code>=A2 * 1000   // W to mW
+<pre><code>=A2 * 1000   // W to mW
 =A2 / 1000   // mW to W</code></pre>
-
-  <h3>Google Sheets</h3>
-  <p>
+<h3>Google Sheets</h3>
+<p>
     Identical formulas apply; use named ranges for clarity (e.g., <code>=watts * 1000</code>).
   </p>
-
-  <h2>Programming Snippets</h2>
-  <h3>JavaScript Example</h3>
-  <pre><code>function wToMw(watts) {
+<h2>Programming Snippets</h2>
+<h3>JavaScript Example</h3>
+<pre><code>function wToMw(watts) {
   return watts * 1000;
 }
 function mwToW(milliwatts) {
@@ -190,9 +176,8 @@ function mwToW(milliwatts) {
 console.log(wToMw(0.12));  // 120 mW
 console.log(mwToW(250));   // 0.25 W
 </code></pre>
-
-  <h3>Python Example</h3>
-  <pre><code>def w_to_mw(w):
+<h3>Python Example</h3>
+<pre><code>def w_to_mw(w):
     return w * 1000
 
 def mw_to_w(mw):
@@ -200,188 +185,163 @@ def mw_to_w(mw):
 
 print(w_to_mw(0.005))  # 5.0
 </code></pre>
-
-  <h2>Precision and Rounding Guidelines</h2>
-  <p>
+<h2>Precision and Rounding Guidelines</h2>
+<p>
     In high-precision contexts:
   </p>
-  <ul>
-    <li>Retain full decimal precision during intermediate steps.</li>
-    <li>Round only at the final output—typically to one or two decimal places for mW.</li>
-    <li>Document rounding conventions in reports or code comments.</li>
-  </ul>
-
-  <h5>Tip for Reporting</h5>
-  <p>
+<ul>
+<li>Retain full decimal precision during intermediate steps.</li>
+<li>Round only at the final output—typically to one or two decimal places for mW.</li>
+<li>Document rounding conventions in reports or code comments.</li>
+</ul>
+<h5>Tip for Reporting</h5>
+<p>
     Label units explicitly (e.g., “Power: 37.00 mW”) and note the conversion factor in footnotes.
   </p>
-
-  <h2>Common Pitfalls</h2>
-  <p>
+<h2>Common Pitfalls</h2>
+<p>
     Avoid these mistakes:
   </p>
-  <ul>
-    <li>Accidentally using 10 instead of 1,000 when scaling.</li>
-    <li>Confusing mW (milliwatt) with MW (megawatt).</li>
-    <li>Rounding too early and accumulating error in multi-step calculations.</li>
-  </ul>
-
-  <h2>Advanced Considerations</h2>
-  <h3>Transient Power Spikes</h3>
-  <p>
+<ul>
+<li>Accidentally using 10 instead of 1,000 when scaling.</li>
+<li>Confusing mW (milliwatt) with MW (megawatt).</li>
+<li>Rounding too early and accumulating error in multi-step calculations.</li>
+</ul>
+<h2>Advanced Considerations</h2>
+<h3>Transient Power Spikes</h3>
+<p>
     Oscilloscopes measure instantaneous power in watts; converting to mW on capture enables fine-grained
     analysis of microsecond-scale events.
   </p>
-
-  <h3>RF Link Budgeting</h3>
-  <p>
+<h3>RF Link Budgeting</h3>
+<p>
     In link-budget calculations, both transmit and receive powers use mW for linear arithmetic before
     converting to decibels.
   </p>
-
-  <h2>Visualization and Reporting</h2>
-  <h3>Charting Power Trends</h3>
-  <p>
+<h2>Visualization and Reporting</h2>
+<h3>Charting Power Trends</h3>
+<p>
     Plot time-series of mW consumption for IoT devices to identify duty-cycle patterns and optimize sleep intervals.
   </p>
-
-  <h2>Case Study: Sensor Node Design</h2>
-  <p>
+<h2>Case Study: Sensor Node Design</h2>
+<p>
     A wireless temperature sensor draws 15 mW while transmitting and 2 mW in sleep mode. Average draw:
   </p>
-  <ol>
-    <li>Active: 15 mW for 0.1 s every 60 s → (15 mW × 0.1/60) = 0.025 mW average</li>
-    <li>Sleep: 2 mW for 59.9 s → (2 mW × 59.9/60) ≈ 1.9967 mW</li>
-    <li>Total average ≈ 2.0217 mW</li>
-  </ol>
-  <p>
+<ol>
+<li>Active: 15 mW for 0.1 s every 60 s → (15 mW × 0.1/60) = 0.025 mW average</li>
+<li>Sleep: 2 mW for 59.9 s → (2 mW × 59.9/60) ≈ 1.9967 mW</li>
+<li>Total average ≈ 2.0217 mW</li>
+</ol>
+<p>
     Converting to watts: 2.0217 mW ÷ 1,000 ≈ 0.00202 W informs power-budget calculations.
   </p>
-
-  <h2>Educational and Training Exercises</h2>
-  <p>
+<h2>Educational and Training Exercises</h2>
+<p>
     In lab courses, students convert LED forward power (e.g., 20 mW) into watts and calculate resistor values
     for series current limiting.
   </p>
-  <h6>Exercise Example</h6>
-  <p>
+<h6>Exercise Example</h6>
+<p>
     Given a 5 V supply and 20 mW LED forward power with 2 V drop:
   </p>
-  <ol>
-    <li>Convert 20 mW to W: 20 / 1,000 = 0.02 W</li>
-    <li>Calculate current: I = P/V = 0.02 W / 2 V = 0.01 A (10 mA)</li>
-    <li>Resistor: (5 V − 2 V) / 0.01 A = 300 Ω</li>
-  </ol>
-
-  <h2>Future Trends and Standards</h2>
-  <p>
+<ol>
+<li>Convert 20 mW to W: 20 / 1,000 = 0.02 W</li>
+<li>Calculate current: I = P/V = 0.02 W / 2 V = 0.01 A (10 mA)</li>
+<li>Resistor: (5 V − 2 V) / 0.01 A = 300 Ω</li>
+</ol>
+<h2>Future Trends and Standards</h2>
+<p>
     Emerging ultra-low-power electronics operate in microwatts (µW) and nanowatts (nW). Converting
     consistently across W, mW, and beyond is critical for energy-harvesting devices and implantable sensors.
   </p>
-
-  <h2>Summary and Best Practices</h2>
-  <ul>
-    <li>Remember: <em>1 W = 1,000 mW</em> and <em>1 mW = 0.001 W</em>.</li>
-    <li>Automate conversions in spreadsheets and code to eliminate manual scaling errors.</li>
-    <li>Maintain precision until the final rounding step and label units clearly.</li>
-    <li>Be vigilant about common pitfalls: unit confusion and premature rounding.</li>
-  </ul>
-
-  <h6>Final Thought</h6>
-  <p>
+<h2>Summary and Best Practices</h2>
+<ul>
+<li>Remember: <em>1 W = 1,000 mW</em> and <em>1 mW = 0.001 W</em>.</li>
+<li>Automate conversions in spreadsheets and code to eliminate manual scaling errors.</li>
+<li>Maintain precision until the final rounding step and label units clearly.</li>
+<li>Be vigilant about common pitfalls: unit confusion and premature rounding.</li>
+</ul>
+<h6>Final Thought</h6>
+<p>
     Although the arithmetic of watts to milliwatts is straightforward, embedding accurate conversion practices
     throughout design, measurement, and reporting workflows ensures clarity, precision, and interoperability
     in today’s low-power electronic systems.
   </p>
-
 <h2>Precision and Rounding Guidelines</h2>
-  <p>
+<p>
     In high-precision contexts:
   </p>
-  <ul>
-    <li>Retain full decimal precision during intermediate steps.</li>
-    <li>Round only at the final output—typically to one or two decimal places for mW.</li>
-    <li>Document rounding conventions in reports or code comments.</li>
-  </ul>
-
-  <h5>Tip for Reporting</h5>
-  <p>
+<ul>
+<li>Retain full decimal precision during intermediate steps.</li>
+<li>Round only at the final output—typically to one or two decimal places for mW.</li>
+<li>Document rounding conventions in reports or code comments.</li>
+</ul>
+<h5>Tip for Reporting</h5>
+<p>
     Label units explicitly (e.g., “Power: 37.00 mW”) and note the conversion factor in footnotes.
   </p>
-
-  <h2>Common Pitfalls</h2>
-  <p>
+<h2>Common Pitfalls</h2>
+<p>
     Avoid these mistakes:
   </p>
-  <ul>
-    <li>Accidentally using 10 instead of 1,000 when scaling.</li>
-    <li>Confusing mW (milliwatt) with MW (megawatt).</li>
-    <li>Rounding too early and accumulating error in multi-step calculations.</li>
-  </ul>
-
-  <h2>Advanced Considerations</h2>
-  <h3>Transient Power Spikes</h3>
-  <p>
+<ul>
+<li>Accidentally using 10 instead of 1,000 when scaling.</li>
+<li>Confusing mW (milliwatt) with MW (megawatt).</li>
+<li>Rounding too early and accumulating error in multi-step calculations.</li>
+</ul>
+<h2>Advanced Considerations</h2>
+<h3>Transient Power Spikes</h3>
+<p>
     Oscilloscopes measure instantaneous power in watts; converting to mW on capture enables fine-grained
     analysis of microsecond-scale events.
   </p>
-
-  <h3>RF Link Budgeting</h3>
-  <p>
+<h3>RF Link Budgeting</h3>
+<p>
     In link-budget calculations, both transmit and receive powers use mW for linear arithmetic before
     converting to decibels.
   </p>
-
-  <h2>Visualization and Reporting</h2>
-  <h3>Charting Power Trends</h3>
-  <p>
+<h2>Visualization and Reporting</h2>
+<h3>Charting Power Trends</h3>
+<p>
     Plot time-series of mW consumption for IoT devices to identify duty-cycle patterns and optimize sleep intervals.
   </p>
-  
-  <h2>Summary and Best Practices</h2>
-  <ul>
-    <li>Remember: <em>1 W = 1,000 mW</em> and <em>1 mW = 0.001 W</em>.</li>
-    <li>Automate conversions in spreadsheets and code to eliminate manual scaling errors.</li>
-    <li>Maintain precision until the final rounding step and label units clearly.</li>
-    <li>Be vigilant about common pitfalls: unit confusion and premature rounding.</li>
-  </ul>
-  
-  <h6>Final Thought</h6>
-  <p>
+<h2>Summary and Best Practices</h2>
+<ul>
+<li>Remember: <em>1 W = 1,000 mW</em> and <em>1 mW = 0.001 W</em>.</li>
+<li>Automate conversions in spreadsheets and code to eliminate manual scaling errors.</li>
+<li>Maintain precision until the final rounding step and label units clearly.</li>
+<li>Be vigilant about common pitfalls: unit confusion and premature rounding.</li>
+</ul>
+<h6>Final Thought</h6>
+<p>
     Although the arithmetic of watts to milliwatts is straightforward, embedding accurate conversion practices
     throughout design, measurement, and reporting workflows ensures clarity, precision, and interoperability
     in today’s low-power electronic systems.
   </p>
 </div>
-
-
-
-
-
- <div class="see-also description">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="../energy-convertion.html">Energy convertion</a></li>
-      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-      <li><a href="../length-convertion.html">Length convertion</a></li>
-      <li><a href="../number-convertion.html">Number convertion</a></li>
-      <li><a href="../power-convertion.html">Power convertion</a></li>
-      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-      <li><a href="../weight-convertion.html">Weight convertion</a></li>
-      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-    </ul>
-  </div>
-
-    <footer>
-      <div class="container">
-        <p>
-          <a href="#">Link to Us</a> |
+<div class="see-also description">
+<h4>See Also</h4>
+<ul>
+<li><a href="../energy-convertion.html">Energy convertion</a></li>
+<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+<li><a href="../length-convertion.html">Length convertion</a></li>
+<li><a href="../number-convertion.html">Number convertion</a></li>
+<li><a href="../power-convertion.html">Power convertion</a></li>
+<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+<li><a href="../weight-convertion.html">Weight convertion</a></li>
+<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-        </p>
-        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
-      </div>
-    </footer>
-  </body>
+</p>
+<p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+</div>
+</footer>
+</body>
 </html>

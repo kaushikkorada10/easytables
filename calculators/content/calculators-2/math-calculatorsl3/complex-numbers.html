@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Complex Numbers Calculator - EasyTables</title>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <style>
+<meta content="EasyTables: Free online Complex numbers calculator. Access at https://easytables.vercel.app/calculators/content/calculators-2/math-calculatorsl3/complex-numbers.html for a fast and accurate Complex numbers calculator tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Complex Numbers Calculator - EasyTables</title>
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "roboto"; font-size: 2rem; }
     #navItem2 { color: white; font-family: "Roboto"; }
@@ -60,7 +61,7 @@
       font-weight: 500;
     }
   </style>
-  <script>
+<script>
     function calculateComplex() {
       const real1 = parseFloat(document.getElementById("real1").value);
       const imag1 = parseFloat(document.getElementById("imag1").value);
@@ -106,387 +107,343 @@
   </script>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-      <div class="container">
-        <a class="navbar-brand" href="../../../../index.html">
-          <h1 class="nav-h1-color">EASY TABLES</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home</a>
-            <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-            <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-            <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-            <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <br>
-    <nav class="breadcrumb container" aria-label="breadcrumb">
-      <a href="../../../../index.html">Home</a> <span>></span>
-      <a href="../../../../index.html">Calculator</a><span>></span>
-      <a href="#">Complex Numbers Calculator</a> 
-      
-    </nav>
-
-
-  <div class="description">
-    <h3>Complex Numbers Calculator</h3>
-    <p>Calculate the result of addition, subtraction, multiplication, or division between two complex numbers.</p>
-
-    <form>
-      <div class="form-group">
-        <label>First Complex Number:</label>
-        <div class="form-inline">
-          <input type="number" class="form-control mr-2" id="real1" placeholder="Real Part (a)">
-          <input type="number" class="form-control" id="imag1" placeholder="Imaginary Part (b)">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Second Complex Number:</label>
-        <div class="form-inline">
-          <input type="number" class="form-control mr-2" id="real2" placeholder="Real Part (c)">
-          <input type="number" class="form-control" id="imag2" placeholder="Imaginary Part (d)">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="operation">Operation:</label>
-        <select class="form-control" id="operation">
-          <option value="add">Addition</option>
-          <option value="sub">Subtraction</option>
-          <option value="mul">Multiplication</option>
-          <option value="div">Division</option>
-        </select>
-      </div>
-
-      <button type="button" class="btn btn-primary" onclick="calculateComplex()">Calculate</button>
-    </form>
-
-    <div id="result" class="mt-4 font-weight-bold"></div>
-  </div>
-  <div class="description">
-  <h2>Complex Numbers Calculator – Perform Operations with Real & Imaginary Numbers</h2>
-
-  <p>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../../index.html">
+<h1 class="nav-h1-color">EASY TABLES</h1>
+</a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home</a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>&gt;</span>
+<a href="../../../../index.html">Calculator</a><span>&gt;</span>
+<a href="#">Complex Numbers Calculator</a>
+</nav>
+<div class="description">
+<h3>Complex Numbers Calculator</h3>
+<p>Calculate the result of addition, subtraction, multiplication, or division between two complex numbers.</p>
+<form>
+<div class="form-group">
+<label>First Complex Number:</label>
+<div class="form-inline">
+<input class="form-control mr-2" id="real1" placeholder="Real Part (a)" type="number"/>
+<input class="form-control" id="imag1" placeholder="Imaginary Part (b)" type="number"/>
+</div>
+</div>
+<div class="form-group">
+<label>Second Complex Number:</label>
+<div class="form-inline">
+<input class="form-control mr-2" id="real2" placeholder="Real Part (c)" type="number"/>
+<input class="form-control" id="imag2" placeholder="Imaginary Part (d)" type="number"/>
+</div>
+</div>
+<div class="form-group">
+<label for="operation">Operation:</label>
+<select class="form-control" id="operation">
+<option value="add">Addition</option>
+<option value="sub">Subtraction</option>
+<option value="mul">Multiplication</option>
+<option value="div">Division</option>
+</select>
+</div>
+<button class="btn btn-primary" onclick="calculateComplex()" type="button">Calculate</button>
+</form>
+<div class="mt-4 font-weight-bold" id="result"></div>
+</div>
+<div class="description">
+<h2>Complex Numbers Calculator – Perform Operations with Real &amp; Imaginary Numbers</h2>
+<p>
     The Easy Tables Complex Numbers Calculator is a free, accurate, and user-friendly tool designed to help you perform operations on complex numbers with ease. Whether you're solving quadratic equations, analyzing electrical circuits, or simplifying expressions in algebra or engineering, our calculator handles all the complexities of real and imaginary number arithmetic in one place.
   </p>
-
-  <h3>🔢 What is a Complex Number?</h3>
-  <p>
+<h3>🔢 What is a Complex Number?</h3>
+<p>
     A **complex number** is a number that combines a real part and an imaginary part. It is written in the form:
-    <br>
-    <code>a + bi</code>
-    <br>
+    <br/>
+<code>a + bi</code>
+<br/>
     where:
   </p>
-  <ul>
-    <li><strong>a</strong> = real part</li>
-    <li><strong>b</strong> = imaginary part</li>
-    <li><strong>i</strong> = √–1, the imaginary unit</li>
-  </ul>
-
-  <h3>🧮 Supported Complex Number Operations</h3>
-  <ul>
-    <li><strong>Complex Addition</strong>: (a + bi) + (c + di)</li>
-    <li><strong>Complex Subtraction</strong>: (a + bi) – (c + di)</li>
-    <li><strong>Complex Multiplication</strong>: (a + bi) × (c + di)</li>
-    <li><strong>Complex Division</strong>: (a + bi) ÷ (c + di)</li>
-    <li><strong>Modulus:</strong> |a + bi| = √(a² + b²)</li>
-    <li><strong>Conjugate:</strong> a – bi</li>
-    <li><strong>Polar Form:</strong> r∠θ where r = modulus, θ = argument</li>
-  </ul>
-
-  <h3>✅ How to Use the Complex Number Calculator</h3>
-  <ol>
-    <li>Enter two complex numbers in standard format (e.g., 3 + 4i)</li>
-    <li>Select the operation you want to perform</li>
-    <li>Click “Calculate” to get step-by-step results</li>
-    <li>Get answers in rectangular and polar form</li>
-  </ol>
-
-  <h3>📘 Examples of Complex Number Calculations</h3>
-  <ul>
-    <li><strong>Addition:</strong> (2 + 3i) + (4 – i) = 6 + 2i</li>
-    <li><strong>Subtraction:</strong> (5 + 6i) – (3 + 2i) = 2 + 4i</li>
-    <li><strong>Multiplication:</strong> (1 + 2i)(3 – 4i) = 11 + 2i</li>
-    <li><strong>Division:</strong> (2 + 3i) ÷ (1 – i) = 0.5 + 2.5i</li>
-  </ul>
-
-  <h3>📐 Polar Form of Complex Numbers</h3>
-  <p>
+<ul>
+<li><strong>a</strong> = real part</li>
+<li><strong>b</strong> = imaginary part</li>
+<li><strong>i</strong> = √–1, the imaginary unit</li>
+</ul>
+<h3>🧮 Supported Complex Number Operations</h3>
+<ul>
+<li><strong>Complex Addition</strong>: (a + bi) + (c + di)</li>
+<li><strong>Complex Subtraction</strong>: (a + bi) – (c + di)</li>
+<li><strong>Complex Multiplication</strong>: (a + bi) × (c + di)</li>
+<li><strong>Complex Division</strong>: (a + bi) ÷ (c + di)</li>
+<li><strong>Modulus:</strong> |a + bi| = √(a² + b²)</li>
+<li><strong>Conjugate:</strong> a – bi</li>
+<li><strong>Polar Form:</strong> r∠θ where r = modulus, θ = argument</li>
+</ul>
+<h3>✅ How to Use the Complex Number Calculator</h3>
+<ol>
+<li>Enter two complex numbers in standard format (e.g., 3 + 4i)</li>
+<li>Select the operation you want to perform</li>
+<li>Click “Calculate” to get step-by-step results</li>
+<li>Get answers in rectangular and polar form</li>
+</ol>
+<h3>📘 Examples of Complex Number Calculations</h3>
+<ul>
+<li><strong>Addition:</strong> (2 + 3i) + (4 – i) = 6 + 2i</li>
+<li><strong>Subtraction:</strong> (5 + 6i) – (3 + 2i) = 2 + 4i</li>
+<li><strong>Multiplication:</strong> (1 + 2i)(3 – 4i) = 11 + 2i</li>
+<li><strong>Division:</strong> (2 + 3i) ÷ (1 – i) = 0.5 + 2.5i</li>
+</ul>
+<h3>📐 Polar Form of Complex Numbers</h3>
+<p>
     A complex number can also be represented in **polar form** as:
-    <br>
-    <code>r∠θ = r(cos θ + i sin θ)</code>
-    <br>
+    <br/>
+<code>r∠θ = r(cos θ + i sin θ)</code>
+<br/>
     where:
   </p>
-  <ul>
-    <li><strong>r = |z| = √(a² + b²)</strong> (modulus)</li>
-    <li><strong>θ = tan⁻¹(b/a)</strong> (argument or angle in radians or degrees)</li>
-  </ul>
-
-  <h3>📈 Applications of Complex Numbers</h3>
-  <ul>
-    <li><strong>Engineering:</strong> AC circuit analysis, signal processing</li>
-    <li><strong>Mathematics:</strong> Roots of equations, complex functions</li>
-    <li><strong>Physics:</strong> Quantum mechanics, oscillation systems</li>
-    <li><strong>Control Systems:</strong> Stability and response analysis</li>
-    <li><strong>Graphing:</strong> Fractals and Julia/Mandelbrot sets</li>
-  </ul>
-
-  <h3>🧠 Real and Imaginary Components</h3>
-  <ul>
-    <li><strong>Real Part (Re):</strong> a in a + bi</li>
-    <li><strong>Imaginary Part (Im):</strong> b in a + bi</li>
-  </ul>
-  <p>
+<ul>
+<li><strong>r = |z| = √(a² + b²)</strong> (modulus)</li>
+<li><strong>θ = tan⁻¹(b/a)</strong> (argument or angle in radians or degrees)</li>
+</ul>
+<h3>📈 Applications of Complex Numbers</h3>
+<ul>
+<li><strong>Engineering:</strong> AC circuit analysis, signal processing</li>
+<li><strong>Mathematics:</strong> Roots of equations, complex functions</li>
+<li><strong>Physics:</strong> Quantum mechanics, oscillation systems</li>
+<li><strong>Control Systems:</strong> Stability and response analysis</li>
+<li><strong>Graphing:</strong> Fractals and Julia/Mandelbrot sets</li>
+</ul>
+<h3>🧠 Real and Imaginary Components</h3>
+<ul>
+<li><strong>Real Part (Re):</strong> a in a + bi</li>
+<li><strong>Imaginary Part (Im):</strong> b in a + bi</li>
+</ul>
+<p>
     You can extract real or imaginary components using mathematical functions, especially in calculus or complex analysis.
   </p>
-
-  <h3>📊 Complex Number Multiplication Formula</h3>
-  <p>
-    <code>(a + bi)(c + di) = (ac – bd) + (ad + bc)i</code>
-  </p>
-
-  <h3>📏 Complex Division Formula</h3>
-  <p>
-    <code>(a + bi) ÷ (c + di) = [(ac + bd) + (bc – ad)i] / (c² + d²)</code>
-  </p>
-  <p>
+<h3>📊 Complex Number Multiplication Formula</h3>
+<p>
+<code>(a + bi)(c + di) = (ac – bd) + (ad + bc)i</code>
+</p>
+<h3>📏 Complex Division Formula</h3>
+<p>
+<code>(a + bi) ÷ (c + di) = [(ac + bd) + (bc – ad)i] / (c² + d²)</code>
+</p>
+<p>
     The calculator performs all the steps automatically and shows results in simplified form.
   </p>
-
-  <h3>🔎 SEO Keyword Coverage</h3>
-  <ul>
-    <li>complex number calculator</li>
-    <li>imaginary number calculator online</li>
-    <li>complex addition and multiplication</li>
-    <li>real and imaginary calculator</li>
-    <li>modulus of complex number</li>
-    <li>convert complex number to polar form</li>
-  </ul>
-
-  <h3>🔧 Features of Easy Tables Complex Calculator</h3>
-  <ul>
-    <li>Supports real and imaginary input values</li>
-    <li>Handles both rectangular and polar form</li>
-    <li>Gives step-by-step working</li>
-    <li>Includes modulus and conjugate</li>
-    <li>Mobile-friendly and no login required</li>
-  </ul>
-
-  <h3>📚 Related Tools</h3>
-  <ul>
-    <li><a href="/calculators/polar-calculator.html">Polar Coordinates Calculator</a></li>
-    <li><a href="/calculators/quadratic-solver.html">Quadratic Equation Solver</a></li>
-    <li><a href="/calculators/imaginary-number-calculator.html">Imaginary Number Simplifier</a></li>
-    <li><a href="/calculators/trigonometric-form.html">Trigonometric Form Converter</a></li>
-  </ul>
-
-  <h3>📱 Accessibility and Use on Any Device</h3>
-  <p>
+<h3>🔎 SEO Keyword Coverage</h3>
+<ul>
+<li>complex number calculator</li>
+<li>imaginary number calculator online</li>
+<li>complex addition and multiplication</li>
+<li>real and imaginary calculator</li>
+<li>modulus of complex number</li>
+<li>convert complex number to polar form</li>
+</ul>
+<h3>🔧 Features of Easy Tables Complex Calculator</h3>
+<ul>
+<li>Supports real and imaginary input values</li>
+<li>Handles both rectangular and polar form</li>
+<li>Gives step-by-step working</li>
+<li>Includes modulus and conjugate</li>
+<li>Mobile-friendly and no login required</li>
+</ul>
+<h3>📚 Related Tools</h3>
+<ul>
+<li><a href="/calculators/polar-calculator.html">Polar Coordinates Calculator</a></li>
+<li><a href="/calculators/quadratic-solver.html">Quadratic Equation Solver</a></li>
+<li><a href="/calculators/imaginary-number-calculator.html">Imaginary Number Simplifier</a></li>
+<li><a href="/calculators/trigonometric-form.html">Trigonometric Form Converter</a></li>
+</ul>
+<h3>📱 Accessibility and Use on Any Device</h3>
+<p>
     Our Complex Numbers Calculator works perfectly across all devices – desktop, tablet, or mobile. Whether you’re in class or on the go, solving complex math problems is now a tap away.
   </p>
-
-  <h3>📣 Frequently Asked Questions (FAQs)</h3>
-  <p><strong>Q: Can I input complex numbers with negative real or imaginary parts?</strong></p>
-  <p>A: Yes, the calculator supports negative values like –3 + 5i or 6 – 4i.</p>
-
-  <p><strong>Q: What is the imaginary unit 'i'?</strong></p>
-  <p>A: The imaginary unit i is defined as √–1. It is not a real number but is used to solve equations that have no real roots.</p>
-
-  <p><strong>Q: Can I convert between rectangular and polar form?</strong></p>
-  <p>A: Yes. Our calculator automatically displays both formats for supported operations.</p>
-
-  <p><strong>Q: Does it handle division by zero?</strong></p>
-  <p>A: No. Like with real numbers, division by zero is undefined and the calculator will display an error.</p>
-
-  <h3>🎯 Final Thoughts</h3>
-  <p>
+<h3>📣 Frequently Asked Questions (FAQs)</h3>
+<p><strong>Q: Can I input complex numbers with negative real or imaginary parts?</strong></p>
+<p>A: Yes, the calculator supports negative values like –3 + 5i or 6 – 4i.</p>
+<p><strong>Q: What is the imaginary unit 'i'?</strong></p>
+<p>A: The imaginary unit i is defined as √–1. It is not a real number but is used to solve equations that have no real roots.</p>
+<p><strong>Q: Can I convert between rectangular and polar form?</strong></p>
+<p>A: Yes. Our calculator automatically displays both formats for supported operations.</p>
+<p><strong>Q: Does it handle division by zero?</strong></p>
+<p>A: No. Like with real numbers, division by zero is undefined and the calculator will display an error.</p>
+<h3>🎯 Final Thoughts</h3>
+<p>
     Complex numbers are a critical part of higher mathematics and engineering. From solving equations with no real roots to modeling alternating current, complex numbers unlock a new dimension in problem-solving. The Easy Tables Complex Numbers Calculator helps you master this topic with clarity and speed.
   </p>
-  <p>
+<p>
     Try it now to simplify your complex calculations, convert to polar forms, or just explore the beauty of imaginary math.
   </p>
 </div>
 <div class="description">
-  <h3>🧠 De Moivre’s Theorem in Complex Numbers</h3>
-  <p>
+<h3>🧠 De Moivre’s Theorem in Complex Numbers</h3>
+<p>
     One of the most important formulas involving complex numbers in polar form is <strong>De Moivre’s Theorem</strong>. It states:
   </p>
-  <p>
-    <code>[r(cos θ + i sin θ)]ⁿ = rⁿ[cos(nθ) + i sin(nθ)]</code>
-  </p>
-  <p>
+<p>
+<code>[r(cos θ + i sin θ)]ⁿ = rⁿ[cos(nθ) + i sin(nθ)]</code>
+</p>
+<p>
     This formula is widely used to:
   </p>
-  <ul>
-    <li>Find powers of complex numbers</li>
-    <li>Calculate roots of complex numbers</li>
-    <li>Simplify trigonometric expressions</li>
-  </ul>
-  <p>
+<ul>
+<li>Find powers of complex numbers</li>
+<li>Calculate roots of complex numbers</li>
+<li>Simplify trigonometric expressions</li>
+</ul>
+<p>
     Our calculator will soon integrate De Moivre’s Theorem to compute nth powers and roots of any complex number.
   </p>
-
-  <h3>🔁 Converting Between Forms</h3>
-  <p>
+<h3>🔁 Converting Between Forms</h3>
+<p>
     A complex number can be represented in multiple formats:
   </p>
-  <ul>
-    <li><strong>Rectangular Form:</strong> a + bi</li>
-    <li><strong>Polar Form:</strong> r∠θ or r(cos θ + i sin θ)</li>
-    <li><strong>Exponential Form:</strong> re<sup>iθ</sup> (Euler's Formula)</li>
-  </ul>
-  <p>
+<ul>
+<li><strong>Rectangular Form:</strong> a + bi</li>
+<li><strong>Polar Form:</strong> r∠θ or r(cos θ + i sin θ)</li>
+<li><strong>Exponential Form:</strong> re<sup>iθ</sup> (Euler's Formula)</li>
+</ul>
+<p>
     Our tool will soon support seamless conversion between these formats, helping you understand how each represents the same quantity in different ways.
   </p>
-
-  <h3>🧪 Roots of Complex Numbers</h3>
-  <p>
+<h3>🧪 Roots of Complex Numbers</h3>
+<p>
     The nth roots of a complex number can be found using:
   </p>
-  <p>
-    <code>z<sup>1/n</sup> = r<sup>1/n</sup> [cos((θ + 2kπ)/n) + i sin((θ + 2kπ)/n)]</code> where k = 0 to n – 1
+<p>
+<code>z<sup>1/n</sup> = r<sup>1/n</sup> [cos((θ + 2kπ)/n) + i sin((θ + 2kπ)/n)]</code> where k = 0 to n – 1
   </p>
-  <p>
+<p>
     This formula yields <strong>n distinct roots</strong> of a complex number arranged symmetrically in the complex plane.
   </p>
-  <p>
+<p>
     Example: The cube roots of 1 are: 1, –½ + √3/2 i, and –½ – √3/2 i
   </p>
-
-  <h3>📐 Geometry of Complex Numbers</h3>
-  <p>
+<h3>📐 Geometry of Complex Numbers</h3>
+<p>
     Complex numbers can be visualized in a 2D plane called the **Argand Plane**, where:
   </p>
-  <ul>
-    <li>X-axis = Real Part (Re)</li>
-    <li>Y-axis = Imaginary Part (Im)</li>
-  </ul>
-  <p>
+<ul>
+<li>X-axis = Real Part (Re)</li>
+<li>Y-axis = Imaginary Part (Im)</li>
+</ul>
+<p>
     Every complex number is a point in this plane or a vector from the origin. The length of the vector is the modulus, and the angle with the positive real axis is the argument.
   </p>
-  <p>
+<p>
     Using this geometric interpretation, multiplication becomes rotation and scaling, and division becomes rotation in the opposite direction with scaling.
   </p>
-
-  <h3>🖩 Use Cases for Complex Calculations</h3>
-  <ul>
-    <li><strong>AC Circuit Analysis:</strong> Voltages and currents as phasors</li>
-    <li><strong>Control Systems:</strong> Root locus and Bode plots involve imaginary parts</li>
-    <li><strong>Vibration Analysis:</strong> Damped oscillations often require complex roots</li>
-    <li><strong>Mathematics:</strong> Solving polynomial equations with no real solutions</li>
-    <li><strong>Signal Processing:</strong> Fourier and Laplace Transforms use complex frequency</li>
-  </ul>
-
-  <h3>📎 Sample Complex Expressions</h3>
-  <ul>
-    <li><code>(4 + 3i)(4 – 3i) = 25</code> – product of conjugates gives a real number</li>
-    <li><code>1/(2 + i) = (2 – i)/5 = 0.4 – 0.2i</code> – rationalize denominator</li>
-    <li><code>|–3 + 4i| = √(9 + 16) = 5</code> – modulus calculation</li>
-  </ul>
-
-  <h3>💡 Tips When Working with Complex Numbers</h3>
-  <ul>
-    <li>Always combine like terms (real with real, imaginary with imaginary)</li>
-    <li>Use conjugates to simplify fractions</li>
-    <li>Use modulus and argument to switch to polar form</li>
-    <li>Don’t forget: i² = –1</li>
-    <li>Use parentheses when entering expressions to avoid confusion</li>
-  </ul>
-
-  <h3>🔎 Advanced SEO Keywords (Long-Tail)</h3>
-  <ul>
-    <li>online calculator for complex numbers with steps</li>
-    <li>how to multiply two complex numbers</li>
-    <li>complex number operations tool</li>
-    <li>calculate polar form of imaginary numbers</li>
-    <li>visualize complex number on argand diagram</li>
-    <li>step by step imaginary number simplification</li>
-    <li>how to divide complex numbers manually</li>
-  </ul>
-
-  <h3>🚀 Why Use Easy Tables Complex Number Calculator?</h3>
-  <ul>
-    <li>Handles all formats: rectangular, polar, exponential</li>
-    <li>No app or account required — 100% free and online</li>
-    <li>Get instant and accurate results for exams or engineering work</li>
-    <li>Great for school, college, or competitive test prep</li>
-    <li>Cross-platform: Desktop, mobile, tablet</li>
-  </ul>
-
-  <h3>🔗 Related Easy Tables Calculators</h3>
-  <ul>
-    <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
-    <li><a href="/calculators/real-number-calculator.html">Real Number Calculator</a></li>
-    <li><a href="/calculators/radical-expression-calculator.html">Radical Expression Simplifier</a></li>
-    <li><a href="/calculators/euler-form-calculator.html">Euler’s Formula Calculator</a></li>
-    <li><a href="/calculators/quadratic-complex-solver.html">Quadratic Solver (Complex Roots)</a></li>
-  </ul>
-
-  <h3>📣 Feedback and Future Features</h3>
-  <p>
+<h3>🖩 Use Cases for Complex Calculations</h3>
+<ul>
+<li><strong>AC Circuit Analysis:</strong> Voltages and currents as phasors</li>
+<li><strong>Control Systems:</strong> Root locus and Bode plots involve imaginary parts</li>
+<li><strong>Vibration Analysis:</strong> Damped oscillations often require complex roots</li>
+<li><strong>Mathematics:</strong> Solving polynomial equations with no real solutions</li>
+<li><strong>Signal Processing:</strong> Fourier and Laplace Transforms use complex frequency</li>
+</ul>
+<h3>📎 Sample Complex Expressions</h3>
+<ul>
+<li><code>(4 + 3i)(4 – 3i) = 25</code> – product of conjugates gives a real number</li>
+<li><code>1/(2 + i) = (2 – i)/5 = 0.4 – 0.2i</code> – rationalize denominator</li>
+<li><code>|–3 + 4i| = √(9 + 16) = 5</code> – modulus calculation</li>
+</ul>
+<h3>💡 Tips When Working with Complex Numbers</h3>
+<ul>
+<li>Always combine like terms (real with real, imaginary with imaginary)</li>
+<li>Use conjugates to simplify fractions</li>
+<li>Use modulus and argument to switch to polar form</li>
+<li>Don’t forget: i² = –1</li>
+<li>Use parentheses when entering expressions to avoid confusion</li>
+</ul>
+<h3>🔎 Advanced SEO Keywords (Long-Tail)</h3>
+<ul>
+<li>online calculator for complex numbers with steps</li>
+<li>how to multiply two complex numbers</li>
+<li>complex number operations tool</li>
+<li>calculate polar form of imaginary numbers</li>
+<li>visualize complex number on argand diagram</li>
+<li>step by step imaginary number simplification</li>
+<li>how to divide complex numbers manually</li>
+</ul>
+<h3>🚀 Why Use Easy Tables Complex Number Calculator?</h3>
+<ul>
+<li>Handles all formats: rectangular, polar, exponential</li>
+<li>No app or account required — 100% free and online</li>
+<li>Get instant and accurate results for exams or engineering work</li>
+<li>Great for school, college, or competitive test prep</li>
+<li>Cross-platform: Desktop, mobile, tablet</li>
+</ul>
+<h3>🔗 Related Easy Tables Calculators</h3>
+<ul>
+<li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+<li><a href="/calculators/real-number-calculator.html">Real Number Calculator</a></li>
+<li><a href="/calculators/radical-expression-calculator.html">Radical Expression Simplifier</a></li>
+<li><a href="/calculators/euler-form-calculator.html">Euler’s Formula Calculator</a></li>
+<li><a href="/calculators/quadratic-complex-solver.html">Quadratic Solver (Complex Roots)</a></li>
+</ul>
+<h3>📣 Feedback and Future Features</h3>
+<p>
     We welcome suggestions from students, teachers, and professionals! Our upcoming updates may include:
   </p>
-  <ul>
-    <li>Graphing of complex numbers in the Argand plane</li>
-    <li>Step-by-step simplification logs</li>
-    <li>History & Copy Result to Clipboard</li>
-    <li>Dark mode and accessibility features</li>
-    <li>Practice problems and quiz mode</li>
-  </ul>
-
-  <h3>🎯 Conclusion</h3>
-  <p>
+<ul>
+<li>Graphing of complex numbers in the Argand plane</li>
+<li>Step-by-step simplification logs</li>
+<li>History &amp; Copy Result to Clipboard</li>
+<li>Dark mode and accessibility features</li>
+<li>Practice problems and quiz mode</li>
+</ul>
+<h3>🎯 Conclusion</h3>
+<p>
     Complex numbers are powerful tools in math and engineering — and with Easy Tables' Complex Numbers Calculator, solving them has never been easier. From basic arithmetic to advanced operations like polar transformations and conjugates, everything is covered in one simple interface.
   </p>
-  <p>
+<p>
     Start using the calculator now and let it be your go-to companion for mastering complex numbers, acing your exams, or powering through engineering problems.
   </p>
 </div>
-
-
-     <div class="see-also">
-      <h4>See Also</h4>
-      <ul>
-       <li><a href="arccos.html">Arccos calculator</a></li>
-       <li><a href="average.html">Average calculator</a></li>
-       <li><a href="binary.html">Binary calculator</a></li>
-       <li><a href="exponential-growth.html">Exponential growth calculator</a></li>
-       <li><a href="root.html">Root calculator</a></li>
-       <li><a href="square-root.html">Square root calculator</a></li>
-       <li><a href="tangent-calculator.html">Tangent calculator</a></li>
-       <li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
-       <li><a href="variance-calculator.html">Variance calculator</a></li>
-
-
-      </ul>
-    </div>
-
-
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> |
+<div class="see-also">
+<h4>See Also</h4>
+<ul>
+<li><a href="arccos.html">Arccos calculator</a></li>
+<li><a href="average.html">Average calculator</a></li>
+<li><a href="binary.html">Binary calculator</a></li>
+<li><a href="exponential-growth.html">Exponential growth calculator</a></li>
+<li><a href="root.html">Root calculator</a></li>
+<li><a href="square-root.html">Square root calculator</a></li>
+<li><a href="tangent-calculator.html">Tangent calculator</a></li>
+<li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
+<li><a href="variance-calculator.html">Variance calculator</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
         <a href="#">Recommend Site</a> |
         <a href="#">Send Feedback</a> |
         <a href="#">About</a>
-      </p>
-      <p>
+</p>
+<p>
         © EasyTables.com |
         <a href="#">About</a> |
         <a href="#">Terms of Use</a> |
         <a href="#">Privacy Policy</a> |
         <a href="#">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
+</p>
+</div>
+</footer>
 </body>
 </html>

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XY Scatter Plot Maker - Easy Tables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
+<meta content="EasyTables: Free online XY Scatter plot maker. Access at https://easytables.vercel.app/calculators/online-contents/online-toolsl3/xy-scatter-plot-maker.html for a fast and accurate XY Scatter plot maker tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>XY Scatter Plot Maker - Easy Tables</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
     #navItem2 { color: white; font-family: "Roboto"; }
@@ -73,244 +74,218 @@
   </style>
 </head>
 <body>
-
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-  <div class="container">
-    <a class="navbar-brand" href="../../../index.html">
-      <h1 class="nav-h1-color">EASY TABLES</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
-        <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-        <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-        <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<a class="navbar-brand" href="../../../index.html">
+<h1 class="nav-h1-color">EASY TABLES</h1>
+</a>
+<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
 </nav>
-
 <!--breadcrumbs-->
-<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
-  <a href="../../../index.html">Home</a> <span>›</span>
-  <a href="../../../index.html">Online-tools</a> <span>›</span>
-  <a href="#">XY Scatter Plot Maker</a>
+<nav aria-label="Breadcrumb" class="breadcrumb container mt-3">
+<a href="../../../index.html">Home</a> <span>›</span>
+<a href="../../../index.html">Online-tools</a> <span>›</span>
+<a href="#">XY Scatter Plot Maker</a>
 </nav>
-
 <!--main code-->
 <div class="graph-container">
-  <h3 class="text-center mb-4">XY Scatter Plot Maker</h3>
-  <label>X Values (comma separated):</label>
-  <input type="text" id="xValues" placeholder="e.g., 1, 2, 3, 4">
-  <label>Y Values (comma separated):</label>
-  <input type="text" id="yValues" placeholder="e.g., 10, 15, 20, 25">
-  <button class="btn btn-primary btn-block mt-3" onclick="createScatterPlot()">Generate Scatter Plot</button>
-  <canvas id="scatterChart" class="mt-4" height="100"></canvas>
+<h3 class="text-center mb-4">XY Scatter Plot Maker</h3>
+<label>X Values (comma separated):</label>
+<input id="xValues" placeholder="e.g., 1, 2, 3, 4" type="text"/>
+<label>Y Values (comma separated):</label>
+<input id="yValues" placeholder="e.g., 10, 15, 20, 25" type="text"/>
+<button class="btn btn-primary btn-block mt-3" onclick="createScatterPlot()">Generate Scatter Plot</button>
+<canvas class="mt-4" height="100" id="scatterChart"></canvas>
 </div>
 <div class="description">
-  <h2>XY Scatter Plot Maker – Create Precise Data Point Charts Online</h2>
-  <p>
+<h2>XY Scatter Plot Maker – Create Precise Data Point Charts Online</h2>
+<p>
     The <strong>XY Scatter Plot Maker</strong> is a powerful online tool designed to help users visualize the relationship between two variables using an X and Y axis. Whether you're a student analyzing a science experiment, a business analyst evaluating trends, or a data scientist presenting correlations, this free tool makes scatter plot creation quick, customizable, and efficient.
   </p>
-
-  <h3>What is an XY Scatter Plot?</h3>
-  <p>
+<h3>What is an XY Scatter Plot?</h3>
+<p>
     An XY scatter plot (also known as a scatter diagram or scatter graph) is a type of chart that displays individual data points on a Cartesian coordinate system. Each point represents the value of two variables: one plotted on the X-axis (horizontal) and the other on the Y-axis (vertical). Scatter plots are used to observe relationships, detect patterns, and analyze the strength of correlations.
   </p>
-
-  <h3>Why Use an XY Scatter Plot?</h3>
-  <ul>
-    <li><strong>Visualize Trends:</strong> Detect positive, negative, or no correlation between variables</li>
-    <li><strong>Spot Outliers:</strong> Quickly identify values that fall outside expected patterns</li>
-    <li><strong>Scientific Analysis:</strong> Commonly used in experiments, physics, and statistics</li>
-    <li><strong>Accurate Representation:</strong> Reflects real values without assumptions</li>
-  </ul>
-
-  <h3>Features of Our XY Scatter Plot Maker</h3>
-  <ul>
-    <li>Simple interface to input X and Y values manually or by upload</li>
-    <li>Multiple series support to plot different datasets on the same graph</li>
-    <li>Customizable colors, point shapes (circle, square, triangle), and sizes</li>
-    <li>Axis scaling, labeling, and grid toggles</li>
-    <li>Export options: PNG, JPG, PDF, and SVG</li>
-    <li>Responsive layout for mobile and tablets</li>
-    <li>Dark mode for night use</li>
-  </ul>
-
-  <h3>How to Use the Scatter Plot Tool</h3>
-  <ol>
-    <li>Enter paired X and Y values into the input table or upload a CSV</li>
-    <li>Select appearance preferences like color and point type</li>
-    <li>Set axis ranges and labels</li>
-    <li>Generate a live preview of your plot</li>
-    <li>Download or share your scatter plot instantly</li>
-  </ol>
-
-  <h3>When to Use a Scatter Plot</h3>
-  <ul>
-    <li><strong>Correlational Studies:</strong> Examining how two variables relate</li>
-    <li><strong>Machine Learning:</strong> Visualizing clustering or regression output</li>
-    <li><strong>Business Analytics:</strong> Plotting revenue vs time or product vs demand</li>
-    <li><strong>Quality Control:</strong> Manufacturing variations in output</li>
-    <li><strong>Medical Research:</strong> Patient age vs recovery rate or dosage vs effect</li>
-  </ul>
-
-  <h3>Scatter Plot vs Line Graph vs Bar Chart</h3>
-  <table class="table table-bordered">
-    <thead>
-      <tr><th>Chart Type</th><th>Best For</th><th>Limitations</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>XY Scatter Plot</td><td>Showing individual point relationships</td><td>Not suitable for totals or categories</td></tr>
-      <tr><td>Line Graph</td><td>Tracking change over time</td><td>Assumes connection between points</td></tr>
-      <tr><td>Bar Chart</td><td>Comparing discrete categories</td><td>Not used for numeric X/Y values</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Advanced Options</h3>
-  <ul>
-    <li>Linear trend line and equation display (y = mx + b)</li>
-    <li>Regression analysis overlay</li>
-    <li>Logarithmic or exponential scaling for advanced data sets</li>
-    <li>Toggle point labels for better clarity</li>
-    <li>Zoom and pan chart for detailed view</li>
-  </ul>
-
-  <h3>Educational Benefits</h3>
-  <p>
+<h3>Why Use an XY Scatter Plot?</h3>
+<ul>
+<li><strong>Visualize Trends:</strong> Detect positive, negative, or no correlation between variables</li>
+<li><strong>Spot Outliers:</strong> Quickly identify values that fall outside expected patterns</li>
+<li><strong>Scientific Analysis:</strong> Commonly used in experiments, physics, and statistics</li>
+<li><strong>Accurate Representation:</strong> Reflects real values without assumptions</li>
+</ul>
+<h3>Features of Our XY Scatter Plot Maker</h3>
+<ul>
+<li>Simple interface to input X and Y values manually or by upload</li>
+<li>Multiple series support to plot different datasets on the same graph</li>
+<li>Customizable colors, point shapes (circle, square, triangle), and sizes</li>
+<li>Axis scaling, labeling, and grid toggles</li>
+<li>Export options: PNG, JPG, PDF, and SVG</li>
+<li>Responsive layout for mobile and tablets</li>
+<li>Dark mode for night use</li>
+</ul>
+<h3>How to Use the Scatter Plot Tool</h3>
+<ol>
+<li>Enter paired X and Y values into the input table or upload a CSV</li>
+<li>Select appearance preferences like color and point type</li>
+<li>Set axis ranges and labels</li>
+<li>Generate a live preview of your plot</li>
+<li>Download or share your scatter plot instantly</li>
+</ol>
+<h3>When to Use a Scatter Plot</h3>
+<ul>
+<li><strong>Correlational Studies:</strong> Examining how two variables relate</li>
+<li><strong>Machine Learning:</strong> Visualizing clustering or regression output</li>
+<li><strong>Business Analytics:</strong> Plotting revenue vs time or product vs demand</li>
+<li><strong>Quality Control:</strong> Manufacturing variations in output</li>
+<li><strong>Medical Research:</strong> Patient age vs recovery rate or dosage vs effect</li>
+</ul>
+<h3>Scatter Plot vs Line Graph vs Bar Chart</h3>
+<table class="table table-bordered">
+<thead>
+<tr><th>Chart Type</th><th>Best For</th><th>Limitations</th></tr>
+</thead>
+<tbody>
+<tr><td>XY Scatter Plot</td><td>Showing individual point relationships</td><td>Not suitable for totals or categories</td></tr>
+<tr><td>Line Graph</td><td>Tracking change over time</td><td>Assumes connection between points</td></tr>
+<tr><td>Bar Chart</td><td>Comparing discrete categories</td><td>Not used for numeric X/Y values</td></tr>
+</tbody>
+</table>
+<h3>Advanced Options</h3>
+<ul>
+<li>Linear trend line and equation display (y = mx + b)</li>
+<li>Regression analysis overlay</li>
+<li>Logarithmic or exponential scaling for advanced data sets</li>
+<li>Toggle point labels for better clarity</li>
+<li>Zoom and pan chart for detailed view</li>
+</ul>
+<h3>Educational Benefits</h3>
+<p>
     Students and teachers can use scatter plots to learn concepts like correlation, regression, and outliers in real-world datasets. Great for use in math, science, economics, and geography classrooms.
   </p>
-
-  <h3>Who Should Use This Tool?</h3>
-  <ul>
-    <li>High school and college students</li>
-    <li>Science fair participants</li>
-    <li>Researchers and PhD scholars</li>
-    <li>Financial analysts and economists</li>
-    <li>Developers building data visualizations</li>
-  </ul>
-
-  <h3>SEO Keywords for Reach</h3>
-  <ul>
-    <li>XY scatter plot generator</li>
-    <li>free scatter plot maker online</li>
-    <li>XY chart builder</li>
-    <li>data visualization scatter chart tool</li>
-    <li>create correlation graph online</li>
-    <li>interactive XY plot tool</li>
-  </ul>
-
-  <h3>Try It Now</h3>
-  <p>
+<h3>Who Should Use This Tool?</h3>
+<ul>
+<li>High school and college students</li>
+<li>Science fair participants</li>
+<li>Researchers and PhD scholars</li>
+<li>Financial analysts and economists</li>
+<li>Developers building data visualizations</li>
+</ul>
+<h3>SEO Keywords for Reach</h3>
+<ul>
+<li>XY scatter plot generator</li>
+<li>free scatter plot maker online</li>
+<li>XY chart builder</li>
+<li>data visualization scatter chart tool</li>
+<li>create correlation graph online</li>
+<li>interactive XY plot tool</li>
+</ul>
+<h3>Try It Now</h3>
+<p>
     Explore trends, discover relationships, and create compelling XY scatter plots in seconds. Our XY Scatter Plot Maker is free, fast, and secure — no installation or login required. Perfect for presentations, research papers, or quick exploratory analysis.
   </p>
-  <p><strong>Start plotting your data today with the easiest XY Scatter Plot Maker on the web!</strong></p>
+<p><strong>Start plotting your data today with the easiest XY Scatter Plot Maker on the web!</strong></p>
 </div>
 <div class="description">
-  <h2>XY Scatter Plot Maker – Create Precise Data Point Charts Online</h2>
-  <p>
+<h2>XY Scatter Plot Maker – Create Precise Data Point Charts Online</h2>
+<p>
     The <strong>XY Scatter Plot Maker</strong> is a powerful online tool designed to help users visualize the relationship between two variables using an X and Y axis. Whether you're a student analyzing a science experiment, a business analyst evaluating trends, or a data scientist presenting correlations, this free tool makes scatter plot creation quick, customizable, and efficient.
   </p>
-
-  <h3>What is an XY Scatter Plot?</h3>
-  <p>
+<h3>What is an XY Scatter Plot?</h3>
+<p>
     An XY scatter plot (also known as a scatter diagram or scatter graph) is a type of chart that displays individual data points on a Cartesian coordinate system. Each point represents the value of two variables: one plotted on the X-axis (horizontal) and the other on the Y-axis (vertical). Scatter plots are used to observe relationships, detect patterns, and analyze the strength of correlations.
   </p>
-
-  <h3>Why Use an XY Scatter Plot?</h3>
-  <ul>
-    <li><strong>Visualize Trends:</strong> Detect positive, negative, or no correlation between variables</li>
-    <li><strong>Spot Outliers:</strong> Quickly identify values that fall outside expected patterns</li>
-    <li><strong>Scientific Analysis:</strong> Commonly used in experiments, physics, and statistics</li>
-    <li><strong>Accurate Representation:</strong> Reflects real values without assumptions</li>
-  </ul>
-
-  <h3>Features of Our XY Scatter Plot Maker</h3>
-  <ul>
-    <li>Simple interface to input X and Y values manually or by upload</li>
-    <li>Multiple series support to plot different datasets on the same graph</li>
-    <li>Customizable colors, point shapes (circle, square, triangle), and sizes</li>
-    <li>Axis scaling, labeling, and grid toggles</li>
-    <li>Export options: PNG, JPG, PDF, and SVG</li>
-    <li>Responsive layout for mobile and tablets</li>
-    <li>Dark mode for night use</li>
-  </ul>
-
-  <h3>How to Use the Scatter Plot Tool</h3>
-  <ol>
-    <li>Enter paired X and Y values into the input table or upload a CSV</li>
-    <li>Select appearance preferences like color and point type</li>
-    <li>Set axis ranges and labels</li>
-    <li>Generate a live preview of your plot</li>
-    <li>Download or share your scatter plot instantly</li>
-  </ol>
-
-  <h3>When to Use a Scatter Plot</h3>
-  <ul>
-    <li><strong>Correlational Studies:</strong> Examining how two variables relate</li>
-    <li><strong>Machine Learning:</strong> Visualizing clustering or regression output</li>
-    <li><strong>Business Analytics:</strong> Plotting revenue vs time or product vs demand</li>
-    <li><strong>Quality Control:</strong> Manufacturing variations in output</li>
-    <li><strong>Medical Research:</strong> Patient age vs recovery rate or dosage vs effect</li>
-  </ul>
-
-  <h3>Scatter Plot vs Line Graph vs Bar Chart</h3>
-  <table class="table table-bordered">
-    <thead>
-      <tr><th>Chart Type</th><th>Best For</th><th>Limitations</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>XY Scatter Plot</td><td>Showing individual point relationships</td><td>Not suitable for totals or categories</td></tr>
-      <tr><td>Line Graph</td><td>Tracking change over time</td><td>Assumes connection between points</td></tr>
-      <tr><td>Bar Chart</td><td>Comparing discrete categories</td><td>Not used for numeric X/Y values</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Advanced Options</h3>
-  <ul>
-    <li>Linear trend line and equation display (y = mx + b)</li>
-    <li>Regression analysis overlay</li>
-    <li>Logarithmic or exponential scaling for advanced data sets</li>
-    <li>Toggle point labels for better clarity</li>
-    <li>Zoom and pan chart for detailed view</li>
-  </ul>
-
-  <h3>Educational Benefits</h3>
-  <p>
+<h3>Why Use an XY Scatter Plot?</h3>
+<ul>
+<li><strong>Visualize Trends:</strong> Detect positive, negative, or no correlation between variables</li>
+<li><strong>Spot Outliers:</strong> Quickly identify values that fall outside expected patterns</li>
+<li><strong>Scientific Analysis:</strong> Commonly used in experiments, physics, and statistics</li>
+<li><strong>Accurate Representation:</strong> Reflects real values without assumptions</li>
+</ul>
+<h3>Features of Our XY Scatter Plot Maker</h3>
+<ul>
+<li>Simple interface to input X and Y values manually or by upload</li>
+<li>Multiple series support to plot different datasets on the same graph</li>
+<li>Customizable colors, point shapes (circle, square, triangle), and sizes</li>
+<li>Axis scaling, labeling, and grid toggles</li>
+<li>Export options: PNG, JPG, PDF, and SVG</li>
+<li>Responsive layout for mobile and tablets</li>
+<li>Dark mode for night use</li>
+</ul>
+<h3>How to Use the Scatter Plot Tool</h3>
+<ol>
+<li>Enter paired X and Y values into the input table or upload a CSV</li>
+<li>Select appearance preferences like color and point type</li>
+<li>Set axis ranges and labels</li>
+<li>Generate a live preview of your plot</li>
+<li>Download or share your scatter plot instantly</li>
+</ol>
+<h3>When to Use a Scatter Plot</h3>
+<ul>
+<li><strong>Correlational Studies:</strong> Examining how two variables relate</li>
+<li><strong>Machine Learning:</strong> Visualizing clustering or regression output</li>
+<li><strong>Business Analytics:</strong> Plotting revenue vs time or product vs demand</li>
+<li><strong>Quality Control:</strong> Manufacturing variations in output</li>
+<li><strong>Medical Research:</strong> Patient age vs recovery rate or dosage vs effect</li>
+</ul>
+<h3>Scatter Plot vs Line Graph vs Bar Chart</h3>
+<table class="table table-bordered">
+<thead>
+<tr><th>Chart Type</th><th>Best For</th><th>Limitations</th></tr>
+</thead>
+<tbody>
+<tr><td>XY Scatter Plot</td><td>Showing individual point relationships</td><td>Not suitable for totals or categories</td></tr>
+<tr><td>Line Graph</td><td>Tracking change over time</td><td>Assumes connection between points</td></tr>
+<tr><td>Bar Chart</td><td>Comparing discrete categories</td><td>Not used for numeric X/Y values</td></tr>
+</tbody>
+</table>
+<h3>Advanced Options</h3>
+<ul>
+<li>Linear trend line and equation display (y = mx + b)</li>
+<li>Regression analysis overlay</li>
+<li>Logarithmic or exponential scaling for advanced data sets</li>
+<li>Toggle point labels for better clarity</li>
+<li>Zoom and pan chart for detailed view</li>
+</ul>
+<h3>Educational Benefits</h3>
+<p>
     Students and teachers can use scatter plots to learn concepts like correlation, regression, and outliers in real-world datasets. Great for use in math, science, economics, and geography classrooms.
   </p>
-
-  <h3>Who Should Use This Tool?</h3>
-  <ul>
-    <li>High school and college students</li>
-    <li>Science fair participants</li>
-    <li>Researchers and PhD scholars</li>
-    <li>Financial analysts and economists</li>
-    <li>Developers building data visualizations</li>
-  </ul>
-
-  <h3>SEO Keywords for Reach</h3>
-  <ul>
-    <li>XY scatter plot generator</li>
-    <li>free scatter plot maker online</li>
-    <li>XY chart builder</li>
-    <li>data visualization scatter chart tool</li>
-    <li>create correlation graph online</li>
-    <li>interactive XY plot tool</li>
-  </ul>
-
-  <h3>Try It Now</h3>
-  <p>
+<h3>Who Should Use This Tool?</h3>
+<ul>
+<li>High school and college students</li>
+<li>Science fair participants</li>
+<li>Researchers and PhD scholars</li>
+<li>Financial analysts and economists</li>
+<li>Developers building data visualizations</li>
+</ul>
+<h3>SEO Keywords for Reach</h3>
+<ul>
+<li>XY scatter plot generator</li>
+<li>free scatter plot maker online</li>
+<li>XY chart builder</li>
+<li>data visualization scatter chart tool</li>
+<li>create correlation graph online</li>
+<li>interactive XY plot tool</li>
+</ul>
+<h3>Try It Now</h3>
+<p>
     Explore trends, discover relationships, and create compelling XY scatter plots in seconds. Our XY Scatter Plot Maker is free, fast, and secure — no installation or login required. Perfect for presentations, research papers, or quick exploratory analysis.
   </p>
-  <p><strong>Start plotting your data today with the easiest XY Scatter Plot Maker on the web!</strong></p>
+<p><strong>Start plotting your data today with the easiest XY Scatter Plot Maker on the web!</strong></p>
 </div>
-
 <script>
   function createScatterPlot() {
     const xInput = document.getElementById("xValues").value.split(",").map(Number);
@@ -353,43 +328,40 @@
     });
   }
 </script>
-
 <!-- see also -->
 <div class="see-also">
-  <h4>See Also</h4>
-  <ul>
-    <li><a href="online-tools.html">Online Tools</a></li>
-    <li><a href="calendar.html">Calendar</a></li>
-    <li><a href="camera-online.html">Camera Online</a></li>
-    <li><a href="chart-online-maker.html">Chart Online Maker</a></li>
-    <li><a href="click-counter-online.html">Click Counter Online</a></li>
-    <li><a href="countdown-timer.html">Countdown Timer</a></li>
-    <li><a href="flashlight-online.html">Flashlight Online</a></li>
-    <li><a href="line-graph-maker.html">Line Graph Maker</a></li>
-    <li><a href="online-grocery-list.html">Online Grocery List</a></li>
-    <li><a href="password-generator.html">Password Generator</a></li>
-    <li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
-    <li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
-  </ul>
+<h4>See Also</h4>
+<ul>
+<li><a href="online-tools.html">Online Tools</a></li>
+<li><a href="calendar.html">Calendar</a></li>
+<li><a href="camera-online.html">Camera Online</a></li>
+<li><a href="chart-online-maker.html">Chart Online Maker</a></li>
+<li><a href="click-counter-online.html">Click Counter Online</a></li>
+<li><a href="countdown-timer.html">Countdown Timer</a></li>
+<li><a href="flashlight-online.html">Flashlight Online</a></li>
+<li><a href="line-graph-maker.html">Line Graph Maker</a></li>
+<li><a href="online-grocery-list.html">Online Grocery List</a></li>
+<li><a href="password-generator.html">Password Generator</a></li>
+<li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
+<li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
+</ul>
 </div>
-
 <!--footer-->
 <footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
       <a href="#">Recommend Site</a> |
       <a href="#">Send Feedback</a> |
       <a href="#">About</a>
-    </p>
-    <p>
+</p>
+<p>
       © EasyTables.com |
       <a href="#">Terms of Use</a> |
       <a href="#">Privacy Policy</a> |
       <a href="#">Manage Cookies</a>
-    </p>
-  </div>
+</p>
+</div>
 </footer>
-
 </body>
 </html>

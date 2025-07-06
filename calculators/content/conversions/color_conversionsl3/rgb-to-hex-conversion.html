@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>RGB to Hex Converter</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
+<head>
+<meta content="EasyTables: Free online RGB to hex conversion. Access at https://easytables.vercel.app/calculators/content/conversions/color_conversionsl3/rgb-to-hex-conversion.html for a fast and accurate RGB to hex conversion tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RGB to Hex Converter</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -24,44 +25,43 @@
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
     </style>
-  </head>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-    <div class="container">
-      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <br>
-    <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../../../index.html">Home</a> <span>›</span>
-    <a href="../../../../index.html#Calculators-s">Color Converters</a> <span>›</span>
-      <a href="#">RGB to Hex Converter</a>
-    </nav>
-
-      <div class="description">
-        <h3>RGB to Hex Converter</h3>
-        <p>Enter RGB values (0‑255):</p>
-        <div class="form-row">
-          <div class="col"><input type="number" min="0" max="255" class="form-control" id="r" placeholder="R"></div>
-          <div class="col"><input type="number" min="0" max="255" class="form-control" id="g" placeholder="G"></div>
-          <div class="col"><input type="number" min="0" max="255" class="form-control" id="b" placeholder="B"></div>
-        </div>
-        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-        <div class="mt-3" id="result"></div>
-      </div>
-      <script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="Breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>›</span>
+<a href="../../../../index.html#Calculators-s">Color Converters</a> <span>›</span>
+<a href="#">RGB to Hex Converter</a>
+</nav>
+<div class="description">
+<h3>RGB to Hex Converter</h3>
+<p>Enter RGB values (0‑255):</p>
+<div class="form-row">
+<div class="col"><input class="form-control" id="r" max="255" min="0" placeholder="R" type="number"/></div>
+<div class="col"><input class="form-control" id="g" max="255" min="0" placeholder="G" type="number"/></div>
+<div class="col"><input class="form-control" id="b" max="255" min="0" placeholder="B" type="number"/></div>
+</div>
+<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+<div class="mt-3" id="result"></div>
+</div>
+<script>
         function toHex(n) {{ return n.toString(16).padStart(2,'0').toUpperCase(); }}
         function convert() {{
           const r = parseInt(document.getElementById('r').value);
@@ -72,194 +72,171 @@
         }}
       </script>
 <div class="description">
-  <h1>RGB (Red–Green–Blue) to Hexadecimal (Hex) Color Converter</h1>
-  <p>
+<h1>RGB (Red–Green–Blue) to Hexadecimal (Hex) Color Converter</h1>
+<p>
     Converting from RGB to Hex color notation is a fundamental task in web design, UI development, digital art, and data visualization. RGB expresses colors as three integer channels (0–255), while Hex encodes the same in a compact six-digit hexadecimal string. This SEO-optimized guide—using all heading levels from <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>—covers color theory distinctions, exact conversion formulas, step-by-step procedures, rich examples, quick-reference tables, code snippets in multiple languages, advanced integration patterns, performance-and-sustainability tips, accessibility considerations, and AI-driven trends to master RGB ↔ Hex conversion across every project.
   </p>
-
-  <h2>What Is the RGB Color Model?</h2>
-  <p>
+<h2>What Is the RGB Color Model?</h2>
+<p>
     RGB represents colors by combining red, green, and blue light. Each channel value ranges from <code>0</code> (no light) to <code>255</code> (full intensity) in 8-bit form, or normalized to <code>[0,1]</code> in floating-point shaders.
   </p>
-
-  <h3>Components of RGB</h3>
-  <ul>
-    <li><strong>R:</strong> Red channel intensity</li>
-    <li><strong>G:</strong> Green channel intensity</li>
-    <li><strong>B:</strong> Blue channel intensity</li>
-  </ul>
-
-  <h4>Contexts for RGB Usage</h4>
-  <ul>
-    <li>Display hardware (monitors, phones, TVs)</li>
-    <li>Canvas/WebGL and graphic APIs</li>
-    <li>Image file formats (PNG, JPEG, GIF)</li>
-    <li>CSS <code>rgb()</code> declarations</li>
-  </ul>
-
-  <h5>Why RGB Matters</h5>
-  <p>
+<h3>Components of RGB</h3>
+<ul>
+<li><strong>R:</strong> Red channel intensity</li>
+<li><strong>G:</strong> Green channel intensity</li>
+<li><strong>B:</strong> Blue channel intensity</li>
+</ul>
+<h4>Contexts for RGB Usage</h4>
+<ul>
+<li>Display hardware (monitors, phones, TVs)</li>
+<li>Canvas/WebGL and graphic APIs</li>
+<li>Image file formats (PNG, JPEG, GIF)</li>
+<li>CSS <code>rgb()</code> declarations</li>
+</ul>
+<h5>Why RGB Matters</h5>
+<p>
     RGB maps directly to emitted light intensities. When authoring colors in code, designers and developers need a concise textual form—Hex—for stylesheets, SVG, and theme tokens.
   </p>
-
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Always confirm whether your environment expects uppercase (<code>#AABBCC</code>) or lowercase (<code>#aabbcc</code>) hex for consistency.
   </p>
-
-  <h2>What Is a Hex Color Code?</h2>
-  <p>
+<h2>What Is a Hex Color Code?</h2>
+<p>
     A Hex code encodes 24-bit RGB as a six-character hexadecimal string prefixed by “#”. Each two-digit pair (00–FF) represents one color channel in base-16.
   </p>
-
-  <h3>Structure of Hex</h3>
-  <p>
-    <code>#RRGGBB</code> where:
+<h3>Structure of Hex</h3>
+<p>
+<code>#RRGGBB</code> where:
     <ul>
-      <li><strong>RR</strong> = red channel in hex</li>
-      <li><strong>GG</strong> = green channel in hex</li>
-      <li><strong>BB</strong> = blue channel in hex</li>
-    </ul>
-  </p>
-
-  <h4>Advantages of Hex</h4>
-  <ul>
-    <li>Concise textual form for CSS and HTML</li>
-    <li>Widely supported in design tools and frameworks</li>
-    <li>Easy to store as theme tokens or design variables</li>
-  </ul>
-
-  <h5>Hex vs. RGB Syntax</h5>
-  <p>
-    • <code>rgb(255,128,0)</code> vs. <code>#FF8000</code><br>
-    • Hex is shorter and more cache-friendly in CSS<br>
+<li><strong>RR</strong> = red channel in hex</li>
+<li><strong>GG</strong> = green channel in hex</li>
+<li><strong>BB</strong> = blue channel in hex</li>
+</ul>
+</p>
+<h4>Advantages of Hex</h4>
+<ul>
+<li>Concise textual form for CSS and HTML</li>
+<li>Widely supported in design tools and frameworks</li>
+<li>Easy to store as theme tokens or design variables</li>
+</ul>
+<h5>Hex vs. RGB Syntax</h5>
+<p>
+    • <code>rgb(255,128,0)</code> vs. <code>#FF8000</code><br/>
+    • Hex is shorter and more cache-friendly in CSS<br/>
     • RGB is more explicit when computing color manipulations
   </p>
-
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Use shorthand 3-digit hex (<code>#F80</code>) when each pair repeats (e.g. <code>#FF8800</code>) to save bytes.
   </p>
-
-  <h2>Exact Conversion Formula</h2>
-  <p>
+<h2>Exact Conversion Formula</h2>
+<p>
     Converting each RGB channel <code>R, G, B ∈ [0,255]</code> to its two-digit hex representation:
   </p>
-
-  <h3>Channel to Hex</h3>
-  <p>
-    <code>hexChannel = toHex(R).padStart(2,'0')</code><br>
+<h3>Channel to Hex</h3>
+<p>
+<code>hexChannel = toHex(R).padStart(2,'0')</code><br/>
     where <code>toHex</code> converts a decimal to base-16 string.
   </p>
-
-  <h4>Full Conversion</h4>
-  <p>
+<h4>Full Conversion</h4>
+<p>
     Concatenate channels:  
     <code>hex = '#' + hex(R) + hex(G) + hex(B)</code>.
   </p>
-
-  <h5>Padding &amp; Case</h5>
-  <p>
+<h5>Padding &amp; Case</h5>
+<p>
     Ensure single-digit hex values (0–15) are zero-prefixed (e.g. 10 → <code>'0A'</code>), and choose uppercase or lowercase consistently.
   </p>
-
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Centralize your conversion routine in a utility function to avoid duplication and ensure uniform formatting.
   </p>
-
-  <h2>Step-by-Step Conversion Procedure</h2>
-  <h3>1. Validate Inputs</h3>
-  <p>
+<h2>Step-by-Step Conversion Procedure</h2>
+<h3>1. Validate Inputs</h3>
+<p>
     Confirm <code>R, G, B</code> are integers between 0 and 255.
   </p>
-  <h3>2. Convert Each Channel</h3>
-  <p>
+<h3>2. Convert Each Channel</h3>
+<p>
     Use language-provided functions to convert each value to hex.
   </p>
-  <h3>3. Pad to Two Digits</h3>
-  <p>
+<h3>3. Pad to Two Digits</h3>
+<p>
     If result is single hex digit, prepend '0'.
   </p>
-  <h3>4. Concatenate &amp; Prefix</h3>
-  <p>
+<h3>4. Concatenate &amp; Prefix</h3>
+<p>
     Join the three hex pairs and prefix with '#'.
   </p>
-
-  <h2>Illustrative Examples</h2>
-  <h3>Example 1: Pure Red</h3>
-  <p>
-    RGB = (255,0,0):<br>
+<h2>Illustrative Examples</h2>
+<h3>Example 1: Pure Red</h3>
+<p>
+    RGB = (255,0,0):<br/>
     R→<code>'FF'</code>, G→<code>'00'</code>, B→<code>'00'</code> → Hex = <code>#FF0000</code>.
   </p>
-  <h4>Example 2: Orange</h4>
-  <p>
-    RGB = (255,128,0):<br>
+<h4>Example 2: Orange</h4>
+<p>
+    RGB = (255,128,0):<br/>
     R→<code>'FF'</code>, G→<code>'80'</code>, B→<code>'00'</code> → Hex = <code>#FF8000</code>.
   </p>
-  <h5>Example 3: Medium Gray</h5>
-  <p>
-    RGB = (128,128,128):<br>
+<h5>Example 3: Medium Gray</h5>
+<p>
+    RGB = (128,128,128):<br/>
     each →<code>'80'</code> → Hex = <code>#808080</code>.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Always test edge values (0,255) to confirm zero- and full-intensity channels convert correctly.
   </p>
-
-  <h2>Quick-Reference Conversion Table</h2>
-  <table>
-    <thead>
-      <tr><th>RGB</th><th>Hex</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>(0,0,0)</td><td>#000000</td></tr>
-      <tr><td>(255,255,255)</td><td>#FFFFFF</td></tr>
-      <tr><td>(255,0,0)</td><td>#FF0000</td></tr>
-      <tr><td>(0,255,0)</td><td>#00FF00</td></tr>
-      <tr><td>(0,0,255)</td><td>#0000FF</td></tr>
-      <tr><td>(255,128,0)</td><td>#FF8000</td></tr>
-      <tr><td>(128,128,128)</td><td>#808080</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Implementing in Code</h2>
-  <h3>JavaScript Snippet</h3>
-  <pre><code>function rgbToHex(r, g, b) {
-  const toHex = c => c.toString(16).padStart(2, '0');
+<h2>Quick-Reference Conversion Table</h2>
+<table>
+<thead>
+<tr><th>RGB</th><th>Hex</th></tr>
+</thead>
+<tbody>
+<tr><td>(0,0,0)</td><td>#000000</td></tr>
+<tr><td>(255,255,255)</td><td>#FFFFFF</td></tr>
+<tr><td>(255,0,0)</td><td>#FF0000</td></tr>
+<tr><td>(0,255,0)</td><td>#00FF00</td></tr>
+<tr><td>(0,0,255)</td><td>#0000FF</td></tr>
+<tr><td>(255,128,0)</td><td>#FF8000</td></tr>
+<tr><td>(128,128,128)</td><td>#808080</td></tr>
+</tbody>
+</table>
+<h2>Implementing in Code</h2>
+<h3>JavaScript Snippet</h3>
+<pre><code>function rgbToHex(r, g, b) {
+  const toHex = c =&gt; c.toString(16).padStart(2, '0');
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
 }
 console.log(rgbToHex(255,128,0)); // "#FF8000"</code></pre>
-
-  <h4>Python Snippet</h4>
-  <pre><code>def rgb_to_hex(r, g, b):
+<h4>Python Snippet</h4>
+<pre><code>def rgb_to_hex(r, g, b):
     return '#{0:02X}{1:02X}{2:02X}'.format(r, g, b)
 
 print(rgb_to_hex(128,128,128))  # "#808080"</code></pre>
-
-  <h5>CSS Custom Properties</h5>
-  <p>
+<h5>CSS Custom Properties</h5>
+<p>
     Precompute in build scripts and expose as variables:  
     <code>--color-primary: #FF8000;</code>  
     then use <code>color: var(--color-primary);</code> in your styles.
   </p>
-
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Memoize your conversion function in large applications to avoid redundant computations.
   </p>
-
-  <h2>Advanced Integration Patterns</h2>
-  <h3>Design-Token Pipelines</h3>
-  <p>
+<h2>Advanced Integration Patterns</h2>
+<h3>Design-Token Pipelines</h3>
+<p>
     Store base colors in RGB (e.g., JSON), generate Hex outputs in build steps for CSS, SwiftUI, Android XML via scripts or plugins.
   </p>
-  <h4>Canvas &amp; WebGL</h4>
-  <p>
+<h4>Canvas &amp; WebGL</h4>
+<p>
     Convert RGB to normalized floats (<code>/255</code>) for shaders, but log Hex values for debug overlays and theme definitions.
   </p>
-  <h5>Linked-Data &amp; JSON-LD</h5>
-  <p>
+<h5>Linked-Data &amp; JSON-LD</h5>
+<p>
     Represent theme tokens:  
     <code>{
   "@context":"http://schema.org",
@@ -267,107 +244,97 @@ print(rgb_to_hex(128,128,128))  # "#808080"</code></pre>
 }</code>  
     enabling SPARQL queries over design systems.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Centralize token definitions in a shared ontology to drive consistent theming across channels.
   </p>
-
-  <h2>Performance &amp; Sustainability</h2>
-  <p>
+<h2>Performance &amp; Sustainability</h2>
+<p>
     Converting millions of RGB values at runtime can be costly. Precompute Hex strings at build time or cache mapping in a lookup table (256³ entries) for large-scale data visualizations or games.
   </p>
-
-  <h3>Build-Time Generation</h3>
-  <p>
+<h3>Build-Time Generation</h3>
+<p>
     During bundling, process color palettes to generate static CSS/JSON files with Hex values, reducing client-side overhead.
   </p>
-
-  <h4>Runtime Caching</h4>
-  <p>
+<h4>Runtime Caching</h4>
+<p>
     Memoize conversion results or store in a Map/dictionary for instant lookup on repeated values.
   </p>
-
-  <h5>Tip:</h5>
-  <p>
+<h5>Tip:</h5>
+<p>
     For ultra-high-performance loops, consider bitwise operations:  
-    <code>((r & 0xFF)<<16)|((g&0xFF)<<8)|(b&0xFF)</code>, then convert that integer to hex in one operation.
+    <code>((r &amp; 0xFF)&lt;&lt;16)|((g&amp;0xFF)&lt;&lt;8)|(b&amp;0xFF)</code>, then convert that integer to hex in one operation.
   </p>
-
-  <h6>Example (JS Bitwise):</h6>
-  <pre><code>function rgbToHexFast(r,g,b){
-  return '#' + ((1<<24) | (r<<16) | (g<<8) | b)
+<h6>Example (JS Bitwise):</h6>
+<pre><code>function rgbToHexFast(r,g,b){
+  return '#' + ((1&lt;&lt;24) | (r&lt;&lt;16) | (g&lt;&lt;8) | b)
     .toString(16).slice(1).toUpperCase();
 }
 </code></pre>
-
-  <h2>Accessibility &amp; Theming</h2>
-  <h3>Contrast Checking</h3>
-  <p>
+<h2>Accessibility &amp; Theming</h2>
+<h3>Contrast Checking</h3>
+<p>
     After conversion, calculate relative luminance from RGB to ensure text over background Hex meets WCAG 2.1 contrast ≥4.5:1.
   </p>
-  <h4>Dynamic Theme Switching</h4>
-  <p>
+<h4>Dynamic Theme Switching</h4>
+<p>
     Convert user-selected RGB to Hex on the fly for CSS variable updates:  
     <code>document.documentElement.style.setProperty('--bg', rgbToHex(r,g,b));</code>
-  </p>
-  <h5>Tip:</h5>
-  <p>
+</p>
+<h5>Tip:</h5>
+<p>
     Always provide non-color cues (icons, patterns) in addition to color changes for accessibility.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Test your color conversions and contrast with tools like axe or Lighthouse to validate accessibility.
   </p>
-
-  <h2>Future Trends &amp; AI-Driven Color Tools</h2>
-  <h3>AI-Powered Palette Generation</h3>
-  <p>
+<h2>Future Trends &amp; AI-Driven Color Tools</h2>
+<h3>AI-Powered Palette Generation</h3>
+<p>
     Machine learning can suggest harmonious RGB palettes, then convert to Hex for CSS, automating theme creation.
   </p>
-  <h4>Ambient-Adaptive Theming</h4>
-  <p>
+<h4>Ambient-Adaptive Theming</h4>
+<p>
     Edge-AI on devices adjusts RGB sliders based on ambient light, exports Hex values for dynamic CSS updates that maintain readability.
   </p>
-  <h5>Continuous Learning</h5>
-  <p>
+<h5>Continuous Learning</h5>
+<p>
     User feedback on generated themes feeds into retraining pipelines (e.g., MLflow), improving color recommendations over time.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Version both AI color models and conversion utilities together to ensure reproducibility and compliance.
   </p>
-
-  <h2>Conclusion</h2>
-  <p>
+<h2>Conclusion</h2>
+<p>
     Mastery of RGB ↔ Hex conversion—through precise channel formatting, efficient bitwise methods, and robust integration patterns—ensures your colors render accurately and performantly across web, mobile, and design systems. By following these step-by-step formulas, examples, code snippets, accessibility guidelines, performance optimizations, and AI trends—utilizing all heading levels—you’ll deliver consistent, maintainable, and future-proof color workflows in every project.
   </p>
 </div>
 
+<div class="see-also description">
+<h4>See Also</h4>
+<ul>
+<li><a href="../energy-convertion.html">Energy convertion</a></li>
+<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+<li><a href="../length-convertion.html">Length convertion</a></li>
+<li><a href="../number-convertion.html">Number convertion</a></li>
+<li><a href="../power-convertion.html">Power convertion</a></li>
+<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+<li><a href="../weight-convertion.html">Weight convertion</a></li>
+<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+</ul>
 </div>
-  <div class="see-also description">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="../energy-convertion.html">Energy convertion</a></li>
-      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-      <li><a href="../length-convertion.html">Length convertion</a></li>
-      <li><a href="../number-convertion.html">Number convertion</a></li>
-      <li><a href="../power-convertion.html">Power convertion</a></li>
-      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-      <li><a href="../weight-convertion.html">Weight convertion</a></li>
-      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-    </ul>
-  </div>
-
-    <footer>
-      <div class="container">
-        <p>
-          <a href="#">Link to Us</a> |
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-        </p>
-        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
-      </div>
-    </footer>
-  </body>
+</p>
+<p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+</div>
+</footer>
+</body>
 </html>

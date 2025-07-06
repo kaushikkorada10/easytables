@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PNG to PDF Converter - Easy Tables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-  <style>
+<meta content="EasyTables: Free online PNG to PDF converter. Access at https://easytables.vercel.app/calculators/online-contents/pdf-toolsl3/png-pdf.html for a fast and accurate PNG to PDF converter tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PNG to PDF Converter - Easy Tables</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
     #navItem2 { color: white; font-family: "Roboto"; }
@@ -45,246 +46,224 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-    <div class="container">
-      <a class="navbar-brand" href="../../../index.html">
-        <h1 class="nav-h1-color">EASY TABLES</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
-          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
-    <a href="../../../index.html">Home</a> <span>›</span>
-    <a href="#">PNG to PDF Converter</a>
-  </nav>
-
-  <div class="description">
-    <h2>PNG to PDF Converter</h2>
-    <p>Convert one or more PNG images into a single downloadable PDF. Fast, secure, and entirely browser-based.</p>
-
-    <div class="form-group">
-      <label for="pngInput">Upload PNG Images:</label>
-      <input type="file" id="pngInput" class="form-control-file" multiple accept=".png,image/png" onchange="previewPNGs(event)">
-    </div>
-    <div id="preview" class="mb-3"></div>
-    <button class="btn btn-primary" onclick="convertPNGtoPDF()">Convert to PDF</button>
-  </div>
-
-  <div class="description">
-    <h3>Why Convert PNG to PDF?</h3>
-    <ul>
-      <li><strong>Preserve Layout:</strong> Combine multiple PNGs into one document.</li>
-      <li><strong>Secure:</strong> No upload – processed locally in your browser.</li>
-      <li><strong>Multi-page PDF:</strong> Automatically creates a new page for each image.</li>
-      <li><strong>Convenient:</strong> Ideal for scanned notes, receipts, or graphic exports.</li>
-    </ul>
-
-    <h3>Tips for Best Results</h3>
-    <ul>
-      <li>Ensure high-resolution images for clear output.</li>
-      <li>Use landscape or portrait images consistently for uniform pages.</li>
-      <li>Output PDF preserves image order based on selection order.</li>
-    </ul>
-  </div>
-  <div class="description">
-    <h3>How to Use</h3>
-    <ol>
-      <li>Select one or more images (JPG, PNG, etc.) using the file input.</li>
-      <li>Click the “Convert to PDF” button.</li>
-      <li>The tool will create and download a PDF file containing all your selected images.</li>
-    </ol>
-
-    <h3>Why Convert Images to PDF?</h3>
-    <ul>
-      <li><strong>Easy Sharing:</strong> Combine images into one document for email or print.</li>
-      <li><strong>Archiving:</strong> Create a digital record of paper documents.</li>
-      <li><strong>Organized:</strong> Save multiple photos as a clean, portable format.</li>
-    </ul>
-
-    <h3>Best Practices</h3>
-    <ul>
-      <li>Use clear and well-lit images for best readability.</li>
-      <li>Files are handled locally — nothing is uploaded to a server.</li>
-      <li>Mobile-friendly: Works on phones and tablets too!</li>
-    </ul>
-  </div>
-  <div class="description">
-  <h2>Image to PDF Converter – Combine and Convert Images to PDF Instantly</h2>
-
-  <p>Welcome to Easy Tables’ <strong>Image to PDF Converter</strong> — the simplest and most efficient way to convert your images into PDF documents. Whether you're working with photos, scanned documents, digital artwork, or screenshots, our free online tool lets you upload images and turn them into a high-quality PDF file in seconds. No watermarks, no signups, no installations — just fast and easy PDF conversion right in your browser.</p>
-
-  <h3>Why Convert Images to PDF?</h3>
-  <p>PDF (Portable Document Format) is one of the most widely accepted file types across all devices and platforms. It maintains layout consistency, allows easy printing, and ensures professional sharing. Converting your images into PDFs makes it easier to:</p>
-  <ul>
-    <li>📎 Combine multiple images into a single, organized document</li>
-    <li>📤 Share high-resolution scans or photos without losing quality</li>
-    <li>🖨️ Print images in a standardized format</li>
-    <li>📚 Archive or digitize physical documents</li>
-    <li>🛡️ Lock your content into a secure, non-editable format</li>
-  </ul>
-
-  <h3>How to Use the Image to PDF Tool</h3>
-  <p>Our tool is designed to be intuitive and user-friendly. Here's how it works:</p>
-  <ol>
-    <li><strong>Upload Images:</strong> Choose one or more images from your device. You can upload JPG, PNG, WEBP, BMP, and more.</li>
-    <li><strong>Arrange Order:</strong> Drag and drop to rearrange images if needed (e.g., for scanned documents).</li>
-    <li><strong>Click Convert:</strong> The tool processes your files and combines them into a single PDF.</li>
-    <li><strong>Download:</strong> Your new PDF is ready to download immediately. No watermarks or restrictions.</li>
-  </ol>
-
-  <h3>Key Features</h3>
-  <ul>
-    <li>✅ Supports JPG, PNG, BMP, WEBP, and TIFF formats</li>
-    <li>📎 Combine multiple images into one PDF</li>
-    <li>🎯 Maintains image quality with lossless compression</li>
-    <li>🖥️ Works on any device: desktop, mobile, or tablet</li>
-    <li>🔐 100% privacy — all conversions happen in-browser</li>
-    <li>📤 No account required, no data is stored</li>
-    <li>📁 Output is print-ready, email-friendly, and universally compatible</li>
-  </ul>
-
-  <h3>Common Use Cases</h3>
-  <p>Here’s how individuals and organizations use our Image to PDF converter daily:</p>
-  <ul>
-    <li>🧾 <strong>Students & Teachers:</strong> Combine notes, handwritten assignments, and test papers into a single PDF for submission</li>
-    <li>🏢 <strong>Offices:</strong> Merge scanned receipts, ID cards, and signatures for digital documentation</li>
-    <li>🎨 <strong>Designers & Artists:</strong> Showcase a portfolio or collection in PDF format</li>
-    <li>🏛️ <strong>Government Services:</strong> Submit official forms and photo-based documents online</li>
-    <li>🛠️ <strong>Technicians:</strong> Bundle field reports and snapshots for project logs</li>
-    <li>🏠 <strong>Home Use:</strong> Digitize and preserve old photos or children’s drawings</li>
-  </ul>
-
-  <h3>File Types Supported</h3>
-  <p>You can convert and merge the following image formats into PDF:</p>
-  <ul>
-    <li>🖼️ <strong>JPG/JPEG:</strong> Most common image type, perfect for photos</li>
-    <li>🌐 <strong>PNG:</strong> Ideal for transparent images or screenshots</li>
-    <li>🧾 <strong>BMP:</strong> Raw image format used in many scanners</li>
-    <li>📷 <strong>WEBP:</strong> Web-optimized images with great compression</li>
-    <li>📄 <strong>TIFF:</strong> Preferred for scanned documents or faxed images</li>
-  </ul>
-
-  <h3>Secure and Private</h3>
-  <p>Unlike many converters that upload your files to cloud servers, our converter operates entirely in your browser. Your files never leave your device, ensuring maximum privacy and security. This makes it safe for converting:</p>
-  <ul>
-    <li>🔒 Personal IDs and government documents</li>
-    <li>📑 Confidential business files</li>
-    <li>👨‍⚕️ Medical reports and prescriptions</li>
-    <li>🏠 Financial documents or invoices</li>
-  </ul>
-
-  <h3>Why Choose Easy Tables’ Image to PDF Tool?</h3>
-  <p>What sets our tool apart from other free converters?</p>
-  <ul>
-    <li>💨 Lightning-fast conversion</li>
-    <li>🧩 No ads, popups, or annoying redirects</li>
-    <li>🖱️ Simple drag-and-drop interface</li>
-    <li>📐 Maintains original resolution without cropping</li>
-    <li>🆓 Completely free with no feature limits</li>
-  </ul>
-
-  <h3>Benefits of PDF Output Format</h3>
-  <p>When you convert images to PDF, you unlock several advantages:</p>
-  <ul>
-    <li>✅ Compatibility with all operating systems and devices</li>
-    <li>✅ Easily viewable in any browser or with PDF reader apps</li>
-    <li>✅ Print-ready layout with consistent margins</li>
-    <li>✅ Cannot be accidentally modified like raw images</li>
-  </ul>
-
-  <h3>Accessibility Benefits</h3>
-  <p>PDFs are easier to navigate for individuals with visual or cognitive disabilities. When converted correctly, PDFs allow for:</p>
-  <ul>
-    <li>🔍 Zoom and screen reader support</li>
-    <li>🧠 Logical order of content for comprehension</li>
-    <li>📘 Bookmarking, annotations, and page numbering</li>
-  </ul>
-
-  <h3>Convert from Anywhere</h3>
-  <p>Whether you’re using a Windows laptop, Mac, Android phone, iPhone, or tablet, our Image to PDF converter is optimized for all screen sizes and operating systems. No installation. No plugins. It works seamlessly on:</p>
-  <ul>
-    <li>💻 Google Chrome</li>
-    <li>🌐 Microsoft Edge</li>
-    <li>🦊 Mozilla Firefox</li>
-    <li>🍎 Safari</li>
-    <li>📱 Android WebView or Mobile Browser</li>
-  </ul>
-
-  <h3>SEO Keywords and Use Cases</h3>
-  <p>This page is designed to rank for multiple long-tail and informational search queries:</p>
-  <ul>
-    <li>“convert jpg to pdf online free”</li>
-    <li>“combine multiple images into pdf”</li>
-    <li>“image to pdf converter for mobile”</li>
-    <li>“free tool to convert png to pdf without watermark”</li>
-    <li>“merge photos into one pdf”</li>
-  </ul>
-
-  <h3>Related Tools on Easy Tables</h3>
-  <ul>
-    <li>📝 <strong>Text Editor:</strong> Add text over PDFs or images</li>
-    <li>🔤 <strong>Image to Text (OCR):</strong> Extract text before PDF conversion</li>
-    <li>🔢 <strong>Character Counter:</strong> Analyze text from converted documents</li>
-    <li>📂 <strong>PDF Reader:</strong> Open your newly created PDFs instantly</li>
-  </ul>
-
-  <h3>Conclusion – Convert Smarter, Share Better</h3>
-  <p>With Easy Tables' Image to PDF Converter, your images become more usable, organized, and presentable. Whether you're creating digital reports, preserving memories, or submitting documents online, PDF is the format that ensures everything looks professional and clean. Our tool makes this process effortless and secure — no tech skills required.</p>
-
-  <p>🚀 Ready to convert your images into a polished PDF? Upload your images and click convert. It’s that easy!</p>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../index.html">
+<h1 class="nav-h1-color">EASY TABLES</h1>
+</a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../index.html#maths-s" id="navItem2">Home</a>
+<a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Breadcrumb" class="breadcrumb container mt-3">
+<a href="../../../index.html">Home</a> <span>›</span>
+<a href="#">PNG to PDF Converter</a>
+</nav>
+<div class="description">
+<h2>PNG to PDF Converter</h2>
+<p>Convert one or more PNG images into a single downloadable PDF. Fast, secure, and entirely browser-based.</p>
+<div class="form-group">
+<label for="pngInput">Upload PNG Images:</label>
+<input accept=".png,image/png" class="form-control-file" id="pngInput" multiple="" onchange="previewPNGs(event)" type="file"/>
+</div>
+<div class="mb-3" id="preview"></div>
+<button class="btn btn-primary" onclick="convertPNGtoPDF()">Convert to PDF</button>
+</div>
+<div class="description">
+<h3>Why Convert PNG to PDF?</h3>
+<ul>
+<li><strong>Preserve Layout:</strong> Combine multiple PNGs into one document.</li>
+<li><strong>Secure:</strong> No upload – processed locally in your browser.</li>
+<li><strong>Multi-page PDF:</strong> Automatically creates a new page for each image.</li>
+<li><strong>Convenient:</strong> Ideal for scanned notes, receipts, or graphic exports.</li>
+</ul>
+<h3>Tips for Best Results</h3>
+<ul>
+<li>Ensure high-resolution images for clear output.</li>
+<li>Use landscape or portrait images consistently for uniform pages.</li>
+<li>Output PDF preserves image order based on selection order.</li>
+</ul>
+</div>
+<div class="description">
+<h3>How to Use</h3>
+<ol>
+<li>Select one or more images (JPG, PNG, etc.) using the file input.</li>
+<li>Click the “Convert to PDF” button.</li>
+<li>The tool will create and download a PDF file containing all your selected images.</li>
+</ol>
+<h3>Why Convert Images to PDF?</h3>
+<ul>
+<li><strong>Easy Sharing:</strong> Combine images into one document for email or print.</li>
+<li><strong>Archiving:</strong> Create a digital record of paper documents.</li>
+<li><strong>Organized:</strong> Save multiple photos as a clean, portable format.</li>
+</ul>
+<h3>Best Practices</h3>
+<ul>
+<li>Use clear and well-lit images for best readability.</li>
+<li>Files are handled locally — nothing is uploaded to a server.</li>
+<li>Mobile-friendly: Works on phones and tablets too!</li>
+</ul>
+</div>
+<div class="description">
+<h2>Image to PDF Converter – Combine and Convert Images to PDF Instantly</h2>
+<p>Welcome to Easy Tables’ <strong>Image to PDF Converter</strong> — the simplest and most efficient way to convert your images into PDF documents. Whether you're working with photos, scanned documents, digital artwork, or screenshots, our free online tool lets you upload images and turn them into a high-quality PDF file in seconds. No watermarks, no signups, no installations — just fast and easy PDF conversion right in your browser.</p>
+<h3>Why Convert Images to PDF?</h3>
+<p>PDF (Portable Document Format) is one of the most widely accepted file types across all devices and platforms. It maintains layout consistency, allows easy printing, and ensures professional sharing. Converting your images into PDFs makes it easier to:</p>
+<ul>
+<li>📎 Combine multiple images into a single, organized document</li>
+<li>📤 Share high-resolution scans or photos without losing quality</li>
+<li>🖨️ Print images in a standardized format</li>
+<li>📚 Archive or digitize physical documents</li>
+<li>🛡️ Lock your content into a secure, non-editable format</li>
+</ul>
+<h3>How to Use the Image to PDF Tool</h3>
+<p>Our tool is designed to be intuitive and user-friendly. Here's how it works:</p>
+<ol>
+<li><strong>Upload Images:</strong> Choose one or more images from your device. You can upload JPG, PNG, WEBP, BMP, and more.</li>
+<li><strong>Arrange Order:</strong> Drag and drop to rearrange images if needed (e.g., for scanned documents).</li>
+<li><strong>Click Convert:</strong> The tool processes your files and combines them into a single PDF.</li>
+<li><strong>Download:</strong> Your new PDF is ready to download immediately. No watermarks or restrictions.</li>
+</ol>
+<h3>Key Features</h3>
+<ul>
+<li>✅ Supports JPG, PNG, BMP, WEBP, and TIFF formats</li>
+<li>📎 Combine multiple images into one PDF</li>
+<li>🎯 Maintains image quality with lossless compression</li>
+<li>🖥️ Works on any device: desktop, mobile, or tablet</li>
+<li>🔐 100% privacy — all conversions happen in-browser</li>
+<li>📤 No account required, no data is stored</li>
+<li>📁 Output is print-ready, email-friendly, and universally compatible</li>
+</ul>
+<h3>Common Use Cases</h3>
+<p>Here’s how individuals and organizations use our Image to PDF converter daily:</p>
+<ul>
+<li>🧾 <strong>Students &amp; Teachers:</strong> Combine notes, handwritten assignments, and test papers into a single PDF for submission</li>
+<li>🏢 <strong>Offices:</strong> Merge scanned receipts, ID cards, and signatures for digital documentation</li>
+<li>🎨 <strong>Designers &amp; Artists:</strong> Showcase a portfolio or collection in PDF format</li>
+<li>🏛️ <strong>Government Services:</strong> Submit official forms and photo-based documents online</li>
+<li>🛠️ <strong>Technicians:</strong> Bundle field reports and snapshots for project logs</li>
+<li>🏠 <strong>Home Use:</strong> Digitize and preserve old photos or children’s drawings</li>
+</ul>
+<h3>File Types Supported</h3>
+<p>You can convert and merge the following image formats into PDF:</p>
+<ul>
+<li>🖼️ <strong>JPG/JPEG:</strong> Most common image type, perfect for photos</li>
+<li>🌐 <strong>PNG:</strong> Ideal for transparent images or screenshots</li>
+<li>🧾 <strong>BMP:</strong> Raw image format used in many scanners</li>
+<li>📷 <strong>WEBP:</strong> Web-optimized images with great compression</li>
+<li>📄 <strong>TIFF:</strong> Preferred for scanned documents or faxed images</li>
+</ul>
+<h3>Secure and Private</h3>
+<p>Unlike many converters that upload your files to cloud servers, our converter operates entirely in your browser. Your files never leave your device, ensuring maximum privacy and security. This makes it safe for converting:</p>
+<ul>
+<li>🔒 Personal IDs and government documents</li>
+<li>📑 Confidential business files</li>
+<li>👨‍⚕️ Medical reports and prescriptions</li>
+<li>🏠 Financial documents or invoices</li>
+</ul>
+<h3>Why Choose Easy Tables’ Image to PDF Tool?</h3>
+<p>What sets our tool apart from other free converters?</p>
+<ul>
+<li>💨 Lightning-fast conversion</li>
+<li>🧩 No ads, popups, or annoying redirects</li>
+<li>🖱️ Simple drag-and-drop interface</li>
+<li>📐 Maintains original resolution without cropping</li>
+<li>🆓 Completely free with no feature limits</li>
+</ul>
+<h3>Benefits of PDF Output Format</h3>
+<p>When you convert images to PDF, you unlock several advantages:</p>
+<ul>
+<li>✅ Compatibility with all operating systems and devices</li>
+<li>✅ Easily viewable in any browser or with PDF reader apps</li>
+<li>✅ Print-ready layout with consistent margins</li>
+<li>✅ Cannot be accidentally modified like raw images</li>
+</ul>
+<h3>Accessibility Benefits</h3>
+<p>PDFs are easier to navigate for individuals with visual or cognitive disabilities. When converted correctly, PDFs allow for:</p>
+<ul>
+<li>🔍 Zoom and screen reader support</li>
+<li>🧠 Logical order of content for comprehension</li>
+<li>📘 Bookmarking, annotations, and page numbering</li>
+</ul>
+<h3>Convert from Anywhere</h3>
+<p>Whether you’re using a Windows laptop, Mac, Android phone, iPhone, or tablet, our Image to PDF converter is optimized for all screen sizes and operating systems. No installation. No plugins. It works seamlessly on:</p>
+<ul>
+<li>💻 Google Chrome</li>
+<li>🌐 Microsoft Edge</li>
+<li>🦊 Mozilla Firefox</li>
+<li>🍎 Safari</li>
+<li>📱 Android WebView or Mobile Browser</li>
+</ul>
+<h3>SEO Keywords and Use Cases</h3>
+<p>This page is designed to rank for multiple long-tail and informational search queries:</p>
+<ul>
+<li>“convert jpg to pdf online free”</li>
+<li>“combine multiple images into pdf”</li>
+<li>“image to pdf converter for mobile”</li>
+<li>“free tool to convert png to pdf without watermark”</li>
+<li>“merge photos into one pdf”</li>
+</ul>
+<h3>Related Tools on Easy Tables</h3>
+<ul>
+<li>📝 <strong>Text Editor:</strong> Add text over PDFs or images</li>
+<li>🔤 <strong>Image to Text (OCR):</strong> Extract text before PDF conversion</li>
+<li>🔢 <strong>Character Counter:</strong> Analyze text from converted documents</li>
+<li>📂 <strong>PDF Reader:</strong> Open your newly created PDFs instantly</li>
+</ul>
+<h3>Conclusion – Convert Smarter, Share Better</h3>
+<p>With Easy Tables' Image to PDF Converter, your images become more usable, organized, and presentable. Whether you're creating digital reports, preserving memories, or submitting documents online, PDF is the format that ensures everything looks professional and clean. Our tool makes this process effortless and secure — no tech skills required.</p>
+<p>🚀 Ready to convert your images into a polished PDF? Upload your images and click convert. It’s that easy!</p>
 <h3>Performance and Output Optimization</h3>
 <p>One of the most essential qualities of a good Image to PDF converter is how it handles file size and quality. Our tool is engineered to give you the best of both worlds — compact file sizes without compromising resolution. Here’s how we do it:</p>
 <ul>
-  <li>📏 <strong>Smart Compression:</strong> Automatically detects large image dimensions and compresses intelligently to minimize file size without visual loss.</li>
-  <li>📀 <strong>Aspect Ratio Retention:</strong> All images are scaled proportionally, avoiding stretch or pixelation issues.</li>
-  <li>🖼️ <strong>Page Fit Algorithms:</strong> Each image fits into standard A4, A5, or Letter page sizes depending on your settings (coming soon!)</li>
-  <li>📄 <strong>Single or Multi-Page Output:</strong> Choose between all-in-one or individual PDFs (advanced version)</li>
+<li>📏 <strong>Smart Compression:</strong> Automatically detects large image dimensions and compresses intelligently to minimize file size without visual loss.</li>
+<li>📀 <strong>Aspect Ratio Retention:</strong> All images are scaled proportionally, avoiding stretch or pixelation issues.</li>
+<li>🖼️ <strong>Page Fit Algorithms:</strong> Each image fits into standard A4, A5, or Letter page sizes depending on your settings (coming soon!)</li>
+<li>📄 <strong>Single or Multi-Page Output:</strong> Choose between all-in-one or individual PDFs (advanced version)</li>
 </ul>
 <h3>Advanced User Control (Pro Features Coming Soon)</h3>
 <p>We’re working on giving users even more control over their image-to-PDF conversion process. Here's what’s in our development roadmap:</p>
 <ul>
-  <li>📌 Set custom margins, spacing, and alignment</li>
-  <li>📄 Add page numbers or headers/footers</li>
-  <li>🖍️ Include optional annotations and descriptions</li>
-  <li>🎨 Apply watermarks or stamps to PDF output</li>
-  <li>📏 Resize images dynamically before export</li>
+<li>📌 Set custom margins, spacing, and alignment</li>
+<li>📄 Add page numbers or headers/footers</li>
+<li>🖍️ Include optional annotations and descriptions</li>
+<li>🎨 Apply watermarks or stamps to PDF output</li>
+<li>📏 Resize images dynamically before export</li>
 </ul>
-<h3>Use in Education & Academia</h3>
+<h3>Use in Education &amp; Academia</h3>
 <p>PDF format is widely used in academic institutions, and students often need to turn image-based assignments or scanned notes into PDFs. Here's how our converter helps students and educators:</p>
 <ul>
-  <li>📚 Students can photograph textbook pages and convert them into a single reference PDF.</li>
-  <li>📝 Teachers can prepare image-based answer keys or visual test sheets.</li>
-  <li>📄 Homework or exam answer papers can be photographed and submitted in an accepted digital format.</li>
-  <li>📸 Digital portfolios with student artwork or field reports can be created with ease.</li>
+<li>📚 Students can photograph textbook pages and convert them into a single reference PDF.</li>
+<li>📝 Teachers can prepare image-based answer keys or visual test sheets.</li>
+<li>📄 Homework or exam answer papers can be photographed and submitted in an accepted digital format.</li>
+<li>📸 Digital portfolios with student artwork or field reports can be created with ease.</li>
 </ul>
 <h3>Ideal for Mobile Productivity</h3>
 <p>Most users take photos of documents using their mobile phones. Our tool is fully optimized for mobile use and offers lightning-fast conversions directly from your phone's browser:</p>
 <ul>
-  <li>📱 Android and iOS compatible</li>
-  <li>👡 Simple tap-to-upload interface</li>
-  <li>🔄 Real-time image preview and reordering</li>
-  <li>📌 Download PDFs straight into mobile storage or cloud apps</li>
+<li>📱 Android and iOS compatible</li>
+<li>👡 Simple tap-to-upload interface</li>
+<li>🔄 Real-time image preview and reordering</li>
+<li>📌 Download PDFs straight into mobile storage or cloud apps</li>
 </ul>
 <p>Busy professionals, field workers, students, and remote teams can now handle documentation needs on the go without needing any app installations.</p>
 <h3>Environmental Benefits of Digital Conversion</h3>
 <p>Moving from printed copies to PDFs is more than just convenient — it’s sustainable. By encouraging digital conversions like Image to PDF, you help:</p>
 <ul>
-  <li>🌿 Reduce paper consumption</li>
-  <li>🚛 Minimize physical document storage and transport</li>
-  <li>⚡ Lower energy use for printing and copying</li>
-  <li>🌎 Support a greener, more eco-friendly digital workflow</li>
+<li>🌿 Reduce paper consumption</li>
+<li>🚛 Minimize physical document storage and transport</li>
+<li>⚡ Lower energy use for printing and copying</li>
+<li>🌎 Support a greener, more eco-friendly digital workflow</li>
 </ul>
 <p>It’s a small step toward a larger impact — one PDF at a time.</p>
 <h3>FAQs – Image to PDF Conversion</h3>
@@ -303,92 +282,88 @@
 <h3>Image to PDF vs. Scanning Apps</h3>
 <p>You might wonder how this tool compares to mobile scanning apps. Here’s a breakdown:</p>
 <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Easy Tables</th>
-      <th>Mobile Apps</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>No app download</td>
-      <td>✅</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <td>Works on any device</td>
-      <td>✅</td>
-      <td>Limited to phone/tablet</td>
-    </tr>
-    <tr>
-      <td>Private (no upload)</td>
-      <td>✅</td>
-      <td>❌ (cloud sync enabled)</td>
-    </tr>
-    <tr>
-      <td>Custom layout & reordering</td>
-      <td>✅</td>
-      <td>Limited</td>
-    </tr>
-    <tr>
-      <td>Cross-platform</td>
-      <td>✅</td>
-      <td>❌</td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Easy Tables</th>
+<th>Mobile Apps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No app download</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Works on any device</td>
+<td>✅</td>
+<td>Limited to phone/tablet</td>
+</tr>
+<tr>
+<td>Private (no upload)</td>
+<td>✅</td>
+<td>❌ (cloud sync enabled)</td>
+</tr>
+<tr>
+<td>Custom layout &amp; reordering</td>
+<td>✅</td>
+<td>Limited</td>
+</tr>
+<tr>
+<td>Cross-platform</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
 </table>
 <h3>Future Enhancements</h3>
 <p>We are actively working on new features to make your experience even better. Upcoming features include:</p>
 <ul>
-  <li>🧾 Image compression level selection (low, medium, high)</li>
-  <li>📌 Cloud save to Dropbox or Google Drive</li>
-  <li>🗂️ File naming templates for easier organization</li>
-  <li>🔗 Shareable links for PDF download</li>
+<li>🧾 Image compression level selection (low, medium, high)</li>
+<li>📌 Cloud save to Dropbox or Google Drive</li>
+<li>🗂️ File naming templates for easier organization</li>
+<li>🔗 Shareable links for PDF download</li>
 </ul>
 <h3>Top SEO Keywords to Include on Page</h3>
 <p>To rank higher in search engines, we ensure the page includes relevant semantic keywords like:</p>
 <ul>
-  <li>“jpg to pdf converter free”</li>
-  <li>“image to pdf online tool”</li>
-  <li>“bulk image to pdf convert”</li>
-  <li>“merge images into one pdf file”</li>
-  <li>“how to convert photo to pdf on browser”</li>
+<li>“jpg to pdf converter free”</li>
+<li>“image to pdf online tool”</li>
+<li>“bulk image to pdf convert”</li>
+<li>“merge images into one pdf file”</li>
+<li>“how to convert photo to pdf on browser”</li>
 </ul>
 <h3>Conclusion – Create PDFs with Confidence</h3>
 <p>At Easy Tables, we’re committed to giving you tools that are fast, private, and effective. The Image to PDF Converter is designed with both casual and professional users in mind, offering a seamless way to digitize and document your work. With no technical knowledge required, and support for all devices, it’s your perfect companion for efficient file handling.</p>
 <p>🎉 Give it a try now — your next PDF is just one click away!</p>
-
 </div>
-
-  <div class="see-also">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="image-pdf.html">Image to PDF converter</a></li>
-      <li><a href="jpg-pdf.html">JPG to PDF converter</a></li>
-      <li><a href="pdf-viewer.html">PDF viewer</a></li>
-      <li><a href="png-pdf.html">PNG to PDF converter</a></li>
-    </ul>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> |
+<div class="see-also">
+<h4>See Also</h4>
+<ul>
+<li><a href="image-pdf.html">Image to PDF converter</a></li>
+<li><a href="jpg-pdf.html">JPG to PDF converter</a></li>
+<li><a href="pdf-viewer.html">PDF viewer</a></li>
+<li><a href="png-pdf.html">PNG to PDF converter</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
         <a href="#">Recommend Site</a> |
         <a href="#">Send Feedback</a> |
         <a href="#">About</a>
-      </p>
-      <p>
+</p>
+<p>
         © EasyTables.com |
         <a href="#">Terms of Use</a> |
         <a href="#">Privacy Policy</a> |
         <a href="#">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
-
-  <script>
+</p>
+</div>
+</footer>
+<script>
     let pngFiles = [];
 
     function previewPNGs(event) {

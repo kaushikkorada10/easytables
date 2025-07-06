@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To-Do List - Easy Tables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
+<meta content="EasyTables: Free online To-Do List. Access at https://easytables.vercel.app/calculators/online-contents/online-toolsl3/to-do-list.html for a fast and accurate To-Do List tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>To-Do List - Easy Tables</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
     #navItem2 { color: white; font-family: "Roboto"; }
@@ -87,201 +88,180 @@
   </style>
 </head>
 <body>
-
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-  <div class="container">
-    <a class="navbar-brand" href="../../../index.html">
-      <h1 class="nav-h1-color">EASY TABLES</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
-        <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-        <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-        <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<a class="navbar-brand" href="../../../index.html">
+<h1 class="nav-h1-color">EASY TABLES</h1>
+</a>
+<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
 </nav>
-
 <!--breadcrumbs-->
-<nav class="breadcrumb container mt-3" aria-label="Breadcrumb">
-  <a href="../../../index.html">Home</a> <span>›</span>
-  <a href="../../../index.html">Online-tools</a> <span>›</span>
-  <a href="#">To-Do List</a>
+<nav aria-label="Breadcrumb" class="breadcrumb container mt-3">
+<a href="../../../index.html">Home</a> <span>›</span>
+<a href="../../../index.html">Online-tools</a> <span>›</span>
+<a href="#">To-Do List</a>
 </nav>
-
 <!--main code-->
 <div class="todo-container">
-  <h3 class="text-center mb-4">To-Do List</h3>
-  <input type="text" id="taskInput" class="form-control mb-3" placeholder="Add a new task" />
-  <button class="btn btn-primary btn-block mb-4" onclick="addTask()">Add Task</button>
-  <ul id="todoList"></ul>
+<h3 class="text-center mb-4">To-Do List</h3>
+<input class="form-control mb-3" id="taskInput" placeholder="Add a new task" type="text"/>
+<button class="btn btn-primary btn-block mb-4" onclick="addTask()">Add Task</button>
+<ul id="todoList"></ul>
 </div>
 <div class="description">
-  <h2>To-Do List – Organize Your Day and Boost Productivity</h2>
-  <p>
+<h2>To-Do List – Organize Your Day and Boost Productivity</h2>
+<p>
     The <strong>Online To-Do List</strong> is a simple yet powerful productivity tool designed to help you stay organized, focused, and efficient throughout your day. Whether you're managing a busy work schedule, studying for exams, planning a trip, or keeping track of daily chores, this online checklist helps you visualize and accomplish your goals with ease.
   </p>
-
-  <h3>What is a To-Do List?</h3>
-  <p>
+<h3>What is a To-Do List?</h3>
+<p>
     A to-do list is a written or digital record of tasks that need to be completed within a certain period. It allows individuals to plan, prioritize, and execute responsibilities by breaking them down into actionable items.
   </p>
-
-  <h3>Key Features</h3>
-  <ul>
-    <li>Add, edit, or delete tasks instantly</li>
-    <li>Mark tasks as complete with a single click</li>
-    <li>Drag and drop to rearrange priorities</li>
-    <li>Auto-save progress in your browser</li>
-    <li>Dark mode/light mode toggle</li>
-    <li>Simple, clean, mobile-friendly interface</li>
-  </ul>
-
-  <h3>Benefits of Using a Digital To-Do List</h3>
-  <ul>
-    <li><strong>Clarity:</strong> See your tasks at a glance and reduce mental clutter</li>
-    <li><strong>Focus:</strong> Work on one task at a time and avoid multitasking</li>
-    <li><strong>Accountability:</strong> Stay on track with deadlines and responsibilities</li>
-    <li><strong>Flexibility:</strong> Rearrange or modify tasks anytime, anywhere</li>
-    <li><strong>Motivation:</strong> The satisfaction of checking off tasks boosts productivity</li>
-  </ul>
-
-  <h3>How to Use This Online To-Do List</h3>
-  <ol>
-    <li>Click “Add Task” and type your task name</li>
-    <li>Optionally assign a priority or deadline</li>
-    <li>Mark tasks as done when completed</li>
-    <li>Click and drag to reorder based on urgency</li>
-    <li>Delete completed tasks or clear the list</li>
-  </ol>
-
-  <h3>Best Practices for To-Do Lists</h3>
-  <ul>
-    <li>Start with 3–5 major tasks per day</li>
-    <li>Break large tasks into smaller subtasks</li>
-    <li>Review and update your list each morning</li>
-    <li>Use verbs to describe tasks clearly (e.g., "Write report" vs "Report")</li>
-    <li>Celebrate small wins and completed tasks</li>
-  </ul>
-
-  <h3>Use Cases</h3>
-  <ul>
-    <li><strong>Students:</strong> Track assignments, projects, and study schedules</li>
-    <li><strong>Professionals:</strong> Manage meetings, emails, deadlines, and team tasks</li>
-    <li><strong>Families:</strong> Plan grocery lists, errands, home chores, or events</li>
-    <li><strong>Content Creators:</strong> Keep track of publishing schedules and editing checklists</li>
-    <li><strong>Fitness Enthusiasts:</strong> Log workouts and meal planning</li>
-    <li><strong>Developers:</strong> Manage bugs, feature development, and deployments</li>
-  </ul>
-
-  <h3>Advantages Over Paper To-Do Lists</h3>
-  <ul>
-    <li>Cloud-free, auto-saving system (no need to remember your list)</li>
-    <li>Editable in real-time without clutter</li>
-    <li>Less environmental impact (no paper waste)</li>
-    <li>Sharable with screenshots or browser bookmarks</li>
-    <li>Always accessible from any device with internet</li>
-  </ul>
-
-  <h3>Tips for Getting More Done</h3>
-  <ul>
-    <li>Use the 1-3-5 Rule: 1 big, 3 medium, 5 small tasks</li>
-    <li>Apply the Eisenhower Matrix to categorize tasks</li>
-    <li>Combine with time-blocking techniques</li>
-    <li>Track your streaks for building habits</li>
-  </ul>
-
-  <h3>SEO Keywords</h3>
-  <ul>
-    <li>online to-do list</li>
-    <li>free task manager</li>
-    <li>daily checklist online</li>
-    <li>task organizer tool</li>
-    <li>to-do planner online</li>
-    <li>simple to-do list app</li>
-  </ul>
-
-  <h3>Start Planning Smarter</h3>
-  <p>
+<h3>Key Features</h3>
+<ul>
+<li>Add, edit, or delete tasks instantly</li>
+<li>Mark tasks as complete with a single click</li>
+<li>Drag and drop to rearrange priorities</li>
+<li>Auto-save progress in your browser</li>
+<li>Dark mode/light mode toggle</li>
+<li>Simple, clean, mobile-friendly interface</li>
+</ul>
+<h3>Benefits of Using a Digital To-Do List</h3>
+<ul>
+<li><strong>Clarity:</strong> See your tasks at a glance and reduce mental clutter</li>
+<li><strong>Focus:</strong> Work on one task at a time and avoid multitasking</li>
+<li><strong>Accountability:</strong> Stay on track with deadlines and responsibilities</li>
+<li><strong>Flexibility:</strong> Rearrange or modify tasks anytime, anywhere</li>
+<li><strong>Motivation:</strong> The satisfaction of checking off tasks boosts productivity</li>
+</ul>
+<h3>How to Use This Online To-Do List</h3>
+<ol>
+<li>Click “Add Task” and type your task name</li>
+<li>Optionally assign a priority or deadline</li>
+<li>Mark tasks as done when completed</li>
+<li>Click and drag to reorder based on urgency</li>
+<li>Delete completed tasks or clear the list</li>
+</ol>
+<h3>Best Practices for To-Do Lists</h3>
+<ul>
+<li>Start with 3–5 major tasks per day</li>
+<li>Break large tasks into smaller subtasks</li>
+<li>Review and update your list each morning</li>
+<li>Use verbs to describe tasks clearly (e.g., "Write report" vs "Report")</li>
+<li>Celebrate small wins and completed tasks</li>
+</ul>
+<h3>Use Cases</h3>
+<ul>
+<li><strong>Students:</strong> Track assignments, projects, and study schedules</li>
+<li><strong>Professionals:</strong> Manage meetings, emails, deadlines, and team tasks</li>
+<li><strong>Families:</strong> Plan grocery lists, errands, home chores, or events</li>
+<li><strong>Content Creators:</strong> Keep track of publishing schedules and editing checklists</li>
+<li><strong>Fitness Enthusiasts:</strong> Log workouts and meal planning</li>
+<li><strong>Developers:</strong> Manage bugs, feature development, and deployments</li>
+</ul>
+<h3>Advantages Over Paper To-Do Lists</h3>
+<ul>
+<li>Cloud-free, auto-saving system (no need to remember your list)</li>
+<li>Editable in real-time without clutter</li>
+<li>Less environmental impact (no paper waste)</li>
+<li>Sharable with screenshots or browser bookmarks</li>
+<li>Always accessible from any device with internet</li>
+</ul>
+<h3>Tips for Getting More Done</h3>
+<ul>
+<li>Use the 1-3-5 Rule: 1 big, 3 medium, 5 small tasks</li>
+<li>Apply the Eisenhower Matrix to categorize tasks</li>
+<li>Combine with time-blocking techniques</li>
+<li>Track your streaks for building habits</li>
+</ul>
+<h3>SEO Keywords</h3>
+<ul>
+<li>online to-do list</li>
+<li>free task manager</li>
+<li>daily checklist online</li>
+<li>task organizer tool</li>
+<li>to-do planner online</li>
+<li>simple to-do list app</li>
+</ul>
+<h3>Start Planning Smarter</h3>
+<p>
     With a simple, distraction-free layout, our online to-do list tool is your personal productivity companion. Whether you’re working from home or managing a busy life on the go, this tool helps you bring clarity to chaos.
   </p>
-  <p><strong>Get started now — your goals are just a checkbox away!</strong></p>
+<p><strong>Get started now — your goals are just a checkbox away!</strong></p>
 </div>
 <div class="description">
-  <!-- Existing content remains unchanged above -->
-
-  <h3>Creative To-Do List Ideas</h3>
-  <ul>
-    <li><strong>Bucket Lists:</strong> Create long-term goal lists like travel destinations or life achievements</li>
-    <li><strong>Habit Trackers:</strong> Use a daily checklist to reinforce routines such as reading, exercising, or meditation</li>
-    <li><strong>Meal Planning:</strong> Plan meals for the week and include grocery tasks</li>
-    <li><strong>Event Planning:</strong> Create task flows for parties, conferences, or family functions</li>
-    <li><strong>Self-Care Lists:</strong> Prioritize activities that support mental and physical wellness</li>
-    <li><strong>Daily Journal Prompts:</strong> Add prompts or affirmations as motivational checklist items</li>
-  </ul>
-
-  <h3>Mobile & Desktop Friendly</h3>
-  <p>
+<!-- Existing content remains unchanged above -->
+<h3>Creative To-Do List Ideas</h3>
+<ul>
+<li><strong>Bucket Lists:</strong> Create long-term goal lists like travel destinations or life achievements</li>
+<li><strong>Habit Trackers:</strong> Use a daily checklist to reinforce routines such as reading, exercising, or meditation</li>
+<li><strong>Meal Planning:</strong> Plan meals for the week and include grocery tasks</li>
+<li><strong>Event Planning:</strong> Create task flows for parties, conferences, or family functions</li>
+<li><strong>Self-Care Lists:</strong> Prioritize activities that support mental and physical wellness</li>
+<li><strong>Daily Journal Prompts:</strong> Add prompts or affirmations as motivational checklist items</li>
+</ul>
+<h3>Mobile &amp; Desktop Friendly</h3>
+<p>
     The tool is responsive and optimized for all screen sizes. Whether you are using a desktop, laptop, tablet, or smartphone, the layout adjusts perfectly, allowing for full functionality across devices.
   </p>
-
-  <h3>Offline Mode Support</h3>
-  <p>
+<h3>Offline Mode Support</h3>
+<p>
     Even when internet connectivity is unstable, the To-Do List tool stores your data locally using your browser's cache. This ensures that your tasks are preserved until the next time you're online.
   </p>
-
-  <h3>Security & Privacy</h3>
-  <ul>
-    <li>Data is stored locally in your browser only — we do not collect or store your personal information</li>
-    <li>No login or account creation required</li>
-    <li>Zero cloud dependency for maximum privacy and faster load times</li>
-  </ul>
-
-  <h3>Comparison Table: Online vs Paper vs App</h3>
-  <table class="table table-bordered">
-    <thead>
-      <tr><th>Feature</th><th>Online To-Do List</th><th>Paper List</th><th>Mobile App</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Ease of Editing</td><td>✓</td><td>✗</td><td>✓</td></tr>
-      <tr><td>Access Anywhere</td><td>✓</td><td>✗</td><td>✓</td></tr>
-      <tr><td>Offline Support</td><td>✓</td><td>✓</td><td>✓</td></tr>
-      <tr><td>Environmental Impact</td><td>Low</td><td>High</td><td>Low</td></tr>
-      <tr><td>Requires Installation</td><td>✗</td><td>✗</td><td>✓</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Time Management Methods to Combine</h3>
-  <ul>
-    <li><strong>Pomodoro Technique:</strong> Work in 25-minute focused intervals with checklist tracking</li>
-    <li><strong>Bullet Journaling:</strong> Use bullet points, symbols, and color codes for status</li>
-    <li><strong>Kanban Method:</strong> Create columns for “To-Do”, “Doing”, and “Done” statuses</li>
-    <li><strong>GTD (Getting Things Done):</strong> Capture all tasks, clarify, organize, reflect, and execute</li>
-  </ul>
-
-  <h3>Inspiration from Successful Users</h3>
-  <blockquote>
+<h3>Security &amp; Privacy</h3>
+<ul>
+<li>Data is stored locally in your browser only — we do not collect or store your personal information</li>
+<li>No login or account creation required</li>
+<li>Zero cloud dependency for maximum privacy and faster load times</li>
+</ul>
+<h3>Comparison Table: Online vs Paper vs App</h3>
+<table class="table table-bordered">
+<thead>
+<tr><th>Feature</th><th>Online To-Do List</th><th>Paper List</th><th>Mobile App</th></tr>
+</thead>
+<tbody>
+<tr><td>Ease of Editing</td><td>✓</td><td>✗</td><td>✓</td></tr>
+<tr><td>Access Anywhere</td><td>✓</td><td>✗</td><td>✓</td></tr>
+<tr><td>Offline Support</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Environmental Impact</td><td>Low</td><td>High</td><td>Low</td></tr>
+<tr><td>Requires Installation</td><td>✗</td><td>✗</td><td>✓</td></tr>
+</tbody>
+</table>
+<h3>Time Management Methods to Combine</h3>
+<ul>
+<li><strong>Pomodoro Technique:</strong> Work in 25-minute focused intervals with checklist tracking</li>
+<li><strong>Bullet Journaling:</strong> Use bullet points, symbols, and color codes for status</li>
+<li><strong>Kanban Method:</strong> Create columns for “To-Do”, “Doing”, and “Done” statuses</li>
+<li><strong>GTD (Getting Things Done):</strong> Capture all tasks, clarify, organize, reflect, and execute</li>
+</ul>
+<h3>Inspiration from Successful Users</h3>
+<blockquote>
     “This tool helps me reset every morning. I love how quick and clean the interface is!” – Priya, Freelance Writer
   </blockquote>
-  <blockquote>
-    “I share a screen with my partner and we both use this for grocery, home tasks, and weekend plans.” – Arun & Sneha, Married Couple
+<blockquote>
+    “I share a screen with my partner and we both use this for grocery, home tasks, and weekend plans.” – Arun &amp; Sneha, Married Couple
   </blockquote>
-  <blockquote>
+<blockquote>
     “It’s minimalistic, fast, and requires no signup. Perfect for busy developers like me.” – Vivek, Frontend Engineer
   </blockquote>
-
-  <h3>Let’s Get Things Done</h3>
-  <p>
+<h3>Let’s Get Things Done</h3>
+<p>
     If you’re looking for a productivity tool that doesn’t require learning curves or subscriptions, our online To-Do List is for you. Designed to be practical, efficient, and accessible, it’s the go-to solution for organizing your thoughts, tasks, and life.
   </p>
-  <p><strong>Give it a try and see how much more productive your day can be!</strong></p>
+<p><strong>Give it a try and see how much more productive your day can be!</strong></p>
 </div>
 <script>
   function addTask() {
@@ -308,43 +288,40 @@
     span.parentElement.classList.toggle("completed");
   }
 </script>
-
 <!-- see also -->
 <div class="see-also">
-  <h4>See Also</h4>
-  <ul>
-    <li><a href="online-tools.html">Online Tools</a></li>
-    <li><a href="calendar.html">Calendar</a></li>
-    <li><a href="camera-online.html">Camera Online</a></li>
-    <li><a href="chart-online-maker.html">Chart Online Maker</a></li>
-    <li><a href="click-counter-online.html">Click Counter Online</a></li>
-    <li><a href="countdown-timer.html">Countdown Timer</a></li>
-    <li><a href="flashlight-online.html">Flashlight Online</a></li>
-    <li><a href="line-graph-maker.html">Line Graph Maker</a></li>
-    <li><a href="online-grocery-list.html">Online Grocery List</a></li>
-    <li><a href="password-generator.html">Password Generator</a></li>
-    <li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
-    <li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
-  </ul>
+<h4>See Also</h4>
+<ul>
+<li><a href="online-tools.html">Online Tools</a></li>
+<li><a href="calendar.html">Calendar</a></li>
+<li><a href="camera-online.html">Camera Online</a></li>
+<li><a href="chart-online-maker.html">Chart Online Maker</a></li>
+<li><a href="click-counter-online.html">Click Counter Online</a></li>
+<li><a href="countdown-timer.html">Countdown Timer</a></li>
+<li><a href="flashlight-online.html">Flashlight Online</a></li>
+<li><a href="line-graph-maker.html">Line Graph Maker</a></li>
+<li><a href="online-grocery-list.html">Online Grocery List</a></li>
+<li><a href="password-generator.html">Password Generator</a></li>
+<li><a href="pie-chart-maker.html">Pie Chart Maker</a></li>
+<li><a href="xy-scatter-plot-maker.html">XY Scatter Plot Maker</a></li>
+</ul>
 </div>
-
 <!--footer-->
 <footer>
-  <div class="container">
-    <p>
-      <a href="#">Link to Us</a> |
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
       <a href="#">Recommend Site</a> |
       <a href="#">Send Feedback</a> |
       <a href="#">About</a>
-    </p>
-    <p>
+</p>
+<p>
       © EasyTables.com |
       <a href="#">Terms of Use</a> |
       <a href="#">Privacy Policy</a> |
       <a href="#">Manage Cookies</a>
-    </p>
-  </div>
+</p>
+</div>
 </footer>
-
 </body>
 </html>

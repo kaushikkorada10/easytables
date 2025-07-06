@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Linux Current Directory - Easy Tables</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
+<meta content="EasyTables: Free online Linux current directory. Access at https://easytables.vercel.app/calculators/online-contents/codel3/linux-current.html for a fast and accurate Linux current directory tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Linux Current Directory - Easy Tables</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
     .nav-bg { background-color: #0D47A1; }
     .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
     #navItem2 { color: white; font-family: "Roboto"; }
@@ -53,402 +54,321 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-    <div class="container">
-      <a class="navbar-brand" href="../../../index.html">
-        <h1 class="nav-h1-color">EASY TABLES</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../../index.html#maths-s">Home</a>
-          <a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <br>
-
-  <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../../index.html">Home</a> <span>></span>
-    <a href="../../../index.html#Online-tools-s">Online Tools</a> <span>></span>
-    <a href="#">cat Command</a>
-  </nav>
-
-  <div class="description">
-    <h3>Understanding the Current Directory in Linux</h3>
-    <p>In Linux, the "current directory" refers to the directory you're currently working in while using the terminal. This is also known as the **working directory**.</p>
-
-    <h4>Why It Matters</h4>
-    <p>The current directory serves as the default location for executing file-related commands like <code>ls</code>, <code>cp</code>, <code>mv</code>, and <code>touch</code>. If you don’t provide full paths, Linux assumes the file or folder is in the current directory.</p>
-
-    <h4>How to View It</h4>
-    <pre><code>$ pwd
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../index.html">
+<h1 class="nav-h1-color">EASY TABLES</h1>
+</a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../index.html#maths-s" id="navItem2">Home</a>
+<a class="nav-link" href="../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="Breadcrumb" class="breadcrumb container">
+<a href="../../../index.html">Home</a> <span>&gt;</span>
+<a href="../../../index.html#Online-tools-s">Online Tools</a> <span>&gt;</span>
+<a href="#">cat Command</a>
+</nav>
+<div class="description">
+<h3>Understanding the Current Directory in Linux</h3>
+<p>In Linux, the "current directory" refers to the directory you're currently working in while using the terminal. This is also known as the **working directory**.</p>
+<h4>Why It Matters</h4>
+<p>The current directory serves as the default location for executing file-related commands like <code>ls</code>, <code>cp</code>, <code>mv</code>, and <code>touch</code>. If you don’t provide full paths, Linux assumes the file or folder is in the current directory.</p>
+<h4>How to View It</h4>
+<pre><code>$ pwd
 /home/username/Documents</code></pre>
-    <p>This command shows your absolute path, starting from the root (<code>/</code>).</p>
-
-    <h4>Changing the Current Directory</h4>
-    <p>Use the <code>cd</code> command:</p>
-    <pre><code>$ cd /etc
+<p>This command shows your absolute path, starting from the root (<code>/</code>).</p>
+<h4>Changing the Current Directory</h4>
+<p>Use the <code>cd</code> command:</p>
+<pre><code>$ cd /etc
 $ pwd
 /etc</code></pre>
-
-    <h4>Relative vs Absolute Paths</h4>
-    <ul>
-      <li><strong>Absolute path:</strong> Starts from root. Example: <code>/home/user/Desktop</code></li>
-      <li><strong>Relative path:</strong> Based on the current directory. Example: <code>../images</code></li>
-    </ul>
-
-    <h4>Special Symbols</h4>
-    <ul>
-      <li><code>.</code> → Current directory</li>
-      <li><code>..</code> → Parent directory</li>
-      <li><code>~</code> → Home directory</li>
-    </ul>
-
-    <h4>Example Workflow</h4>
-    <pre><code>$ pwd
+<h4>Relative vs Absolute Paths</h4>
+<ul>
+<li><strong>Absolute path:</strong> Starts from root. Example: <code>/home/user/Desktop</code></li>
+<li><strong>Relative path:</strong> Based on the current directory. Example: <code>../images</code></li>
+</ul>
+<h4>Special Symbols</h4>
+<ul>
+<li><code>.</code> → Current directory</li>
+<li><code>..</code> → Parent directory</li>
+<li><code>~</code> → Home directory</li>
+</ul>
+<h4>Example Workflow</h4>
+<pre><code>$ pwd
 /home/user
 
 $ cd Desktop
 
 $ pwd
 /home/user/Desktop</code></pre>
-
-    <h4>Best Practices</h4>
-    <ul>
-      <li>Always check your location with <code>pwd</code> before running file operations.</li>
-      <li>Use absolute paths in scripts to avoid issues with relative navigation.</li>
-    </ul>
-  </div>
-  <div class="description">
-  <h1>Understanding the Current Directory in Linux</h1>
-
-  <p>In Linux, the concept of the "current directory" is fundamental to how you navigate, manipulate files, and execute commands in the terminal. Whether you're a beginner exploring the Linux filesystem or an advanced user writing scripts, knowing your current directory and how to work with it effectively is essential. This guide dives deep into the definition, tools, commands, examples, and best practices for managing the current directory in Linux.</p>
-
-  <h2>What Is the Current Directory?</h2>
-  <p>The current directory in Linux is the directory you are “in” when executing commands in the terminal. It's the default location the shell refers to when handling files without an absolute path. Each terminal session has its own current working directory, which can be changed using navigation commands like <code>cd</code>.</p>
-
-  <h2>Why Is the Current Directory Important?</h2>
-  <ul>
-    <li>It serves as the base location for executing commands</li>
-    <li>Relative paths are resolved from the current directory</li>
-    <li>Shell scripts often rely on the current directory context</li>
-    <li>File creation, deletion, and execution happen here by default</li>
-  </ul>
-
-  <h2>How to View the Current Directory</h2>
-  <p>To see your current directory in Linux, use the <code>pwd</code> command:</p>
-  <pre><code>pwd</code></pre>
-  <p>Example output:</p>
-  <pre><code>/home/venkatesh/projects/website</code></pre>
-
-  <p>This shows you're currently located inside the <code>website</code> directory, which resides in <code>/home/venkatesh/projects/</code>.</p>
-
-  <h2>How to Change the Current Directory</h2>
-  <p>You can switch to a different directory using the <code>cd</code> command (change directory):</p>
-  <pre><code>cd /etc</code></pre>
-  <p>Now your current directory is <code>/etc</code>.</p>
-
-  <h3>Go to Home Directory</h3>
-  <pre><code>cd</code> or <code>cd ~</code></pre>
-
-  <h3>Go Up One Level</h3>
-  <pre><code>cd ..</code></pre>
-
-  <h3>Return to Previous Directory</h3>
-  <pre><code>cd -</code></pre>
-
-  <h2>Relative vs Absolute Paths</h2>
-  <p>The behavior of many commands in Linux depends on the current directory. You can use either:</p>
-  <ul>
-    <li><strong>Absolute Path:</strong> Starts from root (<code>/</code>) – e.g., <code>/home/user/docs</code></li>
-    <li><strong>Relative Path:</strong> Based on current directory – e.g., <code>../images</code> or <code>./script.sh</code></li>
-  </ul>
-
-  <h2>Current Directory Symbol: . (dot)</h2>
-  <p>In Linux, a single dot <code>.</code> refers to the current directory. It’s commonly used in scripts and command-line utilities.</p>
-
-  <h3>Examples:</h3>
-  <pre><code>./script.sh</code></pre>
-  <p>Runs the script located in the current directory.</p>
-
-  <h3>Using with find</h3>
-  <pre><code>find . -name "*.txt"</code></pre>
-  <p>Searches for all <code>.txt</code> files in the current directory and subdirectories.</p>
-
-  <h2>Parent Directory Symbol: .. (double dot)</h2>
-  <p><code>..</code> represents the parent directory (one level up).</p>
-
-  <pre><code>cd ..</code></pre>
-  <p>Moves you up to the parent folder.</p>
-
-  <h2>Understanding $PWD</h2>
-  <p><code>$PWD</code> is an environment variable that stores the absolute path of the current directory. It’s frequently used in shell scripting and automation.</p>
-
-  <h3>Print Current Directory Using Shell Variable</h3>
-  <pre><code>echo $PWD</code></pre>
-
-  <h2>Current Directory in Scripts</h2>
-  <p>In bash and other shells, determining the current directory is crucial for creating portable scripts.</p>
-
-  <h3>Basic Bash Example</h3>
-  <pre><code>
+<h4>Best Practices</h4>
+<ul>
+<li>Always check your location with <code>pwd</code> before running file operations.</li>
+<li>Use absolute paths in scripts to avoid issues with relative navigation.</li>
+</ul>
+</div>
+<div class="description">
+<h1>Understanding the Current Directory in Linux</h1>
+<p>In Linux, the concept of the "current directory" is fundamental to how you navigate, manipulate files, and execute commands in the terminal. Whether you're a beginner exploring the Linux filesystem or an advanced user writing scripts, knowing your current directory and how to work with it effectively is essential. This guide dives deep into the definition, tools, commands, examples, and best practices for managing the current directory in Linux.</p>
+<h2>What Is the Current Directory?</h2>
+<p>The current directory in Linux is the directory you are “in” when executing commands in the terminal. It's the default location the shell refers to when handling files without an absolute path. Each terminal session has its own current working directory, which can be changed using navigation commands like <code>cd</code>.</p>
+<h2>Why Is the Current Directory Important?</h2>
+<ul>
+<li>It serves as the base location for executing commands</li>
+<li>Relative paths are resolved from the current directory</li>
+<li>Shell scripts often rely on the current directory context</li>
+<li>File creation, deletion, and execution happen here by default</li>
+</ul>
+<h2>How to View the Current Directory</h2>
+<p>To see your current directory in Linux, use the <code>pwd</code> command:</p>
+<pre><code>pwd</code></pre>
+<p>Example output:</p>
+<pre><code>/home/venkatesh/projects/website</code></pre>
+<p>This shows you're currently located inside the <code>website</code> directory, which resides in <code>/home/venkatesh/projects/</code>.</p>
+<h2>How to Change the Current Directory</h2>
+<p>You can switch to a different directory using the <code>cd</code> command (change directory):</p>
+<pre><code>cd /etc</code></pre>
+<p>Now your current directory is <code>/etc</code>.</p>
+<h3>Go to Home Directory</h3>
+<pre><code>cd</code> or <code>cd ~</code></pre>
+<h3>Go Up One Level</h3>
+<pre><code>cd ..</code></pre>
+<h3>Return to Previous Directory</h3>
+<pre><code>cd -</code></pre>
+<h2>Relative vs Absolute Paths</h2>
+<p>The behavior of many commands in Linux depends on the current directory. You can use either:</p>
+<ul>
+<li><strong>Absolute Path:</strong> Starts from root (<code>/</code>) – e.g., <code>/home/user/docs</code></li>
+<li><strong>Relative Path:</strong> Based on current directory – e.g., <code>../images</code> or <code>./script.sh</code></li>
+</ul>
+<h2>Current Directory Symbol: . (dot)</h2>
+<p>In Linux, a single dot <code>.</code> refers to the current directory. It’s commonly used in scripts and command-line utilities.</p>
+<h3>Examples:</h3>
+<pre><code>./script.sh</code></pre>
+<p>Runs the script located in the current directory.</p>
+<h3>Using with find</h3>
+<pre><code>find . -name "*.txt"</code></pre>
+<p>Searches for all <code>.txt</code> files in the current directory and subdirectories.</p>
+<h2>Parent Directory Symbol: .. (double dot)</h2>
+<p><code>..</code> represents the parent directory (one level up).</p>
+<pre><code>cd ..</code></pre>
+<p>Moves you up to the parent folder.</p>
+<h2>Understanding $PWD</h2>
+<p><code>$PWD</code> is an environment variable that stores the absolute path of the current directory. It’s frequently used in shell scripting and automation.</p>
+<h3>Print Current Directory Using Shell Variable</h3>
+<pre><code>echo $PWD</code></pre>
+<h2>Current Directory in Scripts</h2>
+<p>In bash and other shells, determining the current directory is crucial for creating portable scripts.</p>
+<h3>Basic Bash Example</h3>
+<pre><code>
 #!/bin/bash
 echo "Script is running from: $(pwd)"
   </code></pre>
-
-  <h3>Advanced Bash Example: Get Directory of the Script Itself</h3>
-  <pre><code>
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+<h3>Advanced Bash Example: Get Directory of the Script Itself</h3>
+<pre><code>
+SCRIPT_DIR="$(cd "$(dirname "$0")" &amp;&amp; pwd)"
 echo "Script directory: $SCRIPT_DIR"
   </code></pre>
-
-  <h2>Working with Files in the Current Directory</h2>
-  <p>By default, any file command will target files in the current directory unless an absolute path is provided.</p>
-
-  <h3>Create a File</h3>
-  <pre><code>touch file.txt</code></pre>
-
-  <h3>List Files</h3>
-  <pre><code>ls</code></pre>
-
-  <h3>Remove a File</h3>
-  <pre><code>rm file.txt</code></pre>
-
-  <h2>How to Determine the Current Directory in a Script</h2>
-  <pre><code>
+<h2>Working with Files in the Current Directory</h2>
+<p>By default, any file command will target files in the current directory unless an absolute path is provided.</p>
+<h3>Create a File</h3>
+<pre><code>touch file.txt</code></pre>
+<h3>List Files</h3>
+<pre><code>ls</code></pre>
+<h3>Remove a File</h3>
+<pre><code>rm file.txt</code></pre>
+<h2>How to Determine the Current Directory in a Script</h2>
+<pre><code>
 #!/bin/bash
 echo "Current directory is: $(pwd)"
   </code></pre>
-
-  <h2>Using Current Directory with Cron Jobs</h2>
-  <p>Since cron runs in a different environment, specifying full paths using <code>pwd</code> or <code>$PWD</code> ensures your script functions correctly.</p>
-
-  <h3>Example:</h3>
-  <pre><code>
-* * * * * /usr/bin/bash /home/user/scripts/backup.sh >> /home/user/logs/$(date +\%F)_cron.log
+<h2>Using Current Directory with Cron Jobs</h2>
+<p>Since cron runs in a different environment, specifying full paths using <code>pwd</code> or <code>$PWD</code> ensures your script functions correctly.</p>
+<h3>Example:</h3>
+<pre><code>
+* * * * * /usr/bin/bash /home/user/scripts/backup.sh &gt;&gt; /home/user/logs/$(date +\%F)_cron.log
   </code></pre>
-
-  <h2>Permissions and the Current Directory</h2>
-  <p>To perform actions in the current directory, your user must have appropriate permissions:</p>
-  <ul>
-    <li><strong>Read:</strong> To list files with <code>ls</code></li>
-    <li><strong>Write:</strong> To create or delete files</li>
-    <li><strong>Execute:</strong> To access the directory (enter it)</li>
-  </ul>
-
-  <h3>Check Permissions</h3>
-  <pre><code>ls -ld .</code></pre>
-
-  <h2>Hidden Files in the Current Directory</h2>
-  <p>Hidden files start with a dot <code>.</code> and are not shown by default.</p>
-
-  <h3>View Hidden Files</h3>
-  <pre><code>ls -a</code></pre>
-
-  <h2>GUI vs CLI – Viewing Current Directory</h2>
-  <p>In GUI file managers like Nautilus or Dolphin, the current directory is shown in the window title or address bar. In CLI, use <code>pwd</code>.</p>
-
-  <h2>Best Practices for Navigating Current Directory</h2>
-  <ul>
-    <li>Use <code>pwd</code> before executing file commands to confirm your location</li>
-    <li>Prefer absolute paths in scripts for reliability</li>
-    <li>Use <code>cd -</code> to toggle between last two directories</li>
-    <li>Be cautious with <code>rm</code> in sensitive folders</li>
-  </ul>
-
-  <h2>Common Errors Related to Current Directory</h2>
-  <ul>
-    <li><strong>No such file or directory:</strong> You're in the wrong directory or the file doesn’t exist</li>
-    <li><strong>Permission denied:</strong> You lack rights to access or modify files</li>
-    <li><strong>Command not found:</strong> You’re trying to run a file in <code>.</code> without using <code>./</code></li>
-  </ul>
-
-  <h2>Conclusion</h2>
-  <p>The current directory in Linux is the foundation of all file operations in the shell. Understanding how to view, change, and manipulate it is key to working efficiently in the Linux environment. Whether you're managing large filesystems, writing scripts, or simply navigating your files, mastering the current directory concept will make your Linux experience faster, safer, and more productive.</p>
-
- 
+<h2>Permissions and the Current Directory</h2>
+<p>To perform actions in the current directory, your user must have appropriate permissions:</p>
+<ul>
+<li><strong>Read:</strong> To list files with <code>ls</code></li>
+<li><strong>Write:</strong> To create or delete files</li>
+<li><strong>Execute:</strong> To access the directory (enter it)</li>
+</ul>
+<h3>Check Permissions</h3>
+<pre><code>ls -ld .</code></pre>
+<h2>Hidden Files in the Current Directory</h2>
+<p>Hidden files start with a dot <code>.</code> and are not shown by default.</p>
+<h3>View Hidden Files</h3>
+<pre><code>ls -a</code></pre>
+<h2>GUI vs CLI – Viewing Current Directory</h2>
+<p>In GUI file managers like Nautilus or Dolphin, the current directory is shown in the window title or address bar. In CLI, use <code>pwd</code>.</p>
+<h2>Best Practices for Navigating Current Directory</h2>
+<ul>
+<li>Use <code>pwd</code> before executing file commands to confirm your location</li>
+<li>Prefer absolute paths in scripts for reliability</li>
+<li>Use <code>cd -</code> to toggle between last two directories</li>
+<li>Be cautious with <code>rm</code> in sensitive folders</li>
+</ul>
+<h2>Common Errors Related to Current Directory</h2>
+<ul>
+<li><strong>No such file or directory:</strong> You're in the wrong directory or the file doesn’t exist</li>
+<li><strong>Permission denied:</strong> You lack rights to access or modify files</li>
+<li><strong>Command not found:</strong> You’re trying to run a file in <code>.</code> without using <code>./</code></li>
+</ul>
+<h2>Conclusion</h2>
+<p>The current directory in Linux is the foundation of all file operations in the shell. Understanding how to view, change, and manipulate it is key to working efficiently in the Linux environment. Whether you're managing large filesystems, writing scripts, or simply navigating your files, mastering the current directory concept will make your Linux experience faster, safer, and more productive.</p>
 </div>
 <div class="description">
-  <h2>How Shells Handle the Current Directory</h2>
-  <p>Each shell in Linux—like <code>bash</code>, <code>zsh</code>, or <code>fish</code>—maintains its own internal state for the current working directory. This state is reset when a new shell is launched, which is why you always start in your home directory unless configured otherwise.</p>
-
-  <h3>Default Behavior</h3>
-  <p>When you open a terminal, the current directory is typically set to:</p>
-  <pre><code>/home/username</code></pre>
-  <p>This behavior is controlled by your shell’s configuration file like <code>.bashrc</code> or <code>.zshrc</code>.</p>
-
-  <h2>Persisting the Current Directory Across Sessions</h2>
-  <p>By default, Linux doesn’t remember your last working directory between sessions. However, you can configure terminal tools or the shell itself to resume from the last directory.</p>
-
-  <h3>Example Using Bash</h3>
-  <pre><code>
+<h2>How Shells Handle the Current Directory</h2>
+<p>Each shell in Linux—like <code>bash</code>, <code>zsh</code>, or <code>fish</code>—maintains its own internal state for the current working directory. This state is reset when a new shell is launched, which is why you always start in your home directory unless configured otherwise.</p>
+<h3>Default Behavior</h3>
+<p>When you open a terminal, the current directory is typically set to:</p>
+<pre><code>/home/username</code></pre>
+<p>This behavior is controlled by your shell’s configuration file like <code>.bashrc</code> or <code>.zshrc</code>.</p>
+<h2>Persisting the Current Directory Across Sessions</h2>
+<p>By default, Linux doesn’t remember your last working directory between sessions. However, you can configure terminal tools or the shell itself to resume from the last directory.</p>
+<h3>Example Using Bash</h3>
+<pre><code>
 # Save current directory on logout
-trap 'echo "$PWD" > ~/.lastdir' EXIT
+trap 'echo "$PWD" &gt; ~/.lastdir' EXIT
 
 # Restore it on new session
-cd "$(cat ~/.lastdir 2>/dev/null)"
+cd "$(cat ~/.lastdir 2&gt;/dev/null)"
   </code></pre>
-  <p>This approach ensures continuity in workflows, especially in long-term projects or remote work environments.</p>
-
-  <h2>Exporting the Current Directory</h2>
-  <p>If you want to share the current directory between scripts or subshells, you can export the <code>PWD</code> environment variable.</p>
-
-  <pre><code>export WORK_DIR=$(pwd)</code></pre>
-
-  <h3>Access in Another Script</h3>
-  <pre><code>
+<p>This approach ensures continuity in workflows, especially in long-term projects or remote work environments.</p>
+<h2>Exporting the Current Directory</h2>
+<p>If you want to share the current directory between scripts or subshells, you can export the <code>PWD</code> environment variable.</p>
+<pre><code>export WORK_DIR=$(pwd)</code></pre>
+<h3>Access in Another Script</h3>
+<pre><code>
 echo "Working in directory: $WORK_DIR"
   </code></pre>
-
-  <h2>Using Current Directory with File Execution</h2>
-  <p>To execute a script or binary in the current directory, you must explicitly use <code>./</code> (dot slash), because <code>.</code> is not usually in your system’s <code>PATH</code> variable for security reasons.</p>
-
-  <h3>Example</h3>
-  <pre><code>./run.sh</code></pre>
-  <p>This runs <code>run.sh</code> located in your current directory.</p>
-
-  <h2>Navigating Complex Directory Trees</h2>
-  <p>When working on large projects or in complex directory structures, maintaining awareness of the current directory is crucial to avoid file misplacement or command errors.</p>
-
-  <h3>Use Tree Command</h3>
-  <pre><code>tree -L 2</code></pre>
-  <p>This lists your current directory and its subfolders (2 levels deep).</p>
-
-  <h3>Breadcrumb Prompt Customization</h3>
-  <p>You can set your shell prompt to always show your current path, aiding orientation.</p>
-  <pre><code>PS1="\w $ "</code></pre>
-
-  <h2>Current Directory in System Administration</h2>
-  <p>Sysadmins regularly work across multiple directories when configuring servers, databases, or services. Knowing their exact location ensures they modify correct files and avoid costly mistakes.</p>
-
-  <h3>Common Directories Admins Work In</h3>
-  <ul>
-    <li><code>/etc</code> – System configuration files</li>
-    <li><code>/var/log</code> – Log files</li>
-    <li><code>/usr/local/bin</code> – Custom executables</li>
-    <li><code>/home/username</code> – User’s personal space</li>
-  </ul>
-
-  <h2>Current Directory in Docker and Virtual Machines</h2>
-  <p>In containerized environments or VMs, you often mount volumes relative to your current directory:</p>
-
-  <h3>Docker Example</h3>
-  <pre><code>
+<h2>Using Current Directory with File Execution</h2>
+<p>To execute a script or binary in the current directory, you must explicitly use <code>./</code> (dot slash), because <code>.</code> is not usually in your system’s <code>PATH</code> variable for security reasons.</p>
+<h3>Example</h3>
+<pre><code>./run.sh</code></pre>
+<p>This runs <code>run.sh</code> located in your current directory.</p>
+<h2>Navigating Complex Directory Trees</h2>
+<p>When working on large projects or in complex directory structures, maintaining awareness of the current directory is crucial to avoid file misplacement or command errors.</p>
+<h3>Use Tree Command</h3>
+<pre><code>tree -L 2</code></pre>
+<p>This lists your current directory and its subfolders (2 levels deep).</p>
+<h3>Breadcrumb Prompt Customization</h3>
+<p>You can set your shell prompt to always show your current path, aiding orientation.</p>
+<pre><code>PS1="\w $ "</code></pre>
+<h2>Current Directory in System Administration</h2>
+<p>Sysadmins regularly work across multiple directories when configuring servers, databases, or services. Knowing their exact location ensures they modify correct files and avoid costly mistakes.</p>
+<h3>Common Directories Admins Work In</h3>
+<ul>
+<li><code>/etc</code> – System configuration files</li>
+<li><code>/var/log</code> – Log files</li>
+<li><code>/usr/local/bin</code> – Custom executables</li>
+<li><code>/home/username</code> – User’s personal space</li>
+</ul>
+<h2>Current Directory in Docker and Virtual Machines</h2>
+<p>In containerized environments or VMs, you often mount volumes relative to your current directory:</p>
+<h3>Docker Example</h3>
+<pre><code>
 docker run -v "$(pwd)":/app myimage
   </code></pre>
-
-  <p>This maps your local current directory into the container’s <code>/app</code> folder.</p>
-
-  <h2>Resetting to the Current Directory</h2>
-  <p>If you want to trigger shell re-evaluation of the current directory (helpful when changes have occurred externally), you can use:</p>
-  <pre><code>cd .</code></pre>
-  <p>This re-enters the current directory and refreshes internal state variables.</p>
-
-  <h2>Temporary Working Directories</h2>
-  <p>Sometimes you need to work in a temporary folder. You can change your current directory to a temp folder using:</p>
-  <pre><code>cd "$(mktemp -d)"</code></pre>
-  <p>This creates and switches into a temporary directory safely.</p>
-
-  <h2>Viewing Full Path in File Managers</h2>
-  <p>In desktop environments like GNOME or KDE, you can configure file managers to show the full current directory path in the title bar or address bar. This setting mirrors the CLI concept visually for GUI users.</p>
-
-  <h2>Current Directory in IDEs</h2>
-  <p>IDE tools like VS Code, PyCharm, or Eclipse often use the current directory as the root for:</p>
-  <ul>
-    <li>Project-wide search and replace</li>
-    <li>Terminal execution</li>
-    <li>Integrated version control</li>
-    <li>Linting and formatting paths</li>
-  </ul>
-
-  <h2>Examples of Current Directory in Real-World Use Cases</h2>
-
-  <h3>1. Deploying Static Websites</h3>
-  <pre><code>scp -r $(pwd)/* user@server:/var/www/html</code></pre>
-
-  <h3>2. Creating Archives from Current Directory</h3>
-  <pre><code>tar -czf backup.tar.gz $(pwd)</code></pre>
-
-  <h3>3. File Synchronization</h3>
-  <pre><code>rsync -av . user@server:/data/$(basename $(pwd))</code></pre>
-
-  <h2>Tips for Safer Directory Handling</h2>
-  <ul>
-    <li>Always confirm your current directory before using <code>rm</code>, <code>mv</code>, or <code>chmod</code></li>
-    <li>Avoid destructive commands in <code>/</code> or <code>/etc</code> without absolute certainty</li>
-    <li>Log current directory in all scripts that modify file systems</li>
-  </ul>
-
-  <h2>Educational Use: Teaching with Current Directory</h2>
-  <p>For instructors teaching Linux, the concept of the current directory provides a practical entry point to:</p>
-  <ul>
-    <li>Introduce absolute vs relative paths</li>
-    <li>Demonstrate navigation with <code>cd</code>, <code>pwd</code>, and <code>ls</code></li>
-    <li>Explain the hierarchical structure of Linux filesystems</li>
-  </ul>
-
-  <h2>Security Implications of Current Directory</h2>
-  <p>Running executables from the current directory using <code>./</code> can be risky in shared environments. Malicious users may place harmful scripts in common folders, relying on unknowing users to execute them.</p>
-
-  <h3>Best Practices</h3>
-  <ul>
-    <li>Never include <code>.</code> in your <code>PATH</code> environment variable</li>
-    <li>Use <code>alias rm='rm -i'</code> to avoid accidental deletions</li>
-    <li>Enable terminal prompts that show current directory</li>
-  </ul>
-
-  <h2>Conclusion: Mastering the Linux Current Directory</h2>
-  <p>Mastering how to manage and navigate the current directory in Linux is foundational for anyone working in a Unix-based environment. From basic navigation to advanced scripting, Docker workflows, system administration, and automation, the concept of the current directory appears everywhere. By understanding tools like <code>pwd</code>, <code>cd</code>, <code>$PWD</code>, and <code>.</code>, you can confidently control your environment, reduce errors, and write more reliable shell commands and scripts.</p>
-
-  <h2>Quick Recap</h2>
-  <ul>
-    <li><strong>pwd:</strong> Print the current directory path</li>
-    <li><strong>cd:</strong> Change to another directory</li>
-    <li><strong>.</strong>: Refers to the current directory</li>
-    <li><strong>$PWD:</strong> Environment variable holding current path</li>
-    <li><strong>../</strong>: Refers to the parent directory</li>
-  </ul>
+<p>This maps your local current directory into the container’s <code>/app</code> folder.</p>
+<h2>Resetting to the Current Directory</h2>
+<p>If you want to trigger shell re-evaluation of the current directory (helpful when changes have occurred externally), you can use:</p>
+<pre><code>cd .</code></pre>
+<p>This re-enters the current directory and refreshes internal state variables.</p>
+<h2>Temporary Working Directories</h2>
+<p>Sometimes you need to work in a temporary folder. You can change your current directory to a temp folder using:</p>
+<pre><code>cd "$(mktemp -d)"</code></pre>
+<p>This creates and switches into a temporary directory safely.</p>
+<h2>Viewing Full Path in File Managers</h2>
+<p>In desktop environments like GNOME or KDE, you can configure file managers to show the full current directory path in the title bar or address bar. This setting mirrors the CLI concept visually for GUI users.</p>
+<h2>Current Directory in IDEs</h2>
+<p>IDE tools like VS Code, PyCharm, or Eclipse often use the current directory as the root for:</p>
+<ul>
+<li>Project-wide search and replace</li>
+<li>Terminal execution</li>
+<li>Integrated version control</li>
+<li>Linting and formatting paths</li>
+</ul>
+<h2>Examples of Current Directory in Real-World Use Cases</h2>
+<h3>1. Deploying Static Websites</h3>
+<pre><code>scp -r $(pwd)/* user@server:/var/www/html</code></pre>
+<h3>2. Creating Archives from Current Directory</h3>
+<pre><code>tar -czf backup.tar.gz $(pwd)</code></pre>
+<h3>3. File Synchronization</h3>
+<pre><code>rsync -av . user@server:/data/$(basename $(pwd))</code></pre>
+<h2>Tips for Safer Directory Handling</h2>
+<ul>
+<li>Always confirm your current directory before using <code>rm</code>, <code>mv</code>, or <code>chmod</code></li>
+<li>Avoid destructive commands in <code>/</code> or <code>/etc</code> without absolute certainty</li>
+<li>Log current directory in all scripts that modify file systems</li>
+</ul>
+<h2>Educational Use: Teaching with Current Directory</h2>
+<p>For instructors teaching Linux, the concept of the current directory provides a practical entry point to:</p>
+<ul>
+<li>Introduce absolute vs relative paths</li>
+<li>Demonstrate navigation with <code>cd</code>, <code>pwd</code>, and <code>ls</code></li>
+<li>Explain the hierarchical structure of Linux filesystems</li>
+</ul>
+<h2>Security Implications of Current Directory</h2>
+<p>Running executables from the current directory using <code>./</code> can be risky in shared environments. Malicious users may place harmful scripts in common folders, relying on unknowing users to execute them.</p>
+<h3>Best Practices</h3>
+<ul>
+<li>Never include <code>.</code> in your <code>PATH</code> environment variable</li>
+<li>Use <code>alias rm='rm -i'</code> to avoid accidental deletions</li>
+<li>Enable terminal prompts that show current directory</li>
+</ul>
+<h2>Conclusion: Mastering the Linux Current Directory</h2>
+<p>Mastering how to manage and navigate the current directory in Linux is foundational for anyone working in a Unix-based environment. From basic navigation to advanced scripting, Docker workflows, system administration, and automation, the concept of the current directory appears everywhere. By understanding tools like <code>pwd</code>, <code>cd</code>, <code>$PWD</code>, and <code>.</code>, you can confidently control your environment, reduce errors, and write more reliable shell commands and scripts.</p>
+<h2>Quick Recap</h2>
+<ul>
+<li><strong>pwd:</strong> Print the current directory path</li>
+<li><strong>cd:</strong> Change to another directory</li>
+<li><strong>.</strong>: Refers to the current directory</li>
+<li><strong>$PWD:</strong> Environment variable holding current path</li>
+<li><strong>../</strong>: Refers to the parent directory</li>
+</ul>
 </div>
-
-
-
-  <div class="see-also">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="cat-cmd.html">cat command</a></li>
-      <li><a href="cd-cmd.html">cd command</a></li>
-      <li><a href="cp-cmd.html">cp command</a></li>
-      <li><a href="mv-command.html">mv command</a></li>
-      <li><a href="pwd-command.html">pwd command</a></li>
-      <li><a href="linux-view.html">Linux view files</a></li>
-      <li><a href="linux-current.html">Linux current directory</a></li>
-
-    </ul>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> |
+<div class="see-also">
+<h4>See Also</h4>
+<ul>
+<li><a href="cat-cmd.html">cat command</a></li>
+<li><a href="cd-cmd.html">cd command</a></li>
+<li><a href="cp-cmd.html">cp command</a></li>
+<li><a href="mv-command.html">mv command</a></li>
+<li><a href="pwd-command.html">pwd command</a></li>
+<li><a href="linux-view.html">Linux view files</a></li>
+<li><a href="linux-current.html">Linux current directory</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
         <a href="#">Recommend Site</a> |
         <a href="#">Send Feedback</a> |
         <a href="#">About</a>
-      </p>
-      <p>
+</p>
+<p>
         © EasyTables.com |
         <a href="#">About</a> |
         <a href="#">Terms of Use</a> |
         <a href="#">Privacy Policy</a> |
         <a href="#">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
+</p>
+</div>
+</footer>
 </body>
 </html>

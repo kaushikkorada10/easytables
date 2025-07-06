@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>decimal to fraction converter</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
+<head>
+<meta content="EasyTables: Free online Decimal to fraction converter. Access at https://easytables.vercel.app/calculators/content/conversions/number_converterl3/decimal-to-fraction-converter.html for a fast and accurate Decimal to fraction converter tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>decimal to fraction converter</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -20,207 +21,186 @@
       .description { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #FFFFFF; border-left: 5px solid #1976D2; border-radius: 10px; line-height: 1.6; font-size: 1.05rem; }
       .description h3 { color: #0D47A1; margin-bottom: 10px; }
     </style>
-  </head>
-  <body>
-       <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-    <div class="container">
-      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <br>
-   <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../../../index.html">Home</a> <span>›</span>
-    <a href="../../../../index.html#Calculators-s">Number Converters</a> › <a href="#">decimal to fraction converter</a>
-    </nav>
-
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="Breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>›</span>
+<a href="../../../../index.html#Calculators-s">Number Converters</a> › <a href="#">decimal to fraction converter</a>
+</nav>
 <div class="description">
-  <h3>Decimal To Fraction Converter</h3>
-  <input id="val" class="form-control" placeholder="Enter decimal:">
-  <button class="btn btn-primary mt-3" onclick="conv()">Convert</button>
-  <div id="out" class="mt-3"></div>
+<h3>Decimal To Fraction Converter</h3>
+<input class="form-control" id="val" placeholder="Enter decimal:"/>
+<button class="btn btn-primary mt-3" onclick="conv()">Convert</button>
+<div class="mt-3" id="out"></div>
 </div>
 <div class="description">
-  <h2>Decimal to Fraction Converter – Convert Decimal Numbers into Exact Fractions</h2>
-  <p>Welcome to the Easy Tables <strong>Decimal to Fraction Converter</strong> — your quick and precise solution for turning decimal numbers into simplified fractional form. Whether you're solving math problems, working on engineering calculations, or just need to express a decimal as a fraction for clarity, this tool makes the process seamless and accurate.</p>
-
-  <h3>What Is a Decimal to Fraction Conversion?</h3>
-  <p>Converting a decimal to a fraction means expressing a decimal number (like 0.75) as a ratio of two integers (like 3/4). This is essential in mathematics, science, construction, and daily life where precise measurements and ratios are required.</p>
-  <p>For example:</p>
-  <ul>
-    <li><code>0.5</code> becomes <code>1/2</code></li>
-    <li><code>0.25</code> becomes <code>1/4</code></li>
-    <li><code>1.75</code> becomes <code>7/4</code> or <code>1 3/4</code></li>
-  </ul>
-
-  <h3>Why Use This Converter?</h3>
-  <ul>
-    <li><strong>Accuracy:</strong> Converts both terminating and repeating decimals into the closest accurate fractions.</li>
-    <li><strong>Speed:</strong> Get instant results without manual calculation or estimation.</li>
-    <li><strong>Clarity:</strong> Easily interpret decimals in practical applications such as construction, cooking, and measurement.</li>
-    <li><strong>Simplified Results:</strong> Automatically reduces fractions to their simplest form.</li>
-    <li><strong>Mixed Numbers:</strong> Offers both improper fractions and mixed number format where applicable.</li>
-  </ul>
-
-  <h3>How the Decimal to Fraction Converter Works</h3>
-  <ol>
-    <li>The input decimal is analyzed to detect whether it’s terminating (e.g., 0.2) or repeating (e.g., 0.333…).</li>
-    <li>The tool uses mathematical rules to convert the decimal into a numerator and denominator.</li>
-    <li>The fraction is reduced by dividing both parts by their greatest common factor (GCF).</li>
-    <li>If the result is an improper fraction, a mixed number format is optionally displayed.</li>
-  </ol>
-
-  <h3>Examples</h3>
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr><th>Decimal</th><th>Fraction</th><th>Mixed Number</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>0.5</td><td>1/2</td><td>1/2</td></tr>
-      <tr><td>1.25</td><td>5/4</td><td>1 1/4</td></tr>
-      <tr><td>0.75</td><td>3/4</td><td>3/4</td></tr>
-      <tr><td>2.5</td><td>5/2</td><td>2 1/2</td></tr>
-      <tr><td>0.333...</td><td>1/3</td><td>1/3</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Use Cases</h3>
-  <ul>
-    <li><strong>Education:</strong> Ideal for students learning about number systems, rational numbers, and arithmetic operations.</li>
-    <li><strong>Engineering:</strong> Helps convert decimal measurements into standard fractional values used in blueprints and technical drawings.</li>
-    <li><strong>Carpentry and Construction:</strong> Convert decimal inches into common fractional measurements like 1/8", 1/16", etc.</li>
-    <li><strong>Cooking:</strong> Easily convert decimal ingredient amounts into common kitchen measurements.</li>
-    <li><strong>Finance:</strong> Convert decimal interest rates or ratios into fractions for financial analysis.</li>
-  </ul>
-
-  <h3>Decimal Types Explained</h3>
-  <p>There are two types of decimals:</p>
-  <ul>
-    <li><strong>Terminating Decimals:</strong> End after a few digits (e.g., 0.5 = 1/2)</li>
-    <li><strong>Repeating Decimals:</strong> Have a recurring digit or sequence (e.g., 0.666... = 2/3)</li>
-  </ul>
-  <p>This converter detects and handles both types with proper simplification and notation.</p>
-
-  <h3>Fraction Simplification Process</h3>
-  <p>After calculating the numerator and denominator, the tool applies the <strong>Greatest Common Divisor (GCD)</strong> method to reduce the result:</p>
-  <ul>
-    <li><strong>Original:</strong> 6/8</li>
-    <li><strong>GCD = 2</strong></li>
-    <li><strong>Reduced:</strong> 3/4</li>
-  </ul>
-  <p>This guarantees the most readable and usable format.</p>
-
-  <h3>Repeating Decimal Recognition</h3>
-  <p>For repeating decimals, the tool uses algebraic techniques to convert them into rational fractions. For example:</p>
-  <ul>
-    <li><code>0.333...</code> → Let x = 0.333... → 10x = 3.333... → 10x - x = 9x = 3 → x = 1/3</li>
-    <li><code>0.666...</code> → 2/3</li>
-    <li><code>1.8181...</code> → 181/99</li>
-  </ul>
-
-  <h3>Interactive Features</h3>
-  <ul>
-    <li><strong>Decimal Input:</strong> Supports values up to 6+ decimal places.</li>
-    <li><strong>Toggle Formats:</strong> View output as improper fraction or mixed number.</li>
-    <li><strong>Copy & Share:</strong> Easily copy the result for assignments or reports.</li>
-    <li><strong>Mobile Friendly:</strong> Use it seamlessly on phones or tablets.</li>
-  </ul>
-
-  <h3>FAQs – Decimal to Fraction</h3>
-  <h4>Q1: Can all decimals be converted to fractions?</h4>
-  <p>Only rational decimals (terminating or repeating) can be converted to exact fractions. Irrational decimals like √2 or π cannot.</p>
-
-  <h4>Q2: How precise is the conversion?</h4>
-  <p>The tool converts to the closest exact fraction for terminating/repeating decimals, with optional rounding for non-repeating ones.</p>
-
-  <h4>Q3: Can I convert negative decimals?</h4>
-  <p>Yes. Both negative and positive decimals are supported (e.g., -0.75 → -3/4).</p>
-
-  <h4>Q4: How do I read a mixed number?</h4>
-  <p>A mixed number contains a whole number and a fraction. Example: 2 1/2 = two and one-half.</p>
+<h2>Decimal to Fraction Converter – Convert Decimal Numbers into Exact Fractions</h2>
+<p>Welcome to the Easy Tables <strong>Decimal to Fraction Converter</strong> — your quick and precise solution for turning decimal numbers into simplified fractional form. Whether you're solving math problems, working on engineering calculations, or just need to express a decimal as a fraction for clarity, this tool makes the process seamless and accurate.</p>
+<h3>What Is a Decimal to Fraction Conversion?</h3>
+<p>Converting a decimal to a fraction means expressing a decimal number (like 0.75) as a ratio of two integers (like 3/4). This is essential in mathematics, science, construction, and daily life where precise measurements and ratios are required.</p>
+<p>For example:</p>
+<ul>
+<li><code>0.5</code> becomes <code>1/2</code></li>
+<li><code>0.25</code> becomes <code>1/4</code></li>
+<li><code>1.75</code> becomes <code>7/4</code> or <code>1 3/4</code></li>
+</ul>
+<h3>Why Use This Converter?</h3>
+<ul>
+<li><strong>Accuracy:</strong> Converts both terminating and repeating decimals into the closest accurate fractions.</li>
+<li><strong>Speed:</strong> Get instant results without manual calculation or estimation.</li>
+<li><strong>Clarity:</strong> Easily interpret decimals in practical applications such as construction, cooking, and measurement.</li>
+<li><strong>Simplified Results:</strong> Automatically reduces fractions to their simplest form.</li>
+<li><strong>Mixed Numbers:</strong> Offers both improper fractions and mixed number format where applicable.</li>
+</ul>
+<h3>How the Decimal to Fraction Converter Works</h3>
+<ol>
+<li>The input decimal is analyzed to detect whether it’s terminating (e.g., 0.2) or repeating (e.g., 0.333…).</li>
+<li>The tool uses mathematical rules to convert the decimal into a numerator and denominator.</li>
+<li>The fraction is reduced by dividing both parts by their greatest common factor (GCF).</li>
+<li>If the result is an improper fraction, a mixed number format is optionally displayed.</li>
+</ol>
+<h3>Examples</h3>
+<table class="table table-bordered table-striped">
+<thead>
+<tr><th>Decimal</th><th>Fraction</th><th>Mixed Number</th></tr>
+</thead>
+<tbody>
+<tr><td>0.5</td><td>1/2</td><td>1/2</td></tr>
+<tr><td>1.25</td><td>5/4</td><td>1 1/4</td></tr>
+<tr><td>0.75</td><td>3/4</td><td>3/4</td></tr>
+<tr><td>2.5</td><td>5/2</td><td>2 1/2</td></tr>
+<tr><td>0.333...</td><td>1/3</td><td>1/3</td></tr>
+</tbody>
+</table>
+<h3>Use Cases</h3>
+<ul>
+<li><strong>Education:</strong> Ideal for students learning about number systems, rational numbers, and arithmetic operations.</li>
+<li><strong>Engineering:</strong> Helps convert decimal measurements into standard fractional values used in blueprints and technical drawings.</li>
+<li><strong>Carpentry and Construction:</strong> Convert decimal inches into common fractional measurements like 1/8", 1/16", etc.</li>
+<li><strong>Cooking:</strong> Easily convert decimal ingredient amounts into common kitchen measurements.</li>
+<li><strong>Finance:</strong> Convert decimal interest rates or ratios into fractions for financial analysis.</li>
+</ul>
+<h3>Decimal Types Explained</h3>
+<p>There are two types of decimals:</p>
+<ul>
+<li><strong>Terminating Decimals:</strong> End after a few digits (e.g., 0.5 = 1/2)</li>
+<li><strong>Repeating Decimals:</strong> Have a recurring digit or sequence (e.g., 0.666... = 2/3)</li>
+</ul>
+<p>This converter detects and handles both types with proper simplification and notation.</p>
+<h3>Fraction Simplification Process</h3>
+<p>After calculating the numerator and denominator, the tool applies the <strong>Greatest Common Divisor (GCD)</strong> method to reduce the result:</p>
+<ul>
+<li><strong>Original:</strong> 6/8</li>
+<li><strong>GCD = 2</strong></li>
+<li><strong>Reduced:</strong> 3/4</li>
+</ul>
+<p>This guarantees the most readable and usable format.</p>
+<h3>Repeating Decimal Recognition</h3>
+<p>For repeating decimals, the tool uses algebraic techniques to convert them into rational fractions. For example:</p>
+<ul>
+<li><code>0.333...</code> → Let x = 0.333... → 10x = 3.333... → 10x - x = 9x = 3 → x = 1/3</li>
+<li><code>0.666...</code> → 2/3</li>
+<li><code>1.8181...</code> → 181/99</li>
+</ul>
+<h3>Interactive Features</h3>
+<ul>
+<li><strong>Decimal Input:</strong> Supports values up to 6+ decimal places.</li>
+<li><strong>Toggle Formats:</strong> View output as improper fraction or mixed number.</li>
+<li><strong>Copy &amp; Share:</strong> Easily copy the result for assignments or reports.</li>
+<li><strong>Mobile Friendly:</strong> Use it seamlessly on phones or tablets.</li>
+</ul>
+<h3>FAQs – Decimal to Fraction</h3>
+<h4>Q1: Can all decimals be converted to fractions?</h4>
+<p>Only rational decimals (terminating or repeating) can be converted to exact fractions. Irrational decimals like √2 or π cannot.</p>
+<h4>Q2: How precise is the conversion?</h4>
+<p>The tool converts to the closest exact fraction for terminating/repeating decimals, with optional rounding for non-repeating ones.</p>
+<h4>Q3: Can I convert negative decimals?</h4>
+<p>Yes. Both negative and positive decimals are supported (e.g., -0.75 → -3/4).</p>
+<h4>Q4: How do I read a mixed number?</h4>
+<p>A mixed number contains a whole number and a fraction. Example: 2 1/2 = two and one-half.</p>
 <h3>Step-by-Step Example: Convert 2.75 to a Fraction</h3>
-  <p>Let’s break down the process of converting <strong>2.75</strong> into a fraction:</p>
-  <ol>
-    <li><strong>Step 1:</strong> Split the decimal into its whole and fractional parts → 2 and 0.75</li>
-    <li><strong>Step 2:</strong> Convert 0.75 into a fraction → 75/100</li>
-    <li><strong>Step 3:</strong> Simplify 75/100 by dividing numerator and denominator by 25 → 3/4</li>
-    <li><strong>Step 4:</strong> Combine the whole number → 2 + 3/4 = <strong>2 3/4</strong></li>
-  </ol>
-  <p>So, <code>2.75 = 11/4</code> as an improper fraction or <code>2 3/4</code> as a mixed number.</p>
-
-  <h3>Advanced Support for Recurring Decimals</h3>
-  <p>Many real-world decimals have repeating patterns (like 0.666... or 0.123123...). This converter identifies repeating sequences and uses formulas to get the exact fractional equivalent.</p>
-  <ul>
-    <li><strong>Example:</strong> 0.888... = 8/9</li>
-    <li><strong>Example:</strong> 0.090909... = 1/11</li>
-    <li><strong>Example:</strong> 1.272727... = 14/11</li>
-  </ul>
-  <p>Repeating decimals are common in computer science, binary calculations, and even currency rounding.</p>
-
-  <h3>Decimals with Long Precision</h3>
-  <p>This tool handles decimals with multiple digits after the point and still provides a reduced, accurate fraction:</p>
-  <ul>
-    <li><code>0.875</code> → <code>7/8</code></li>
-    <li><code>0.125</code> → <code>1/8</code></li>
-    <li><code>1.333333</code> → <code>4/3</code> or <code>1 1/3</code></li>
-  </ul>
-  <p>Even if a decimal seems complex, it can often be written as a neat rational number.</p>
-
-  <h3>Output Formats Available</h3>
-  <p>The converter provides multiple output styles based on your needs:</p>
-  <ul>
-    <li><strong>Improper Fraction:</strong> 9/4</li>
-    <li><strong>Mixed Number:</strong> 2 1/4</li>
-    <li><strong>LaTeX Code:</strong> <code>\frac{9}{4}</code> for mathematical typesetting</li>
-    <li><strong>Plain Text:</strong> “nine fourths” (in words for accessibility)</li>
-  </ul>
-
-  <h3>Real-Life Applications</h3>
-  <ul>
-    <li><strong>Construction:</strong> A carpenter may need to convert 0.625 inches into 5/8” on a ruler.</li>
-    <li><strong>Cooking:</strong> A recipe calls for 0.33 cups — converted as 1/3 cup for easy measurement.</li>
-    <li><strong>Music Production:</strong> Convert time signature values or beat durations from decimal to fraction (e.g., 0.75 = 3/4 time).</li>
-    <li><strong>Data Analysis:</strong> Present percentage growths or error margins as clean fractions.</li>
-  </ul>
-
-  <h3>Historical Context: Fractions Before Decimals</h3>
-  <p>Before decimals were introduced by Simon Stevin in the 16th century, fractions were the dominant way of expressing parts of a whole. Egyptians, Babylonians, Greeks, and Romans all used fractions in their unique styles:</p>
-  <ul>
-    <li><strong>Egyptians:</strong> Used unit fractions (e.g., 1/2, 1/3, 1/4)</li>
-    <li><strong>Babylonians:</strong> Used base-60 system with fractional parts</li>
-    <li><strong>Romans:</strong> Used fractions like “uncia” (1/12) for weight and currency</li>
-  </ul>
-  <p>This makes your decimal-to-fraction converter a modern bridge to an ancient practice!</p>
-
-  <h3>Decimal to Fraction Conversion Chart</h3>
-  <table class="table table-striped">
-    <thead>
-      <tr><th>Decimal</th><th>Fraction</th><th>Simplified</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>0.1</td><td>1/10</td><td>1/10</td></tr>
-      <tr><td>0.2</td><td>2/10</td><td>1/5</td></tr>
-      <tr><td>0.333...</td><td>33/99</td><td>1/3</td></tr>
-      <tr><td>0.5</td><td>5/10</td><td>1/2</td></tr>
-      <tr><td>0.875</td><td>875/1000</td><td>7/8</td></tr>
-      <tr><td>1.2</td><td>6/5</td><td>1 1/5</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Decimal to Fraction for Programmers & Developers</h3>
-  <p>If you're building calculators, web apps, or math utilities, integrating decimal-to-fraction logic is useful. Here's an example logic snippet in JavaScript:</p>
-  <pre><code>
+<p>Let’s break down the process of converting <strong>2.75</strong> into a fraction:</p>
+<ol>
+<li><strong>Step 1:</strong> Split the decimal into its whole and fractional parts → 2 and 0.75</li>
+<li><strong>Step 2:</strong> Convert 0.75 into a fraction → 75/100</li>
+<li><strong>Step 3:</strong> Simplify 75/100 by dividing numerator and denominator by 25 → 3/4</li>
+<li><strong>Step 4:</strong> Combine the whole number → 2 + 3/4 = <strong>2 3/4</strong></li>
+</ol>
+<p>So, <code>2.75 = 11/4</code> as an improper fraction or <code>2 3/4</code> as a mixed number.</p>
+<h3>Advanced Support for Recurring Decimals</h3>
+<p>Many real-world decimals have repeating patterns (like 0.666... or 0.123123...). This converter identifies repeating sequences and uses formulas to get the exact fractional equivalent.</p>
+<ul>
+<li><strong>Example:</strong> 0.888... = 8/9</li>
+<li><strong>Example:</strong> 0.090909... = 1/11</li>
+<li><strong>Example:</strong> 1.272727... = 14/11</li>
+</ul>
+<p>Repeating decimals are common in computer science, binary calculations, and even currency rounding.</p>
+<h3>Decimals with Long Precision</h3>
+<p>This tool handles decimals with multiple digits after the point and still provides a reduced, accurate fraction:</p>
+<ul>
+<li><code>0.875</code> → <code>7/8</code></li>
+<li><code>0.125</code> → <code>1/8</code></li>
+<li><code>1.333333</code> → <code>4/3</code> or <code>1 1/3</code></li>
+</ul>
+<p>Even if a decimal seems complex, it can often be written as a neat rational number.</p>
+<h3>Output Formats Available</h3>
+<p>The converter provides multiple output styles based on your needs:</p>
+<ul>
+<li><strong>Improper Fraction:</strong> 9/4</li>
+<li><strong>Mixed Number:</strong> 2 1/4</li>
+<li><strong>LaTeX Code:</strong> <code>\frac{9}{4}</code> for mathematical typesetting</li>
+<li><strong>Plain Text:</strong> “nine fourths” (in words for accessibility)</li>
+</ul>
+<h3>Real-Life Applications</h3>
+<ul>
+<li><strong>Construction:</strong> A carpenter may need to convert 0.625 inches into 5/8” on a ruler.</li>
+<li><strong>Cooking:</strong> A recipe calls for 0.33 cups — converted as 1/3 cup for easy measurement.</li>
+<li><strong>Music Production:</strong> Convert time signature values or beat durations from decimal to fraction (e.g., 0.75 = 3/4 time).</li>
+<li><strong>Data Analysis:</strong> Present percentage growths or error margins as clean fractions.</li>
+</ul>
+<h3>Historical Context: Fractions Before Decimals</h3>
+<p>Before decimals were introduced by Simon Stevin in the 16th century, fractions were the dominant way of expressing parts of a whole. Egyptians, Babylonians, Greeks, and Romans all used fractions in their unique styles:</p>
+<ul>
+<li><strong>Egyptians:</strong> Used unit fractions (e.g., 1/2, 1/3, 1/4)</li>
+<li><strong>Babylonians:</strong> Used base-60 system with fractional parts</li>
+<li><strong>Romans:</strong> Used fractions like “uncia” (1/12) for weight and currency</li>
+</ul>
+<p>This makes your decimal-to-fraction converter a modern bridge to an ancient practice!</p>
+<h3>Decimal to Fraction Conversion Chart</h3>
+<table class="table table-striped">
+<thead>
+<tr><th>Decimal</th><th>Fraction</th><th>Simplified</th></tr>
+</thead>
+<tbody>
+<tr><td>0.1</td><td>1/10</td><td>1/10</td></tr>
+<tr><td>0.2</td><td>2/10</td><td>1/5</td></tr>
+<tr><td>0.333...</td><td>33/99</td><td>1/3</td></tr>
+<tr><td>0.5</td><td>5/10</td><td>1/2</td></tr>
+<tr><td>0.875</td><td>875/1000</td><td>7/8</td></tr>
+<tr><td>1.2</td><td>6/5</td><td>1 1/5</td></tr>
+</tbody>
+</table>
+<h3>Decimal to Fraction for Programmers &amp; Developers</h3>
+<p>If you're building calculators, web apps, or math utilities, integrating decimal-to-fraction logic is useful. Here's an example logic snippet in JavaScript:</p>
+<pre><code>
 function decimalToFraction(decimal) {
   let tolerance = 1.0E-6;
   let h1=1, h2=0, k1=0, k2=1, b = decimal;
@@ -229,91 +209,83 @@ function decimalToFraction(decimal) {
     let aux = h1; h1 = a*h1 + h2; h2 = aux;
     aux = k1; k1 = a*k1 + k2; k2 = aux;
     b = 1/(b - a);
-  } while (Math.abs(decimal - h1/k1) > decimal * tolerance);
+  } while (Math.abs(decimal - h1/k1) &gt; decimal * tolerance);
   return h1 + "/" + k1;
 }
   </code></pre>
-  <h3>Accessibility and Inclusive Design</h3>
-  <p>Our Decimal to Fraction Converter is designed with accessibility in mind to support all users, including those using assistive technologies:</p>
-  <ul>
-    <li><strong>Screen Reader Support:</strong> All input fields and outputs are properly labeled with ARIA attributes.</li>
-    <li><strong>Keyboard Navigation:</strong> Users can access all features without a mouse.</li>
-    <li><strong>Color Contrast:</strong> High-contrast design for users with low vision or color blindness.</li>
-    <li><strong>Text-to-Speech Compatibility:</strong> Fractional outputs are rendered in both numeric and plain text for easy narration.</li>
-  </ul>
-  <p>Whether you’re a student with dyscalculia or a professional using screen reading tools, the converter is designed to deliver a barrier-free experience.</p>
-
-  <h3>Educational Use in Classrooms</h3>
-  <p>Teachers often use this converter in digital classrooms to:</p>
-  <ul>
-    <li>Demonstrate the relationship between decimals and fractions visually and interactively</li>
-    <li>Create worksheets that include both decimal and fraction conversion practice</li>
-    <li>Introduce the concept of lowest terms and GCD simplification</li>
-    <li>Show recurring decimal to fraction conversion using patterns</li>
-  </ul>
-  <p>Students can input quiz answers, self-validate homework, or explore numerical patterns hands-on.</p>
-
-  <h3>Common Fractions and Their Decimal Equivalents</h3>
-  <p>Understanding common fractional values helps students and professionals estimate, convert, and verify results quickly:</p>
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr><th>Fraction</th><th>Decimal</th><th>Percent</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1/2</td><td>0.5</td><td>50%</td></tr>
-      <tr><td>1/3</td><td>0.333…</td><td>33.33%</td></tr>
-      <tr><td>2/3</td><td>0.666…</td><td>66.66%</td></tr>
-      <tr><td>1/4</td><td>0.25</td><td>25%</td></tr>
-      <tr><td>3/4</td><td>0.75</td><td>75%</td></tr>
-      <tr><td>1/8</td><td>0.125</td><td>12.5%</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Decimals in Global Measurement Systems</h3>
-  <p>Decimal-to-fraction conversion is especially important when working across imperial and metric systems:</p>
-  <ul>
-    <li><strong>Imperial Units:</strong> Common in the U.S. for inches, feet, ounces, and cups</li>
-    <li><strong>Metric Decimals:</strong> Used globally in millimeters, centimeters, grams, and liters</li>
-  </ul>
-  <p>Professionals in manufacturing, cooking, architecture, and healthcare often convert between metric decimals and imperial fractions for accurate documentation.</p>
-
-  <h3>Currency Representation</h3>
-  <p>In finance and accounting, decimal amounts are regularly shown as fractions for clarity or standardization. For example:</p>
-  <ul>
-    <li><code>0.75 USD</code> → <code>3/4 Dollar</code></li>
-    <li><code>0.125 BTC</code> → <code>1/8 Bitcoin</code></li>
-    <li><code>1.50 EUR</code> → <code>1 1/2 Euros</code></li>
-  </ul>
-  <p>This is especially useful when dividing assets, calculating interest shares, or creating proportion-based budgets.</p>
-
-  <h3>Converting Large Decimals</h3>
-  <p>Some users work with very large or scientific numbers. While these are not typically expressed as fractions in daily use, some decimal numbers can still be represented meaningfully:</p>
-  <ul>
-    <li><code>125.875</code> → <code>1007/8</code></li>
-    <li><code>1000.25</code> → <code>4001/4</code></li>
-  </ul>
-  <p>The converter ensures such numbers are processed without rounding errors and retains their original values.</p>
-
-  <h3>Visual Learning Aids</h3>
-  <p>Consider using visual tools like pie charts, bar models, and number lines to complement the digital output from this converter:</p>
-  <ul>
-    <li>Show what 0.25 looks like on a circle and compare it to 1/4 of a pizza</li>
-    <li>Use fraction strips or digital sliders to demonstrate equivalencies</li>
-    <li>Display conversion animations for classroom or online learning platforms</li>
-  </ul>
-  <p>These visualizations help reinforce the connection between abstract decimal values and practical fractional forms.</p>
-
-  <h3>Decimal to Fraction in Engineering Design</h3>
-  <p>Engineers and machinists frequently convert decimals to fractional inches for part fabrication, especially in industries that still use imperial blueprints:</p>
-  <ul>
-    <li><code>0.625 in</code> = <code>5/8"</code> → Standard drill bit size</li>
-    <li><code>1.125 in</code> = <code>1 1/8"</code> → Pipe or tubing diameter</li>
-  </ul>
-  <p>Using this converter helps ensure design accuracy and compatibility with measurement tools.</p>
-  <h3>Conclusion</h3>
-  <p>The <strong>Decimal to Fraction Converter</strong> is an essential tool for converting decimal values into clear, simplified fractions used in school, work, and everyday life. Whether you're preparing for exams, handling technical documents, or building something in your workshop, this tool ensures that you express numbers the right way — quickly and accurately.</p>
-
-  <p><strong>Start converting your decimals now and simplify your numbers with precision and confidence!</strong></p>
+<h3>Accessibility and Inclusive Design</h3>
+<p>Our Decimal to Fraction Converter is designed with accessibility in mind to support all users, including those using assistive technologies:</p>
+<ul>
+<li><strong>Screen Reader Support:</strong> All input fields and outputs are properly labeled with ARIA attributes.</li>
+<li><strong>Keyboard Navigation:</strong> Users can access all features without a mouse.</li>
+<li><strong>Color Contrast:</strong> High-contrast design for users with low vision or color blindness.</li>
+<li><strong>Text-to-Speech Compatibility:</strong> Fractional outputs are rendered in both numeric and plain text for easy narration.</li>
+</ul>
+<p>Whether you’re a student with dyscalculia or a professional using screen reading tools, the converter is designed to deliver a barrier-free experience.</p>
+<h3>Educational Use in Classrooms</h3>
+<p>Teachers often use this converter in digital classrooms to:</p>
+<ul>
+<li>Demonstrate the relationship between decimals and fractions visually and interactively</li>
+<li>Create worksheets that include both decimal and fraction conversion practice</li>
+<li>Introduce the concept of lowest terms and GCD simplification</li>
+<li>Show recurring decimal to fraction conversion using patterns</li>
+</ul>
+<p>Students can input quiz answers, self-validate homework, or explore numerical patterns hands-on.</p>
+<h3>Common Fractions and Their Decimal Equivalents</h3>
+<p>Understanding common fractional values helps students and professionals estimate, convert, and verify results quickly:</p>
+<table class="table table-bordered table-striped">
+<thead>
+<tr><th>Fraction</th><th>Decimal</th><th>Percent</th></tr>
+</thead>
+<tbody>
+<tr><td>1/2</td><td>0.5</td><td>50%</td></tr>
+<tr><td>1/3</td><td>0.333…</td><td>33.33%</td></tr>
+<tr><td>2/3</td><td>0.666…</td><td>66.66%</td></tr>
+<tr><td>1/4</td><td>0.25</td><td>25%</td></tr>
+<tr><td>3/4</td><td>0.75</td><td>75%</td></tr>
+<tr><td>1/8</td><td>0.125</td><td>12.5%</td></tr>
+</tbody>
+</table>
+<h3>Decimals in Global Measurement Systems</h3>
+<p>Decimal-to-fraction conversion is especially important when working across imperial and metric systems:</p>
+<ul>
+<li><strong>Imperial Units:</strong> Common in the U.S. for inches, feet, ounces, and cups</li>
+<li><strong>Metric Decimals:</strong> Used globally in millimeters, centimeters, grams, and liters</li>
+</ul>
+<p>Professionals in manufacturing, cooking, architecture, and healthcare often convert between metric decimals and imperial fractions for accurate documentation.</p>
+<h3>Currency Representation</h3>
+<p>In finance and accounting, decimal amounts are regularly shown as fractions for clarity or standardization. For example:</p>
+<ul>
+<li><code>0.75 USD</code> → <code>3/4 Dollar</code></li>
+<li><code>0.125 BTC</code> → <code>1/8 Bitcoin</code></li>
+<li><code>1.50 EUR</code> → <code>1 1/2 Euros</code></li>
+</ul>
+<p>This is especially useful when dividing assets, calculating interest shares, or creating proportion-based budgets.</p>
+<h3>Converting Large Decimals</h3>
+<p>Some users work with very large or scientific numbers. While these are not typically expressed as fractions in daily use, some decimal numbers can still be represented meaningfully:</p>
+<ul>
+<li><code>125.875</code> → <code>1007/8</code></li>
+<li><code>1000.25</code> → <code>4001/4</code></li>
+</ul>
+<p>The converter ensures such numbers are processed without rounding errors and retains their original values.</p>
+<h3>Visual Learning Aids</h3>
+<p>Consider using visual tools like pie charts, bar models, and number lines to complement the digital output from this converter:</p>
+<ul>
+<li>Show what 0.25 looks like on a circle and compare it to 1/4 of a pizza</li>
+<li>Use fraction strips or digital sliders to demonstrate equivalencies</li>
+<li>Display conversion animations for classroom or online learning platforms</li>
+</ul>
+<p>These visualizations help reinforce the connection between abstract decimal values and practical fractional forms.</p>
+<h3>Decimal to Fraction in Engineering Design</h3>
+<p>Engineers and machinists frequently convert decimals to fractional inches for part fabrication, especially in industries that still use imperial blueprints:</p>
+<ul>
+<li><code>0.625 in</code> = <code>5/8"</code> → Standard drill bit size</li>
+<li><code>1.125 in</code> = <code>1 1/8"</code> → Pipe or tubing diameter</li>
+</ul>
+<p>Using this converter helps ensure design accuracy and compatibility with measurement tools.</p>
+<h3>Conclusion</h3>
+<p>The <strong>Decimal to Fraction Converter</strong> is an essential tool for converting decimal values into clear, simplified fractions used in school, work, and everyday life. Whether you're preparing for exams, handling technical documents, or building something in your workshop, this tool ensures that you express numbers the right way — quickly and accurately.</p>
+<p><strong>Start converting your decimals now and simplify your numbers with precision and confidence!</strong></p>
 <script>
 function gcd(a,b){return b?gcd(b,a%b):a;}
 function conv(){
@@ -325,36 +297,34 @@ function conv(){
   }catch(e){document.getElementById('out').innerText='Invalid input';}
 }
 </script>
-   </div>
-  <div class=" description">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="../energy-convertion.html">Energy convertion</a></li>
-      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-      <li><a href="../length-convertion.html">Length convertion</a></li>
-      <li><a href="../number-convertion.html">Number convertion</a></li>
-      <li><a href="../power-convertion.html">Power convertion</a></li>
-      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-      <li><a href="../weight-convertion.html">Weight convertion</a></li>
-      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-    </ul>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> |
+</div>
+<div class="description">
+<h4>See Also</h4>
+<ul>
+<li><a href="../energy-convertion.html">Energy convertion</a></li>
+<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+<li><a href="../length-convertion.html">Length convertion</a></li>
+<li><a href="../number-convertion.html">Number convertion</a></li>
+<li><a href="../power-convertion.html">Power convertion</a></li>
+<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+<li><a href="../weight-convertion.html">Weight convertion</a></li>
+<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
         <a href="#">Recommend Site</a> |
         <a href="#">Send Feedback</a> |
         <a href="#">About</a>
-      </p>
-      <p>
+</p>
+<p>
         © EasyTables.com |
         <a href="#">Terms of Use</a> |
         <a href="#">Privacy Policy</a> |
         <a href="#">Manage Cookies</a>
-      </p>
- 
-  </footer>
-  </body>
+</p>
+</div></footer>
+</body>
 </html>

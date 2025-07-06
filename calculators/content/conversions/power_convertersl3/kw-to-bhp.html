@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>kW to BHP Converter</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
+<head>
+<meta content="EasyTables: Free online kW to BHP conversion. Access at https://easytables.vercel.app/calculators/content/conversions/power_convertersl3/kw-to-bhp.html for a fast and accurate kW to BHP conversion tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>kW to BHP Converter</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -24,41 +25,40 @@
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
     </style>
-  </head>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-    <div class="container">
-      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <br>
-    <nav class="breadcrumb container" aria-label="Breadcrumb">
-       <a href="../../../../index.html">Home</a> <span>›</span>
-    <a href="../../../../index.html#Calculators-s">Power Converters</a> <span>></span>
-      <a href="#">kW to BHP Converter</a>
-    </nav>
-
-      <div class="description">
-        <h3>kW to BHP Converter</h3>
-        <p>Enter value in kW:</p>
-        <input type="number" id="val" class="form-control" placeholder="Enter kW">
-        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-        <div class="mt-3" id="result"></div>
-        <p class="mt-4"><strong>Formula:</strong> BHP = kW × 1.3410220888438076</p>
-      </div>
-      <script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="Breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>›</span>
+<a href="../../../../index.html#Calculators-s">Power Converters</a> <span>&gt;</span>
+<a href="#">kW to BHP Converter</a>
+</nav>
+<div class="description">
+<h3>kW to BHP Converter</h3>
+<p>Enter value in kW:</p>
+<input class="form-control" id="val" placeholder="Enter kW" type="number"/>
+<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+<div class="mt-3" id="result"></div>
+<p class="mt-4"><strong>Formula:</strong> BHP = kW × 1.3410220888438076</p>
+</div>
+<script>
         function convert() {
           const v = parseFloat(document.getElementById('val').value);
           const res = document.getElementById('result');
@@ -67,159 +67,151 @@
           res.innerHTML = `${v} kW = ${out.toExponential(6)} BHP`;
         }
       </script>
-
- <div class="description">
-  <h1>Kilowatt to Brake Horsepower (kW → BHP) Conversion</h1>
-  <p>
+<div class="description">
+<h1>Kilowatt to Brake Horsepower (kW → BHP) Conversion</h1>
+<p>
     Converting mechanical power from kilowatts (kW) to brake horsepower (BHP) is crucial in automotive engineering, industrial drivetrain design, marine propulsion, pump and compressor selection, and performance benchmarking. While kW is the SI‐standard unit, many legacy specifications and marketing materials still use BHP. This guide—using every heading level (<code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>)—provides definitions, exact factors, step-by-step methods, illustrative examples, quick-reference tables, code snippets, advanced integration patterns, governance and semantic annotations, AI-driven workflows, and best practices for kW ↔ BHP conversion.
   </p>
-
-  <h2>What Is a Kilowatt (kW)?</h2>
-  <p>
+<h2>What Is a Kilowatt (kW)?</h2>
+<p>
     A kilowatt is one thousand watts, the SI unit of power, defined as one joule per second. It underpins engineering analyses, electrical-mechanical energy balances, and regulatory reporting.
   </p>
-  <h3>Contexts for kW Usage</h3>
-  <ul>
-    <li>Electric motor and generator ratings</li>
-    <li>Grid-scale and datacenter power consumption</li>
-    <li>Heating/cooling system outputs</li>
-  </ul>
-  <h4>Why Use kW?</h4>
-  <p>
+<h3>Contexts for kW Usage</h3>
+<ul>
+<li>Electric motor and generator ratings</li>
+<li>Grid-scale and datacenter power consumption</li>
+<li>Heating/cooling system outputs</li>
+</ul>
+<h4>Why Use kW?</h4>
+<p>
     kW unifies mechanical, electrical, and thermal power metrics, simplifying calculations and global communication.
   </p>
-  <h5>SI Prefix System</h5>
-  <p>
-    • <code>W</code> = 1 J/s<br>
-    • <code>kW</code> = 10³ W<br>
+<h5>SI Prefix System</h5>
+<p>
+    • <code>W</code> = 1 J/s<br/>
+    • <code>kW</code> = 10³ W<br/>
     • <code>MW</code> = 10⁶ W
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Always annotate numeric values with “kW” to avoid unit confusion.
   </p>
-
-  <h2>What Is Brake Horsepower (BHP)?</h2>
-  <p>
+<h2>What Is Brake Horsepower (BHP)?</h2>
+<p>
     Brake horsepower is the mechanical power measured at an engine’s crankshaft via a dynamometer (“brake”) before drivetrain losses. It predates SI units and remains common in automotive specifications.
   </p>
-  <h3>Historical Origin</h3>
-  <p>
+<h3>Historical Origin</h3>
+<p>
     James Watt defined horsepower in the 18th century; BHP emerged in the early 20th century to standardize engine testing.
   </p>
-  <h4>Definition</h4>
-  <p>
+<h4>Definition</h4>
+<p>
     1 BHP = 745.699872 watts (mechanical horsepower).
   </p>
-  <h5>Applications</h5>
-  <ul>
-    <li>Automotive brochures and dyno reports</li>
-    <li>Marine propulsion ratings</li>
-    <li>Industrial engine power figures</li>
-  </ul>
-  <h6>Tip:</h6>
-  <p>
+<h5>Applications</h5>
+<ul>
+<li>Automotive brochures and dyno reports</li>
+<li>Marine propulsion ratings</li>
+<li>Industrial engine power figures</li>
+</ul>
+<h6>Tip:</h6>
+<p>
     Note ambient conditions and dynamometer type when comparing BHP values.
   </p>
-
-  <h2>Exact Conversion Factor</h2>
-  <p>
+<h2>Exact Conversion Factor</h2>
+<p>
     By definition:
   </p>
-  <pre><code>1 BHP = 745.699872 W  
+<pre><code>1 BHP = 745.699872 W  
 1 kW = 1 000 W</code></pre>
-  <p>
+<p>
     Therefore:
   </p>
-  <pre><code>1 kW = 1 000 W ÷ 745.699872 W/BHP ≈ 1.34102209 BHP</code></pre>
-  <h3>Primary Formulas</h3>
-  <p>
-    <code>Power (BHP) = Power (kW) × 1.34102209</code><br>
-    <code>Power (kW) = Power (BHP) ÷ 1.34102209</code>
-  </p>
-  <h4>Precision & Rounding</h4>
-  <p>
+<pre><code>1 kW = 1 000 W ÷ 745.699872 W/BHP ≈ 1.34102209 BHP</code></pre>
+<h3>Primary Formulas</h3>
+<p>
+<code>Power (BHP) = Power (kW) × 1.34102209</code><br/>
+<code>Power (kW) = Power (BHP) ÷ 1.34102209</code>
+</p>
+<h4>Precision &amp; Rounding</h4>
+<p>
     Use at least nine significant digits (1.34102209) in intermediate steps; round final BHP to one decimal for specs, three decimals for engineering.
   </p>
-  <h5>Unit Clarity</h5>
-  <p>
+<h5>Unit Clarity</h5>
+<p>
     Append “kW” or “BHP” to all numeric values in tables, code, and UIs.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Centralize the conversion factor in a shared configuration to avoid drift.
   </p>
-
-  <h2>Step-by-Step Conversion Procedure</h2>
-  <h3>1. Identify Your Input</h3>
-  <p>
+<h2>Step-by-Step Conversion Procedure</h2>
+<h3>1. Identify Your Input</h3>
+<p>
     Confirm the value is in kilowatts (not metric horsepower, W, or HP).
   </p>
-  <h3>2. Apply Conversion</h3>
-  <p>
+<h3>2. Apply Conversion</h3>
+<p>
     Multiply kW by 1.34102209 to obtain BHP.
   </p>
-  <h3>3. Round & Label</h3>
-  <p>
+<h3>3. Round &amp; Label</h3>
+<p>
     Round to desired precision and append “BHP.”
   </p>
-  <h3>4. Document Metadata</h3>
-  <p>
+<h3>4. Document Metadata</h3>
+<p>
     Record input unit, factor version, date, and context (e.g., engine test conditions).
   </p>
-  <h3>5. Validate</h3>
-  <p>
+<h3>5. Validate</h3>
+<p>
     Cross-check with dyno data or manufacturer specs to ensure consistency.
   </p>
-  <h3>6. Store in Records</h3>
-  <p>
+<h3>6. Store in Records</h3>
+<p>
     Save both kW and BHP along with conversion metadata in your database.
   </p>
-
-  <h2>Illustrative Examples</h2>
-  <h3>Example 1: Industrial Motor</h3>
-  <p>
+<h2>Illustrative Examples</h2>
+<h3>Example 1: Industrial Motor</h3>
+<p>
     Motor rating 150 kW →  
     <code>150 × 1.34102209 ≈ 201.153 BHP</code>.
   </p>
-  <h4>Example 2: Marine Engine</h4>
-  <p>
+<h4>Example 2: Marine Engine</h4>
+<p>
     Engine output 2 500 kW →  
     <code>2 500 × 1.34102209 ≈ 3 352.555 BHP</code>.
   </p>
-  <h5>Example 3: Automotive Power</h5>
-  <p>
+<h5>Example 3: Automotive Power</h5>
+<p>
     EV motor 85 kW →  
     <code>85 × 1.34102209 ≈ 114.0 BHP</code>.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Present both units in spec sheets: “85 kW (114.0 BHP)”.
   </p>
-
-  <h2>Quick-Reference Conversion Table</h2>
-  <table>
-    <thead>
-      <tr><th>kW</th><th>BHP</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>1.3410</td></tr>
-      <tr><td>10</td><td>13.4102</td></tr>
-      <tr><td>50</td><td>67.0511</td></tr>
-      <tr><td>100</td><td>134.1022</td></tr>
-      <tr><td>200</td><td>268.2044</td></tr>
-      <tr><td>500</td><td>670.5110</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Automation with Code &amp; Spreadsheets</h2>
-  <h3>Spreadsheet Formula</h3>
-  <p>
-    • kW→BHP: <code>=A2 * 1.34102209</code><br>
+<h2>Quick-Reference Conversion Table</h2>
+<table>
+<thead>
+<tr><th>kW</th><th>BHP</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>1.3410</td></tr>
+<tr><td>10</td><td>13.4102</td></tr>
+<tr><td>50</td><td>67.0511</td></tr>
+<tr><td>100</td><td>134.1022</td></tr>
+<tr><td>200</td><td>268.2044</td></tr>
+<tr><td>500</td><td>670.5110</td></tr>
+</tbody>
+</table>
+<h2>Automation with Code &amp; Spreadsheets</h2>
+<h3>Spreadsheet Formula</h3>
+<p>
+    • kW→BHP: <code>=A2 * 1.34102209</code><br/>
     • BHP→kW: <code>=A2 / 1.34102209</code>
-  </p>
-  <h4>Python Snippet</h4>
-  <pre><code>def kw_to_bhp(kw):
+</p>
+<h4>Python Snippet</h4>
+<pre><code>def kw_to_bhp(kw):
     return kw * 1.34102209
 
 def bhp_to_kw(bhp):
@@ -228,93 +220,89 @@ def bhp_to_kw(bhp):
 # Examples
 print(kw_to_bhp(150))   # ≈201.153 BHP
 print(bhp_to_kw(114))   # ≈85.005 kW</code></pre>
-  <h5>JavaScript Example</h5>
-  <pre><code>function kwToBhp(kw) {
+<h5>JavaScript Example</h5>
+<pre><code>function kwToBhp(kw) {
   return kw * 1.34102209;
 }
 console.log(kwToBhp(85).toFixed(1)); // "114.0"</code></pre>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Encapsulate conversion routines in shared libraries or microservices for consistency.
   </p>
-
-  <h2>Advanced Integration Patterns</h2>
-  <p>
+<h2>Advanced Integration Patterns</h2>
+<p>
     Embedding kW↔BHP conversions into SCADA systems, digital twins, equipment‐asset management, performance dashboards, and IoT telemetry requires robust metadata, microservices, and governance.
   </p>
-  <h3>SCADA & Real-Time Monitoring</h3>
-  <p>
+<h3>SCADA &amp; Real-Time Monitoring</h3>
+<p>
     PLCs publish kW; an edge microservice converts to BHP and writes both units to historian tags for operator displays and alarms.
   </p>
-  <h4>Digital Twin Modeling</h4>
-  <p>
+<h4>Digital Twin Modeling</h4>
+<p>
     Simulation engines expect SI units (kW); telemetry in BHP is converted via centralized service before feeding into models.
   </p>
-  <h5>Performance Dashboards</h5>
-  <p>
+<h5>Performance Dashboards</h5>
+<p>
     BI tools display dual axes: primary in kW, secondary in BHP, updated in real time via conversion layer.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Use message brokers (MQTT topics “power/kW” and “power/BHP”) to decouple conversion logic.
   </p>
-
-  <h2>Quality Assurance &amp; Governance</h2>
-  <h3>Audit Logging</h3>
-  <p>
+<h2>Quality Assurance &amp; Governance</h2>
+<h3>Audit Logging</h3>
+<p>
     Log each conversion event—input kW, output BHP, factor version, timestamp, user/process identity—in an immutable store for compliance.
   </p>
-  <h4>Unit &amp; Property Tests</h4>
-  <pre><code>import pytest
+<h4>Unit &amp; Property Tests</h4>
+<pre><code>import pytest
 
 def test_round_trip_kw():
     for kw in [1,50,150]:
         bhp = kw_to_bhp(kw)
         assert pytest.approx(bhp_to_kw(bhp), rel=1e-9) == kw</code></pre>
-  <h5>CI/CD Integration</h5>
-  <p>
+<h5>CI/CD Integration</h5>
+<p>
     Integrate conversion‐library tests into pipelines; enforce 100% coverage on conversion logic to catch errors.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Version conversion constants and embed version metadata in API responses.
   </p>
-
-  <h2>Semantic Web &amp; Ontologies</h2>
-  <h3>RDF Annotation</h3>
-  <pre><code>:motor123 qudt:quantityValue "150"^^xsd:double ;
+<h2>Semantic Web &amp; Ontologies</h2>
+<h3>RDF Annotation</h3>
+<pre><code>:motor123 qudt:quantityValue "150"^^xsd:double ;
          qudt:unit qudt-unit:KILOWATT ;
          qudt:conversionToUnit qudt-unit:BHP ;
          qudt:conversionFactor "1.34102209"^^xsd:double .</code></pre>
-  <h4>SPARQL Query</h4>
-  <p>
-    <code>SELECT (?kw * ?factor AS ?BHP) WHERE {
+<h4>SPARQL Query</h4>
+<p>
+<code>SELECT (?kw * ?factor AS ?BHP) WHERE {
       :motor123 qudt:quantityValue ?kw ;
                 qudt:conversionFactor ?factor .
     }</code>
-  </p>
-  <h5>Tip:</h5>
-  <p>
+</p>
+<h5>Tip:</h5>
+<p>
     Centralize conversionFactor URIs in a shared ontology (e.g., QUDT).
   </p>
-  <h6>Governance:</h6>
-  <p>
+<h6>Governance:</h6>
+<p>
     Publish and version your unit ontology with citations to ISO 80000-3.
   </p>
-
-  <h2>AI-Driven Specification Parsing</h2>
-  <p>
+<h2>AI-Driven Specification Parsing</h2>
+<p>
     NLP pipelines can extract “200 kW” from technical datasheets, convert to BHP, and populate asset databases automatically.
   </p>
-  <h3>Workflow</h3>
-  <p>
-    1. OCR and NER detect “200 kW.”<br>
-    2. Extract value “200.”<br>
-    3. Compute <code>200×1.34102209≈268.204 BHP</code>.<br>
+<h3>Workflow</h3>
+<p>
+    1. OCR and NER detect “200 kW.”<br/>
+    2. Extract value “200.”<br/>
+    3. Compute <code>200×1.34102209≈268.204 BHP</code>.<br/>
     4. Write to <code>power_BHP</code> field.
   </p>
-  <h4>Example Python Snippet</h4>
-  <pre><code>import re
+<h4>Example Python Snippet</h4>
+<pre><code>import re
 
 text = "Rated at 200 kW"
 m = re.search(r"([0-9.]+)\s*kW", text)
@@ -322,69 +310,65 @@ if m:
     kw = float(m.group(1))
     bhp = kw * 1.34102209
     print(bhp)  # ≈268.2044</code></pre>
-  <h5>Tip:</h5>
-  <p>
+<h5>Tip:</h5>
+<p>
     Validate extracted values against equipment ranges to filter OCR errors.
   </p>
-  <h6>Note:</h6>
-  <p>
+<h6>Note:</h6>
+<p>
     Version NLP models and conversion logic in ML registry for auditability.
   </p>
-
-  <h2>Future Trends & Microservice APIs</h2>
-  <p>
+<h2>Future Trends &amp; Microservice APIs</h2>
+<p>
     In modern architectures, kW↔BHP conversions will be centralized behind microservices—ensuring consistent factors, real-time updates, and governed change management.
   </p>
-  <h3>Example REST Endpoint</h3>
-  <pre><code>GET /convert?from=kW&to=BHP&value=150
+<h3>Example REST Endpoint</h3>
+<pre><code>GET /convert?from=kW&amp;to=BHP&amp;value=150
 Response {
   "value_BHP": 201.1533135,
   "factor": 1.34102209,
   "timestamp": "2025-07-04T12:00:00Z"
 }</code></pre>
-  <h4>GraphQL Resolver</h4>
-  <p>
-    <code>query { motor(id:"M1") { kW, BHP: convert(to:"BHP") } }</code>
-  </p>
-  <h5>Tip:</h5>
-  <p>
+<h4>GraphQL Resolver</h4>
+<p>
+<code>query { motor(id:"M1") { kW, BHP: convert(to:"BHP") } }</code>
+</p>
+<h5>Tip:</h5>
+<p>
     Include serviceVersion and factorVersion to signal updates to clients.
   </p>
-  <h6>Governance:</h6>
-  <p>
+<h6>Governance:</h6>
+<p>
     Maintain contract tests verifying conversion results against authoritative test suites.
   </p>
-
-  <h2>Conclusion</h2>
-  <p>
+<h2>Conclusion</h2>
+<p>
     Converting kilowatts to brake horsepower—via <code>BHP = kW × 1.34102209</code>—is mathematically straightforward, but enterprise-scale applications demand rigorous practices: shared configuration, streaming pipelines, digital twins, equipment-asset management, semantic metadata, AI-driven parsing, microservices, and governance. By embedding the exact factor in robust workflows—using every heading level—you ensure accurate, traceable, and scalable power analytics across any specialized engineering domain.
   </p>
 </div>
-
- <div class="see-also description">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="../energy-convertion.html">Energy convertion</a></li>
-      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-      <li><a href="../length-convertion.html">Length convertion</a></li>
-      <li><a href="../number-convertion.html">Number convertion</a></li>
-      <li><a href="../power-convertion.html">Power convertion</a></li>
-      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-      <li><a href="../weight-convertion.html">Weight convertion</a></li>
-      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-    </ul>
-  </div>
-
-    <footer>
-      <div class="container">
-        <p>
-          <a href="#">Link to Us</a> |
+<div class="see-also description">
+<h4>See Also</h4>
+<ul>
+<li><a href="../energy-convertion.html">Energy convertion</a></li>
+<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+<li><a href="../length-convertion.html">Length convertion</a></li>
+<li><a href="../number-convertion.html">Number convertion</a></li>
+<li><a href="../power-convertion.html">Power convertion</a></li>
+<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+<li><a href="../weight-convertion.html">Weight convertion</a></li>
+<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-        </p>
-        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
-      </div>
-    </footer>
-  </body>
+</p>
+<p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+</div>
+</footer>
+</body>
 </html>

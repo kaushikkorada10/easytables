@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Volts to Millivolts (mV) Converter</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
+<head>
+<meta content="EasyTables: Free online Volts to millivolts (mV) conversion. Access at https://easytables.vercel.app/calculators/content/conversions/voltage_convertersl3/volts-to-millivolts.html for a fast and accurate Volts to millivolts (mV) conversion tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Volts to Millivolts (mV) Converter</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -24,41 +25,39 @@
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
     </style>
-  </head>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-    <div class="container">
-      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <br>
-    <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../../../index.html">Home</a> <span>›</span>
-    <a href="../../../../index.html#Calculators-s">Voltage Converters</a> <span>›</span>
-      <a href="#">Volts to Millivolts (mV) Converter</a>
-    </nav>
-
-      <div class="description">
-        <h3>Volts to Millivolts (mV) Converter</h3>
-        <p>Enter value in V:</p>
-        <input type="number" id="inputValue" class="form-control" placeholder="Enter V">
-        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-        <div class="mt-3" id="result"></div>
-      </div>
-    
-      <script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="Breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>›</span>
+<a href="../../../../index.html#Calculators-s">Voltage Converters</a> <span>›</span>
+<a href="#">Volts to Millivolts (mV) Converter</a>
+</nav>
+<div class="description">
+<h3>Volts to Millivolts (mV) Converter</h3>
+<p>Enter value in V:</p>
+<input class="form-control" id="inputValue" placeholder="Enter V" type="number"/>
+<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+<div class="mt-3" id="result"></div>
+</div>
+<script>
         function convert() {
           const val = parseFloat(document.getElementById('inputValue').value);
           const res = document.getElementById('result');
@@ -70,31 +69,397 @@
           res.innerHTML = `${val} V = ${result.toExponential(6)} mV`;
         }
       </script>
-    
-  <div class="see-also description">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="../energy-convertion.html">Energy convertion</a></li>
-      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-      <li><a href="../length-convertion.html">Length convertion</a></li>
-      <li><a href="../number-convertion.html">Number convertion</a></li>
-      <li><a href="../power-convertion.html">Power convertion</a></li>
-      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-      <li><a href="../weight-convertion.html">Weight convertion</a></li>
-      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-    </ul>
-  </div>
+      <div class="description">
+  <h1>Volts (V) to Millivolts (mV) Conversion</h1>
+  <p>
+    Converting between volts and millivolts is a basic yet essential task in electronics, instrumentation, power systems, and data acquisition. The volt (V) is the SI unit of electric potential, while the millivolt (mV) is one-thousandth of a volt. This comprehensive guide—using all heading levels from <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>—covers definitions, exact factors, step-by-step procedures, illustrative examples, quick-reference tables, code snippets, best practices, and integration patterns to master V ↔ mV conversion.
+  </p>
 
-    <footer>
-      <div class="container">
-        <p>
-          <a href="#">Link to Us</a> |
+  <h2>What Is a Volt (V)?</h2>
+  <p>
+    A volt is the unit of electric potential difference in the SI system, defined as the potential difference that drives one ampere of current through one ohm of resistance.
+  </p>
+  <h3>Contexts for Volts</h3>
+  <ul>
+    <li>Battery ratings (e.g., 1.5 V cells, 12 V automotive)</li>
+    <li>DC-rail voltages in electronics (e.g., 3.3 V, 5 V)</li>
+    <li>Signal amplitudes in measurement instruments</li>
+  </ul>
+  <h4>Why Volts Matter</h4>
+  <p>
+    Accurate voltage levels are critical for proper operation, safety, and calibration of electrical and electronic systems.
+  </p>
+  <h5>Common Misconceptions</h5>
+  <p>
+    • Voltage alone does not define power—current and resistance also matter.  
+    • RMS vs. peak values must be distinguished in AC systems.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Always verify whether a specified voltage is DC, peak, or RMS when working with AC signals.
+  </p>
+
+  <h2>What Is a Millivolt (mV)?</h2>
+  <p>
+    A millivolt is one-thousandth of a volt:  
+    <code>1 mV = 10⁻³ V</code>. Millivolts are used for low-level signals and fine adjustments.
+  </p>
+  <h3>Contexts for Millivolts</h3>
+  <ul>
+    <li>Sensor outputs (thermocouples, strain gauges often mV-level)</li>
+    <li>Precision references and calibrators</li>
+    <li>Low-amplitude signal conditioning</li>
+  </ul>
+  <h4>Why Millivolts Matter</h4>
+  <p>
+    Many sensors and transducers produce outputs in the millivolt range, requiring proper scaling for accurate measurement and digitization.
+  </p>
+  <h5>Variants &amp; Notes</h5>
+  <p>
+    • “mV” must always use lowercase “m” with uppercase “V” to conform to SI conventions.  
+    • Beware of noise floor and offset when measuring small millivolt signals.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Use instrumentation amplifiers with low offset and low drift to handle mV-level signals reliably.
+  </p>
+
+  <h2>Exact Conversion Factor</h2>
+  <p>
+    The relationship between volts and millivolts is:  
+    <code>1 V = 1 000 mV</code>  
+    Conversely:  
+    <code>1 mV = 0.001 V</code>.
+  </p>
+  <h3>Derivation</h3>
+  <p>
+    The SI prefix “milli” denotes 10⁻³, so multiply volts by 1 000 to get millivolts.
+  </p>
+  <h4>Conversion Formulas</h4>
+  <p>
+    <code>Voltage (mV) = Voltage (V) × 1 000</code><br>
+    <code>Voltage (V) = Voltage (mV) ÷ 1 000</code>
+  </p>
+  <h5>Precision</h5>
+  <p>
+    Retain at least three significant digits during intermediate calculations; round final results according to application needs (e.g., 0.123 mV).
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Centralize conversion constants in a configuration library to prevent discrepancies across code modules.
+  </p>
+
+  <h2>Step-by-Step Conversion Procedure</h2>
+  <h3>1. Identify Unit</h3>
+  <p>
+    Determine whether your measurement or specification is in volts or millivolts.
+  </p>
+  <h3>2. Apply Factor</h3>
+  <p>
+    Multiply by 1 000 to convert V→mV; divide by 1 000 to convert mV→V.
+  </p>
+  <h3>3. Round & Label</h3>
+  <p>
+    Round to appropriate resolution (e.g., nearest mV) and annotate the unit symbol clearly.
+  </p>
+
+  <h2>Illustrative Examples</h2>
+  <h3>Example 1: Battery Measurement</h3>
+  <p>
+    A 9 V battery →  
+    <code>9 V × 1 000 = 9 000 mV</code>.
+  </p>
+  <h4>Example 2: Sensor Output</h4>
+  <p>
+    A thermocouple yields 12.3 mV →  
+    <code>12.3 mV ÷ 1 000 = 0.0123 V</code>.
+  </p>
+  <h5>Example 3: Amplifier Gain</h5>
+  <p>
+    An amplifier multiplies 0.0005 V by 200 →  
+    <code>0.0005 V × 200 = 0.1 V = 100 mV</code>.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Express small voltages in scientific notation when coding or logging (e.g., <code>1.23e1 mV</code>).
+  </p>
+
+  <h2>Quick-Reference Conversion Table</h2>
+  <table>
+    <thead>
+      <tr><th>Volts (V)</th><th>Millivolts (mV)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0.001</td><td>1</td></tr>
+      <tr><td>0.010</td><td>10</td></tr>
+      <tr><td>0.100</td><td>100</td></tr>
+      <tr><td>1.000</td><td>1 000</td></tr>
+      <tr><td>5.000</td><td>5 000</td></tr>
+      <tr><td>12.300</td><td>12 300</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Implementing in Code</h2>
+  <h3>JavaScript Snippet</h3>
+  <pre><code>function voltsToMillivolts(v) {
+  return v * 1e3;
+}
+function millivoltsToVolts(mv) {
+  return mv / 1e3;
+}
+console.log(voltsToMillivolts(0.0123)); // 12.3
+console.log(millivoltsToVolts(100));    // 0.1</code></pre>
+
+  <h4>Python Snippet</h4>
+  <pre><code>def volts_to_millivolts(v):
+    return v * 1e3
+
+def millivolts_to_volts(mv):
+    return mv / 1e3
+
+print(volts_to_millivolts(9))   # 9000.0
+print(millivolts_to_volts(12.3)) # 0.0123</code></pre>
+
+  <h5>Spreadsheet Formula</h5>
+  <p>
+    Assuming volts in A2:  
+    <code>=A2*1000</code> → mV,  
+    <code>=A2/1000</code> → V.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Use named ranges (e.g., <code>Voltage_V</code>) to make formulas self-describing.
+  </p>
+
+  <h2>Advanced Integration Patterns</h2>
+  <h3>Data-Acquisition Pipelines</h3>
+  <p>
+    Embed V→mV conversion in microservices to normalize sensor flows before storage in time-series databases.
+  </p>
+  <h4>Embedded C (Fixed-Point)</h4>
+  <pre><code>/* Q15.16 fixed-point volts to mV */
+#define SCALE (1<<16)
+int32_t v_to_mv_fp(int32_t v_fp){
+    // v_fp in Q15.16 (volts ×2¹⁶)
+    return (int32_t)((int64_t)v_fp * 1000 / SCALE);
+}</code></pre>
+  <h5>Tip:</h5>
+  <p>
+    Tag data streams with <code>units="mV"</code> metadata to avoid misinterpretation downstream.
+  </p>
+  <h6>Note:</h6>
+  <p>
+    Always validate sensor range and saturate conversions to avoid overflows in embedded code.
+  </p>
+
+  <h2>Best Practices &amp; Governance</h2>
+  <h3>Centralize Constants</h3>
+  <p>
+    Store conversion factors in a shared library or configuration to ensure consistency across applications.
+  </p>
+  <h4>Unit Testing</h4>
+  <pre><code>import pytest
+
+def test_round_trip():
+    for v in [0.001, 0.123, 1.0, 5.5]:
+        mv = volts_to_millivolts(v)
+        assert pytest.approx(millivolts_to_volts(mv), rel=1e-9) == pytest.approx(v, rel=1e-9)</code></pre>
+  <h5>Tip:</h5>
+  <p>
+    Include edge values (zero, full-scale sensor voltage) in your test suite.
+  </p>
+  <h6>Note:</h6>
+  <p>
+    Document any rounding rules or saturations applied in conversion functions.
+  </p>
+
+  <h2>Conclusion</h2>
+  <p>
+    Mastery of V ↔ mV conversion—ubiquitous in electronics and instrumentation—ensures that your measurements and control algorithms operate at the correct scale. By following the detailed procedures, examples, code snippets, and best practices outlined above—using all heading levels—you’ll deliver accurate, consistent, and maintainable voltage conversions throughout your projects.
+  </p>
+</div>
+<div class="description">
+  <h1>Advanced Integration & Calibration for V ↔ mV Conversion Workflows</h1>
+  <p>
+    Beyond the basic factor, real‐world V↔mV conversion pipelines demand careful attention to signal conditioning, ADC interfacing, test automation, data‐logging, standards compliance, and even AI‐powered anomaly detection. This extended section—using all heading levels from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>—dives into these advanced patterns to build end‐to‐end, production-grade voltage measurement systems.
+  </p>
+
+  <h2>Signal Conditioning & Front-End Design</h2>
+  <h3>Instrumentation Amplifier Selection</h3>
+  <p>
+    For mV-level signals, choose an instrumentation amplifier with ultra-low offset (<code>&lt;1 µV</code>) and drift (<code>&lt;0.1 µV/°C</code>) specifications.  
+    <strong>Example:</strong> INA333 (Texas Instruments) offers 50 nV<sub>pp</sub> noise over 0.1–10 Hz and 0.25 µV offset drift.
+  </p>
+  <h4>Input Filtering & Protection</h4>
+  <ul>
+    <li>RC low-pass at <code>fc = 1/(2π·R·C)</code> to limit bandwidth to the ADC’s Nyquist rate.</li>
+    <li>Transient suppression (TVS diodes, series resistors) to handle ESD or overvoltage.</li>
+  </ul>
+  <h5>Guarding Techniques</h5>
+  <p>
+    Use driven guard traces around high-impedance inputs to reduce leakage. Implement PCB star-grounding to isolate analog returns.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Keep analog paths short and shielded; route digital ground returns separately from analog.
+  </p>
+
+  <h2>High-Resolution ADC Interfacing</h2>
+  <h3>Choosing the Right Converter</h3>
+  <p>
+    Select a delta-sigma ADC with ≥24 bits and internal PGA for mV inputs. Look for noise floors &lt;0.5 µV<sub>RMS</sub> and data rates suited to your sampling needs.
+  </p>
+  <h4>Hardware Averaging & Oversampling</h4>
+  <p>
+    Configure the ADC’s internal oversampling ratio (OSR) to trade throughput for SNR. Typical: OSR=256 yields ~20 dB SNR improvement.
+  </p>
+  <h5>SPI & I<sup>2</sup>C Bus Considerations</h5>
+  <p>
+    Use hardware SPI at ≥1 MHz for low-latency reads; ensure proper pull-ups on I<sup>2</sup>C lines to avoid noise.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Time-stamp each sample at readout to correlate with external events or triggers.
+  </p>
+
+  <h2>Automated Calibration & Self-Test</h2>
+  <h3>Two-Point Span & Offset Calibration</h3>
+  <p>
+    Automate zero-scale and full-scale calibration using precision references (e.g., 0 V and 1.000 V). Store calibration coefficients in non-volatile memory.
+  </p>
+  <h4>Built-In Self-Test (BIST)</h4>
+  <p>
+    Use the ADC’s internal reference switch to measure its own reference and detect drift. Compare against factory trace and trigger recalibration if deviation &gt; specified tolerance.
+  </p>
+  <h5>Scripted Calibration Workflow</h5>
+  <pre><code>#!/bin/bash
+# Calibrate 0V
+echo "Measuring zero offset..."
+zero=$(read_adc)
+# Calibrate span at 1V
+echo "Applying 1.000 V ref..."
+span=$(read_adc)
+# Compute scale and offset
+scale=$(echo "scale=12; (1.0)/( $span - $zero )" | bc)
+offset=$zero
+store_calib $scale $offset</code></pre>
+  <h6>Tip:</h6>
+  <p>
+    Automate environmental checks (temperature, humidity) and tag calibration runs accordingly.
+  </p>
+
+  <h2>Data-Logging & Time-Series Management</h2>
+  <h3>Choosing a Database</h3>
+  <p>
+    Use time-series databases (InfluxDB, TimescaleDB) to store high-resolution mV streams with tags (sensor ID, calibration version).
+  </p>
+  <h4>Downsampling & Retention Policies</h4>
+  <p>
+    Retain full-rate data for short periods (days), then downsample (e.g., 1-minute averages) for long-term storage to control disk usage.
+  </p>
+  <h5>Alerting & Thresholds</h5>
+  <p>
+    Define alerts for readings beyond ±X mV or noise spikes above Y µV<sub>pp</sub>, integrating with PagerDuty or Slack via Webhooks.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Tag anomalies with root-cause metadata (e.g., “power_cycle,” “calibration_due”) for faster triage.
+  </p>
+
+  <h2>Compliance & Traceability</h2>
+  <h3>Standards Overview</h3>
+  <ul>
+    <li>IEEE-488 (GPIB) for benchtop instrument control</li>
+    <li>IEC 61010 for measurement safety</li>
+    <li>ISO 9001 traceability requirements</li>
+  </ul>
+  <h4>Audit Trail Implementation</h4>
+  <p>
+    Log every calibration, firmware update, and threshold change with timestamp, operator ID, and reason codes. Store logs in WORM-compliant storage if required.
+  </p>
+  <h5>Certificate Generation</h5>
+  <p>
+    Automatically generate PDF calibration certificates (including mV→V conversion tables) after each calibration run using templating (e.g., Jinja2 + WeasyPrint).
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Digitally sign certificates to enforce authenticity and non-repudiation.
+  </p>
+
+  <h2>AI/ML for µV-Scale Signal Analysis</h2>
+  <h3>Anomaly Detection</h3>
+  <p>
+    Train models (Isolation Forest, LSTM autoencoders) on historical mV streams to detect drift, spikes, or sensor faults in real time.
+  </p>
+  <h4>Predictive Drift Compensation</h4>
+  <p>
+    Use regression models to predict baseline drift versus temperature or age, then apply dynamic offset correction in firmware.
+  </p>
+  <h5>Edge Deployment</h5>
+  <p>
+    Convert trained models to TensorFlow Lite / Edge Impulse to run on microcontrollers alongside ADC reads and flag outliers locally.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Continuously collect feedback on flagged events to retrain models and reduce false positives.
+  </p>
+
+  <h2>End-to-End Example: Environmental Sensor Node</h2>
+  <p>
+    Consider an outdoor temperature sensor: a PT100 RTD’s mV output is amplified, digitized, calibrated, logged, and anomaly-checked.  
+  </p>
+  <h3>Block Diagram</h3>
+  <p>
+    Sensor → INA333 → ADS1263 (24-bit ADC) → STM32 MCU → InfluxDB → Grafana dashboard → Alert on drift.
+  </p>
+  <h4>Firmware Flow (Pseudocode)</h4>
+  <pre><code>loop:
+  raw = adc.read()
+  calibrated = (raw - offset) * scale
+  if anomaly_model.detect(calibrated):
+    alert("Sensor anomaly")
+  store_time_series(calibrated)
+  sleep(1s)</code></pre>
+  <h5>Dashboard KPIs</h5>
+  <ul>
+    <li>Real-time mV & degC plots</li>
+    <li>Noise floor over last hour</li>
+    <li>Time since last calibration</li>
+  </ul>
+  <h6>Tip:</h6>
+  <p>
+    Implement “shadow mode” alerts for a week before enforcing automated alarms.
+  </p>
+
+  <h2>Conclusion</h2>
+  <p>
+    Building robust V↔mV measurement systems requires a holistic approach: precision front-ends, high-resolution ADCs, automated calibration, structured data pipelines, compliance controls, and intelligent analytics. By layering these advanced patterns—signal conditioning, calibration automation, time-series management, standards traceability, and AI-powered monitoring—you’ll achieve reliable, scalable, and compliant voltage measurement solutions across any application domain.
+  </p>
+</div>
+
+<div class="see-also description">
+<h4>See Also</h4>
+<ul>
+<li><a href="../energy-convertion.html">Energy convertion</a></li>
+<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+<li><a href="../length-convertion.html">Length convertion</a></li>
+<li><a href="../number-convertion.html">Number convertion</a></li>
+<li><a href="../power-convertion.html">Power convertion</a></li>
+<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+<li><a href="../weight-convertion.html">Weight convertion</a></li>
+<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-        </p>
-        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
-      </div>
-    </footer>
-  </body>
+</p>
+<p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+</div>
+</footer>
+</body>
 </html>

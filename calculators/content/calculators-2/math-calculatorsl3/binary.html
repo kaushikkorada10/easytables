@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Binary Calculator - EasyTables</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>    <style>
+<head>
+<meta content="EasyTables: Free online Binary calculator. Access at https://easytables.vercel.app/calculators/content/calculators-2/math-calculatorsl3/binary.html for a fast and accurate Binary calculator tool." name="description"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Binary Calculator - EasyTables</title>
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -59,7 +60,7 @@
         font-weight: 500;
       }
     </style>
-    <script>
+<script>
       function calculateBinary(operation) {
         const bin1 = document.getElementById("binary1").value;
         const bin2 = document.getElementById("binary2").value;
@@ -95,406 +96,361 @@
         document.getElementById("result").innerHTML = `Result = ${result}`;
       }
     </script>
-  </head>
-  <body>
-        <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-      <div class="container">
-        <a class="navbar-brand" href="../../../../index.html">
-          <h1 class="nav-h1-color">EASY TABLES</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home</a>
-            <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-            <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-            <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-            <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <br>
-    <nav class="breadcrumb container" aria-label="breadcrumb">
-      <a href="../../../../index.html">Home</a> <span>></span>
-      <a href="../../../../index.html">Calculator</a><span>></span>
-      <a href="#">Binary Calculator</a> 
-      
-    </nav>
-
-
-    <div class="description">
-      <h3>Binary Calculator</h3>
-      <p>Perform binary arithmetic operations (addition, subtraction, multiplication, division) on two binary numbers.</p>
-
-      <form>
-        <div class="form-group">
-          <label for="binary1">First Binary Number:</label>
-          <input type="text" class="form-control" id="binary1" placeholder="e.g. 1010">
-        </div>
-        <div class="form-group">
-          <label for="binary2">Second Binary Number:</label>
-          <input type="text" class="form-control" id="binary2" placeholder="e.g. 0011">
-        </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-primary mr-2" onclick="calculateBinary('add')">Add</button>
-          <button type="button" class="btn btn-secondary mr-2" onclick="calculateBinary('sub')">Subtract</button>
-          <button type="button" class="btn btn-success mr-2" onclick="calculateBinary('mul')">Multiply</button>
-          <button type="button" class="btn btn-danger" onclick="calculateBinary('div')">Divide</button>
-        </div>
-      </form>
-
-      <div id="result" class="mt-4 font-weight-bold"></div>
-    </div>
-    <div class="description">
-  <h2>Binary Calculator – Perform Binary Addition, Subtraction, Multiplication, and Division</h2>
-
-  <p>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<div class="container">
+<a class="navbar-brand" href="../../../../index.html">
+<h1 class="nav-h1-color">EASY TABLES</h1>
+</a>
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home</a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+</div>
+</div>
+</div>
+</nav>
+<br/>
+<nav aria-label="breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>&gt;</span>
+<a href="../../../../index.html">Calculator</a><span>&gt;</span>
+<a href="#">Binary Calculator</a>
+</nav>
+<div class="description">
+<h3>Binary Calculator</h3>
+<p>Perform binary arithmetic operations (addition, subtraction, multiplication, division) on two binary numbers.</p>
+<form>
+<div class="form-group">
+<label for="binary1">First Binary Number:</label>
+<input class="form-control" id="binary1" placeholder="e.g. 1010" type="text"/>
+</div>
+<div class="form-group">
+<label for="binary2">Second Binary Number:</label>
+<input class="form-control" id="binary2" placeholder="e.g. 0011" type="text"/>
+</div>
+<div class="form-group">
+<button class="btn btn-primary mr-2" onclick="calculateBinary('add')" type="button">Add</button>
+<button class="btn btn-secondary mr-2" onclick="calculateBinary('sub')" type="button">Subtract</button>
+<button class="btn btn-success mr-2" onclick="calculateBinary('mul')" type="button">Multiply</button>
+<button class="btn btn-danger" onclick="calculateBinary('div')" type="button">Divide</button>
+</div>
+</form>
+<div class="mt-4 font-weight-bold" id="result"></div>
+</div>
+<div class="description">
+<h2>Binary Calculator – Perform Binary Addition, Subtraction, Multiplication, and Division</h2>
+<p>
     The Easy Tables Binary Calculator is a free, fast, and easy-to-use tool that lets you perform binary arithmetic online. Whether you're a student learning digital systems, a programmer dealing with low-level operations, or an engineer working with logic circuits, our calculator helps you add, subtract, multiply, and divide binary numbers with just a few clicks.
   </p>
-
-  <h3>🔢 What is Binary?</h3>
-  <p>
+<h3>🔢 What is Binary?</h3>
+<p>
     The **binary number system (base 2)** is a numeral system that uses only two digits: 0 and 1. It is the fundamental language of computers and digital electronics. Each digit in a binary number is called a **bit**, and each position represents a power of 2, increasing from right to left.
   </p>
-
-  <h3>🧮 Binary Calculator Functions</h3>
-  <ul>
-    <li><strong>Binary Addition</strong> – Add two binary numbers</li>
-    <li><strong>Binary Subtraction</strong> – Subtract one binary number from another</li>
-    <li><strong>Binary Multiplication</strong> – Multiply binary values like long multiplication</li>
-    <li><strong>Binary Division</strong> – Perform division and get quotient and remainder</li>
-  </ul>
-
-  <h3>✅ How to Use the Binary Calculator</h3>
-  <ol>
-    <li>Choose the operation: Addition, Subtraction, Multiplication, or Division</li>
-    <li>Enter the binary numbers in the respective input fields</li>
-    <li>Click “Calculate” to view the result instantly</li>
-    <li>Get both the binary result and its decimal equivalent</li>
-  </ol>
-
-  <h3>📘 Binary Arithmetic Rules</h3>
-  <p><strong>Addition Rules:</strong></p>
-  <ul>
-    <li>0 + 0 = 0</li>
-    <li>0 + 1 = 1</li>
-    <li>1 + 0 = 1</li>
-    <li>1 + 1 = 10 (carry 1)</li>
-  </ul>
-
-  <p><strong>Subtraction Rules:</strong></p>
-  <ul>
-    <li>0 – 0 = 0</li>
-    <li>1 – 0 = 1</li>
-    <li>1 – 1 = 0</li>
-    <li>0 – 1 = 1 (borrow 1)</li>
-  </ul>
-
-  <p><strong>Multiplication Rules:</strong></p>
-  <ul>
-    <li>0 × 0 = 0</li>
-    <li>0 × 1 = 0</li>
-    <li>1 × 0 = 0</li>
-    <li>1 × 1 = 1</li>
-  </ul>
-
-  <p><strong>Division:</strong> Follow the standard division process (long division) using binary digits only.</p>
-
-  <h3>📊 Binary Operation Examples</h3>
-  <ul>
-    <li><strong>Add:</strong> 1011 + 1101 = <code>11000</code></li>
-    <li><strong>Subtract:</strong> 1100 – 101 = <code>111</code></li>
-    <li><strong>Multiply:</strong> 101 × 10 = <code>1010</code></li>
-    <li><strong>Divide:</strong> 1101 ÷ 11 = <code>100 (quotient), 1 (remainder)</code></li>
-  </ul>
-
-  <h3>📐 Why Use a Binary Calculator?</h3>
-  <ul>
-    <li>Fast and error-free binary arithmetic</li>
-    <li>Great for learning digital logic, computer architecture, or network addressing</li>
-    <li>Instant conversion between binary and decimal</li>
-    <li>Handles large binary numbers easily</li>
-  </ul>
-
-  <h3>📈 Use Cases of Binary Arithmetic</h3>
-  <ul>
-    <li><strong>Computer Science:</strong> CPU instruction sets, data representation</li>
-    <li><strong>Engineering:</strong> Circuit design, boolean algebra</li>
-    <li><strong>Programming:</strong> Bitwise operations in C, C++, Java, Python</li>
-    <li><strong>Networking:</strong> Subnetting and IP addressing</li>
-    <li><strong>Game Development:</strong> Memory-efficient flags and attributes</li>
-  </ul>
-
-  <h3>🧠 Binary Number System Overview</h3>
-  <ul>
-    <li><strong>Base:</strong> 2</li>
-    <li><strong>Digits Used:</strong> 0, 1</li>
-    <li><strong>Smallest 4-bit binary:</strong> 0000</li>
-    <li><strong>Largest 4-bit binary:</strong> 1111 = 15 in decimal</li>
-  </ul>
-
-  <h3>📏 Converting Binary to Decimal</h3>
-  <p>
+<h3>🧮 Binary Calculator Functions</h3>
+<ul>
+<li><strong>Binary Addition</strong> – Add two binary numbers</li>
+<li><strong>Binary Subtraction</strong> – Subtract one binary number from another</li>
+<li><strong>Binary Multiplication</strong> – Multiply binary values like long multiplication</li>
+<li><strong>Binary Division</strong> – Perform division and get quotient and remainder</li>
+</ul>
+<h3>✅ How to Use the Binary Calculator</h3>
+<ol>
+<li>Choose the operation: Addition, Subtraction, Multiplication, or Division</li>
+<li>Enter the binary numbers in the respective input fields</li>
+<li>Click “Calculate” to view the result instantly</li>
+<li>Get both the binary result and its decimal equivalent</li>
+</ol>
+<h3>📘 Binary Arithmetic Rules</h3>
+<p><strong>Addition Rules:</strong></p>
+<ul>
+<li>0 + 0 = 0</li>
+<li>0 + 1 = 1</li>
+<li>1 + 0 = 1</li>
+<li>1 + 1 = 10 (carry 1)</li>
+</ul>
+<p><strong>Subtraction Rules:</strong></p>
+<ul>
+<li>0 – 0 = 0</li>
+<li>1 – 0 = 1</li>
+<li>1 – 1 = 0</li>
+<li>0 – 1 = 1 (borrow 1)</li>
+</ul>
+<p><strong>Multiplication Rules:</strong></p>
+<ul>
+<li>0 × 0 = 0</li>
+<li>0 × 1 = 0</li>
+<li>1 × 0 = 0</li>
+<li>1 × 1 = 1</li>
+</ul>
+<p><strong>Division:</strong> Follow the standard division process (long division) using binary digits only.</p>
+<h3>📊 Binary Operation Examples</h3>
+<ul>
+<li><strong>Add:</strong> 1011 + 1101 = <code>11000</code></li>
+<li><strong>Subtract:</strong> 1100 – 101 = <code>111</code></li>
+<li><strong>Multiply:</strong> 101 × 10 = <code>1010</code></li>
+<li><strong>Divide:</strong> 1101 ÷ 11 = <code>100 (quotient), 1 (remainder)</code></li>
+</ul>
+<h3>📐 Why Use a Binary Calculator?</h3>
+<ul>
+<li>Fast and error-free binary arithmetic</li>
+<li>Great for learning digital logic, computer architecture, or network addressing</li>
+<li>Instant conversion between binary and decimal</li>
+<li>Handles large binary numbers easily</li>
+</ul>
+<h3>📈 Use Cases of Binary Arithmetic</h3>
+<ul>
+<li><strong>Computer Science:</strong> CPU instruction sets, data representation</li>
+<li><strong>Engineering:</strong> Circuit design, boolean algebra</li>
+<li><strong>Programming:</strong> Bitwise operations in C, C++, Java, Python</li>
+<li><strong>Networking:</strong> Subnetting and IP addressing</li>
+<li><strong>Game Development:</strong> Memory-efficient flags and attributes</li>
+</ul>
+<h3>🧠 Binary Number System Overview</h3>
+<ul>
+<li><strong>Base:</strong> 2</li>
+<li><strong>Digits Used:</strong> 0, 1</li>
+<li><strong>Smallest 4-bit binary:</strong> 0000</li>
+<li><strong>Largest 4-bit binary:</strong> 1111 = 15 in decimal</li>
+</ul>
+<h3>📏 Converting Binary to Decimal</h3>
+<p>
     Multiply each bit by 2<sup>n</sup> based on its position (starting from right = 0) and sum the results.
   </p>
-  <p><strong>Example:</strong> 1011 = (1×8) + (0×4) + (1×2) + (1×1) = <strong>11</strong></p>
-
-  <h3>📘 Binary in Programming</h3>
-  <ul>
-    <li><code>0b1010</code> is how binary is written in Python</li>
-    <li><code>int("1010", 2)</code> converts binary to decimal</li>
-    <li><code>bin(10)</code> returns "0b1010"</li>
-    <li>Bitwise operators: & (AND), | (OR), ^ (XOR), ~ (NOT), << (Shift left), >> (Shift right)</li>
-  </ul>
-
-  <h3>🔐 Privacy & Usability</h3>
-  <ul>
-    <li>All calculations done in-browser</li>
-    <li>No data stored or sent to servers</li>
-    <li>Responsive on all devices</li>
-    <li>Instant feedback with no page reloads</li>
-  </ul>
-
-  <h3>🔎 SEO Keywords Covered</h3>
-  <ul>
-    <li>binary calculator</li>
-    <li>binary addition and subtraction</li>
-    <li>online binary calculator tool</li>
-    <li>binary multiplication and division</li>
-    <li>calculate binary result online</li>
-    <li>convert binary to decimal</li>
-    <li>arithmetic calculator for binary numbers</li>
-  </ul>
-
-  <h3>📚 Related Tools</h3>
-  <ul>
-    <li><a href="/calculators/hex-calculator.html">Hex Calculator</a></li>
-    <li><a href="/calculators/base-converter.html">Base Converter</a></li>
-    <li><a href="/calculators/ascii-converter.html">ASCII to Binary Converter</a></li>
-    <li><a href="/calculators/bitwise-calculator.html">Bitwise Operator Calculator</a></li>
-  </ul>
-
-  <h3>📣 Frequently Asked Questions</h3>
-  <p><strong>Q: Can I enter decimals?</strong></p>
-  <p>No, this calculator works with pure binary inputs. Use our Base Converter to switch between binary and decimal first.</p>
-
-  <p><strong>Q: What's the largest number I can use?</strong></p>
-  <p>The calculator supports binary numbers up to 64 bits. For longer numbers, results may be truncated or approximated.</p>
-
-  <p><strong>Q: What happens with negative results?</strong></p>
-  <p>Currently, the calculator supports unsigned binary. Two’s complement and signed arithmetic are in development.</p>
-
-  <h3>🎯 Final Summary</h3>
-  <p>
+<p><strong>Example:</strong> 1011 = (1×8) + (0×4) + (1×2) + (1×1) = <strong>11</strong></p>
+<h3>📘 Binary in Programming</h3>
+<ul>
+<li><code>0b1010</code> is how binary is written in Python</li>
+<li><code>int("1010", 2)</code> converts binary to decimal</li>
+<li><code>bin(10)</code> returns "0b1010"</li>
+<li>Bitwise operators: &amp; (AND), | (OR), ^ (XOR), ~ (NOT), &lt;&lt; (Shift left), &gt;&gt; (Shift right)</li>
+</ul>
+<h3>🔐 Privacy &amp; Usability</h3>
+<ul>
+<li>All calculations done in-browser</li>
+<li>No data stored or sent to servers</li>
+<li>Responsive on all devices</li>
+<li>Instant feedback with no page reloads</li>
+</ul>
+<h3>🔎 SEO Keywords Covered</h3>
+<ul>
+<li>binary calculator</li>
+<li>binary addition and subtraction</li>
+<li>online binary calculator tool</li>
+<li>binary multiplication and division</li>
+<li>calculate binary result online</li>
+<li>convert binary to decimal</li>
+<li>arithmetic calculator for binary numbers</li>
+</ul>
+<h3>📚 Related Tools</h3>
+<ul>
+<li><a href="/calculators/hex-calculator.html">Hex Calculator</a></li>
+<li><a href="/calculators/base-converter.html">Base Converter</a></li>
+<li><a href="/calculators/ascii-converter.html">ASCII to Binary Converter</a></li>
+<li><a href="/calculators/bitwise-calculator.html">Bitwise Operator Calculator</a></li>
+</ul>
+<h3>📣 Frequently Asked Questions</h3>
+<p><strong>Q: Can I enter decimals?</strong></p>
+<p>No, this calculator works with pure binary inputs. Use our Base Converter to switch between binary and decimal first.</p>
+<p><strong>Q: What's the largest number I can use?</strong></p>
+<p>The calculator supports binary numbers up to 64 bits. For longer numbers, results may be truncated or approximated.</p>
+<p><strong>Q: What happens with negative results?</strong></p>
+<p>Currently, the calculator supports unsigned binary. Two’s complement and signed arithmetic are in development.</p>
+<h3>🎯 Final Summary</h3>
+<p>
     The Easy Tables Binary Calculator helps you master binary arithmetic without hassle. It's great for students, engineers, and developers who need a clean and reliable tool to work with binary math. Whether you're adding bits or debugging a bitmask, this calculator is a must-have resource.
   </p>
-  <p>
+<p>
     Try it now and bring binary calculations into focus — fast, accurate, and frustration-free.
   </p>
 </div>
 <div class="description">
-  <h3>📘 Binary Arithmetic in Computer Systems</h3>
-  <p>
+<h3>📘 Binary Arithmetic in Computer Systems</h3>
+<p>
     Computers operate using electrical signals, which are either on or off — represented as 1 or 0 in binary. This makes binary arithmetic the fundamental method of performing all computer calculations, from basic math to complex logic operations.
   </p>
-  <p>
+<p>
     At the hardware level, binary operations are performed using logic gates such as AND, OR, NOT, NAND, and XOR. These gates form the core of processors and digital circuits. Learning binary arithmetic is essential for understanding how data is processed, stored, and transmitted by computing systems.
   </p>
-
-  <h3>🧠 Binary Logic in Boolean Algebra</h3>
-  <p>
+<h3>🧠 Binary Logic in Boolean Algebra</h3>
+<p>
     In digital logic design, binary numbers are used to represent true (1) or false (0) values in Boolean algebra. This is useful in decision-making operations and designing control systems.
   </p>
-  <p>
+<p>
     Example expressions:
-    <br><code>A AND B = A × B</code> (Binary Multiplication)
-    <br><code>A OR B = A + B – A × B</code> (Binary Addition with logic)
+    <br/><code>A AND B = A × B</code> (Binary Multiplication)
+    <br/><code>A OR B = A + B – A × B</code> (Binary Addition with logic)
   </p>
-  <p>
+<p>
     Understanding binary arithmetic is a prerequisite for solving Karnaugh maps, designing circuits, and simulating programmable logic controllers (PLCs).
   </p>
-
-  <h3>📚 Educational Use Cases</h3>
-  <p>
+<h3>📚 Educational Use Cases</h3>
+<p>
     Binary arithmetic is frequently taught in:
   </p>
-  <ul>
-    <li>Computer Science (CS101, Digital Logic Design)</li>
-    <li>Electrical and Electronics Engineering</li>
-    <li>Information Technology and Networking</li>
-    <li>Computer Architecture</li>
-    <li>Competitive exams like GATE, GRE, and SAT</li>
-  </ul>
-  <p>
+<ul>
+<li>Computer Science (CS101, Digital Logic Design)</li>
+<li>Electrical and Electronics Engineering</li>
+<li>Information Technology and Networking</li>
+<li>Computer Architecture</li>
+<li>Competitive exams like GATE, GRE, and SAT</li>
+</ul>
+<p>
     Our Binary Calculator helps students quickly validate manual calculations, saving time and boosting confidence in exams and lab assignments.
   </p>
-
-  <h3>🖥 Binary Arithmetic in Networking</h3>
-  <p>
+<h3>🖥 Binary Arithmetic in Networking</h3>
+<p>
     Binary is the backbone of IP addressing and subnetting in computer networks. IP addresses (e.g., 192.168.1.1) are stored and calculated in binary format under the hood.
   </p>
-  <p>
+<p>
     Subnetting involves performing binary AND operations between an IP address and a subnet mask to calculate network IDs, host IDs, and broadcast addresses.
   </p>
-  <p>
+<p>
     Example:
-    <br>
-    <code>IP: 192.168.1.1 → 11000000.10101000.00000001.00000001</code>
-    <br>
-    <code>Subnet Mask: 255.255.255.0 → 11111111.11111111.11111111.00000000</code>
-    <br>
-    <code>Network Address: 192.168.1.0</code>
-  </p>
-
-  <h3>📦 Binary in File Sizes and Storage</h3>
-  <p>
+    <br/>
+<code>IP: 192.168.1.1 → 11000000.10101000.00000001.00000001</code>
+<br/>
+<code>Subnet Mask: 255.255.255.0 → 11111111.11111111.11111111.00000000</code>
+<br/>
+<code>Network Address: 192.168.1.0</code>
+</p>
+<h3>📦 Binary in File Sizes and Storage</h3>
+<p>
     All digital data — text, images, audio, video — is ultimately stored as binary. File sizes are measured in:
   </p>
-  <ul>
-    <li>1 Byte = 8 Bits</li>
-    <li>1 Kilobyte = 2<sup>10</sup> Bytes = 1,024 Bytes</li>
-    <li>1 Megabyte = 2<sup>20</sup> Bytes = 1,048,576 Bytes</li>
-  </ul>
-  <p>
+<ul>
+<li>1 Byte = 8 Bits</li>
+<li>1 Kilobyte = 2<sup>10</sup> Bytes = 1,024 Bytes</li>
+<li>1 Megabyte = 2<sup>20</sup> Bytes = 1,048,576 Bytes</li>
+</ul>
+<p>
     Binary multiplication and addition are essential for calculating memory requirements, storage efficiency, and encoding formats.
   </p>
-
-  <h3>🔄 Binary Arithmetic vs Decimal Arithmetic</h3>
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Binary</th>
-        <th>Decimal</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Base</td>
-        <td>2</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>Digits Used</td>
-        <td>0, 1</td>
-        <td>0 to 9</td>
-      </tr>
-      <tr>
-        <td>Common In</td>
-        <td>Digital Systems, Computers</td>
-        <td>Everyday Human Use</td>
-      </tr>
-      <tr>
-        <td>Efficiency in Hardware</td>
-        <td>High</td>
-        <td>Low</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>🧾 Binary Overflow and Limitations</h3>
-  <p>
+<h3>🔄 Binary Arithmetic vs Decimal Arithmetic</h3>
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Binary</th>
+<th>Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base</td>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Digits Used</td>
+<td>0, 1</td>
+<td>0 to 9</td>
+</tr>
+<tr>
+<td>Common In</td>
+<td>Digital Systems, Computers</td>
+<td>Everyday Human Use</td>
+</tr>
+<tr>
+<td>Efficiency in Hardware</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h3>🧾 Binary Overflow and Limitations</h3>
+<p>
     When working with binary numbers, especially in processors, overflow can occur if a result exceeds the allotted bit length. For example:
   </p>
-  <p>
+<p>
     If an 8-bit system tries to store a result larger than 255 (11111111), it will cause overflow and the extra bits will be discarded.
   </p>
-  <p>
+<p>
     Our calculator handles large binary inputs but also shows decimal equivalents so you can verify if the result fits within your expected range.
   </p>
-
-  <h3>📏 Signed vs Unsigned Binary Numbers</h3>
-  <p>
-    <strong>Unsigned binary</strong> represents only positive numbers. <br>
-    <strong>Signed binary</strong> (using two's complement) allows for negative numbers as well.
+<h3>📏 Signed vs Unsigned Binary Numbers</h3>
+<p>
+<strong>Unsigned binary</strong> represents only positive numbers. <br/>
+<strong>Signed binary</strong> (using two's complement) allows for negative numbers as well.
   </p>
-  <p>
+<p>
     Example (4-bit system):
-    <br><code>0111 = 7 (Unsigned)</code>
-    <br><code>1001 = –7 (Signed Two’s Complement)</code>
-  </p>
-  <p>
+    <br/><code>0111 = 7 (Unsigned)</code>
+<br/><code>1001 = –7 (Signed Two’s Complement)</code>
+</p>
+<p>
     Future versions of our calculator may include signed binary arithmetic support.
   </p>
-
-  <h3>📲 Mobile-Friendly Experience</h3>
-  <p>
+<h3>📲 Mobile-Friendly Experience</h3>
+<p>
     The Binary Calculator is fully responsive and works on all devices. Whether you're using a smartphone, tablet, or laptop, the UI adapts to your screen size. Perfect for quick calculations on the go or in class.
   </p>
-
-  <h3>🔎 Long-Tail SEO Keywords (Expanded)</h3>
-  <ul>
-    <li>binary subtraction with borrow</li>
-    <li>binary addition calculator with steps</li>
-    <li>binary calculator for digital logic</li>
-    <li>unsigned binary division calculator</li>
-    <li>easy binary math calculator online</li>
-    <li>binary multiplication examples</li>
-    <li>convert binary to decimal with solution</li>
-  </ul>
-
-  <h3>🧩 Suggested Future Features</h3>
-  <ul>
-    <li>Step-by-step binary calculation walkthrough</li>
-    <li>Support for signed binary (two’s complement)</li>
-    <li>Live logic gate simulation view</li>
-    <li>Export results to PDF or text file</li>
-    <li>Copy binary and decimal results separately</li>
-  </ul>
-
-  <h3>📣 Share with Classmates or Teams</h3>
-  <p>
+<h3>🔎 Long-Tail SEO Keywords (Expanded)</h3>
+<ul>
+<li>binary subtraction with borrow</li>
+<li>binary addition calculator with steps</li>
+<li>binary calculator for digital logic</li>
+<li>unsigned binary division calculator</li>
+<li>easy binary math calculator online</li>
+<li>binary multiplication examples</li>
+<li>convert binary to decimal with solution</li>
+</ul>
+<h3>🧩 Suggested Future Features</h3>
+<ul>
+<li>Step-by-step binary calculation walkthrough</li>
+<li>Support for signed binary (two’s complement)</li>
+<li>Live logic gate simulation view</li>
+<li>Export results to PDF or text file</li>
+<li>Copy binary and decimal results separately</li>
+</ul>
+<h3>📣 Share with Classmates or Teams</h3>
+<p>
     If you're studying or teaching binary math, this tool can save time and improve accuracy. Share it in your study group, classroom, or team Slack channel for quick access and better learning.
   </p>
-
-  <h3>🎯 Conclusion</h3>
-  <p>
+<h3>🎯 Conclusion</h3>
+<p>
     Binary arithmetic is the core of everything digital. From CPUs to cloud systems, all computing boils down to 0s and 1s. The Easy Tables Binary Calculator gives you the power to work with this foundation in a simple, accurate, and reliable way.
   </p>
-  <p>
+<p>
     Whether you're debugging, learning, or building — this calculator makes binary math accessible and error-free. Try it now, and let binary calculations become second nature!
   </p>
 </div>
-
-
-    
-    <div class="see-also">
-      <h4>See Also</h4>
-      <ul>
-       <li><a href="arccos.html">Arccos calculator</a></li>
-       <li><a href="average.html">Average calculator</a></li>
-       <li><a href="binary.html">Binary calculator</a></li>
-       <li><a href="exponential-growth.html">Exponential growth calculator</a></li>
-       <li><a href="root.html">Root calculator</a></li>
-       <li><a href="square-root.html">Square root calculator</a></li>
-       <li><a href="tangent-calculator.html">Tangent calculator</a></li>
-       <li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
-       <li><a href="variance-calculator.html">Variance calculator</a></li>
-
-
-      </ul>
-    </div>
-
-
-    <footer>
-      <div class="container">
-        <p>
-          <a href="#">Link to Us</a> |
+<div class="see-also">
+<h4>See Also</h4>
+<ul>
+<li><a href="arccos.html">Arccos calculator</a></li>
+<li><a href="average.html">Average calculator</a></li>
+<li><a href="binary.html">Binary calculator</a></li>
+<li><a href="exponential-growth.html">Exponential growth calculator</a></li>
+<li><a href="root.html">Root calculator</a></li>
+<li><a href="square-root.html">Square root calculator</a></li>
+<li><a href="tangent-calculator.html">Tangent calculator</a></li>
+<li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
+<li><a href="variance-calculator.html">Variance calculator</a></li>
+</ul>
+</div>
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-        </p>
-        <p>
+</p>
+<p>
           © EasyTables.com |
           <a href="#">About</a> |
           <a href="#">Terms of Use</a> |
           <a href="#">Privacy Policy</a> |
           <a href="#">Manage Cookies</a>
-        </p>
-      </div>
-    </footer>
-  </body>
+</p>
+</div>
+</footer>
+</body>
 </html>
