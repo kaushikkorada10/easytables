@@ -1,16 +1,15 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-<meta content="EasyTables: Free online Pounds to Stones. Access at https://easytables.vercel.app/calculators/content/conversions/weight_convertersl3/pounds-to-stones.html for a fast and accurate Pounds to Stones tool." name="description"/><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Pounds to Stones</title>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pounds to Stones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -25,39 +24,41 @@
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
     </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
-<div class="container">
-<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav ml-auto">
-<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
-<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-</div>
-</div>
-</div>
-</nav>
-<br/>
-<nav aria-label="Breadcrumb" class="breadcrumb container">
-<a href="../../../../index.html">Home</a> <span>›</span>
-<a href="../../../../index.html#Calculators-s">Weight Converters</a> <span>›</span>
-<a href="#">Pounds to Stones</a>
-</nav>
-<div class="description">
-<h3>Pounds to Stones</h3>
-<p>Enter value in lb:</p>
-<input class="form-control" id="inputValue" placeholder="Enter lb" type="number"/>
-<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-<div class="mt-3" id="result"></div>
-</div>
-<script>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../../../index.html">Home</a> <span>›</span>
+    <a href="../../../../index.html#Calculators-s">Weight Converters</a> <span>›</span>
+      <a href="#">Pounds to Stones</a>
+    </nav>
+
+      <div class="description">
+        <h3>Pounds to Stones</h3>
+        <p>Enter value in lb:</p>
+        <input type="number" id="inputValue" class="form-control" placeholder="Enter lb" >
+        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+        <div class="mt-3" id="result"></div>
+      </div>
+    
+      <script>
         function convert() {
           const val = parseFloat(document.getElementById('inputValue').value);
           const res = document.getElementById('result');
@@ -69,29 +70,336 @@
           res.innerHTML = `${val} lb = ${out.toExponential(6)} stone`;
         }
       </script>
-<div class="see-also description">
-<h4>See Also</h4>
-<ul>
-<li><a href="../energy-convertion.html">Energy convertion</a></li>
-<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-<li><a href="../length-convertion.html">Length convertion</a></li>
-<li><a href="../number-convertion.html">Number convertion</a></li>
-<li><a href="../power-convertion.html">Power convertion</a></li>
-<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-<li><a href="../weight-convertion.html">Weight convertion</a></li>
-<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-</ul>
+    <div class="description">
+  <h2>Pounds to Stones – Accurate UK‑Style Weight Conversion Guide</h2>
+  <p>Looking to convert <strong>pounds (lb)</strong> to <strong>stones (st)</strong>? Especially common in the UK and Ireland, the stone is a traditional unit of weight widely used for expressing body weight. This guide presents formulas, tables, examples, quizzes, and real-world tips for reliable conversions.</p>
+
+  <h3>Quick Answer: 1 Stone = 14 Pounds</h3>
+  <p>In the British Imperial and U.S. customary system, the conversion is:</p>
+  <pre><code>1 stone (st) = 14 pounds (lb)</code></pre>
+  <p>To convert from pounds to stones, divide the pound value by 14. For example: 70 lb ÷ 14 = <strong>5 st</strong>.</p>
+
+  <h3>Conversion Formula</h3>
+  <pre><code>Stones = Pounds ÷ 14</code></pre>
+
+  <h4>Examples:</h4>
+  <ul>
+    <li>98 lb ÷ 14 = <strong>7 st</strong></li>
+    <li>150 lb ÷ 14 ≈ <strong>10.71 st</strong></li>
+    <li>175 lb ÷ 14 ≈ <strong>12.5 st</strong></li>
+    <li>200 lb ÷ 14 ≈ <strong>14.29 st</strong></li>
+  </ul>
+
+  <h3>Pounds to Stones Conversion Table</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Pounds (lb)</th><th>Stones (st)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>70</td><td>5</td></tr>
+      <tr><td>84</td><td>6</td></tr>
+      <tr><td>98</td><td>7</td></tr>
+      <tr><td>112</td><td>8</td></tr>
+      <tr><td>126</td><td>9</td></tr>
+      <tr><td>140</td><td>10</td></tr>
+      <tr><td>154</td><td>11</td></tr>
+      <tr><td>168</td><td>12</td></tr>
+      <tr><td>182</td><td>13</td></tr>
+      <tr><td>196</td><td>14</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Why Convert Pounds to Stones?</h3>
+  <ul>
+    <li><strong>Health & Fitness:</strong> In the UK, body weight is typically quoted in stones and pounds.</li>
+    <li><strong>Medical Records:</strong> Doctors and nurses often use stones during patient assessments.</li>
+    <li><strong>Nutrition & Diet:</strong> Diet plans and fitness goals often reference weight in stones.</li>
+    <li><strong>Communication:</strong> Helps bridge between U.S. pounds and British stones for international users.</li>
+  </ul>
+
+  <h3>Real-Life Examples</h3>
+  <ul>
+    <li>Average adult male (~175 lb) = <strong>12.5 st</strong></li>
+    <li>Average adult female (~140 lb) = <strong>10 st</strong></li>
+    <li>Small dog (20 lb) = <strong>1 st 6 lb</strong> (formatted as stones + pounds)</li>
+    <li>Large bag of dog food (50 lb) = <strong>3 st 8 lb</strong></li>
+  </ul>
+
+  <h3>Developer’s Tip – JavaScript Converter</h3>
+  <pre><code>
+// Convert pounds to stones (decimal)
+function poundsToStones(pounds) {
+  return +(pounds / 14).toFixed(2);
+}
+
+// Convert pounds to stones + pounds remainder
+function formatStone(pounds) {
+  const st = Math.floor(pounds / 14);
+  const lbRemainder = pounds % 14;
+  return `${st} st ${lbRemainder} lb`;
+}
+console.log(poundsToStones(150)); // 10.71
+console.log(formatStone(150)); // "10 st 10 lb"
+  </code></pre>
+
+  <h3>Frequently Asked Questions (FAQs)</h3>
+  <h4>Q1: How many stones is 168 pounds?</h4>
+  <p>168 ÷ 14 = <strong>12 st</strong>.</p>
+
+  <h4>Q2: What is 145 lb in stones and pounds?</h4>
+  <p>145 ÷ 14 = 10 st with a remainder of 5 lb → <strong>10 st 5 lb</strong>.</p>
+
+  <h4>Q3: Why do Brits use stones?</h4>
+  <p>The stone is embedded in UK culture and tradition for expressing body weight — a quicker, less granular unit than pounds.</p>
+
+  <h4>Q4: How do I convert stones to pounds?</h4>
+  <p>Use <code>Pounds = Stones × 14</code>. For example, 7 st × 14 = <strong>98 lb</strong>.</p>
+
+  <h3>Interactive Quiz</h3>
+  <ul>
+    <li>🔹 <strong>Convert:</strong> 182 lb → ? st → **13 st**</li>
+    <li>🔹 <strong>Convert:</strong> 157 lb → ? st + lb → **11 st 3 lb**</li>
+    <li>🔹 <strong>Challenge:</strong> 200 lb → ? stones (decimal) → **14.29 st**</li>
+  </ul>
+
+  <h3>Educational Context & Classroom Use</h3>
+  <ul>
+    <li>🧠 Reinforces division with remainder in math classes.</li>
+    <li>📚 Useful in geography or culture units when comparing measurement systems.</li>
+    <li>🚻 Helps learners understand both U.S. and UK weight conventions.</li>
+  </ul>
+
+  <h3>Voice‑Search Optimization</h3>
+  <ul>
+    <li>“How many stones are in 150 pounds?”</li>
+    <li>“Convert 125 lb to stones and pounds”</li>
+    <li>“Pounds to stone converter formula”</li>
+  </ul>
+
+  <h3>Memory Tip & Mnemonic</h3>
+  <p>Use this rhyme:</p>
+  <blockquote>
+    <p><em>"One stone is fourteen pound,—<br>
+    Keep it simple, wisdom found."</em></p>
+  </blockquote>
+
+  <h3>Quick Reference Recap</h3>
+  <ul>
+    <li>1 st = 14 lb</li>
+    <li>70 lb = 5 st</li>
+    <li>100 lb ≈ 7.14 st</li>
+    <li>140 lb = 10 st</li>
+    <li>175 lb ≈ 12.5 st</li>
+  </ul>
+
+  <h3>Accessibility & Cultural Considerations</h3>
+  <ul>
+    <li>Include both “stones” and “st” in your content for clarity.</li>
+    <li>Explain stones + pounds breakdown clearly for non-UK visitors.</li>
+    <li>Support screen reader — use alt-text: “10 stones and 5 pounds.”</li>
+  </ul>
+  <h3>Stone and Pound Breakdown Explained</h3>
+  <p>In the UK and Ireland, it's common to express weight in a two-part format, such as <strong>“12 stone 4 pounds”</strong>. Here's how it works:</p>
+  <ul>
+    <li><strong>Stones (st):</strong> The whole number part after dividing by 14.</li>
+    <li><strong>Pounds (lb):</strong> The remainder — how many pounds are left after extracting full stones.</li>
+  </ul>
+  <p>For example, 154 pounds ÷ 14 = 11 stones with no remainder → <strong>11 st</strong>. But 160 pounds ÷ 14 = 11 st and 6 lb → <strong>11 st 6 lb</strong>.</p>
+
+  <h3>Commonly Used Weight Ranges in Stones</h3>
+  <p>Here’s how some typical weights translate into stone units:</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Weight</th><th>Pounds</th><th>Stones + Pounds</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Lightweight Boxer</td><td>135 lb</td><td>9 st 9 lb</td></tr>
+      <tr><td>Average Female (UK)</td><td>154 lb</td><td>11 st</td></tr>
+      <tr><td>Average Male (UK)</td><td>189 lb</td><td>13 st 7 lb</td></tr>
+      <tr><td>Rugby Player</td><td>220 lb</td><td>15 st 10 lb</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Interactive Memory Technique – “Stone Ladder”</h3>
+  <p>Create a mental ladder of stones and their pound equivalents. For example:</p>
+  <ul>
+    <li>7 st = 98 lb</li>
+    <li>8 st = 112 lb</li>
+    <li>9 st = 126 lb</li>
+    <li>10 st = 140 lb</li>
+    <li>11 st = 154 lb</li>
+    <li>12 st = 168 lb</li>
+  </ul>
+  <p>This helps quickly estimate weight categories without needing a calculator.</p>
+
+  <h3>Usage Around the World</h3>
+  <p>While “stone” is most common in the UK and Ireland, some expat communities and even certain sports communities globally (e.g., rugby and boxing) still use it:</p>
+  <ul>
+    <li>🇬🇧 UK: Standard for personal body weight</li>
+    <li>🇮🇪 Ireland: Also widely used</li>
+    <li>🇦🇺 Australia (older generations): Occasionally used alongside kilograms</li>
+    <li>🌍 Expats: Used by British expats globally for familiarity</li>
+  </ul>
+
+  <h3>Conversion in Digital Health Devices</h3>
+  <p>Many smart scales and health apps allow users to select “stones and pounds” as their unit. These devices:</p>
+  <ul>
+    <li>Auto-convert internal kg readings into st + lb output</li>
+    <li>Offer conversion flexibility in regional settings</li>
+    <li>Use floating point logic for precise decimal calculations</li>
+  </ul>
+  <p>So when your smart scale shows <strong>12 st 8 lb</strong>, it's storing it as <strong>176 lb</strong> or <strong>79.83 kg</strong> internally.</p>
+
+  <h3>Health & BMI Integration</h3>
+  <p>In health contexts, converting pounds to stones helps patients understand their:</p>
+  <ul>
+    <li>📈 <strong>Body Mass Index (BMI):</strong> Stones/height can be a helpful way to visualize progress</li>
+    <li>🎯 <strong>Target Weight Goals:</strong> Often listed as “lose 1 stone” or “drop to 10 st”</li>
+    <li>📋 <strong>Medical records:</strong> Older or UK-based systems use stones natively</li>
+  </ul>
+
+  <h3>Fun Fact: Why 14 Pounds per Stone?</h3>
+  <p>The “stone” was historically variable by region and item being weighed, but in 1835, the UK standardized the stone to be 14 pounds for trade. Before that, different commodities had stones of 8, 12, or 16 lb!</p>
+
+  <h3>Real-World Conversion Scenarios</h3>
+  <ul>
+    <li>🧍 <strong>Weight Loss:</strong> “I lost 28 pounds” = “I lost 2 stone” — sounds more impressive!</li>
+    <li>🥊 <strong>Boxing Classes:</strong> “Middleweight limit is 11 st 6 lb” → 160 lb</li>
+    <li>👨‍⚕️ <strong>Health Clinics:</strong> UK GPs log patient weights in st + lb format by default</li>
+  </ul>
+
+  <h3>Stone vs. Other Units (Quick Chart)</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr><th>Unit</th><th>Symbol</th><th>Equivalent in Pounds</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ounce</td><td>oz</td><td>1/16 lb</td></tr>
+      <tr><td>Pound</td><td>lb</td><td>1 lb</td></tr>
+      <tr><td>Stone</td><td>st</td><td>14 lb</td></tr>
+      <tr><td>Kilogram</td><td>kg</td><td>2.20462 lb</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Voice Search Keyword Ideas</h3>
+  <ul>
+    <li>“How many stones is 190 pounds?”</li>
+    <li>“Convert pounds to stones and pounds manually”</li>
+    <li>“Formula for converting pounds into UK stone weight”</li>
+    <li>“Stone to pounds calculator online”</li>
+  </ul>
+    <h3>Rounding Rules for Pounds to Stones</h3>
+  <p>When converting pounds to stones, rounding is essential for presenting clean results—especially in health, sports, or reporting contexts:</p>
+  <ul>
+    <li><strong>Decimal Stones:</strong> Round to 2 decimal places (e.g., 10.71 st)</li>
+    <li><strong>Stones + Pounds:</strong> Use remainder pounds as whole numbers (e.g., 10 st 10 lb)</li>
+    <li><strong>Medical or Legal Records:</strong> Always round down unless instructed otherwise</li>
+    <li><strong>Fitness Apps:</strong> Typically round to nearest 0.5 or 1 lb for clarity</li>
+  </ul>
+  <p>Use your calculator to toggle between decimal mode and mixed mode for better control.</p>
+
+  <h3>Unit Labeling Best Practices (UX)</h3>
+  <p>To make your weight converter more usable on mobile or web platforms:</p>
+  <ul>
+    <li>🪧 <strong>Use Full Labels:</strong> Always show "Pounds (lb)" and "Stones (st)" — don’t assume user familiarity.</li>
+    <li>📱 <strong>Input Placeholder Tips:</strong> E.g., "Enter your weight in pounds"</li>
+    <li>🔁 <strong>Reverse Conversion Option:</strong> Add toggle between "lb → st" and "st → lb"</li>
+    <li>📊 <strong>Show Formula:</strong> Display “/ 14” to visually teach the conversion</li>
+    <li>🕶️ <strong>Dark Mode:</strong> Ensure conversion tables remain legible in all UI modes</li>
+  </ul>
+
+  <h3>Stones in Global Sports & Athletics</h3>
+  <p>Several global sports still use stones to categorize players or match weight classes:</p>
+  <ul>
+    <li><strong>🥊 Boxing (UK):</strong> Fighters listed in stones and pounds (e.g., 10 st 7 lb)</li>
+    <li><strong>🏉 Rugby:</strong> Player stats in stones for match rosters</li>
+    <li><strong>🏇 Horse Racing:</strong> Rider weights and handicaps listed in st + lb</li>
+    <li><strong>⚽ Football (UK):</strong> Some legacy records still refer to weight in stones</li>
+  </ul>
+  <p>This makes it useful for sports journalists, statisticians, and fans to quickly convert and compare athlete data.</p>
+
+  <h3>How to Explain Stones to Non-UK Users</h3>
+  <p>Many international users may not understand “stone” as a unit of weight. Here's how to explain it:</p>
+  <blockquote>
+    <p><strong>"In the UK, people often say 'I weigh 12 stone 4' instead of using pounds or kilograms. One stone equals 14 pounds, so 12 stone 4 means 172 pounds."</strong></p>
+  </blockquote>
+  <p>This approach helps improve comprehension, especially for American or metric-based audiences.</p>
+
+  <h3>Stones vs. Kilograms – Comparative Insight</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Stones</th><th>Pounds</th><th>Kilograms (approx)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>8</td><td>112</td><td>50.8 kg</td></tr>
+      <tr><td>10</td><td>140</td><td>63.5 kg</td></tr>
+      <tr><td>12</td><td>168</td><td>76.2 kg</td></tr>
+      <tr><td>14</td><td>196</td><td>88.9 kg</td></tr>
+      <tr><td>16</td><td>224</td><td>101.6 kg</td></tr>
+    </tbody>
+  </table>
+  <p>This comparative table helps users transitioning between imperial and metric systems.</p>
+
+  <h3>Weight Conversions in British Media</h3>
+  <p>In UK media—especially health shows, sports coverage, and tabloid stories—you’ll frequently see stones used for:</p>
+  <ul>
+    <li>💪 Weight loss success stories ("Lost 5 st!")</li>
+    <li>⚖️ Medical transformations ("Went from 22 st to 15 st")</li>
+    <li>🏆 Athlete comparisons ("He weighs nearly 18 st!")</li>
+  </ul>
+  <p>Understanding the stone system helps international viewers contextualize UK-based content better.</p>
+
+  <h3>Social Media & Body Positivity</h3>
+  <p>In the UK fitness and wellness communities, stones and pounds are often used in body positivity journeys:</p>
+  <ul>
+    <li>📷 Instagram: Before/after posts tagged with “#12stoneclub” or “#From15stTo12st”</li>
+    <li>📘 Facebook groups: “Stone by stone” support groups for shared weight goals</li>
+    <li>🎯 Progress visuals: Tracking each stone lost or gained as a milestone</li>
+  </ul>
+  <p>Your converter could even feature a “Share your weight goal” function using stones for engagement.</p>
+
+  <h3>Printable Poster: Stones Ladder Chart</h3>
+  <p>Offer users a free downloadable image or printable table chart listing stones and their pound equivalents, such as:</p>
+  <ul>
+    <li>1 st = 14 lb</li>
+    <li>2 st = 28 lb</li>
+    <li>3 st = 42 lb</li>
+    <li>... all the way to 20 st = 280 lb</li>
+  </ul>
+  <p>This is especially helpful in gyms, schools, or weight tracking journals.</p>
+  <h3>Summary & Takeaway</h3>
+  <p>Converting between **pounds and stones** is essential for anyone living in or working with UK‑centric measurement systems. It's a practical life skill used in healthcare, fitness, shipping, and everyday conversations. The simple division and remainder method makes it a great teaching example, and memorizing “1 stone = 14 pounds” gives you an instant conversion tool.</p>
+  <p><strong>Easy Tables provides a reliable, interactive pounds-to-stones tool—share this guide and start converting with confidence!</strong></p>
+  <h3>Conclusion: Why Use Stones in the Modern World?</h3>
+  <p>The <strong>stone</strong> may be a traditional British unit, but it continues to serve a strong cultural and practical role in everyday life across the UK. Understanding how to convert between <strong>pounds and stones</strong> gives clarity in communication, supports global web tools, and helps in designing inclusive applications or healthcare services.</p>
+  <p><strong>Use Easy Tables’ Pounds to Stones Calculator</strong> to instantly convert and explore your results with breakdowns, tables, and interactive learning tools!</p>
+
 </div>
-<footer>
-<div class="container">
-<p>
-<a href="#">Link to Us</a> |
+
+  <div class="see-also description">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="../energy-convertion.html">Energy convertion</a></li>
+      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+      <li><a href="../length-convertion.html">Length convertion</a></li>
+      <li><a href="../number-convertion.html">Number convertion</a></li>
+      <li><a href="../power-convertion.html">Power convertion</a></li>
+      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+      <li><a href="../weight-convertion.html">Weight convertion</a></li>
+      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+    </ul>
+  </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-</p>
-<p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
-</div>
-</footer>
-</body>
+        </p>
+        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+      </div>
+    </footer>
+  </body>
 </html>

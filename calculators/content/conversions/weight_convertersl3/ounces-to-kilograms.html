@@ -1,16 +1,15 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-<meta content="EasyTables: Free online Ounces to Kilograms. Access at https://easytables.vercel.app/calculators/content/conversions/weight_convertersl3/ounces-to-kilograms.html for a fast and accurate Ounces to Kilograms tool." name="description"/><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ounces to Kilograms</title>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ounces to Kilograms</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -25,39 +24,41 @@
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
     </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
-<div class="container">
-<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav ml-auto">
-<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
-<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-</div>
-</div>
-</div>
-</nav>
-<br/>
-<nav aria-label="Breadcrumb" class="breadcrumb container">
-<a href="../../../../index.html">Home</a> <span>›</span>
-<a href="../../../../index.html#Calculators-s">Weight Converters</a> <span>›</span>
-<a href="#">Ounces to Kilograms</a>
-</nav>
-<div class="description">
-<h3>Ounces to Kilograms</h3>
-<p>Enter value in oz:</p>
-<input class="form-control" id="inputValue" placeholder="Enter oz" type="number"/>
-<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-<div class="mt-3" id="result"></div>
-</div>
-<script>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../../../index.html">Home</a> <span>›</span>
+    <a href="../../../../index.html#Calculators-s">Weight Converters</a> <span>›</span>
+      <a href="#">Ounces to Kilograms</a>
+    </nav>
+
+      <div class="description">
+        <h3>Ounces to Kilograms</h3>
+        <p>Enter value in oz:</p>
+        <input type="number" id="inputValue" class="form-control" placeholder="Enter oz" >
+        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+        <div class="mt-3" id="result"></div>
+      </div>
+    
+      <script>
         function convert() {
           const val = parseFloat(document.getElementById('inputValue').value);
           const res = document.getElementById('result');
@@ -69,29 +70,306 @@
           res.innerHTML = `${val} oz = ${out.toExponential(6)} kg`;
         }
       </script>
-<div class="see-also description">
-<h4>See Also</h4>
-<ul>
-<li><a href="../energy-convertion.html">Energy convertion</a></li>
-<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-<li><a href="../length-convertion.html">Length convertion</a></li>
-<li><a href="../number-convertion.html">Number convertion</a></li>
-<li><a href="../power-convertion.html">Power convertion</a></li>
-<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-<li><a href="../weight-convertion.html">Weight convertion</a></li>
-<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-</ul>
+    <div class="description">
+  <h2>Ounces to Kilograms – Accurate Weight Conversion Guide</h2>
+  <p>Want to convert <strong>ounces (oz)</strong> to <strong>kilograms (kg)</strong>? Whether you're cooking, shipping, conducting science experiments, or managing fitness goals, this guide gives you formulas, use cases, tables, quizzes, and expert tips to convert reliably.</p>
+
+  <h3>Quick Answer: 1 Ounce ≈ 0.02835 Kilograms</h3>
+  <p>To convert ounces to kilograms, multiply the number of ounces by <strong>0.0283495</strong> (rounded to 5 decimal places). Example: 16 oz × 0.0283495 ≈ <strong>0.453592 kg</strong>.</p>
+
+  <h3>Conversion Formula</h3>
+  <pre><code>Kilograms = Ounces × 0.0283495</code></pre>
+
+  <h4>Examples:</h4>
+  <ul>
+    <li>10 oz × 0.0283495 = <strong>0.2835 kg</strong></li>
+    <li>32 oz × 0.0283495 = <strong>0.9072 kg</strong></li>
+    <li>5 oz × 0.0283495 ≈ <strong>0.1417 kg</strong></li>
+    <li>1 oz × 0.0283495 ≈ <strong>0.02835 kg</strong></li>
+  </ul>
+
+  <h3>Ounces to Kilograms Conversion Table</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Ounces (oz)</th><th>Kilograms (kg)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>0.02835</td></tr>
+      <tr><td>4</td><td>0.11340</td></tr>
+      <tr><td>8</td><td>0.22680</td></tr>
+      <tr><td>16</td><td>0.45359</td></tr>
+      <tr><td>32</td><td>0.90718</td></tr>
+      <tr><td>48</td><td>1.36078</td></tr>
+      <tr><td>64</td><td>1.81437</td></tr>
+      <tr><td>100</td><td>2.83495</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Why Convert Ounces to Kilograms?</h3>
+  <ul>
+    <li><strong>Cooking & Baking:</strong> Converting U.S. recipes to the metric system.</li>
+    <li><strong>Shipping:</strong> Cargo weight is billed in kg internationally, even when starting in oz.</li>
+    <li><strong>Fitness:</strong> Equipment weights may be listed in ounces; convert to kg to track alongside other gear.</li>
+    <li><strong>Science & Education:</strong> Lab experiments often require precise kg measurements.</li>
+  </ul>
+
+  <h3>Real‑World Comparisons</h3>
+  <ul>
+    <li>🥚 A dozen eggs = ~24 oz = <strong>0.68 kg</strong></li>
+    <li>🥤 A water bottle (16 oz) = <strong>0.45 kg</strong></li>
+    <li>🎒 A laptop (approx. 64 oz) = <strong>1.81 kg</strong></li>
+  </ul>
+
+  <h3>Developer Tip — JavaScript Function</h3>
+  <pre><code>
+// Convert ounces to kilograms:
+function ouncesToKilograms(oz) {
+  return +(oz * 0.0283495).toFixed(5);
+}
+
+console.log(ouncesToKilograms(50)); // ~1.41748
+  </code></pre>
+
+  <h3>Frequently Asked Questions (FAQs)</h3>
+  <h4>Q1: How many kilograms are in 20 ounces?</h4>
+  <p>20 × 0.0283495 ≈ <strong>0.567 kg</strong></p>
+
+  <h4>Q2: What is 5 ounces in kilograms?</h4>
+  <p>5 × 0.0283495 ≈ <strong>0.1417 kg</strong></p>
+
+  <h4>Q3: Why use 0.0283495 and not a rounded number?</h4>
+  <p>This value ensures high precision up to five decimal places. For many purposes, 0.02835 is accurate, but critical science or engineering may require the full factor.</p>
+
+  <h4>Q4: How do I convert kg back to oz?</h4>
+  <p>Use the reverse formula: <code>Ounces = Kilograms ÷ 0.0283495</code> or <code>Kg × 35.274</code>.</p>
+
+  <h3>Interactive Quiz</h3>
+  <ul>
+    <li>🔹 <strong>Challenge:</strong> Convert 75 oz to kg → ~2.126 kg</li>
+    <li>🔹 <strong>Convert:</strong> 8 oz → ~0.227 kg</li>
+    <li>🔹 <strong>Problem:</strong> 54 oz → ~1.53 kg</li>
+  </ul>
+
+  <h3>STEM & Educational Integration</h3>
+  <ul>
+    <li>📚 Reinforces multiplication, decimal usage, and unit conversion.</li>
+    <li>🔬 In science labs, convert sample weights to kg before calculations.</li>
+    <li>🧩 Visual aids: Show scale graphics mixing oz and kg for better understanding.</li>
+  </ul>
+
+  <h3>Voice‑Search Optimization</h3>
+  <ul>
+    <li>“How many kilograms in 12 ounces?”</li>
+    <li>“Convert 28 oz to kg”</li>
+    <li>“Ounces to kilograms formula”</li>
+  </ul>
+
+  <h3>Metric vs Imperial Context</h3>
+  <p>While U.S. imperial still uses ounces for small weights, most global standards favor kilograms. Converting helps bridge those systems.</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr><th>Unit</th><th>Imperial</th><th>Metric</th><th>Equivalent</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ounce (oz)</td><td>✔️</td><td>↔</td><td>≈ 28.35 g</td></tr>
+      <tr><td>Kilogram (kg)</td><td>–</td><td>✔️</td><td>1,000 g</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Smart Device Applications</h3>
+  <ul>
+    <li>⚖️ Digital scales auto‑display kg when weights exceed ounces.</li>
+    <li>📦 Shipping platforms show kg even if user enters oz.</li>
+  </ul>
+
+  <h3>Accessibility Enhancements</h3>
+  <ul>
+    <li>Provide table summaries in text for screen readers.</li>
+    <li>Ensure decimals are clearly pronounced in audio versions.</li>
+    <li>Use sufficient contrast and responsive design for all users.</li>
+  </ul>
+
+  <h3>Long‑Tail Keyword Q&A</h3>
+  <ul>
+    <li><strong>Q:</strong> What’s 35 ounces in kg?<br><strong>A:</strong> 35 × 0.0283495 ≈ <strong>0.992 kg</strong></li>
+    <li><strong>Q:</strong> How do I convert ounces to kilograms without a calculator?<br><strong>A:</strong> Multiply by ~0.02835 or divide by 35.274.</li>
+    <li><strong>Q:</strong> Is 16 oz the same as 0.5 kg?<br><strong>A:</strong> No, 16 oz = ~0.454 kg.</li>
+  </ul>
+  <h3>Use Cases by Industry</h3>
+  <p>Converting ounces to kilograms is critical across a wide range of industries. Here’s how different fields rely on this conversion daily:</p>
+  <ul>
+    <li>🧪 <strong>Scientific Research:</strong> Lab equipment and reagents often require high-precision conversions from ounces to kilograms for molecular testing.</li>
+    <li>🛒 <strong>Retail Packaging:</strong> Consumer goods like snacks, coffee, or supplements may be labeled in ounces for U.S. markets but must meet kilogram standards for export.</li>
+    <li>✈️ <strong>Aviation & Aerospace:</strong> Every ounce of fuel or cargo must be converted and calculated into kilograms for international weight protocols.</li>
+    <li>🏋️ <strong>Fitness & Bodybuilding:</strong> Gym plates and dumbbells are often labeled in pounds or ounces in the U.S., but many athletes convert to kg to track progress consistently.</li>
+    <li>📦 <strong>Logistics & Warehousing:</strong> Parcel shipments may originate in ounces and must be converted for international customs declarations that use kilograms.</li>
+  </ul>
+
+  <h3>Did You Know?</h3>
+  <ul>
+    <li>📐 The ounce is a remnant of ancient Roman units like the "uncia" (1/12 of a libra, or pound).</li>
+    <li>🧊 An ice cube weighs about 1 ounce — that’s ~28 grams or 0.02835 kilograms!</li>
+    <li>🥩 A standard steak cut of 8 oz equals about 0.227 kg — useful when converting food weights.</li>
+  </ul>
+
+  <h3>Precision Tools Used in Conversions</h3>
+  <p>When converting small weights from ounces to kilograms, accuracy matters. Here are tools often used:</p>
+  <ul>
+    <li><strong>Digital Lab Scales:</strong> Sensitive enough to measure down to 0.01 oz or 0.001 kg.</li>
+    <li><strong>Industrial Weighing Systems:</strong> Automatically log weight in multiple units for tracking inventory.</li>
+    <li><strong>Mobile Apps:</strong> Nutrition and fitness apps convert ounces to kg for food tracking or lifting data.</li>
+  </ul>
+
+  <h3>Regional Usage Comparison</h3>
+  <p>Let’s look at how ounces and kilograms are used in different countries:</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Country</th><th>Common Unit</th><th>Conversion Need?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>United States</td><td>Ounces (oz), Pounds (lb)</td><td>Yes, to kg for global communication</td></tr>
+      <tr><td>United Kingdom</td><td>Mix of metric and imperial</td><td>Yes, kg preferred in trade/medicine</td></tr>
+      <tr><td>India</td><td>Kilograms (kg), Grams (g)</td><td>No, unless importing U.S. goods</td></tr>
+      <tr><td>Germany</td><td>Kilograms (kg)</td><td>No — strictly metric</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Educational Strategy – Teach It Visually</h3>
+  <p>Helping students understand ounces to kilograms works better with hands-on and visual methods:</p>
+  <ul>
+    <li>📏 <strong>Scale demonstrations:</strong> Weigh common objects (like a lemon or book) in both oz and kg.</li>
+    <li>📊 <strong>Unit ladders:</strong> Use diagrams to show the relationship: oz → lb → kg → metric tons.</li>
+    <li>🎯 <strong>Flashcard activities:</strong> Match items to their weights in both units.</li>
+    <li>💻 <strong>Online simulations:</strong> Use virtual labs and conversion tools to explore dynamic scenarios.</li>
+  </ul>
+
+  <h3>Common Mistakes to Avoid</h3>
+  <p>Even professionals occasionally slip up when converting. Watch for these issues:</p>
+  <ul>
+    <li>❌ Confusing ounces (oz) with fluid ounces (fl oz) — the latter measures volume, not weight.</li>
+    <li>❌ Rounding too early in conversions — always round at the final step for accuracy.</li>
+    <li>❌ Misplacing the decimal — converting large amounts can lead to off-by-10x errors if not double-checked.</li>
+  </ul>
+
+  <h3>Accessibility Considerations</h3>
+  <p>Make conversion content accessible by:</p>
+  <ul>
+    <li>🧏‍♂️ Including unit values in alt-text for images or charts</li>
+    <li>🗣️ Offering voice-assisted conversion for visually impaired users</li>
+    <li>🌐 Supporting locale formatting (e.g., “0,5 kg” in Europe vs “0.5 kg” in the U.S.)</li>
+  </ul>
+
+  <h3>Conversion Challenge – Can You Solve These?</h3>
+  <ul>
+    <li>🔹 How many kg in 256 ounces?</li>
+    <li>🔹 A dumbbell weighs 12 oz. What’s its mass in kg?</li>
+    <li>🔹 A bag of coffee weighs 0.453 kg. How many oz is that?</li>
+  </ul>
+  <p><em>Answers:</em> 7.26 kg, 0.3402 kg, ~16 oz</p>
+    <h3>Historical Background of Ounces and Kilograms</h3>
+  <p>The ounce has roots in the ancient Roman unit <em>uncia</em>, meaning "one-twelfth" (1/12 of a Roman pound). It evolved through medieval Europe and remains in use primarily in the United States and parts of the UK.</p>
+  <p>The kilogram, however, is part of the metric system established during the French Revolution and is now the <strong>base unit of mass in the International System of Units (SI)</strong>. It’s used in science, industry, and trade worldwide.</p>
+
+  <h3>AI & Smart Tech Using This Conversion</h3>
+  <p>Artificial Intelligence, robotics, and IoT systems routinely handle conversions like ounces to kilograms:</p>
+  <ul>
+    <li>🤖 <strong>Smart kitchen devices:</strong> Auto-detect ingredient weight and convert oz ↔ kg for recipes.</li>
+    <li>📈 <strong>Logistics dashboards:</strong> Track weights across warehouses using metric outputs despite incoming data in imperial units.</li>
+    <li>🧠 <strong>AI voice assistants:</strong> “Hey Google, how many kilograms is 12 ounces?” — triggers this exact conversion!</li>
+  </ul>
+
+  <h3>Packaging Metrics in Shipping</h3>
+  <p>Global shipping and eCommerce companies must often convert ounces to kilograms when:</p>
+  <ul>
+    <li>📦 Labeling packages for customs forms or courier services.</li>
+    <li>🌐 Calculating total shipping weight in kilograms for international transit (e.g., via DHL, FedEx, UPS).</li>
+    <li>📉 Monitoring cost brackets — some services charge per kg with thresholds starting at 500g or 1kg.</li>
+  </ul>
+
+  <h3>World Standardization & Trade Agreements</h3>
+  <p>Many international trade agreements (like ISO or WTO standards) require product weights to be listed in kilograms. Even U.S.-based manufacturers must show dual labeling (oz and kg) when exporting globally. Understanding and applying this conversion correctly ensures regulatory compliance.</p>
+
+  <h3>Knowledge Checklist</h3>
+  <p>✅ Before you go, check that you understand:</p>
+  <ul>
+    <li>✅ 1 oz ≈ 0.02835 kg</li>
+    <li>✅ Multiply ounces by 0.0283495 to get kilograms</li>
+    <li>✅ Divide kilograms by 0.0283495 to get ounces</li>
+    <li>✅ Common contexts: cooking, shipping, gym, labs</li>
+    <li>✅ Ounce is imperial, kilogram is metric</li>
+  </ul>
+
+  <h3>Mnemonic & Memory Aid</h3>
+  <p>Here’s a simple rhyme to help you remember the conversion factor:</p>
+  <blockquote>
+    <p><em>"An ounce so light, but don’t you lag —<br>
+    Just multiply it by 0.02835 to get the right kg bag!"</em></p>
+  </blockquote>
+
+  <h3>STEM Classroom Experiment</h3>
+  <p>🔬 **Project Idea**: Students bring a household item (like a box of cereal, small tool, or kitchen utensil). Use a digital scale to record the weight in ounces, convert to kilograms using the formula, and then verify with an online calculator. Plot results on a chart for visual analysis.</p>
+  <ul>
+    <li>🎓 Teaches real-world math and critical thinking</li>
+    <li>📊 Incorporates data visualization and decimal rounding</li>
+    <li>🌍 Links metric and imperial systems in one hands-on task</li>
+  </ul>
+
+  <h3>Conversion Table – 1 to 100 Ounces</h3>
+  <p>Here’s a quick-reference chart covering 1 to 100 ounces:</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Ounces (oz)</th><th>Kilograms (kg)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>0.02835</td></tr>
+      <tr><td>10</td><td>0.28350</td></tr>
+      <tr><td>25</td><td>0.70874</td></tr>
+      <tr><td>50</td><td>1.41748</td></tr>
+      <tr><td>75</td><td>2.12623</td></tr>
+      <tr><td>100</td><td>2.83495</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Voice-Friendly Prompts & SEO Keywords</h3>
+  <ul>
+    <li>🔊 "How to convert ounces to kilograms?"</li>
+    <li>🔊 "What is 64 ounces in kilograms?"</li>
+    <li>🔊 "Formula to convert oz to kg" — this triggers voice search indexing</li>
+    <li>🔊 "1 kg equals how many ounces?" → Reverse searches boost dual traffic</li>
+  </ul>
+
+  <h3>Final Thoughts</h3>
+  <p>From baking brownies to weighing baggage, understanding how to convert <strong>ounces to kilograms</strong> empowers you in everyday life and across technical professions. By mastering the formula, exploring real-world examples, and applying critical thinking, you're not just learning math — you're speaking the global language of measurement.</p>
+
+  <h3>Conclusion</h3>
+  <p>Converting between <strong>ounces and kilograms</strong> is essential when dealing with international measurements — from cooking and fitness to shipping and science. Remember to use the precise conversion factor (0.0283495), utilize our table or code snippets, and test your skills with our quiz.</p>
+  <p><strong>Keep Easy Tables bookmarked for fast, accurate unit conversions—and weight less stress off your shoulders!</strong></p>
 </div>
-<footer>
-<div class="container">
-<p>
-<a href="#">Link to Us</a> |
+
+  <div class="see-also description">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="../energy-convertion.html">Energy convertion</a></li>
+      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+      <li><a href="../length-convertion.html">Length convertion</a></li>
+      <li><a href="../number-convertion.html">Number convertion</a></li>
+      <li><a href="../power-convertion.html">Power convertion</a></li>
+      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+      <li><a href="../weight-convertion.html">Weight convertion</a></li>
+      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+    </ul>
+  </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-</p>
-<p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
-</div>
-</footer>
-</body>
+        </p>
+        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+      </div>
+    </footer>
+  </body>
 </html>

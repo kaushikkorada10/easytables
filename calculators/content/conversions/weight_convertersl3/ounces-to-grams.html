@@ -69,6 +69,140 @@
           res.innerHTML = `${val} oz = ${out.toExponential(6)} g`;
         }
       </script>
+      <div class="description">
+  <h1>Ounces (oz) to Grams (g) Conversion</h1>
+  <p>
+    Converting ounces to grams is crucial in cooking, baking, postal services, laboratory work, and many international applications. The ounce (avoirdupois) is an imperial‐derived unit commonly used in the United States and UK for small‐scale weights, while the gram is the SI unit of mass. Accurate oz ↔ g conversion ensures recipe fidelity, correct dosing, and reliable shipping calculations.
+  </p>
+
+  <h2>Exact Conversion Factor</h2>
+  <p>
+    By international agreement:<br>
+    <code>1 ounce (oz) = 28.349523125 grams (g)</code>
+  </p>
+
+  <h3>Derivation</h3>
+  <p>
+    The avoirdupois ounce is defined exactly as 1⁄16 of a pound, and with 1 lb = 453.59237 g, one ounce becomes:<br>
+    <code>453.59237 g ÷ 16 = 28.349523125 g</code>.
+  </p>
+
+  <h4>Conversion Formulas</h4>
+  <p>
+    <code>Mass (g) = Mass (oz) × 28.349523125</code><br>
+    <code>Mass (oz) = Mass (g) × 0.03527396195</code>
+  </p>
+
+  <h5>Precision</h5>
+  <p>
+    Retain at least six significant digits in intermediate steps; for everyday use, rounding to three decimal places (e.g., 28.350 g) is sufficient.
+  </p>
+
+  <h6>Tip:</h6>
+  <p>
+    Centralize the constant <code>OZ_TO_G = 28.349523125</code> in your code or spreadsheets to avoid magic numbers.
+  </p>
+
+  <h2>Step-by-Step Conversion Procedure</h2>
+  <h3>1. Identify Your Input</h3>
+  <p>
+    Confirm your value is in ounces (“oz”).
+  </p>
+  <h3>2. Apply the Factor</h3>
+  <p>
+    Multiply ounces by <code>28.349523125</code> to get grams.
+  </p>
+  <h3>3. Round & Label</h3>
+  <p>
+    Round to desired precision (e.g., nearest 0.1 g) and append “g”.
+  </p>
+
+  <h2>Illustrative Examples</h2>
+  <h3>Example 1: Simple Conversion</h3>
+  <p>
+    Convert 5 oz to grams:<br>
+    <code>5 × 28.349523125 = 141.747615625 g</code> → rounded to <strong>141.748 g</strong>.
+  </p>
+  <h4>Example 2: Small Quantity</h4>
+  <p>
+    Convert 0.5 oz to grams:<br>
+    <code>0.5 × 28.349523125 = 14.1747615625 g</code> → <strong>14.175 g</strong>.
+  </p>
+  <h5>Example 3: Larger Amount</h5>
+  <p>
+    Convert 16 oz (1 lb) to grams:<br>
+    <code>16 × 28.349523125 = 453.59237 g</code> → <strong>453.592 g</strong>.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    When scaling recipes, convert all ingredient weights from ounces to grams before adjusting quantities.
+  </p>
+
+  <h2>Quick-Reference Conversion Table</h2>
+  <table>
+    <thead>
+      <tr><th>Ounces (oz)</th><th>Grams (g)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0.5</td><td>14.175</td></tr>
+      <tr><td>1</td><td>28.350</td></tr>
+      <tr><td>2</td><td>56.699</td></tr>
+      <tr><td>4</td><td>113.398</td></tr>
+      <tr><td>8</td><td>226.797</td></tr>
+      <tr><td>16</td><td>453.592</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Implementing in Code</h2>
+  <h3>JavaScript Snippet</h3>
+  <pre><code>const OZ_TO_G = 28.349523125;
+function ouncesToGrams(oz) {
+  return oz * OZ_TO_G;
+}
+console.log(ouncesToGrams(5).toFixed(3)); // "141.748"</code></pre>
+
+  <h4>Python Snippet</h4>
+  <pre><code>OZ_TO_G = 28.349523125
+
+def ounces_to_grams(oz):
+    return oz * OZ_TO_G
+
+print(f"{ounces_to_grams(0.5):.3f}")  # 14.175</code></pre>
+
+  <h5>Spreadsheet Formula</h5>
+  <p>
+    Assuming ounces in cell A2:<br>
+    <code>=A2*28.349523125</code> → grams.
+  </p>
+  <h6>Tip:</h6>
+  <p>
+    Use named ranges (e.g., <code>MassOz</code>) for clarity in complex workbooks.
+  </p>
+
+  <h2>Error Analysis & Best Practices</h2>
+  <h3>Rounding Strategy</h3>
+  <p>
+    Choose between fixed decimal places (e.g., three for cooking) or significant figures (for scientific use) and document your choice.
+  </p>
+  <h4>Uncertainty Propagation</h4>
+  <p>
+    For scale uncertainty ±δ oz, gram uncertainty is ±(δ × 28.349523125) g; include in lab reports when precision matters.
+  </p>
+  <h5>Centralized Logic</h5>
+  <p>
+    Encapsulate conversion constants and functions in shared modules or microservices to avoid discrepancies.
+  </p>
+  <h6>Note:</h6>
+  <p>
+    Validate inputs (non‐negative, numeric) and handle errors gracefully in UIs and APIs.
+  </p>
+
+  <h2>Conclusion</h2>
+  <p>
+    Remember: <strong>1 ounce = 28.349523125 grams</strong>. By applying this precise factor, you can accurately convert any ounce measurement to grams for cooking, shipping, laboratory, or industrial applications—ensuring consistency and reliability across all your workflows.
+  </p>
+</div>
+
 <div class="see-also description">
 <h4>See Also</h4>
 <ul>

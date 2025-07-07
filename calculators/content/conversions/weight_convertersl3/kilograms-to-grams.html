@@ -1,16 +1,15 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-<meta content="EasyTables: Free online Kilograms to Grams. Access at https://easytables.vercel.app/calculators/content/conversions/weight_convertersl3/kilograms-to-grams.html for a fast and accurate Kilograms to Grams tool." name="description"/><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kilograms to Grams</title>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Kilograms to Grams</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
       #navItem2 { color: white; font-family: "Roboto"; }
@@ -25,39 +24,41 @@
       .see-also a { color: #1976D2; text-decoration: none; }
       .see-also a:hover { text-decoration: underline; }
     </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
-<div class="container">
-<a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
-<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav ml-auto">
-<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
-<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
-<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
-</div>
-</div>
-</div>
-</nav>
-<br/>
-<nav aria-label="Breadcrumb" class="breadcrumb container">
-<a href="../../../../index.html">Home</a> <span>›</span>
-<a href="../../../../index.html#Calculators-s">Weight Converters</a> <span>›</span>
-<a href="#">Kilograms to Grams</a>
-</nav>
-<div class="description">
-<h3>Kilograms to Grams</h3>
-<p>Enter value in kg:</p>
-<input class="form-control" id="inputValue" placeholder="Enter kg" type="number"/>
-<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-<div class="mt-3" id="result"></div>
-</div>
-<script>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <div class="container">
+      <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="../../../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+          <a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+          <a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+          <a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+    <a href="../../../../index.html">Home</a> <span>›</span>
+    <a href="../../../../index.html#Calculators-s">Weight Converters</a> <span>›</span>
+      <a href="#">Kilograms to Grams</a>
+    </nav>
+
+      <div class="description">
+        <h3>Kilograms to Grams</h3>
+        <p>Enter value in kg:</p>
+        <input type="number" id="inputValue" class="form-control" placeholder="Enter kg" >
+        <button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
+        <div class="mt-3" id="result"></div>
+      </div>
+    
+      <script>
         function convert() {
           const val = parseFloat(document.getElementById('inputValue').value);
           const res = document.getElementById('result');
@@ -69,29 +70,308 @@
           res.innerHTML = `${val} kg = ${out.toExponential(6)} g`;
         }
       </script>
-<div class="see-also description">
-<h4>See Also</h4>
-<ul>
-<li><a href="../energy-convertion.html">Energy convertion</a></li>
-<li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-<li><a href="../length-convertion.html">Length convertion</a></li>
-<li><a href="../number-convertion.html">Number convertion</a></li>
-<li><a href="../power-convertion.html">Power convertion</a></li>
-<li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-<li><a href="../weight-convertion.html">Weight convertion</a></li>
-<li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-</ul>
+    <div class="description">
+  <h2>Kilograms to Grams – Metric Weight Conversion Guide</h2>
+  <p>Need to convert <strong>kilograms (kg)</strong> to <strong>grams (g)</strong>? Whether you're cooking, studying, measuring weight in science, or working with shipping data, converting kg to g is essential. This comprehensive guide walks you through the formula, real-world applications, tables, and common mistakes to avoid when converting kilograms to grams.</p>
+
+  <h3>Quick Answer: 1 Kilogram = 1,000 Grams</h3>
+  <p>The basic formula is simple: <strong>1 kg = 1,000 g</strong>. To convert kilograms to grams, multiply the number of kilograms by 1,000.</p>
+
+  <h3>Conversion Formula</h3>
+  <pre><code>Grams = Kilograms × 1,000</code></pre>
+
+  <h4>Examples:</h4>
+  <ul>
+    <li>2 kg × 1,000 = <strong>2,000 g</strong></li>
+    <li>0.5 kg × 1,000 = <strong>500 g</strong></li>
+    <li>7.35 kg × 1,000 = <strong>7,350 g</strong></li>
+  </ul>
+
+  <h3>Kilograms to Grams Conversion Table</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Kilograms (kg)</th><th>Grams (g)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0.1</td><td>100</td></tr>
+      <tr><td>0.25</td><td>250</td></tr>
+      <tr><td>0.5</td><td>500</td></tr>
+      <tr><td>1</td><td>1,000</td></tr>
+      <tr><td>2</td><td>2,000</td></tr>
+      <tr><td>5</td><td>5,000</td></tr>
+      <tr><td>10</td><td>10,000</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Why Convert Kilograms to Grams?</h3>
+  <ul>
+    <li><strong>Cooking & Baking:</strong> Recipes often use grams for precise measurements.</li>
+    <li><strong>Science & Labs:</strong> Experiments rely on accurate weight measurements in grams.</li>
+    <li><strong>Shipping & Logistics:</strong> Items under 1 kg are often billed by the gram.</li>
+    <li><strong>Retail & Packaging:</strong> Food products usually list net weight in grams.</li>
+  </ul>
+
+  <h3>Memory Tip</h3>
+  <p>📌 <strong>“Kilo” means 1,000.</strong> So 1 kilogram = 1,000 grams.</p>
+
+  <h3>Real-World Examples</h3>
+  <ul>
+    <li>💼 A laptop weighing 1.5 kg = <strong>1,500 g</strong></li>
+    <li>🧁 A cake recipe calls for 0.75 kg of flour = <strong>750 g</strong></li>
+    <li>📦 A package weighing 3.2 kg = <strong>3,200 g</strong></li>
+    <li>💊 Medication dosage written as 0.01 kg = <strong>10 g</strong></li>
+  </ul>
+
+  <h3>Common Mistakes</h3>
+  <ul>
+    <li>❌ Forgetting to multiply by 1,000</li>
+    <li>❌ Confusing kilograms with grams (e.g., writing 1,000 g as 1 kg when it should remain in grams)</li>
+    <li>❌ Using commas instead of decimal points in international data</li>
+  </ul>
+
+  <h3>Interactive Quiz</h3>
+  <ul>
+    <li>🔹 <strong>Q:</strong> Convert 0.6 kg to grams<br><strong>A:</strong> 600 g</li>
+    <li>🔹 <strong>Q:</strong> How many grams are in 3.25 kg?<br><strong>A:</strong> 3,250 g</li>
+    <li>🔹 <strong>Q:</strong> A package label says 4500 g. How many kg is that?<br><strong>A:</strong> 4.5 kg</li>
+  </ul>
+
+  <h3>Metric System Reference</h3>
+  <p>The kilogram is the base SI unit for mass. Grams are smaller subunits:</p>
+  <ul>
+    <li><strong>1 kilogram (kg)</strong> = 1,000 grams (g)</li>
+    <li><strong>1 gram (g)</strong> = 1,000 milligrams (mg)</li>
+    <li><strong>1 gram (g)</strong> = 1,000,000 micrograms (µg)</li>
+  </ul>
+
+  <h3>JavaScript Converter Example</h3>
+  <pre><code>
+// Convert kg to g in JavaScript
+function kgToGrams(kg) {
+  return kg * 1000;
+}
+console.log(kgToGrams(1.25)); // Output: 1250
+  </code></pre>
+
+  <h3>Voice Search Examples</h3>
+  <ul>
+    <li>“Hey Google, convert 2.5 kilograms to grams”</li>
+    <li>“How many grams are in 0.8 kg?”</li>
+    <li>“What's 10 kg in grams?”</li>
+  </ul>
+
+  <h3>Educational Use</h3>
+  <p>This conversion is a staple in elementary and high school math and science curricula. It helps students:</p>
+  <ul>
+    <li>✔️ Understand the metric system</li>
+    <li>✔️ Practice decimal multiplication</li>
+    <li>✔️ Apply real-world math in cooking, measuring, and estimating</li>
+  </ul>
+  <h3>Scientific & Engineering Applications</h3>
+  <p>In scientific research, converting kilograms to grams is often necessary for high-precision measurements. This conversion is used in fields such as:</p>
+  <ul>
+    <li><strong>Physics:</strong> Masses of materials or projectiles are calculated in grams for force and energy equations.</li>
+    <li><strong>Chemistry:</strong> While the mole is a standard unit, grams are used for measuring quantities of reactants and products in lab experiments.</li>
+    <li><strong>Engineering:</strong> Structural loads and mass properties are often converted from kilograms to grams when working with miniature components or testing equipment sensitivity.</li>
+    <li><strong>Environmental Science:</strong> Masses of soil, water samples, or pollutants are weighed in grams even when collected in bulk.</li>
+  </ul>
+
+  <h3>International Relevance of kg–g Conversion</h3>
+  <p>The kilogram is the standard unit of mass in the International System of Units (SI), used in almost every country except the United States. However, in many international contexts:</p>
+  <ul>
+    <li><strong>Logistics:</strong> Shipping labels might show mass in kilograms but charge by grams when dealing with light-weight packages.</li>
+    <li><strong>Retail & Trade:</strong> Food items like cheese, spices, or produce may be listed as 0.1 kg or 100 g depending on local labeling norms.</li>
+    <li><strong>Customs & Declarations:</strong> Export/import documentation often converts between kilograms and grams to comply with country-specific regulations.</li>
+  </ul>
+
+  <h3>Visual Conversion Chart</h3>
+  <p>Understanding the scale of grams versus kilograms becomes easier with visuals. Here's a simplified chart for reference:</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr><th>Mass</th><th>Weight in Kilograms</th><th>Weight in Grams</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>A pencil</td><td>0.007 kg</td><td>7 g</td></tr>
+      <tr><td>An apple</td><td>0.15 kg</td><td>150 g</td></tr>
+      <tr><td>A laptop</td><td>1.5 kg</td><td>1,500 g</td></tr>
+      <tr><td>A bag of flour</td><td>2 kg</td><td>2,000 g</td></tr>
+      <tr><td>A microwave oven</td><td>13 kg</td><td>13,000 g</td></tr>
+    </tbody>
+  </table>
+
+  <h3>STEM Education Integration</h3>
+  <p>Converting kilograms to grams is a core math and science skill that supports deeper STEM learning. Here are classroom integration ideas:</p>
+  <ul>
+    <li>📐 <strong>Math Application:</strong> Reinforces understanding of place value, decimals, and multiplication.</li>
+    <li>🔬 <strong>Science Labs:</strong> Required for accurate measuring of sample weights, especially when using digital balances.</li>
+    <li>📊 <strong>Data Projects:</strong> Students can collect and graph the weights of items in both kg and g to compare patterns.</li>
+    <li>🧠 <strong>Problem Solving:</strong> Real-world word problems involving shipping costs, nutrition labels, and physics labs.</li>
+  </ul>
+
+  <h3>Fun Facts About Kilograms and Grams</h3>
+  <ul>
+    <li>⚖️ In 2019, the definition of a kilogram was redefined in terms of the Planck constant, moving away from the physical prototype in France.</li>
+    <li>🍫 A standard chocolate bar typically weighs around 100 grams, or 0.1 kg.</li>
+    <li>🐭 A house mouse weighs about 20–25 grams, or 0.02–0.025 kg.</li>
+    <li>🚀 NASA spacecraft components are engineered down to the gram to reduce launch mass and fuel usage.</li>
+  </ul>
+
+  <h3>Common Professions Using This Conversion</h3>
+  <ul>
+    <li><strong>Dietitians & Nutritionists:</strong> Calculate meal portions in grams and kilograms for dietary plans.</li>
+    <li><strong>Pharmacists:</strong> Convert drug dosages between units for compounding and labeling.</li>
+    <li><strong>Package Designers:</strong> Determine material weight and shipping class by converting between kg and g.</li>
+    <li><strong>Chefs & Bakers:</strong> Use both units depending on regional recipes or bulk ingredient orders.</li>
+  </ul>
+
+  <h3>Real-Life Conversion Scenarios</h3>
+  <ul>
+    <li>🛫 A passenger bag weighing 23.5 kg is entered as <strong>23,500 g</strong> for fine-tuned security checks.</li>
+    <li>🧪 A chemical solution needs 0.02 kg of sodium chloride, which equals <strong>20 g</strong>—much easier to weigh with a lab balance.</li>
+    <li>📦 A courier service may limit package weight to 1.5 kg (1,500 g), requiring conversions for accuracy in documentation.</li>
+  </ul>
+  <h3>Comparing Kilograms and Grams to Other Mass Units</h3>
+  <p>While kilograms and grams dominate the metric system, mass can also be expressed in several other units across different systems:</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Unit</th><th>Symbol</th><th>Equivalent in Grams</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Kilogram</td><td>kg</td><td>1,000 g</td></tr>
+      <tr><td>Hectogram</td><td>hg</td><td>100 g</td></tr>
+      <tr><td>Decagram</td><td>dag</td><td>10 g</td></tr>
+      <tr><td>Gram</td><td>g</td><td>1 g</td></tr>
+      <tr><td>Milligram</td><td>mg</td><td>0.001 g</td></tr>
+      <tr><td>Pound (Imperial)</td><td>lb</td><td>453.592 g</td></tr>
+      <tr><td>Ounce (Imperial)</td><td>oz</td><td>28.35 g</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Case Study: Kilograms to Grams in eCommerce</h3>
+  <p>In online retail, especially for international buyers, product weight plays a major role in:</p>
+  <ul>
+    <li><strong>Shipping Cost Calculations:</strong> Couriers like FedEx or DHL often charge per gram beyond a weight bracket.</li>
+    <li><strong>Product Listings:</strong> Items like protein powder or electronics list weights in kg, but detailed specs are shown in grams for parts or ingredients.</li>
+    <li><strong>Returns & Refunds:</strong> Some return policies are based on weight-to-cost ratios, requiring precise kg/g conversions.</li>
+  </ul>
+
+  <h3>Challenge Section – Test Yourself!</h3>
+  <ul>
+    <li>🔹 <strong>Convert:</strong> 8.9 kg to grams</li>
+    <li>🔹 <strong>Estimate:</strong> If a watermelon weighs 2.4 kg, how many grams does it weigh?</li>
+    <li>🔹 <strong>Compare:</strong> A 500 g loaf of bread vs. a 2.5 kg rice bag — which is heavier and by how much?</li>
+    <li>🔹 <strong>Apply:</strong> If a recipe calls for 3,750 g of flour, how many kg is that?</li>
+  </ul>
+  <p><em>Answers:</em> 8,900 g, 2,400 g, 2,000 g difference, 3.75 kg</p>
+
+  <h3>Localization – How Different Countries Write Units</h3>
+  <p>Depending on the region or standard, the formatting of "kg" and "g" may vary:</p>
+  <ul>
+    <li><strong>English (US/UK):</strong> 1.5 kg (with space)</li>
+    <li><strong>European (SI-standard):</strong> 1,5 kg (comma as decimal)</li>
+    <li><strong>Japan:</strong> Uses both grams and kilograms depending on context, but often favors grams for daily measurements</li>
+    <li><strong>India:</strong> Commonly uses kg in markets but g for packaged goods</li>
+  </ul>
+  <p>Make sure your conversion tools or databases respect locale-specific formatting when dealing with international data.</p>
+
+  <h3>Common Voice Search Questions (Long-Tail Keywords)</h3>
+  <ul>
+    <li>“How to convert 7 kg to grams in math?”</li>
+    <li>“What is 2.75 kilograms in grams?”</li>
+    <li>“How many grams in 1 kg of sugar?”</li>
+    <li>“Is 5000 grams equal to 5 kilograms?”</li>
+    <li>“How to explain kg to g for kids?”</li>
+  </ul>
+
+  <h3>Mnemonic Devices to Remember the Conversion</h3>
+  <ul>
+    <li>💡 <strong>Kilo means 1,000!</strong> Just like kilometer = 1,000 meters, kilogram = 1,000 grams.</li>
+    <li>🎒 Think of a backpack that holds exactly 1,000 small marbles — each marble is 1 gram, and the backpack weighs 1 kg.</li>
+    <li>🐘 An adult elephant weighs ~5,000 kg = 5 million grams. Easy way to visualize big conversions!</li>
+  </ul>
+
+  <h3>Pro Tip – When Not to Convert to Grams</h3>
+  <ul>
+    <li>📦 When shipping items over 10 kg, grams may clutter the data with unnecessary zeroes.</li>
+    <li>📈 In scientific research, sometimes kg is used to simplify formulas in physics or chemistry equations.</li>
+    <li>📄 On legal weight certificates (e.g., vehicle registration), standard practice prefers kg or metric tons over grams.</li>
+  </ul>
+  <h3>Pharmaceutical & Medical Applications</h3>
+  <p>Converting kilograms to grams is especially important in medicine, where exact measurements can be critical to patient safety. For example:</p>
+  <ul>
+    <li>💊 <strong>Dosages:</strong> Some drug labels state active ingredients in grams (e.g., 0.5 g), while prescriptions may reference kg-based dosing (e.g., 10 mg per kg of body weight).</li>
+    <li>📏 <strong>Weight-based administration:</strong> Pediatricians calculate medicine dosages by converting a child’s weight in kg to an exact gram-based dose to avoid under- or overdosing.</li>
+    <li>🧪 <strong>Medical equipment:</strong> Devices like infusion pumps often use gram-based calibration for solutions or nutrition delivery.</li>
+  </ul>
+
+  <h3>Use in Agriculture & Food Production</h3>
+  <p>Mass measurement is essential in farming, food processing, and retail agriculture. Here’s where kg to g conversions show up:</p>
+  <ul>
+    <li>🌾 <strong>Fertilizer application:</strong> Farmers calculate how many grams of nutrients are applied per kilogram of soil or feed.</li>
+    <li>🥦 <strong>Food packaging:</strong> Produce is harvested and weighed in kilograms, but packaged in gram units for consumer retail.</li>
+    <li>🐄 <strong>Animal feeding:</strong> Feed plans may prescribe 1.2 kg of a supplement, which must be split into daily rations in grams.</li>
+  </ul>
+
+  <h3>Use in Smart Devices and Sensors</h3>
+  <p>With the rise of IoT (Internet of Things), many household and industrial devices use weight sensors that record and transmit data in grams or kilograms:</p>
+  <ul>
+    <li>⚖️ <strong>Digital kitchen scales:</strong> Often allow toggling between g and kg, and must convert readings internally.</li>
+    <li>🚚 <strong>Smart logistics platforms:</strong> Measure inventory weight in real-time to monitor cargo thresholds.</li>
+    <li>📱 <strong>Health apps and trackers:</strong> Record user weight in kg, but analyze small changes in g to detect early signs of health changes.</li>
+  </ul>
+
+  <h3>Accessibility Tips for Better Understanding</h3>
+  <p>Unit conversion can be difficult for those with learning differences or vision impairments. Consider these educational tools:</p>
+  <ul>
+    <li>🗣️ Use screen readers with clear alt-text: e.g., "One kilogram equals one thousand grams."</li>
+    <li>📊 Include tactile or interactive scales in physical learning environments.</li>
+    <li>🎨 Visual mnemonics and color-coded diagrams help differentiate units of measure clearly.</li>
+  </ul>
+  <h3>Quick Reference Recap</h3>
+  <ul>
+    <li>1 kg = 1,000 grams</li>
+    <li>0.5 kg = 500 grams</li>
+    <li>2.75 kg = 2,750 grams</li>
+    <li>7.4 kg = 7,400 grams</li>
+    <li>10 kg = 10,000 grams</li>
+  </ul>
+
+  <h3>Final Thoughts</h3>
+  <p>The <strong>kilograms to grams</strong> conversion is fundamental to all fields involving mass — from everyday groceries to international shipping and advanced scientific work. By understanding not just the formula, but its real-world applications, you become more precise in problem-solving and more prepared for real-world challenges.</p>
+
+  <p>Use the Easy Tables kg↔g converter whenever you need a fast, accurate, and user-friendly reference.</p>
+
+
+  <h3>Conclusion</h3>
+  <p>Converting <strong>kilograms to grams</strong> is a straightforward yet essential skill in science, cooking, commerce, and more. Always multiply the kilogram value by 1,000 to get grams. Use this guide and the included table to make conversions quickly and accurately.</p>
+
+  <p><strong>Easy Tables</strong> makes learning and converting metric units simple, fast, and reliable for all users—students, professionals, and hobbyists alike.</p>
 </div>
-<footer>
-<div class="container">
-<p>
-<a href="#">Link to Us</a> |
+
+  <div class="see-also description">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="../energy-convertion.html">Energy convertion</a></li>
+      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
+      <li><a href="../length-convertion.html">Length convertion</a></li>
+      <li><a href="../number-convertion.html">Number convertion</a></li>
+      <li><a href="../power-convertion.html">Power convertion</a></li>
+      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
+      <li><a href="../weight-convertion.html">Weight convertion</a></li>
+      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
+    </ul>
+  </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          <a href="#">Link to Us</a> |
           <a href="#">Recommend Site</a> |
           <a href="#">Send Feedback</a> |
           <a href="#">About</a>
-</p>
-<p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
-</div>
-</footer>
-</body>
+        </p>
+        <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
+      </div>
+    </footer>
+  </body>
 </html>
