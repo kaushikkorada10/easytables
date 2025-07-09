@@ -1,182 +1,76 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 <head>
 <meta content="EasyTables: Free online Fraction calculator. Access at https://easytables.vercel.app/calculators/math/fraction-calculator.html for a fast and accurate Fraction calculator tool." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Fraction Calculator - EasyTables</title>
-
 <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
-<link href="../../assets/css/style.css" rel="stylesheet"/>
-<script defer="" src="../../assets/js/fraction.js"></script>
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
- .nav-bg {
-      background-color: #0D47A1;
-    }
 
-    .nav-h1-color {
-      color: white;
-      font-family: "roboto";
-      font-size: 2rem;
-    }
-
-    #navItem2 {
-      color: white;
-      font-family: "Roboto";
-    }
-
-    #navItem2:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: #FFFFFF;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    body {
-      background-color: #F5F5F5;
-      color: black;
-      font-family: Arial, sans-serif;
-    }
-
-    .title {
-      text-align: center;
-      color: #0D47A1;
-      margin: 20px auto;
-    }
-
-    .calculator {
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .input-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 15px;
-    }
-
-    .input-group input,
-    .input-group select,
-    .input-group button {
-      padding: 10px 12px;
-      font-size: 1em;
-      border-radius: 8px;
-      border: 1px solid #E0E0E0;
-    }
-
-    .input-group input {
-      width: 100px;
-      background-color: #fff;
-      color: black;
-    }
-
-    .input-group select {
-      background-color: #fff;
-      color: black;
-    }
-
-    .input-group button {
-      background-color: #1976D2;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .input-group button:hover {
-      background-color: #145ea8;
-    }
-
-    .result {
-      font-size: 1.2em;
-      color: #1976D2;
-      margin-top: 10px;
-    }
-
-    .description {
-      max-width: 700px;
-      margin: 30px auto;
-      font-size: 1.1em;
-      color: black;
-      line-height: 1.6;
-      background-color: #FFFFFF;
-      border-left: 4px solid #1976D2;
-      padding: 15px 20px;
-      border-radius: 8px;
-    }
-
-    .description ul {
-      padding-left: 1.2em;
-      list-style: disc;
-    }
-
-.description, .see-also {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #FFFFFF;
-      border-left: 5px solid #1976D2;
-      border-radius: 10px;
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-
-    .description h3,
-    .see-also h4 {
-      color: #0D47A1;
-      margin-bottom: 10px;
-    }
-
-    .see-also ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .see-also ul li {
-      margin-bottom: 8px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 480px) {
-      .input-group {
-        flex-direction: column;
-        align-items: stretch;
+      .nav-bg {
+        background-color: #0D47A1;
       }
-      .input-group input {
-        width: 100%;
+      .nav-h1-color {
+        color: white;
+        font-family: "roboto";
+        font-size: 2rem;
       }
-    }
-    
-    .title {
+      #navItem2 {
+        color: white;
+        font-family: "Roboto";
+      }
+      #navItem2:hover {
+        text-decoration: underline;
+      }
+      footer {
+        background-color: #0D47A1;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      .description, .see-also {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-left: 5px solid #1976D2;
+        border-radius: 10px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .description h3,
+      .see-also h4 {
+        color: #0D47A1;
+        margin-bottom: 10px;
+      }
+      .see-also ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .see-also ul li {
+        margin-bottom: 8px;
+      }
+      .see-also a {
+        color: #1976D2;
+        text-decoration: none;
+      }
+      .see-also a:hover {
+        text-decoration: underline;
+      }
+         .title {
       text-align: center;
       font-size: 36px;
       color: #0D47A1;
@@ -232,36 +126,40 @@
       border: 1px solid #ccc;
       min-width: 300px;
     }
-  </style>
+    </style>
 </head>
 <body>
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light nav-bg">
 <div class="container">
-<a class="navbar-brand" href="../../index.html">
+<a class="navbar-brand" href="../../../../index.html">
 <h1 class="nav-h1-color">EASY TABLES</h1>
 </a>
-<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 <div class="navbar-nav ml-auto">
-<a class="nav-link active" href="../../index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
-<a class="nav-link" href="../../index.html#contents-s" id="navItem2">Contents</a>
-<a class="nav-link" href="../../index.html#misc-s" id="navItem2">Miscellaneous</a>
-<a class="nav-link" href="../../index.html#Online-tools-s" id="navItem2">Online tools</a>
-<a class="nav-link" href="../../index.html#Calculators-s" id="navItem2">Calculators</a>
+<a class="nav-link active" href="../../../../index.html#maths-s" id="navItem2">Home</a>
+<a class="nav-link" href="../../../../index.html#contents-s" id="navItem2">Contents</a>
+<a class="nav-link" href="../../../../index.html#misc-s" id="navItem2">Miscellaneous</a>
+<a class="nav-link" href="../../../../index.html#Online-tools-s" id="navItem2">Online tools</a>
+<a class="nav-link" href="../../../../index.html#Calculators-s" id="navItem2">Calculators</a>
 </div>
 </div>
 </div>
 </nav>
 <br/>
-<!-- Breadcrumbs -->
 <nav aria-label="Breadcrumb" class="breadcrumb container">
 <a href="../../index.html">Home </a> <span>&gt;</span>
 <a href="../../index.html">Calculators</a> <span>&gt;</span>
-<a href="#">Fraction calculator</a>
+<a href="#">Fraction Calculator
+</a>
 </nav>
+
+<div>
+<!-- The code goes heare -->
+
+
 <div class="container">
 <h2 class="title">Fraction Calculator</h2>
 <div class="calculator">
@@ -569,6 +467,13 @@ LCM of 5 and 8 = 40
 <p>Fractions are a fundamental part of math, appearing in everything from grocery bills to science labs. With our online Fraction Calculator, you don’t need to struggle with finding common denominators or converting mixed numbers. The tool offers a quick, reliable, and educational solution for all fraction operations. Whether you're adding 2/3 and 3/4 or dividing mixed numbers, this calculator makes it fast, easy, and accurate.</p>
 <p><strong>Try the Fraction Calculator now and simplify your math problems in seconds!</strong></p>
 </div>
+
+
+</div>
+
+
+
+<!--see also-->
 <div class="see-also description">
 <h4>See Also</h4>
 <ul>
@@ -577,28 +482,6 @@ LCM of 5 and 8 = 40
 <li><a href="../misc-calculators/bmi-calculator.html">BMI Calculator</a></li>
 </ul>
 </div>
-
-<!-- NEW FOOTER -->
-<footer>
-<div class="container">
-<p>
-<a href="#">Link to Us</a> |
-      <a href="#">Recommend Site</a> |
-      <a href="#">Send Feedback</a> |
-      <a href="#">About</a>
-</p>
-<p>
-      © EasyTables.com |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Manage Cookies</a>
-</p>
-</div>
-</footer>
-<!-- Scripts -->
-<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     function parseFraction(str) {
       const parts = str.trim().split('/');
@@ -664,5 +547,23 @@ LCM of 5 and 8 = 40
       }
     }
   </script>
+
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> |
+          <a href="#">Recommend Site</a> |
+          <a href="#">Send Feedback</a> |
+          <a href="#">About</a>
+</p>
+<p>
+          © EasyTables.com |
+          <a href="#">About</a> |
+          <a href="#">Terms of Use</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Manage Cookies</a>
+</p>
+</div>
+</footer>
 </body>
 </html>
