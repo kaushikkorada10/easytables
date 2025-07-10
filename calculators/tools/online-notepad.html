@@ -133,7 +133,11 @@ footer {
     display: none;
   }
 
+.btn-1{
+  height:50px;
+  width: auto;
 
+}
 </style>
 </head>
 <body>
@@ -169,11 +173,11 @@ footer {
 <main>
 <textarea id="notepad" placeholder="Start typing your notes here..."></textarea>
 <div class="buttons">
-<button id="newBtn" title="New Note">New</button>
-<button id="saveBtn" title="Save Note as .txt">Save</button>
-<label for="openFile" title="Open a .txt file">Open</label>
-<input accept=".txt" id="openFile" type="file"/>
-<button id="clearBtn" title="Clear All">Clear</button>
+<button class="btn-1" id="newBtn" title="New Note">New</button>
+<button class="btn-1" id="saveBtn" title="Save Note as .txt">Save</button>
+<label class="btn-1" for="openFile" title="Open a .txt file">Open</label>
+<input class="btn-1" accept=".txt" id="openFile" type="file"/>
+<button class="btn-1" id="clearBtn" title="Clear All">Clear</button>
 </div>
 <div class="description">
 <h3>What is an Online Notepad?</h3>
@@ -414,6 +418,7 @@ footer {
 <p><strong>Open, write, save, and repeat – anytime, anywhere.</strong></p>
 </div>
 </main>
+
 <!-- The code goes heare-->
 </div>
 <div class="see-also">
@@ -442,6 +447,68 @@ footer {
 </p>
 </div>
 </footer>
+<!-- 📄 Put this block right after your HTML (before </body>) -->
+<script>
+/* ---------- element shortcuts ---------- */
+const $   = id => document.getElementById(id);
+const pad = $('notepad');
+
+/* ---------- load any saved note on startup ---------- */
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('simple-notepad');
+  if (saved !== null) pad.value = saved;
+});
+
+/* ---------- NEW ---------- */
+$('newBtn').addEventListener('click', () => {
+  if (pad.value.trim() && !confirm('Discard current note and start a new one?')) return;
+  pad.value = '';
+  localStorage.removeItem('simple-notepad');
+  pad.focus();
+});
+
+/* ---------- SAVE (localStorage + download) ---------- */
+$('saveBtn').addEventListener('click', () => {
+  const text = pad.value;
+  if (!text) { alert('Nothing to save ✏️'); return; }
+
+  /* 1) persist locally so it comes back on reload */
+  localStorage.setItem('simple-notepad', text);
+
+  /* 2) trigger a .txt download for the user */
+  const blob = new Blob([text], {type:'text/plain'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url;
+  a.download = 'note.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+/* ---------- OPEN (load .txt into textarea) ---------- */
+$('openFile').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.type && file.type !== 'text/plain') {
+    alert('Please choose a plain text (.txt) file.'); return;
+  }
+  const reader = new FileReader();
+  reader.onload = evt => { pad.value = evt.target.result; };
+  reader.readAsText(file);
+  // reset input so the same file can be chosen again later if needed
+  e.target.value = '';
+});
+
+/* ---------- CLEAR ---------- */
+$('clearBtn').addEventListener('click', () => {
+  if (pad.value.trim() && !confirm('Clear everything?')) return;
+  pad.value = '';
+  localStorage.removeItem('simple-notepad');
+  pad.focus();
+});
+</script>
 
 </body>
 </html>
