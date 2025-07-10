@@ -185,7 +185,13 @@ footer {
   }
 
 
-
+  .picker{display:flex;gap:12px;align-items:flex-start}
+  #palette{cursor:crosshair;border:1px solid #666;border-radius:4px}
+  #hue{cursor:ns-resize;border:1px solid #666;border-radius:4px}
+  #preview{width:48px;height:48px;border:1px solid #666;border-radius:4px;margin-top:4px}
+  .fields{display:grid;grid-template-columns:auto auto;gap:6px 10px;margin-top:10px}
+  .fields label{text-align:right;white-space:nowrap}
+  .fields input{width:70px;padding:2px 4px}
 
 </style>
 </head>
@@ -218,33 +224,39 @@ footer {
 </nav>
 <div>
 <!-- The code goes heare-->
+ <center><h1>RGB Color Codes Chart</h1></center>
+<div class="description">
+  <h3 >RGB Color Picker</h3>
+  Note: Click on the color picker to get the HEX code
+</div>
+<div class="picker description">
+
+  <canvas id="palette" width="200" height="200"></canvas>
+  <canvas id="hue"     width="26"  height="200"></canvas>
+<!-- sliders -->
+<div >
+    <div id="preview"></div>
+    <div class="fields">
+      <label>R:</label><input id="r" type="number" min="0" max="255">
+      <label>G:</label><input id="g" type="number" min="0" max="255">
+      <label>B:</label><input id="b" type="number" min="0" max="255">
+
+      <label>H&nbsp;(°):</label><input id="h" type="number" min="0" max="360">
+      <label>S&nbsp;(%) :</label><input id="s" type="number" min="0" max="100">
+      <label>V&nbsp;(%) :</label><input id="v" type="number" min="0" max="100">
+
+      <label>Hex:</label><input id="hex" maxlength="7">
+    </div>
+
+  </div>
+
+</div>
+
+<!-- live preview + code read-out -->
+
 <!-- Main Content -->
-<center><h1>RGB Color Codes Chart</h1></center>
-<section aria-label="RGB Color Picker" class="color-picker-section info-block">
-<h2>RGB Color Picker</h2>
-<div class="color-picker">
-<label>
-      R
-      <input aria-label="Red channel" id="r" max="255" min="0" type="number" value="255"/>
-</label>
-<label>
-      G
-      <input aria-label="Green channel" id="g" max="255" min="0" type="number" value="255"/>
-</label>
-<label>
-      B
-      <input aria-label="Blue channel" id="b" max="255" min="0" type="number" value="255"/>
-</label>
-</div>
-<div class="color-display" id="colorBox" style="background:#fff; color:#000;">Sample Text</div>
-<div>
-<b>Hex:</b> <span id="hexValue">#FFFFFF</span>  | 
-    <b>Decimal:</b> <span id="decimalValue">16777215</span>  | 
-    <b>HSV:</b> <span id="hsvValue">0°, 0%, 100%</span>
-</div>
-</section>
-<div class="section-divider"></div>
-<section aria-label="RGB Color Space" class="info-block">
+
+<section aria-label="RGB Color Space" class="description">
 <h2>RGB Color Space</h2>
 <p>
     RGB color space or RGB color system constructs all the colors from combinations of the Red, Green, and Blue colors.
@@ -258,8 +270,7 @@ footer {
     Values in between produce varying light intensity.
   </p>
 </section>
-<div class="section-divider"></div>
-<section aria-label="RGB Color Format &amp; Calculation" class="info-block">
+<section aria-label="RGB Color Format &amp; Calculation" class="description">
 <h2>RGB Color Format &amp; Calculation</h2>
 <p>
     RGB color codes are stored in 24 bits (bits 0..23):
@@ -283,8 +294,7 @@ Decimal = R × 256² + G × 256 + B
 Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
   </pre>
 </section>
-<div class="section-divider"></div>
-<section aria-label="RGB Color Table" class="info-block">
+<section aria-label="RGB Color Table" class="description">
 <h2>RGB Color Table</h2>
 <table aria-describedby="colorTableDesc" role="table">
 <thead>
@@ -326,8 +336,7 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 </tbody>
 </table>
 </section>
-<div class="section-divider"></div>
-<section aria-label="HSV Color Space" class="info-block">
+<section aria-label="HSV Color Space" class="description">
 <h2>HSV Color Space</h2>
 <p>
     HSV (Hue, Saturation, Value) is an alternative way to represent colors.
@@ -340,7 +349,7 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 <p>
     Conversion from RGB to HSV helps in understanding and manipulating colors in a more intuitive way.
   </p>
-<div class="description">
+<div>
 <h3>Understanding RGB Color Codes</h3>
 <p>RGB stands for <strong>Red, Green, Blue</strong>—the three primary colors of light. In digital systems, colors are represented as combinations of these three values, each ranging from 0 to 255. When all three are set to 0, you get black. When all are set to 255, you get white.</p>
 <h3>Structure of an RGB Code</h3>
@@ -423,111 +432,7 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 <h3>Conclusion</h3>
 <p>RGB color codes are an essential part of digital design, development, and visualization. Whether you're building a website, designing an app, or manipulating images, understanding how to work with RGB and its representations helps you craft clear, beautiful, and user-friendly visuals.</p>
 </div>
-<div class="description">
-<h3>Understanding RGB Color Codes</h3>
-<p>RGB stands for <strong>Red, Green, Blue</strong>—the three primary colors of light. In digital systems, colors are represented as combinations of these three values, each ranging from 0 to 255. When all three are set to 0, you get black. When all are set to 255, you get white.</p>
-<h3>Structure of an RGB Code</h3>
-<p>An RGB color is written as: <code>rgb(R, G, B)</code> where R, G, and B are integers between 0 and 255.</p>
-<ul>
-<li><strong>Red:</strong> <code>rgb(255, 0, 0)</code></li>
-<li><strong>Green:</strong> <code>rgb(0, 255, 0)</code></li>
-<li><strong>Blue:</strong> <code>rgb(0, 0, 255)</code></li>
-</ul>
-<p>You can mix these values to create millions of colors.</p>
-<h3>Hexadecimal Representation</h3>
-<p>RGB colors can also be written in hexadecimal format as <code>#RRGGBB</code>, where each pair of digits represents the red, green, and blue values respectively. Example:</p>
-<ul>
-<li><code>#FF0000</code> → Red</li>
-<li><code>#00FF00</code> → Green</li>
-<li><code>#0000FF</code> → Blue</li>
-<li><code>#FFFF00</code> → Yellow</li>
-</ul>
-<h3>Common RGB Color Codes</h3>
-<table border="1" cellpadding="6">
-<thead>
-<tr>
-<th>Color</th><th>RGB</th><th>Hex</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Black</td><td>rgb(0, 0, 0)</td><td>#000000</td></tr>
-<tr><td>White</td><td>rgb(255, 255, 255)</td><td>#FFFFFF</td></tr>
-<tr><td>Red</td><td>rgb(255, 0, 0)</td><td>#FF0000</td></tr>
-<tr><td>Green</td><td>rgb(0, 255, 0)</td><td>#00FF00</td></tr>
-<tr><td>Blue</td><td>rgb(0, 0, 255)</td><td>#0000FF</td></tr>
-<tr><td>Yellow</td><td>rgb(255, 255, 0)</td><td>#FFFF00</td></tr>
-<tr><td>Cyan</td><td>rgb(0, 255, 255)</td><td>#00FFFF</td></tr>
-<tr><td>Magenta</td><td>rgb(255, 0, 255)</td><td>#FF00FF</td></tr>
-</tbody>
-</table>
-<h3>Use in Web Development</h3>
-<p>Web designers use RGB and Hex codes to style elements with specific colors in CSS:</p>
-<pre>
-    body {
-      background-color: rgb(240, 240, 240);
-      color: #333333;
-    }
-    </pre>
-<h3>Visualizing Color Intensity</h3>
-<p>Each color channel (Red, Green, Blue) influences the final color’s brightness and hue. Example:</p>
-<ul>
-<li>rgb(128, 0, 0) → Dark Red</li>
-<li>rgb(128, 128, 0) → Olive</li>
-<li>rgb(192, 192, 192) → Light Gray</li>
-</ul>
-<h3>Color Picker Tools</h3>
-<p>Designers and developers use digital color pickers to:</p>
-<ul>
-<li>Select exact shades visually.</li>
-<li>Copy RGB or Hex values to clipboard.</li>
-<li>Preview how colors look on different backgrounds.</li>
-</ul>
-<h3>Accessibility and Contrast</h3>
-<p>Choosing the right color contrast ensures readability, especially for users with visual impairments. Tools like WCAG Contrast Checkers help validate:</p>
-<ul>
-<li>Text over background combinations.</li>
-<li>Compliance with accessibility standards.</li>
-</ul>
-<h3>Conversion Tools</h3>
-<p>Many tools help convert between RGB, Hex, and even HSL (Hue, Saturation, Lightness). Example conversion:</p>
-<p><code>rgb(255, 0, 0)</code> → <code>#FF0000</code> → <code>hsl(0, 100%, 50%)</code></p>
-<h3>Advanced Uses of RGB</h3>
-<ul>
-<li><strong>Data Visualization:</strong> RGB codes are used in graphs, heatmaps, and dashboards.</li>
-<li><strong>Image Processing:</strong> Each pixel’s color is represented by RGB values.</li>
-<li><strong>Game Development:</strong> Lighting, textures, and UI elements rely on accurate RGB coding.</li>
-</ul>
-<h3>Fun with Gradients</h3>
-<p>Using multiple RGB values, you can create gradients in CSS:</p>
-<pre>
-    background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255));
-    </pre>
-<p>This will create a smooth red-to-blue gradient across the background.</p>
-<h3>Color Blindness Simulations</h3>
-<p>RGB values can be simulated to mimic how color-blind users perceive content. Tools can generate visual previews for:</p>
-<ul>
-<li>Deuteranopia (green-blind)</li>
-<li>Protanopia (red-blind)</li>
-<li>Tritanopia (blue-blind)</li>
-</ul>
-<h3>Animated RGB Effects</h3>
-<p>With JavaScript or CSS animations, RGB values can be dynamically changed to create glowing or pulsing effects:</p>
-<pre>
-    @keyframes pulse {
-      0%   { background-color: rgb(255, 0, 0); }
-      50%  { background-color: rgb(0, 255, 0); }
-      100% { background-color: rgb(0, 0, 255); }
-    }
-    </pre>
-<h3>Popular RGB Color Libraries</h3>
-<ul>
-<li><strong>Color.js</strong> – Manipulate color values across formats</li>
-<li><strong>Chroma.js</strong> – Complex color math and scales</li>
-<li><strong>Tailwind CSS</strong> – Offers pre-defined color classes based on RGB hex</li>
-</ul>
-<h3>Conclusion</h3>
-<p>RGB color codes are an essential part of digital design, development, and visualization. Whether you're building a website, designing an app, or manipulating images, understanding how to work with RGB and its representations helps you craft clear, beautiful, and user-friendly visuals.</p>
-</div>
+
 </section>
 <!-- The code goes heare-->
 </div>
@@ -557,6 +462,159 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 </p>
 </div>
 </footer>
+<script>
+/* ---------------- utilities ---------------- */
+
+const $ = id => document.getElementById(id);
+const toHex  = n => ('0'+Number(n).toString(16)).slice(-2).toUpperCase();
+const rgb2hex = (r,g,b) => '#'+toHex(r)+toHex(g)+toHex(b);
+
+function hsv2rgb(h, s, v){          // h 0-360  s,v 0-100
+  s/=100; v/=100;
+  const c=v*s, x=c*(1-Math.abs((h/60)%2-1)), m=v-c;
+  let [r,g,b]=[0,0,0];
+  if      (h<60)  [r,g,b]=[c,x,0];
+  else if (h<120) [r,g,b]=[x,c,0];
+  else if (h<180) [r,g,b]=[0,c,x];
+  else if (h<240) [r,g,b]=[0,x,c];
+  else if (h<300) [r,g,b]=[x,0,c];
+  else            [r,g,b]=[c,0,x];
+  return [Math.round((r+m)*255),
+          Math.round((g+m)*255),
+          Math.round((b+m)*255)];
+}
+
+function rgb2hsv(r, g, b){          // r,g,b 0-255  → h 0-360 s,v 0-100
+  r/=255; g/=255; b/=255;
+  const max=Math.max(r,g,b), min=Math.min(r,g,b), d=max-min;
+  let h=0;
+  if (d!==0){
+    switch(max){
+      case r: h=60*((g-b)/d%6); break;
+      case g: h=60*((b-r)/d+2); break;
+      case b: h=60*((r-g)/d+4); break;
+    }
+  }
+  if (h<0) h+=360;
+  const s = max===0 ? 0 : d/max;
+  const v = max;
+  return [Math.round(h), Math.round(s*100), Math.round(v*100)];
+}
+
+/* ---------------- canvas setup ---------------- */
+
+const palette = $('palette');
+const hueBar  = $('hue');
+const pCtx = palette.getContext('2d');
+const hCtx = hueBar.getContext('2d');
+
+let currentHue = 0, currentS = 0, currentV = 100;
+drawHueBar();
+drawPalette();
+
+/* ---------------- draw functions ---------------- */
+
+function drawHueBar(){
+  const grad = hCtx.createLinearGradient(0,0,0,hueBar.height);
+  for(let i=0;i<=360;i+=60){
+    grad.addColorStop(i/360, `hsl(${i},100%,50%)`);
+  }
+  hCtx.fillStyle=grad;
+  hCtx.fillRect(0,0,hueBar.width,hueBar.height);
+}
+
+function drawPalette(){
+  // base: solid hue
+  const [r,g,b]=hsv2rgb(currentHue,100,100);
+  pCtx.fillStyle = `rgb(${r},${g},${b})`;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+
+  // horizontal white gradient (saturation)
+  const wGrad = pCtx.createLinearGradient(0,0,palette.width,0);
+  wGrad.addColorStop(0,'white');
+  wGrad.addColorStop(1,'rgba(255,255,255,0)');
+  pCtx.fillStyle=wGrad;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+
+  // vertical black gradient (value)
+  const bGrad = pCtx.createLinearGradient(0,0,0,palette.height);
+  bGrad.addColorStop(0,'rgba(0,0,0,0)');
+  bGrad.addColorStop(1,'black');
+  pCtx.fillStyle=bGrad;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+}
+
+/* ---------------- event helpers ---------------- */
+
+let draggingPalette=false, draggingHue=false;
+
+hueBar.addEventListener('mousedown',e=>{draggingHue=true; onHuePick(e)});
+palette.addEventListener('mousedown',e=>{draggingPalette=true; onPalettePick(e)});
+window.addEventListener('mouseup',()=>{draggingPalette=false;draggingHue=false});
+window.addEventListener('mousemove',e=>{
+  if(draggingHue) onHuePick(e);
+  if(draggingPalette) onPalettePick(e);
+});
+
+function onHuePick(e){
+  const y = Math.min(Math.max(0, e.offsetY), hueBar.height);
+  currentHue = Math.round(360 * y / hueBar.height);
+  drawPalette();
+  updateFromHSV(currentHue,currentS,currentV);
+}
+
+function onPalettePick(e){
+  const x = Math.min(Math.max(0, e.offsetX), palette.width);
+  const y = Math.min(Math.max(0, e.offsetY), palette.height);
+  currentS = Math.round(100 * x / palette.width);
+  currentV = Math.round(100 * (1 - y / palette.height));
+  updateFromHSV(currentHue,currentS,currentV);
+}
+
+/* ---------------- sync UI & fields ---------------- */
+
+const fieldIds=['r','g','b','h','s','v','hex'];
+fieldIds.forEach(id => $(id).addEventListener('input', onFieldChange));
+
+function onFieldChange(e){
+  const id=e.target.id, val=e.target.value;
+  if(!val) return;
+
+  if(id==='hex'){
+    const hex=val.startsWith('#')?val:'#'+val;
+    if(/^#([0-9a-f]{6})$/i.test(hex)){
+      const bigint=parseInt(hex.slice(1),16);
+      const r=(bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
+      const [h,s,v]=rgb2hsv(r,g,b);
+      currentHue=h;currentS=s;currentV=v; drawPalette();
+      fillFields(r,g,b,h,s,v,hex.toUpperCase());
+    }
+    return;
+  }
+
+  const r=parseInt($('r').value), g=parseInt($('g').value), b=parseInt($('b').value);
+  if([r,g,b].every(n=>!isNaN(n))){
+    const [h,s,v]=rgb2hsv(r,g,b);
+    currentHue=h; currentS=s; currentV=v; drawPalette();
+    fillFields(r,g,b,h,s,v,rgb2hex(r,g,b));
+  }
+}
+
+function updateFromHSV(h,s,v){
+  const [r,g,b]=hsv2rgb(h,s,v);
+  fillFields(r,g,b,h,s,v,rgb2hex(r,g,b));
+}
+
+function fillFields(r,g,b,h,s,v,hex){
+  $('r').value=r; $('g').value=g; $('b').value=b;
+  $('h').value=h; $('s').value=s; $('v').value=v;
+  $('hex').value=hex;
+  $('preview').style.background=hex;
+}
+
+/* ----------- initial state ----------- */
+updateFromHSV(0,0,100);
+</script>
 
 </body>
 </html>

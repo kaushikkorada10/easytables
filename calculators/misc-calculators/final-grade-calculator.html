@@ -350,28 +350,47 @@ footer {
 </p>
 </div>
 </footer>
+<!-- Place this script block right after your HTML (before </body>) -->
 <script>
-    function calculateMortgage() {
-      const loanAmount = parseFloat(document.getElementById('loanAmount').value);
-      const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
-      const loanTerm = parseFloat(document.getElementById('loanTerm').value) * 12;
+function calculateFinalGrade() {
+  const current   = parseFloat(document.getElementById('currentGrade').value);
+  const weightPct = parseFloat(document.getElementById('examWeight').value);
+  const desired   = parseFloat(document.getElementById('desiredGrade').value);
+  const resultBox = document.getElementById('result');
 
-      if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm) || loanTerm === 0) {
-        document.getElementById('result').innerText = 'Please enter valid numbers in all fields.';
-        return;
-      }
+  /* ---------- basic validation ---------- */
+  if (isNaN(current) || isNaN(weightPct) || isNaN(desired)) {
+    resultBox.textContent = 'Please enter all three numbers.';
+    return;
+  }
+  if (weightPct <= 0 || weightPct >= 100) {
+    resultBox.textContent = 'Final-exam weight must be between 0 and 100.';
+    return;
+  }
+  if (current < 0 || current > 100 || desired < 0 || desired > 100) {
+    resultBox.textContent = 'Grades must be between 0 and 100.';
+    return;
+  }
 
-      const x = Math.pow(1 + interestRate, loanTerm);
-      const monthlyPayment = (loanAmount * x * interestRate) / (x - 1);
+  /* ---------- core calculation ---------- */
+  const weight = weightPct / 100;                                   // convert to a fraction
+  const needed = (desired - current * (1 - weight)) / weight;       // % required on exam
+  const neededRounded = Math.ceil(needed * 100) / 100;              // round up to 2 dp
 
-      if (isNaN(monthlyPayment) || !isFinite(monthlyPayment)) {
-        document.getElementById('result').innerText = 'Calculation error. Please check your inputs.';
-        return;
-      }
+  /* ---------- output ---------- */
+  if (needed > 100) {
+    resultBox.innerHTML =
+      `You’d need <strong>${neededRounded}%</strong> on the final — that’s above 100%, so reaching ${desired}% overall isn’t possible.`;
+  } else if (needed <= 0) {
+    resultBox.innerHTML =
+      `Great job! Your current average already guarantees at least ${desired}%.`;
+  } else {
+    resultBox.innerHTML =
+      `You need at least <strong>${neededRounded}%</strong> on the final exam to finish with ${desired}%.`;
+  }
+}
+</script>
 
-      document.getElementById('result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
-    }
-  </script>
 
 </body>
 </html>

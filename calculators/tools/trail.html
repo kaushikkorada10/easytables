@@ -1,869 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Test OCR</title>
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+<meta charset="utf-8" />
+<title>Interactive RGB / HSV Color Picker</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;margin:30px}
+  .picker{display:flex;gap:12px;align-items:flex-start}
+  #palette{cursor:crosshair;border:1px solid #666;border-radius:4px}
+  #hue{cursor:ns-resize;border:1px solid #666;border-radius:4px}
+  #preview{width:48px;height:48px;border:1px solid #666;border-radius:4px;margin-top:4px}
+  .fields{display:grid;grid-template-columns:auto auto;gap:6px 10px;margin-top:10px}
+  .fields label{text-align:right;white-space:nowrap}
+  .fields input{width:70px;padding:2px 4px}
+</style>
 </head>
 <body>
-  <input type="file" onchange="runOCR(event)" />
-  <pre id="output"></pre>
 
-  <script>
-    function runOCR(event) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        Tesseract.recognize(reader.result, 'eng')
-          .then(({ data: { text } }) => {
-            document.getElementById('output').textContent = text;
-          })
-          .catch(err => {
-            document.getElementById('output').textContent = 'Error: ' + err.message;
-          });
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  </script>
+<h2>RGB Color Picker</h2>
 
+<div class="picker">
+  <canvas id="palette" width="200" height="200"></canvas>
+  <canvas id="hue"     width="26"  height="200"></canvas>
 
-<!--cm-->
-<div class="description">
-  <h1>Centimeters (cm) – A Complete Guide</h1>
+  <div>
+    <div id="preview"></div>
+    <div class="fields">
+      <label>R:</label><input id="r" type="number" min="0" max="255">
+      <label>G:</label><input id="g" type="number" min="0" max="255">
+      <label>B:</label><input id="b" type="number" min="0" max="255">
 
-  <p>Centimeters, abbreviated as <strong>cm</strong>, are a fundamental unit of length in the metric system. They are widely used around the world in everyday measurements, education, science, construction, tailoring, and more. This guide explores everything you need to know about centimeters: their definition, conversions, applications, comparison with other units, and how to use them in real-world scenarios.</p>
+      <label>H&nbsp;(°):</label><input id="h" type="number" min="0" max="360">
+      <label>S&nbsp;(%) :</label><input id="s" type="number" min="0" max="100">
+      <label>V&nbsp;(%) :</label><input id="v" type="number" min="0" max="100">
 
-  <h2>What is a Centimeter?</h2>
-  <p>A centimeter is a unit of length in the <strong>International System of Units (SI)</strong>. One centimeter is equal to one-hundredth of a meter:</p>
-  <p><strong>1 centimeter = 0.01 meter = 10 millimeters</strong></p>
-  <p>The term "centi" comes from the Latin word "centum," meaning one hundred. Therefore, a centimeter represents one hundredth of a meter.</p>
-
-  <h2>Symbol and Abbreviation</h2>
-  <p>The official symbol for centimeter is <strong>cm</strong>. This is used universally in scientific papers, educational materials, and measurement devices. For example, a 15-centimeter ruler is commonly labeled as "15 cm".</p>
-
-  <h2>Centimeter in the Metric System</h2>
-  <p>The metric system is a decimal-based system of measurement that was first adopted in France in the late 18th century and has since become the standard in most parts of the world. The centimeter is one of the smaller units within this system, especially when compared to meters and kilometers. Its simplicity and precision make it ideal for smaller measurements.</p>
-
-  <h2>Conversions from Centimeters</h2>
-  <p>Understanding how to convert centimeters into other units is crucial in math, science, and daily life. Here’s how centimeters compare to other units of length:</p>
-  
-  <ul>
-    <li>1 cm = 10 millimeters (mm)</li>
-    <li>1 cm = 0.01 meters (m)</li>
-    <li>1 cm ≈ 0.393701 inches (in)</li>
-    <li>1 cm ≈ 0.0328084 feet (ft)</li>
-    <li>1 cm ≈ 0.0109361 yards (yd)</li>
-    <li>1 cm ≈ 0.0000062137 miles (mi)</li>
-  </ul>
-
-  <h3>Common Conversion Formulas:</h3>
-  <p>Here are some handy formulas to convert centimeters to other units:</p>
-  <ul>
-    <li><strong>Centimeters to Inches:</strong> <code>cm × 0.3937 = inches</code></li>
-    <li><strong>Centimeters to Feet:</strong> <code>cm × 0.0328 = feet</code></li>
-    <li><strong>Centimeters to Meters:</strong> <code>cm ÷ 100 = meters</code></li>
-    <li><strong>Centimeters to Millimeters:</strong> <code>cm × 10 = mm</code></li>
-  </ul>
-
-  <h2>Conversions to Centimeters</h2>
-  <p>And here are formulas to convert other units to centimeters:</p>
-  <ul>
-    <li><strong>Inches to Centimeters:</strong> <code>inches × 2.54 = cm</code></li>
-    <li><strong>Feet to Centimeters:</strong> <code>feet × 30.48 = cm</code></li>
-    <li><strong>Meters to Centimeters:</strong> <code>meters × 100 = cm</code></li>
-    <li><strong>Millimeters to Centimeters:</strong> <code>mm ÷ 10 = cm</code></li>
-  </ul>
-
-  <h2>Examples of Centimeter Conversions</h2>
-  <ul>
-    <li>5 cm = 1.97 inches</li>
-    <li>10 cm = 3.94 inches</li>
-    <li>100 cm = 1 meter</li>
-    <li>150 cm = 4.92 feet</li>
-    <li>183 cm = 6 feet (approximate height of a person)</li>
-  </ul>
-
-  <h2>Applications of Centimeters</h2>
-  <p>Centimeters are commonly used in a wide variety of contexts:</p>
-
-  <h3>1. Everyday Measurements</h3>
-  <p>From measuring your waistline to buying furniture or checking your height, centimeters are part of daily routines. School rulers, fabric measurements, and product dimensions often use centimeters.</p>
-
-  <h3>2. Education and Science</h3>
-  <p>In schools and laboratories, students and scientists often use centimeters for precise measurements of objects, especially when millimeters would be too small and meters too large.</p>
-
-  <h3>3. Construction and Architecture</h3>
-  <p>While meters and feet are often used for large-scale measurements, centimeters are useful for small-scale architectural details, trims, and fixtures.</p>
-
-  <h3>4. Tailoring and Fashion</h3>
-  <p>In the clothing industry, measurements such as bust, waist, hip, and inseam are commonly recorded in centimeters for accuracy and standardization.</p>
-
-  <h2>Why Use Centimeters?</h2>
-  <p>There are many reasons why centimeters remain a favored unit of measurement:</p>
-  <ul>
-    <li><strong>Easy to Understand:</strong> Based on the decimal system.</li>
-    <li><strong>Widely Used:</strong> Especially in countries using the metric system.</li>
-    <li><strong>More Precise:</strong> Ideal for small objects where meters are too large.</li>
-    <li><strong>Compatible with Millimeters and Meters:</strong> Smooth conversion up and down scales.</li>
-  </ul>
-
-  <h2>Centimeters vs Inches</h2>
-  <p>In the United States, inches are more commonly used, whereas centimeters dominate in most other countries. One inch equals approximately 2.54 centimeters. When converting between the two, rounding errors can occur, so precision tools or calculators are often used.</p>
-
-  <h2>Centimeter-Based Tools</h2>
-  <ul>
-    <li><strong>Rulers:</strong> Most rulers contain both centimeter and inch scales.</li>
-    <li><strong>Measuring Tape:</strong> Often marked in both centimeters and inches, especially in tailoring and construction.</li>
-    <li><strong>Digital Calipers:</strong> Used in engineering and science for precise cm and mm measurements.</li>
-  </ul>
-
-  <h2>How to Read a Centimeter Scale</h2>
-  <p>On most rulers or tapes:</p>
-  <ul>
-    <li>Each large number represents a full centimeter.</li>
-    <li>The smaller lines between two centimeter marks are millimeters.</li>
-    <li>There are 10 millimeter marks between each centimeter.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions (FAQs)</h2>
-  <h3>Q: Is 1 cm the same as 1 inch?</h3>
-  <p><strong>No.</strong> 1 inch equals approximately 2.54 cm. So, 1 cm is smaller than 1 inch.</p>
-
-  <h3>Q: How many cm in a meter?</h3>
-  <p>There are <strong>100 centimeters</strong> in one meter.</p>
-
-  <h3>Q: How many mm in a centimeter?</h3>
-  <p>There are <strong>10 millimeters</strong> in one centimeter.</p>
-
-  <h3>Q: Why do we use centimeters?</h3>
-  <p>Centimeters provide a convenient balance between larger (meters) and smaller (millimeters) measurements, especially for everyday objects.</p>
-
-  <h2>Conclusion</h2>
-  <p>Centimeters are one of the most widely used and versatile units of length in the world. From measuring your height to tailoring clothes or building furniture, this small but powerful unit is essential in many industries and daily life scenarios. Whether you're a student, engineer, or everyday user, understanding centimeters and their conversions will enhance your accuracy and confidence in measurement tasks.</p>
-
-  <p>Need a fast and reliable way to convert centimeters to inches, feet, or meters? Try our online Centimeter Conversion Calculator for instant results!</p>
-</div>
-
-
-<!--feet-->
-<div class="description">
-  <h1>Feet (ft) – A Complete Guide to the Imperial Unit of Length</h1>
-
-  <p>Feet, symbolized as <strong>ft</strong>, are one of the most recognized and widely used units of length in the world, especially in the United States, Canada, and the United Kingdom. Despite the global adoption of the metric system, feet remain a vital measurement unit in construction, aviation, sports, and everyday life. This guide covers everything you need to know about feet as a unit—definition, conversions, history, applications, formulas, and real-world examples.</p>
-
-  <h2>What is a Foot?</h2>
-  <p>A <strong>foot</strong> (plural: <strong>feet</strong>) is a unit of length in the <strong>Imperial</strong> and <strong>U.S. customary measurement systems</strong>. One foot is equivalent to:</p>
-  <ul>
-    <li><strong>12 inches</strong></li>
-    <li><strong>0.3048 meters</strong></li>
-    <li><strong>30.48 centimeters</strong></li>
-  </ul>
-  <p>The symbol for foot is <strong>ft</strong>, and the abbreviation for inch is <strong>in</strong>. For example, a person may say they are "6 feet tall" or "6 ft."</p>
-
-  <h2>Origin and History of the Foot</h2>
-  <p>The foot has ancient origins and was originally based on the average length of a human foot. Different civilizations had their own versions of the "foot" as a unit of measurement—Egyptians, Greeks, and Romans all used it with slightly varying lengths.</p>
-  <p>Standardization came in 1959 when the United States and countries of the Commonwealth agreed on the international foot:</p>
-  <p><strong>1 international foot = 0.3048 meters</strong></p>
-
-  <h2>How Many Feet in Other Units?</h2>
-  <p>Understanding how the foot relates to other units of length is essential, especially in engineering, construction, and international conversions.</p>
-
-  <h3>Feet to Other Units:</h3>
-  <ul>
-    <li>1 foot = 12 inches</li>
-    <li>1 foot = 0.3333 yards</li>
-    <li>1 foot = 30.48 centimeters</li>
-    <li>1 foot = 0.3048 meters</li>
-    <li>1 foot ≈ 0.000189394 miles</li>
-  </ul>
-
-  <h3>Other Units to Feet:</h3>
-  <ul>
-    <li>1 inch = 0.0833 feet</li>
-    <li>1 yard = 3 feet</li>
-    <li>1 meter = 3.28084 feet</li>
-    <li>1 centimeter = 0.0328084 feet</li>
-    <li>1 kilometer = 3280.84 feet</li>
-  </ul>
-
-  <h2>Conversion Formulas for Feet</h2>
-  <p>Here are some useful formulas for converting feet into other units:</p>
-  <ul>
-    <li><strong>Feet to Inches:</strong> <code>feet × 12 = inches</code></li>
-    <li><strong>Feet to Centimeters:</strong> <code>feet × 30.48 = cm</code></li>
-    <li><strong>Feet to Meters:</strong> <code>feet × 0.3048 = meters</code></li>
-    <li><strong>Feet to Yards:</strong> <code>feet ÷ 3 = yards</code></li>
-  </ul>
-
-  <h3>Conversion Examples:</h3>
-  <ul>
-    <li>5 feet = 60 inches</li>
-    <li>6 feet = 182.88 cm</li>
-    <li>10 feet = 3.048 meters</li>
-    <li>5280 feet = 1 mile</li>
-  </ul>
-
-  <h2>Feet vs. Meters</h2>
-  <p>Feet and meters are often compared, especially in international measurements. While meters are part of the metric system and used globally, feet are part of the Imperial system.</p>
-  <ul>
-    <li>1 foot = 0.3048 meters</li>
-    <li>1 meter ≈ 3.28084 feet</li>
-  </ul>
-  <p>This makes feet shorter than a meter. For example, a 10-meter-long object would be about 32.8 feet.</p>
-
-  <h2>Real-Life Uses of Feet</h2>
-  <h3>1. Height Measurement</h3>
-  <p>In the United States and Canada, people commonly report height in feet and inches, such as "5 feet 10 inches" or "5'10".</p>
-
-  <h3>2. Building and Construction</h3>
-  <p>Feet are frequently used in architectural blueprints, home layouts, and construction work. Room sizes, door heights, and pipe lengths are measured in feet.</p>
-
-  <h3>3. Aviation and Altitude</h3>
-  <p>In aviation, altitude is measured in feet. For example, a commercial plane might cruise at 35,000 feet above sea level.</p>
-
-  <h3>4. Sports</h3>
-  <p>Sports fields are often measured in feet—basketball courts, baseball diamonds, and football fields all use feet for measurement.</p>
-
-  <h3>5. Real Estate</h3>
-  <p>Square footage, used to measure the area of a home or office, is based on feet (square feet or ft²).</p>
-
-  <h2>Feet in Mathematics</h2>
-  <p>In math problems, feet are often used to calculate length, area, and volume:</p>
-  <ul>
-    <li><strong>Length:</strong> 10 ft</li>
-    <li><strong>Area:</strong> length × width = square feet (e.g., 10 ft × 12 ft = 120 ft²)</li>
-    <li><strong>Volume:</strong> length × width × height = cubic feet (e.g., 5 ft × 5 ft × 5 ft = 125 ft³)</li>
-  </ul>
-
-  <h2>Measurement Tools for Feet</h2>
-  <p>Feet are measured using various tools depending on the precision needed:</p>
-  <ul>
-    <li><strong>Measuring Tape:</strong> Used in construction and tailoring.</li>
-    <li><strong>Ruler or Yardstick:</strong> Used for small objects or classroom tasks.</li>
-    <li><strong>Laser Distance Meter:</strong> For professional and precise long-range measurement.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions (FAQs)</h2>
-  <h3>Q: How many feet are in a mile?</h3>
-  <p><strong>There are 5,280 feet</strong> in one mile.</p>
-
-  <h3>Q: Is 6 feet tall?</h3>
-  <p>Yes, 6 feet is considered tall in most countries. It equals 72 inches or approximately 183 centimeters.</p>
-
-  <h3>Q: What is a square foot?</h3>
-  <p>A square foot (ft²) is a unit of area equal to a square that is one foot on each side. It is commonly used to measure floor space.</p>
-
-  <h3>Q: How do I convert feet to inches quickly?</h3>
-  <p>Just multiply the number of feet by 12. For example, 5 feet = 5 × 12 = 60 inches.</p>
-
-  <h2>Importance of Feet in the Digital Age</h2>
-  <p>Despite the rise of the metric system, feet remain a core measurement unit in digital applications, CAD designs, 3D modeling, and even e-commerce where product dimensions are listed in feet or inches for North American audiences.</p>
-
-  <h2>Quick Reference Table: Feet Conversions</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Feet</th>
-        <th>Inches</th>
-        <th>Centimeters</th>
-        <th>Meters</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1 ft</td><td>12 in</td><td>30.48 cm</td><td>0.3048 m</td></tr>
-      <tr><td>2 ft</td><td>24 in</td><td>60.96 cm</td><td>0.6096 m</td></tr>
-      <tr><td>3 ft</td><td>36 in</td><td>91.44 cm</td><td>0.9144 m</td></tr>
-      <tr><td>5 ft</td><td>60 in</td><td>152.4 cm</td><td>1.524 m</td></tr>
-      <tr><td>6 ft</td><td>72 in</td><td>182.88 cm</td><td>1.8288 m</td></tr>
-      <tr><td>10 ft</td><td>120 in</td><td>304.8 cm</td><td>3.048 m</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Conclusion</h2>
-  <p>The foot is a practical and historic unit of length that continues to be used in many parts of the world for daily life, professional fields, and industrial applications. Whether you're measuring height, designing a building, or booking a real estate property, feet offer a clear and consistent way to express length and distance.</p>
-  <p>Need quick and accurate conversions? Try our online <strong>Feet to Centimeters</strong>, <strong>Feet to Meters</strong>, or <strong>Feet to Inches</strong> calculator tools to simplify your measurements!</p>
-</div>
-
-
-
-<!--inch-->
-<div class="description">
-  <h1>Inches (in) – Complete Guide to the Imperial Unit of Length</h1>
-
-  <p>An inch, symbolized as <strong>in</strong>, is one of the most recognized and commonly used units of length in the United States, Canada, and the United Kingdom. Though the metric system has become the global standard in most countries, inches are still used in various fields including construction, design, screen sizes, tools, and daily life. In this comprehensive guide, we’ll explore what inches are, their history, how they compare with metric units, conversion formulas, real-life uses, and frequently asked questions.</p>
-
-  <h2>What is an Inch?</h2>
-  <p>An inch is a unit of length in the <strong>Imperial and U.S. customary measurement systems</strong>. It is defined as exactly:</p>
-  <ul>
-    <li><strong>1 inch = 1/12 of a foot</strong></li>
-    <li><strong>1 inch = 2.54 centimeters (cm)</strong></li>
-    <li><strong>1 inch = 25.4 millimeters (mm)</strong></li>
-  </ul>
-
-  <p>The inch is abbreviated as <strong>in</strong> or marked with a double prime symbol (″). For example, 6 inches can be written as 6 in or 6″.</p>
-
-  <h2>Origin and History of the Inch</h2>
-  <p>The word "inch" originates from the Latin word <em>uncia</em>, meaning a one-twelfth part. Historically, the inch was defined based on the width of a human thumb or three grains of barley placed end to end.</p>
-  <p>In 1959, countries such as the United States and members of the Commonwealth agreed to standardize the inch as <strong>exactly 2.54 centimeters</strong>—known as the “international inch.”</p>
-
-  <h2>How Many Inches in Other Units?</h2>
-
-  <h3>Inches to Other Units:</h3>
-  <ul>
-    <li>1 inch = 2.54 cm</li>
-    <li>1 inch = 0.0833 feet</li>
-    <li>1 inch = 0.02778 yards</li>
-    <li>1 inch = 25.4 millimeters</li>
-    <li>1 inch ≈ 0.00001578 miles</li>
-  </ul>
-
-  <h3>Other Units to Inches:</h3>
-  <ul>
-    <li>1 cm = 0.3937 inches</li>
-    <li>1 foot = 12 inches</li>
-    <li>1 yard = 36 inches</li>
-    <li>1 meter = 39.3701 inches</li>
-    <li>1 mm = 0.03937 inches</li>
-  </ul>
-
-  <h2>Conversion Formulas for Inches</h2>
-
-  <ul>
-    <li><strong>Inches to Centimeters:</strong> <code>in × 2.54 = cm</code></li>
-    <li><strong>Inches to Millimeters:</strong> <code>in × 25.4 = mm</code></li>
-    <li><strong>Inches to Meters:</strong> <code>in × 0.0254 = m</code></li>
-    <li><strong>Inches to Feet:</strong> <code>in ÷ 12 = ft</code></li>
-  </ul>
-
-  <h3>Quick Conversion Examples:</h3>
-  <ul>
-    <li>1 inch = 2.54 cm</li>
-    <li>12 inches = 1 foot</li>
-    <li>36 inches = 1 yard</li>
-    <li>60 inches = 5 feet</li>
-    <li>72 inches = 6 feet (approx. human height)</li>
-  </ul>
-
-  <h2>Real-Life Uses of Inches</h2>
-
-  <h3>1. Screen Sizes</h3>
-  <p>TVs, monitors, and mobile devices list screen sizes in inches, measured diagonally from one corner of the screen to the opposite corner.</p>
-
-  <h3>2. Construction and Carpentry</h3>
-  <p>Inches are used to measure wood, piping, metal, nails, bolts, and other materials. It allows for precise yet practical dimensions in construction and remodeling.</p>
-
-  <h3>3. Tools and Hardware</h3>
-  <p>Wrenches, screwdrivers, drill bits, and fasteners are often measured in inches, especially in regions that follow the Imperial system.</p>
-
-  <h3>4. Clothing and Tailoring</h3>
-  <p>Waist sizes, collar sizes, and inseams are often measured in inches. For example, men’s jeans might say “34x30,” meaning a 34-inch waist and 30-inch leg length.</p>
-
-  <h3>5. Printing and Design</h3>
-  <p>Page dimensions, photo sizes, and posters are often measured in inches, such as 8.5"x11" paper size (standard U.S. letter).</p>
-
-  <h2>Inches vs. Centimeters</h2>
-  <p>While most of the world uses centimeters due to the metric system, inches are still the standard in the U.S., especially in industries like manufacturing and engineering.</p>
-  <ul>
-    <li>1 inch = 2.54 centimeters</li>
-    <li>1 cm ≈ 0.3937 inches</li>
-  </ul>
-  <p>Understanding both systems is essential for global compatibility and technical precision.</p>
-
-  <h2>Reading an Inch Ruler</h2>
-  <p>Inch rulers are divided into small segments. Most rulers in the U.S. divide each inch into 16 or 32 smaller parts.</p>
-  <ul>
-    <li>1 inch = 2 halves = 4 quarters = 8 eighths = 16 sixteenths = 32 thirty-seconds</li>
-  </ul>
-  <p>This allows users to measure very small dimensions accurately, which is crucial in carpentry and machining.</p>
-
-  <h2>Inches in Mathematics</h2>
-  <p>In math problems, inches are used to calculate length, area, and volume:</p>
-  <ul>
-    <li><strong>Length:</strong> 12 in</li>
-    <li><strong>Area:</strong> width × height = square inches (in²)</li>
-    <li><strong>Volume:</strong> length × width × height = cubic inches (in³)</li>
-  </ul>
-
-  <h2>Frequently Asked Questions (FAQs)</h2>
-
-  <h3>Q: How many inches in a foot?</h3>
-  <p><strong>12 inches</strong> make up 1 foot.</p>
-
-  <h3>Q: How to convert cm to inches?</h3>
-  <p>Use the formula: <code>cm × 0.3937 = inches</code>. For example, 10 cm × 0.3937 ≈ 3.937 in.</p>
-
-  <h3>Q: Why are screen sizes measured in inches?</h3>
-  <p>It is a longstanding convention in electronics, and the diagonal measurement gives a standardized size across models.</p>
-
-  <h3>Q: Is inch a metric unit?</h3>
-  <p>No. Inch belongs to the Imperial and U.S. customary systems, not the metric system.</p>
-
-  <h2>Quick Reference Table – Inches Conversions</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Inches</th>
-        <th>Centimeters</th>
-        <th>Millimeters</th>
-        <th>Feet</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1 in</td><td>2.54 cm</td><td>25.4 mm</td><td>0.083 ft</td></tr>
-      <tr><td>5 in</td><td>12.7 cm</td><td>127 mm</td><td>0.417 ft</td></tr>
-      <tr><td>12 in</td><td>30.48 cm</td><td>304.8 mm</td><td>1 ft</td></tr>
-      <tr><td>24 in</td><td>60.96 cm</td><td>609.6 mm</td><td>2 ft</td></tr>
-      <tr><td>36 in</td><td>91.44 cm</td><td>914.4 mm</td><td>3 ft</td></tr>
-      <tr><td>72 in</td><td>182.88 cm</td><td>1828.8 mm</td><td>6 ft</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Online Inch Conversion Tools</h2>
-  <p>If you frequently need to convert inches to other units, try using our fast and accurate online tools like:</p>
-  <ul>
-    <li><strong>Inches to Centimeters Calculator</strong></li>
-    <li><strong>Inches to Feet Converter</strong></li>
-    <li><strong>Inches to Millimeters Tool</strong></li>
-  </ul>
-  <p>These tools offer precise results and save time in manual calculations, especially for professionals.</p>
-
-  <h2>Conclusion</h2>
-  <p>Inches remain a vital part of everyday measurement systems in various countries and industries. Whether you're buying a TV, designing furniture, working with tools, or tailoring clothes, understanding inches is essential. With its rich history and ongoing relevance, the inch continues to be a practical and accurate unit of length.</p>
-
-  <p>Need conversions on the go? Bookmark our <strong>Inch Conversion Calculator</strong> and make precise measurements in just a click!</p>
-</div>
-
-
-<!--km-->
-<div class="description">
-  <h1>Kilometers (km) – Everything You Need to Know About This Metric Unit</h1>
-
-  <p>Kilometers, abbreviated as <strong>km</strong>, are a widely used unit of length in the metric system. Whether you're calculating distances between cities, planning a long walk, or measuring road travel, kilometers are essential for understanding long-range measurements. In this detailed guide, we will cover what kilometers are, how they compare to other units, their history, real-world uses, formulas, conversion tables, and more.</p>
-
-  <h2>What is a Kilometer?</h2>
-  <p>A kilometer is a unit of length in the International System of Units (SI), which is the modern form of the metric system. One kilometer is equal to:</p>
-  <ul>
-    <li><strong>1,000 meters</strong></li>
-    <li><strong>100,000 centimeters</strong></li>
-    <li><strong>0.621371 miles</strong></li>
-  </ul>
-  <p>The abbreviation for kilometer is <strong>km</strong>. This unit is most commonly used to measure longer distances such as those between cities, across countries, or for transportation and navigation purposes.</p>
-
-  <h2>Etymology and History</h2>
-  <p>The word “kilometer” comes from the Greek word <em>“khilioi”</em> meaning "thousand" and the French “mètre” derived from the Greek "metron" meaning "measure." The kilometer became an officially recognized metric unit in the late 18th century, as part of the adoption of the metric system by France during the French Revolution.</p>
-
-  <h2>Metric System Hierarchy</h2>
-  <p>Kilometers fit within the metric system’s hierarchy as a multiple of meters:</p>
-  <ul>
-    <li>1 kilometer = 1,000 meters</li>
-    <li>1 meter = 100 centimeters</li>
-    <li>1 centimeter = 10 millimeters</li>
-  </ul>
-  <p>This base-10 system makes conversions straightforward and logical, unlike some imperial units which require memorizing arbitrary values (e.g., 1 mile = 5280 feet).</p>
-
-  <h2>Conversions from Kilometers</h2>
-  <p>Here are common conversions from kilometers to other units of length:</p>
-  <ul>
-    <li><strong>Kilometers to Meters:</strong> <code>km × 1000 = meters</code></li>
-    <li><strong>Kilometers to Centimeters:</strong> <code>km × 100000 = cm</code></li>
-    <li><strong>Kilometers to Millimeters:</strong> <code>km × 1,000,000 = mm</code></li>
-    <li><strong>Kilometers to Miles:</strong> <code>km × 0.621371 = miles</code></li>
-    <li><strong>Kilometers to Feet:</strong> <code>km × 3280.84 = feet</code></li>
-    <li><strong>Kilometers to Inches:</strong> <code>km × 39370.1 = inches</code></li>
-    <li><strong>Kilometers to Nautical Miles:</strong> <code>km × 0.539957 = nautical miles</code></li>
-  </ul>
-
-  <h2>Conversions to Kilometers</h2>
-  <ul>
-    <li><strong>Meters to Kilometers:</strong> <code>m ÷ 1000 = km</code></li>
-    <li><strong>Miles to Kilometers:</strong> <code>miles × 1.60934 = km</code></li>
-    <li><strong>Feet to Kilometers:</strong> <code>ft ÷ 3280.84 = km</code></li>
-    <li><strong>Centimeters to Kilometers:</strong> <code>cm ÷ 100000 = km</code></li>
-  </ul>
-
-  <h2>Examples of Kilometer Conversions</h2>
-  <ul>
-    <li>1 km = 1000 meters</li>
-    <li>5 km = 5000 meters = 3.1 miles</li>
-    <li>10 km = 6.21371 miles</li>
-    <li>42.195 km = A marathon distance</li>
-    <li>100 km = 62.1371 miles</li>
-  </ul>
-
-  <h2>Real-Life Applications of Kilometers</h2>
-  <h3>1. Road and Highway Distances</h3>
-  <p>In most countries that use the metric system, highway signs show distances in kilometers. For example, “Next exit: 5 km.”</p>
-
-  <h3>2. GPS Navigation</h3>
-  <p>Global Positioning System (GPS) devices and apps like Google Maps offer route distances and estimated travel times in kilometers by default in most regions.</p>
-
-  <h3>3. Athletics and Sports</h3>
-  <p>Races like 5K, 10K, and marathon (42.195 km) are measured in kilometers. Running and cycling trackers also show km as default distance units.</p>
-
-  <h3>4. Aviation and Shipping</h3>
-  <p>Kilometers are used in ground navigation and route planning for flights and ships, often alongside nautical miles or miles.</p>
-
-  <h3>5. Education and Science</h3>
-  <p>Physics, geography, and environmental science use kilometers to measure distances over large areas—like distances between cities or the radius of the Earth.</p>
-
-  <h2>Kilometers vs. Miles</h2>
-  <p>One of the most common comparisons is between kilometers and miles, especially in the context of travel:</p>
-  <ul>
-    <li>1 kilometer = 0.621371 miles</li>
-    <li>1 mile = 1.60934 kilometers</li>
-  </ul>
-  <p>While countries like the USA use miles for road distances, most of the world, including Europe and Asia, uses kilometers. Conversion between the two is often needed for international travelers and businesses.</p>
-
-  <h2>Kilometers in Map Scales</h2>
-  <p>On printed maps and satellite maps, distances are often represented in kilometers. For example, the map scale may say “1 cm = 5 km” indicating each centimeter on the map equals 5 real-world kilometers.</p>
-
-  <h2>Measurement Tools That Use Kilometers</h2>
-  <ul>
-    <li><strong>Odometers:</strong> In most vehicles outside the U.S., odometers show speed and distance in kilometers and kilometers per hour (km/h).</li>
-    <li><strong>Fitness Watches:</strong> Track running, walking, and cycling in kilometers.</li>
-    <li><strong>Map Apps:</strong> Use kilometers by default in metric-system countries.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions (FAQs)</h2>
-
-  <h3>Q: How many miles is 1 kilometer?</h3>
-  <p>1 kilometer is approximately 0.621371 miles.</p>
-
-  <h3>Q: How many kilometers in 1 mile?</h3>
-  <p>1 mile is equal to 1.60934 kilometers.</p>
-
-  <h3>Q: Is 1 kilometer longer than 1 mile?</h3>
-  <p>No, 1 kilometer is shorter than 1 mile. One mile is approximately 1.6 kilometers.</p>
-
-  <h3>Q: How long does it take to walk 1 kilometer?</h3>
-  <p>It typically takes 10 to 12 minutes to walk 1 km at a moderate pace.</p>
-
-  <h3>Q: What is the abbreviation for kilometers?</h3>
-  <p>The standard abbreviation is <strong>km</strong>.</p>
-
-  <h2>Quick Conversion Table</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Kilometers</th>
-        <th>Miles</th>
-        <th>Meters</th>
-        <th>Feet</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1 km</td><td>0.6214</td><td>1,000</td><td>3,280.84</td></tr>
-      <tr><td>5 km</td><td>3.1069</td><td>5,000</td><td>16,404.2</td></tr>
-      <tr><td>10 km</td><td>6.2137</td><td>10,000</td><td>32,808.4</td></tr>
-      <tr><td>21.1 km</td><td>13.11 (Half Marathon)</td><td>21,100</td><td>69,225.7</td></tr>
-      <tr><td>42.195 km</td><td>26.22 (Marathon)</td><td>42,195</td><td>138,435</td></tr>
-    </tbody>
-  </table>
-
-  <h2>When to Use Kilometers</h2>
-  <ul>
-    <li>When measuring long distances like intercity travel</li>
-    <li>For fitness tracking over longer walks or runs</li>
-    <li>In road signs and speedometers in most countries</li>
-    <li>In scientific contexts like measuring Earth’s circumference (≈ 40,075 km)</li>
-  </ul>
-
-  <h2>Conclusion</h2>
-  <p>Kilometers are a standard and efficient way to measure long distances in most parts of the world. They form an integral part of transportation, travel, navigation, science, and fitness. Understanding kilometers and how to convert them to and from other units ensures clear communication, especially in global contexts.</p>
-  <p>Need to convert kilometers to meters, miles, or feet? Use our <strong>online Kilometer Conversion Calculator</strong> for instant results and greater accuracy!</p>
-</div>
-
-
-
-<!--meters-->
-<div class="description">
-  <h1>Meters (m) – The Foundation of the Metric System</h1>
-
-  <p>The meter, symbolized as <strong>m</strong>, is the fundamental unit of length in the International System of Units (SI). It is widely used across the globe in science, engineering, construction, education, sports, and everyday life. From measuring the height of a building to calculating the length of a race track, meters are everywhere. In this comprehensive guide, we explore the definition of a meter, its history, conversion formulas, real-world uses, and how it compares with other units like feet, inches, and kilometers.</p>
-
-  <h2>What is a Meter?</h2>
-  <p>A <strong>meter (or metre)</strong> is the basic unit of length in the metric system. It is officially defined as:</p>
-  <p><em>“The length of the path traveled by light in a vacuum in 1/299,792,458 of a second.”</em></p>
-  <p>While this scientific definition is highly precise, in practical use, a meter is approximately the length of a guitar or a baseball bat.</p>
-
-  <h2>Symbol and Abbreviation</h2>
-  <p>The standard symbol for meter is <strong>m</strong>. This symbol is used universally, making it easy to identify and interpret regardless of language or region.</p>
-
-  <h2>Metric System and Meters</h2>
-  <p>The metric system is a decimal-based measurement system that uses meters as its base unit for length. Other units in this system include:</p>
-  <ul>
-    <li>1 millimeter (mm) = 0.001 meters</li>
-    <li>1 centimeter (cm) = 0.01 meters</li>
-    <li>1 decimeter (dm) = 0.1 meters</li>
-    <li>1 kilometer (km) = 1,000 meters</li>
-  </ul>
-  <p>This makes the metric system extremely simple to use because all conversions involve powers of 10.</p>
-
-  <h2>Conversions from Meters</h2>
-  <p>Meters can be easily converted to other units of length. Here are the most common conversion formulas:</p>
-  <ul>
-    <li><strong>Meters to Millimeters:</strong> <code>m × 1000 = mm</code></li>
-    <li><strong>Meters to Centimeters:</strong> <code>m × 100 = cm</code></li>
-    <li><strong>Meters to Kilometers:</strong> <code>m ÷ 1000 = km</code></li>
-    <li><strong>Meters to Inches:</strong> <code>m × 39.3701 = in</code></li>
-    <li><strong>Meters to Feet:</strong> <code>m × 3.28084 = ft</code></li>
-    <li><strong>Meters to Yards:</strong> <code>m × 1.09361 = yd</code></li>
-    <li><strong>Meters to Miles:</strong> <code>m × 0.000621371 = mi</code></li>
-  </ul>
-
-  <h2>Conversions to Meters</h2>
-  <ul>
-    <li><strong>Millimeters to Meters:</strong> <code>mm ÷ 1000 = m</code></li>
-    <li><strong>Centimeters to Meters:</strong> <code>cm ÷ 100 = m</code></li>
-    <li><strong>Kilometers to Meters:</strong> <code>km × 1000 = m</code></li>
-    <li><strong>Inches to Meters:</strong> <code>in × 0.0254 = m</code></li>
-    <li><strong>Feet to Meters:</strong> <code>ft × 0.3048 = m</code></li>
-    <li><strong>Miles to Meters:</strong> <code>mi × 1609.34 = m</code></li>
-  </ul>
-
-  <h2>Examples of Meter Conversions</h2>
-  <ul>
-    <li>1 m = 100 cm</li>
-    <li>1 m = 3.28084 ft</li>
-    <li>1 m = 39.3701 inches</li>
-    <li>5 m = 500 cm = 5,000 mm</li>
-    <li>1000 m = 1 kilometer</li>
-  </ul>
-
-  <h2>Real-World Uses of Meters</h2>
-
-  <h3>1. Construction and Architecture</h3>
-  <p>Meters are used for building plans, measuring room dimensions, heights of buildings, bridge lengths, and more. Almost every construction project involves meter-based measurements.</p>
-
-  <h3>2. Sports</h3>
-  <p>Track and field events are measured in meters. For example, 100m sprint, 400m dash, 800m race, etc. Soccer fields, swimming pools, and long jump distances are all recorded in meters.</p>
-
-  <h3>3. Science and Research</h3>
-  <p>In physics, biology, chemistry, and other scientific domains, the meter is used as the default unit for measuring length or distance in experiments, formulas, and data recording.</p>
-
-  <h3>4. Education</h3>
-  <p>Students from primary school to university use meters and related metric units in their academic curriculum across most countries globally.</p>
-
-  <h3>5. Everyday Life</h3>
-  <p>Whether measuring your height, buying cloth, or laying out a garden, meters are an everyday unit for small to medium distances.</p>
-
-  <h2>Comparison with Other Units</h2>
-
-  <h3>Meters vs Feet</h3>
-  <p>1 meter = 3.28084 feet. Feet are used in the U.S., but meters are preferred globally. A person 6 feet tall is about 1.83 meters.</p>
-
-  <h3>Meters vs Inches</h3>
-  <p>1 meter = 39.37 inches. Inches are used for smaller items like screens, but meters are better for longer distances.</p>
-
-  <h3>Meters vs Kilometers</h3>
-  <p>1 kilometer = 1000 meters. Meters are used for short distances (like the size of a house), whereas kilometers are used for travel or road distances.</p>
-
-  <h2>How to Measure in Meters</h2>
-  <p>There are various tools you can use to measure meters:</p>
-  <ul>
-    <li><strong>Measuring Tape:</strong> Used in construction and DIY projects</li>
-    <li><strong>Meter Stick:</strong> A 1-meter-long ruler</li>
-    <li><strong>Laser Distance Measurer:</strong> Digital device to measure long distances in meters</li>
-  </ul>
-
-  <h2>Quick Conversion Table</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Meters</th>
-        <th>Centimeters</th>
-        <th>Feet</th>
-        <th>Inches</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1 m</td><td>100 cm</td><td>3.28 ft</td><td>39.37 in</td></tr>
-      <tr><td>5 m</td><td>500 cm</td><td>16.4 ft</td><td>196.9 in</td></tr>
-      <tr><td>10 m</td><td>1000 cm</td><td>32.8 ft</td><td>393.7 in</td></tr>
-      <tr><td>50 m</td><td>5000 cm</td><td>164 ft</td><td>1968.5 in</td></tr>
-      <tr><td>100 m</td><td>10000 cm</td><td>328 ft</td><td>3937 in</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Frequently Asked Questions (FAQs)</h2>
-
-  <h3>Q: Is it "meter" or "metre"?</h3>
-  <p>Both are correct. “Meter” is the American spelling, while “metre” is the British spelling. Both refer to the same unit.</p>
-
-  <h3>Q: How tall is 2 meters in feet?</h3>
-  <p>2 meters is approximately 6.56 feet (2 × 3.28084).</p>
-
-  <h3>Q: How many meters are in a kilometer?</h3>
-  <p>There are 1,000 meters in one kilometer.</p>
-
-  <h3>Q: How do I convert feet to meters?</h3>
-  <p>Use the formula: <code>feet × 0.3048 = meters</code>.</p>
-
-  <h3>Q: How accurate is a meter in real-world use?</h3>
-  <p>Extremely accurate. Meters are used in scientific laboratories and engineering with high precision measuring tools.</p>
-
-  <h2>Conclusion</h2>
-  <p>The meter is a foundational unit of measurement in the modern world. From education and engineering to everyday activities, understanding how to use and convert meters is essential. Its simplicity, accuracy, and global acceptance make it a universal standard. Whether you're solving math problems or planning construction, meters help you measure with clarity and precision.</p>
-
-  <p>Need to convert meters to other units quickly? Use our online <strong>Meter Conversion Calculator</strong> for accurate and instant results!</p>
-</div>
-
-
-
-<!--miles-->
-<div class="description">
-  <h1>Miles (mi) – A Complete Guide to the Imperial Unit of Distance</h1>
-
-  <p>The mile, abbreviated as <strong>mi</strong>, is a well-known unit of length used predominantly in the United States, United Kingdom, and a few other countries that follow the Imperial or U.S. customary measurement systems. It’s most commonly associated with road distances, running tracks, and large-scale navigation. Although the metric system dominates globally, miles remain vital in several real-world applications. In this comprehensive guide, we’ll explore the origin, definition, conversions, uses, and practical applications of the mile.</p>
-
-  <h2>What is a Mile?</h2>
-  <p>A <strong>mile</strong> is a unit of length equal to exactly <strong>5,280 feet</strong> or <strong>1,760 yards</strong>. In metric terms, 1 mile equals <strong>1.60934 kilometers</strong> or <strong>1,609.344 meters</strong>.</p>
-  
-  <ul>
-    <li>1 mile = 1.60934 kilometers</li>
-    <li>1 mile = 1,609.344 meters</li>
-    <li>1 mile = 63,360 inches</li>
-    <li>1 mile = 5,280 feet</li>
-    <li>1 mile = 1,760 yards</li>
-  </ul>
-
-  <h2>Symbol and Abbreviation</h2>
-  <p>The mile is commonly abbreviated as <strong>mi</strong>. For example, 10 miles is written as 10 mi. On road signs and maps, the full word “miles” is often used for clarity.</p>
-
-  <h2>Origin and History of the Mile</h2>
-  <p>The term “mile” is derived from the Latin phrase <em>“mille passus”</em> which means "a thousand paces." The Roman mile was approximately 1,480 meters. The current statute mile was standardized in the United Kingdom by an act of Parliament in 1593, setting the mile as 1,760 yards or 5,280 feet. This value has since been adopted by other countries that use Imperial measurements, including the U.S.</p>
-
-  <h2>Types of Miles</h2>
-  <p>Although the statute mile is the most commonly used version, there are other types of miles:</p>
-  <ul>
-    <li><strong>Statute Mile:</strong> Standard mile used on land (1,609.344 meters)</li>
-    <li><strong>Nautical Mile:</strong> Used in air and sea navigation (1 nautical mile = 1.852 kilometers or 1.15078 statute miles)</li>
-    <li><strong>Metric Mile (sports):</strong> Used in track and field, equals 1,500 meters</li>
-  </ul>
-
-  <h2>Mile to Other Units – Conversion Formulas</h2>
-  <ul>
-    <li><strong>Miles to Kilometers:</strong> <code>mi × 1.60934 = km</code></li>
-    <li><strong>Miles to Meters:</strong> <code>mi × 1,609.34 = m</code></li>
-    <li><strong>Miles to Feet:</strong> <code>mi × 5,280 = ft</code></li>
-    <li><strong>Miles to Inches:</strong> <code>mi × 63,360 = in</code></li>
-    <li><strong>Miles to Yards:</strong> <code>mi × 1,760 = yd</code></li>
-  </ul>
-
-  <h2>Convert to Miles from Other Units</h2>
-  <ul>
-    <li><strong>Kilometers to Miles:</strong> <code>km × 0.621371 = mi</code></li>
-    <li><strong>Meters to Miles:</strong> <code>m ÷ 1,609.34 = mi</code></li>
-    <li><strong>Feet to Miles:</strong> <code>ft ÷ 5,280 = mi</code></li>
-    <li><strong>Yards to Miles:</strong> <code>yd ÷ 1,760 = mi</code></li>
-  </ul>
-
-  <h2>Examples of Common Conversions</h2>
-  <ul>
-    <li>1 mile = 1.60934 kilometers</li>
-    <li>3 miles = 4.82802 kilometers</li>
-    <li>5 miles = 8.0467 kilometers</li>
-    <li>10 miles = 16.0934 kilometers</li>
-    <li>100 miles = 160.934 kilometers</li>
-  </ul>
-
-  <h2>When Are Miles Used?</h2>
-  <p>Miles are used in several real-world situations, particularly in countries that follow the Imperial system. Below are common use cases:</p>
-
-  <h3>1. Road Distances and Navigation</h3>
-  <p>In the U.S. and the U.K., road signs show distances in miles. GPS apps like Google Maps also provide navigation data in miles depending on regional settings.</p>
-
-  <h3>2. Automotive and Aviation Industries</h3>
-  <p>Vehicle odometers in these countries measure distance in miles. Fuel efficiency is often given in miles per gallon (MPG).</p>
-
-  <h3>3. Fitness and Running</h3>
-  <p>Runners often use miles to track distance, especially in the U.S. Events like the "10-mile run" or "half marathon (13.1 miles)" are common.</p>
-
-  <h3>4. Aviation and Nautical Usage</h3>
-  <p>Though nautical miles are preferred at sea and in the air, statute miles are sometimes used for ground-based aviation reports and general reference.</p>
-
-  <h2>Comparison: Miles vs Kilometers</h2>
-  <ul>
-    <li>1 mile = 1.60934 kilometers</li>
-    <li>1 kilometer = 0.621371 miles</li>
-  </ul>
-  <p>This comparison is essential for travelers moving between metric and Imperial countries. For example, a 100-kilometer road trip in Europe would be approximately 62.1 miles in the U.S.</p>
-
-  <h2>Global Usage of Miles</h2>
-  <p>While most of the world uses kilometers as part of the metric system, a few countries continue to use miles:</p>
-  <ul>
-    <li>United States</li>
-    <li>United Kingdom (limited usage)</li>
-    <li>Liberia</li>
-    <li>Myanmar (in transition)</li>
-  </ul>
-
-  <h2>Quick Conversion Table</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Miles</th>
-        <th>Kilometers</th>
-        <th>Meters</th>
-        <th>Feet</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>1.60934</td><td>1609.34</td><td>5,280</td></tr>
-      <tr><td>3</td><td>4.82802</td><td>4828.02</td><td>15,840</td></tr>
-      <tr><td>5</td><td>8.0467</td><td>8,046.7</td><td>26,400</td></tr>
-      <tr><td>10</td><td>16.0934</td><td>16,093.4</td><td>52,800</td></tr>
-      <tr><td>100</td><td>160.934</td><td>160,934</td><td>528,000</td></tr>
-    </tbody>
-  </table>
-
-  <h2>How to Visualize a Mile</h2>
-  <ul>
-    <li>Roughly 18 football fields placed end to end</li>
-    <li>About 20 minutes of walking at a moderate pace</li>
-    <li>A car traveling at 60 mph covers 1 mile in 1 minute</li>
-  </ul>
-
-  <h2>Frequently Asked Questions (FAQs)</h2>
-
-  <h3>Q: How many feet are in a mile?</h3>
-  <p>There are exactly <strong>5,280 feet</strong> in one mile.</p>
-
-  <h3>Q: How many meters are in a mile?</h3>
-  <p>One mile equals <strong>1,609.344 meters</strong>.</p>
-
-  <h3>Q: How many miles is a kilometer?</h3>
-  <p>1 kilometer is approximately <strong>0.621371 miles</strong>.</p>
-
-  <h3>Q: Why is a mile 5,280 feet?</h3>
-  <p>Historically, the mile was based on the Roman “mille passus,” and later standardized in the U.K. as 8 furlongs (each furlong = 660 feet), totaling 5,280 feet.</p>
-
-  <h3>Q: Is a nautical mile longer than a statute mile?</h3>
-  <p>Yes. A nautical mile is equal to 1.852 km or 1.15078 miles, making it longer than a standard statute mile.</p>
-
-  <h2>Conclusion</h2>
-  <p>The mile remains an important unit of distance in various fields such as transportation, aviation, athletics, and daily use in countries that rely on Imperial units. While kilometers dominate in global usage, knowing how to convert and understand miles is crucial for travel, international business, and scientific communication. Whether you’re measuring road distances or tracking your next run, miles offer a reliable and familiar unit of measurement.</p>
-
-  <p>Need fast conversions? Use our <strong>Miles to Kilometers</strong> or <strong>Miles to Meters</strong> calculator to get accurate results instantly.</p>
-</div>
-
-
-<!--see also-->
-
-  <div class="see-also description">
-    <h4>See Also</h4>
-    <ul>
-      <li><a href="../energy-convertion.html">Energy convertion</a></li>
-      <li><a href="../frequency-convertion.html">Frequency convertion</a></li>
-      <li><a href="../length-convertion.html">Length convertion</a></li>
-      <li><a href="../number-convertion.html">Number convertion</a></li>
-      <li><a href="../power-convertion.html">Power convertion</a></li>
-      <li><a href="../voltage-convertion.html">Voltage convertion</a></li>
-      <li><a href="../weight-convertion.html">Weight convertion</a></li>
-      <li><a href="../temprature-convertion.html">Temprature convertion</a></li>
-    </ul>
+      <label>Hex:</label><input id="hex" maxlength="7">
+    </div>
   </div>
+</div>
 
+<script>
+/* ---------------- utilities ---------------- */
 
+const $ = id => document.getElementById(id);
+const toHex  = n => ('0'+Number(n).toString(16)).slice(-2).toUpperCase();
+const rgb2hex = (r,g,b) => '#'+toHex(r)+toHex(g)+toHex(b);
 
+function hsv2rgb(h, s, v){          // h 0-360  s,v 0-100
+  s/=100; v/=100;
+  const c=v*s, x=c*(1-Math.abs((h/60)%2-1)), m=v-c;
+  let [r,g,b]=[0,0,0];
+  if      (h<60)  [r,g,b]=[c,x,0];
+  else if (h<120) [r,g,b]=[x,c,0];
+  else if (h<180) [r,g,b]=[0,c,x];
+  else if (h<240) [r,g,b]=[0,x,c];
+  else if (h<300) [r,g,b]=[x,0,c];
+  else            [r,g,b]=[c,0,x];
+  return [Math.round((r+m)*255),
+          Math.round((g+m)*255),
+          Math.round((b+m)*255)];
+}
 
+function rgb2hsv(r, g, b){          // r,g,b 0-255  → h 0-360 s,v 0-100
+  r/=255; g/=255; b/=255;
+  const max=Math.max(r,g,b), min=Math.min(r,g,b), d=max-min;
+  let h=0;
+  if (d!==0){
+    switch(max){
+      case r: h=60*((g-b)/d%6); break;
+      case g: h=60*((b-r)/d+2); break;
+      case b: h=60*((r-g)/d+4); break;
+    }
+  }
+  if (h<0) h+=360;
+  const s = max===0 ? 0 : d/max;
+  const v = max;
+  return [Math.round(h), Math.round(s*100), Math.round(v*100)];
+}
+
+/* ---------------- canvas setup ---------------- */
+
+const palette = $('palette');
+const hueBar  = $('hue');
+const pCtx = palette.getContext('2d');
+const hCtx = hueBar.getContext('2d');
+
+let currentHue = 0, currentS = 0, currentV = 100;
+drawHueBar();
+drawPalette();
+
+/* ---------------- draw functions ---------------- */
+
+function drawHueBar(){
+  const grad = hCtx.createLinearGradient(0,0,0,hueBar.height);
+  for(let i=0;i<=360;i+=60){
+    grad.addColorStop(i/360, `hsl(${i},100%,50%)`);
+  }
+  hCtx.fillStyle=grad;
+  hCtx.fillRect(0,0,hueBar.width,hueBar.height);
+}
+
+function drawPalette(){
+  // base: solid hue
+  const [r,g,b]=hsv2rgb(currentHue,100,100);
+  pCtx.fillStyle = `rgb(${r},${g},${b})`;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+
+  // horizontal white gradient (saturation)
+  const wGrad = pCtx.createLinearGradient(0,0,palette.width,0);
+  wGrad.addColorStop(0,'white');
+  wGrad.addColorStop(1,'rgba(255,255,255,0)');
+  pCtx.fillStyle=wGrad;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+
+  // vertical black gradient (value)
+  const bGrad = pCtx.createLinearGradient(0,0,0,palette.height);
+  bGrad.addColorStop(0,'rgba(0,0,0,0)');
+  bGrad.addColorStop(1,'black');
+  pCtx.fillStyle=bGrad;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+}
+
+/* ---------------- event helpers ---------------- */
+
+let draggingPalette=false, draggingHue=false;
+
+hueBar.addEventListener('mousedown',e=>{draggingHue=true; onHuePick(e)});
+palette.addEventListener('mousedown',e=>{draggingPalette=true; onPalettePick(e)});
+window.addEventListener('mouseup',()=>{draggingPalette=false;draggingHue=false});
+window.addEventListener('mousemove',e=>{
+  if(draggingHue) onHuePick(e);
+  if(draggingPalette) onPalettePick(e);
+});
+
+function onHuePick(e){
+  const y = Math.min(Math.max(0, e.offsetY), hueBar.height);
+  currentHue = Math.round(360 * y / hueBar.height);
+  drawPalette();
+  updateFromHSV(currentHue,currentS,currentV);
+}
+
+function onPalettePick(e){
+  const x = Math.min(Math.max(0, e.offsetX), palette.width);
+  const y = Math.min(Math.max(0, e.offsetY), palette.height);
+  currentS = Math.round(100 * x / palette.width);
+  currentV = Math.round(100 * (1 - y / palette.height));
+  updateFromHSV(currentHue,currentS,currentV);
+}
+
+/* ---------------- sync UI & fields ---------------- */
+
+const fieldIds=['r','g','b','h','s','v','hex'];
+fieldIds.forEach(id => $(id).addEventListener('input', onFieldChange));
+
+function onFieldChange(e){
+  const id=e.target.id, val=e.target.value;
+  if(!val) return;
+
+  if(id==='hex'){
+    const hex=val.startsWith('#')?val:'#'+val;
+    if(/^#([0-9a-f]{6})$/i.test(hex)){
+      const bigint=parseInt(hex.slice(1),16);
+      const r=(bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
+      const [h,s,v]=rgb2hsv(r,g,b);
+      currentHue=h;currentS=s;currentV=v; drawPalette();
+      fillFields(r,g,b,h,s,v,hex.toUpperCase());
+    }
+    return;
+  }
+
+  const r=parseInt($('r').value), g=parseInt($('g').value), b=parseInt($('b').value);
+  if([r,g,b].every(n=>!isNaN(n))){
+    const [h,s,v]=rgb2hsv(r,g,b);
+    currentHue=h; currentS=s; currentV=v; drawPalette();
+    fillFields(r,g,b,h,s,v,rgb2hex(r,g,b));
+  }
+}
+
+function updateFromHSV(h,s,v){
+  const [r,g,b]=hsv2rgb(h,s,v);
+  fillFields(r,g,b,h,s,v,rgb2hex(r,g,b));
+}
+
+function fillFields(r,g,b,h,s,v,hex){
+  $('r').value=r; $('g').value=g; $('b').value=b;
+  $('h').value=h; $('s').value=s; $('v').value=v;
+  $('hex').value=hex;
+  $('preview').style.background=hex;
+}
+
+/* ----------- initial state ----------- */
+updateFromHSV(0,0,100);
+</script>
 </body>
 </html>
