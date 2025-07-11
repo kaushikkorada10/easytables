@@ -130,7 +130,7 @@ print([joules_to_btu(v) for v in values])  # [0.947817, 4.739085, 9.47817]</code
      In processes with fluctuating heat flux, integrate instantaneous joule measurements over time, then convert the total energy to BTU. For example, sampling a heat exchanger output of 2 000 J every 10 s for 1 h yields a total of 720 000 J, which converts to 720 000 × 0.000947817 ≈ 682.472 BTU. This method supports detailed thermal profiling and efficiency analysis in industrial systems.</p>
 <p><strong>Quality Assurance and Verification</strong><br/>
      To guarantee conversion accuracy, implement unit tests in code: assert that known values convert correctly (e.g., 1055.05585 J returns exactly 1 BTU). In field instruments, periodically calibrate sensors by comparing measured joules against reference BTU standards to detect drift or systematic bias. Document all calibration procedures and conversion constants in technical reports for traceability.</p>
-<p><strong>Conclusion</strong><br/>
+<p><strong>Final analysis</strong><br/>
      Converting joules to BTU facilitates communication between scientific and practical heating contexts, from laboratory experiments to HVAC design. By applying the exact factor (0.000947817 BTU/J), automating calculations in code or spreadsheets, verifying with reverse conversions, and embedding logic in control systems, you ensure consistency, accuracy, and clarity when working across energy unit systems.</p>
 </div>
 <div class="description">
