@@ -81,6 +81,13 @@ footer {
       height: 30px;
       border-radius: 5px;
     }
+      .picker{display:flex;gap:12px;align-items:flex-start}
+  #palette{cursor:crosshair;border:1px solid #666;border-radius:4px}
+  #hue{cursor:ns-resize;border:1px solid #666;border-radius:4px}
+  #preview{width:48px;height:48px;border:1px solid #666;border-radius:4px;margin-top:4px}
+  .fields{display:grid;grid-template-columns:auto auto;gap:6px 10px;margin-top:10px}
+  .fields label{text-align:right;white-space:nowrap}
+  .fields input{width:70px;padding:2px 4px}
   </style>
 </head>
 <body>
@@ -107,13 +114,17 @@ footer {
 <br/>
 <!-- Breadcrumb -->
 <div class="container mt-4">
+<nav aria-label="breadcrumb" class="breadcrumb container">
 <a href="../../../index.html">Home</a> <span>&gt;</span>
-<a href="../../../index.html#Calculators-s">Content Categories</a> › Web Colors
+<a href="../../../index.html#Calculators-s">Content Categories</a> <span>&gt;</span>  Web Colors
   </div>
 <!-- Tool -->
-<h2>Web Colors</h2>
-<p>This table shows standard web colors with their corresponding names and hex codes.</p>
-<div class="table-responsive">
+<h2 style="text-align: center;">Web Colors</h2>
+
+
+<div class="table-responsive description">
+  <p>This table shows standard web colors with their corresponding names and hex codes.</p>
+
 <table class="table table-bordered table-striped">
 <thead class="thead-dark">
 <tr>
@@ -135,6 +146,28 @@ footer {
 <tr><td>Orange</td><td>#FFA500</td><td><div class="color-box" style="background-color:#FFA500;"></div></td></tr>
 </tbody>
 </table>
+</div>
+<div class="picker description">
+
+  <canvas id="palette" width="200" height="200"></canvas>
+  <canvas id="hue"     width="26"  height="200"></canvas>
+<!-- sliders -->
+<div >
+    <div id="preview"></div>
+    <div class="fields">
+      <label>R:</label><input id="r" type="number" min="0" max="255">
+      <label>G:</label><input id="g" type="number" min="0" max="255">
+      <label>B:</label><input id="b" type="number" min="0" max="255">
+
+      <label>H&nbsp;(°):</label><input id="h" type="number" min="0" max="360">
+      <label>S&nbsp;(%) :</label><input id="s" type="number" min="0" max="100">
+      <label>V&nbsp;(%) :</label><input id="v" type="number" min="0" max="100">
+
+      <label>Hex:</label><input id="hex" maxlength="7">
+    </div>
+
+  </div>
+
 </div>
 <!-- Description -->
 <div class="description">
@@ -319,5 +352,158 @@ body {
 <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+/* ---------------- utilities ---------------- */
+
+const $ = id => document.getElementById(id);
+const toHex  = n => ('0'+Number(n).toString(16)).slice(-2).toUpperCase();
+const rgb2hex = (r,g,b) => '#'+toHex(r)+toHex(g)+toHex(b);
+
+function hsv2rgb(h, s, v){          // h 0-360  s,v 0-100
+  s/=100; v/=100;
+  const c=v*s, x=c*(1-Math.abs((h/60)%2-1)), m=v-c;
+  let [r,g,b]=[0,0,0];
+  if      (h<60)  [r,g,b]=[c,x,0];
+  else if (h<120) [r,g,b]=[x,c,0];
+  else if (h<180) [r,g,b]=[0,c,x];
+  else if (h<240) [r,g,b]=[0,x,c];
+  else if (h<300) [r,g,b]=[x,0,c];
+  else            [r,g,b]=[c,0,x];
+  return [Math.round((r+m)*255),
+          Math.round((g+m)*255),
+          Math.round((b+m)*255)];
+}
+
+function rgb2hsv(r, g, b){          // r,g,b 0-255  → h 0-360 s,v 0-100
+  r/=255; g/=255; b/=255;
+  const max=Math.max(r,g,b), min=Math.min(r,g,b), d=max-min;
+  let h=0;
+  if (d!==0){
+    switch(max){
+      case r: h=60*((g-b)/d%6); break;
+      case g: h=60*((b-r)/d+2); break;
+      case b: h=60*((r-g)/d+4); break;
+    }
+  }
+  if (h<0) h+=360;
+  const s = max===0 ? 0 : d/max;
+  const v = max;
+  return [Math.round(h), Math.round(s*100), Math.round(v*100)];
+}
+
+/* ---------------- canvas setup ---------------- */
+
+const palette = $('palette');
+const hueBar  = $('hue');
+const pCtx = palette.getContext('2d');
+const hCtx = hueBar.getContext('2d');
+
+let currentHue = 0, currentS = 0, currentV = 100;
+drawHueBar();
+drawPalette();
+
+/* ---------------- draw functions ---------------- */
+
+function drawHueBar(){
+  const grad = hCtx.createLinearGradient(0,0,0,hueBar.height);
+  for(let i=0;i<=360;i+=60){
+    grad.addColorStop(i/360, `hsl(${i},100%,50%)`);
+  }
+  hCtx.fillStyle=grad;
+  hCtx.fillRect(0,0,hueBar.width,hueBar.height);
+}
+
+function drawPalette(){
+  // base: solid hue
+  const [r,g,b]=hsv2rgb(currentHue,100,100);
+  pCtx.fillStyle = `rgb(${r},${g},${b})`;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+
+  // horizontal white gradient (saturation)
+  const wGrad = pCtx.createLinearGradient(0,0,palette.width,0);
+  wGrad.addColorStop(0,'white');
+  wGrad.addColorStop(1,'rgba(255,255,255,0)');
+  pCtx.fillStyle=wGrad;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+
+  // vertical black gradient (value)
+  const bGrad = pCtx.createLinearGradient(0,0,0,palette.height);
+  bGrad.addColorStop(0,'rgba(0,0,0,0)');
+  bGrad.addColorStop(1,'black');
+  pCtx.fillStyle=bGrad;
+  pCtx.fillRect(0,0,palette.width,palette.height);
+}
+
+/* ---------------- event helpers ---------------- */
+
+let draggingPalette=false, draggingHue=false;
+
+hueBar.addEventListener('mousedown',e=>{draggingHue=true; onHuePick(e)});
+palette.addEventListener('mousedown',e=>{draggingPalette=true; onPalettePick(e)});
+window.addEventListener('mouseup',()=>{draggingPalette=false;draggingHue=false});
+window.addEventListener('mousemove',e=>{
+  if(draggingHue) onHuePick(e);
+  if(draggingPalette) onPalettePick(e);
+});
+
+function onHuePick(e){
+  const y = Math.min(Math.max(0, e.offsetY), hueBar.height);
+  currentHue = Math.round(360 * y / hueBar.height);
+  drawPalette();
+  updateFromHSV(currentHue,currentS,currentV);
+}
+
+function onPalettePick(e){
+  const x = Math.min(Math.max(0, e.offsetX), palette.width);
+  const y = Math.min(Math.max(0, e.offsetY), palette.height);
+  currentS = Math.round(100 * x / palette.width);
+  currentV = Math.round(100 * (1 - y / palette.height));
+  updateFromHSV(currentHue,currentS,currentV);
+}
+
+/* ---------------- sync UI & fields ---------------- */
+
+const fieldIds=['r','g','b','h','s','v','hex'];
+fieldIds.forEach(id => $(id).addEventListener('input', onFieldChange));
+
+function onFieldChange(e){
+  const id=e.target.id, val=e.target.value;
+  if(!val) return;
+
+  if(id==='hex'){
+    const hex=val.startsWith('#')?val:'#'+val;
+    if(/^#([0-9a-f]{6})$/i.test(hex)){
+      const bigint=parseInt(hex.slice(1),16);
+      const r=(bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
+      const [h,s,v]=rgb2hsv(r,g,b);
+      currentHue=h;currentS=s;currentV=v; drawPalette();
+      fillFields(r,g,b,h,s,v,hex.toUpperCase());
+    }
+    return;
+  }
+
+  const r=parseInt($('r').value), g=parseInt($('g').value), b=parseInt($('b').value);
+  if([r,g,b].every(n=>!isNaN(n))){
+    const [h,s,v]=rgb2hsv(r,g,b);
+    currentHue=h; currentS=s; currentV=v; drawPalette();
+    fillFields(r,g,b,h,s,v,rgb2hex(r,g,b));
+  }
+}
+
+function updateFromHSV(h,s,v){
+  const [r,g,b]=hsv2rgb(h,s,v);
+  fillFields(r,g,b,h,s,v,rgb2hex(r,g,b));
+}
+
+function fillFields(r,g,b,h,s,v,hex){
+  $('r').value=r; $('g').value=g; $('b').value=b;
+  $('h').value=h; $('s').value=s; $('v').value=v;
+  $('hex').value=hex;
+  $('preview').style.background=hex;
+}
+
+/* ----------- initial state ----------- */
+updateFromHSV(0,0,100);
+</script>
 </body>
 </html>
