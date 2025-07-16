@@ -2,9 +2,8 @@
 
 <html>
 <head>
-<meta content="EasyTables: Free online GPA calculator. Access at https://easytables.vercel.app/calculators/content/calculators-2/grade-calculatorsl3/gpa-calculator.html for a fast and accurate GPA calculator tool." name="description"/><meta charset="utf-8"/>
+<meta content="GPA calculator. Calculate your GPA. Grade point average calculator online." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
 <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
 <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -218,14 +217,13 @@ footer {
 <input aria-label="Course Name" placeholder="Course Name (optional)" type="text"/>
 <input aria-label="Grade percentage" class="grade" max="100" min="0" placeholder="Grade (%)" type="number"/>
 <input aria-label="Credit Hours" class="credit" min="1" placeholder="Credit Hours" type="number"/>
-</div><br>
+</div><br/>
 </div>
 <button onclick="addCourse()" type="button">Add Another Course</button>
 <button onclick="calculateGPA()" type="button">Calculate GPA</button>
 <button onclick="clearCourses()" type="button">Clear All</button>
-<div aria-live="polite" class="result" id="result"></div><br>
-<center><a href="gpa-calculator.html"><button type="button" class="btn btn-primary">Clear</button></a></center>
-
+<div aria-live="polite" class="result" id="result"></div><br/>
+<center><a href="gpa-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a></center>
 </div>
 </main>
 <div class="description">
@@ -239,9 +237,9 @@ footer {
 <li>Enter the credit hours assigned to each course.</li>
 <li>The calculator converts your grade percentage to a 4.0 GPA scale and computes the weighted average.</li>
 </ul>
-<p><strong>Formula:</strong><br>
+<p><strong>Formula:</strong><br/>
 <code>GPA = (Σ (Grade Point × Credit Hours)) ÷ (Total Credit Hours)</code>
-</br></p>
+</p>
 <p>
         Grade points are calculated on a 4.0 scale as follows:
       </p>
@@ -396,9 +394,9 @@ footer {
 <p>For graduate school or specialization, major GPA is often weighed more heavily than overall GPA.</p>
 <h3>Final analysis</h3>
 <p>Understanding GPA goes beyond just numbers. It's a tool for self-awareness, academic planning, and career preparation. By tracking trends, setting realistic goals, and using GPA calculators effectively, you can turn this metric into a roadmap for success. Whether you're aiming for scholarships, graduate programs, or just personal growth, knowing how GPA works gives you the control to shape your future with confidence.</p>
-</div><br/>
+</div><br>
 <!-- The code goes heare-->
-</div>
+</br></div>
 <div class="see-also">
 <h4>See Also</h4>
 <ul>
@@ -410,7 +408,6 @@ footer {
 <li><a href="bmi-calculator.html">BMI calculator</a></li>
 </ul>
 </div>
-
 <footer>
 <div class="container">
 <p>
@@ -488,6 +485,5 @@ footer {
       document.getElementById('result').textContent = '';
     }
   </script>
-
 </body>
 </html>

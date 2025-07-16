@@ -3,7 +3,7 @@
 
 <html lang="en">
 <head>
-<meta content="EasyTables: Free online Millivolts (mV) to volts (V) conversion. Access at https://easytables.vercel.app/calculators/content/conversions/voltage_convertersl3/millivolts-to-volts.html for a fast and accurate Millivolts (mV) to volts (V) conversion tool." name="description"/><meta charset="utf-8"/>
+<meta content="How to convert voltage in volts (V) to energy in electron-volts (eV)." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Millivolts (mV) to Volts (V) Converter</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
@@ -48,7 +48,7 @@
 <nav aria-label="Breadcrumb" class="breadcrumb container">
 <a href="../../../../index.html">Home</a> <span>›</span>
 <a href="../../../../index.html#Calculators-s">Contents Categories
-</a> <span>&gt;</span>   
+</a> <span>&gt;</span>
 <a href="/calculators/content/conversions/voltage-convertion.html">Voltage Converters</a> <span>›</span>
 <a href="#">Millivolts (mV) to Volts (V) Converter</a>
 </nav>
@@ -71,142 +71,135 @@
           res.innerHTML = `${val} mV = ${result.toExponential(6)} V`;
         }
       </script>
-      <div class="description">
-  <h1>Millivolts (mV) to Volts (V) Converter</h1>
-  <p>
+<div class="description">
+<h1>Millivolts (mV) to Volts (V) Converter</h1>
+<p>
     Converting millivolts to volts is fundamental in electronics, instrumentation, and data‐acquisition systems. A millivolt (mV) is one‐thousandth of a volt; accurate scaling between mV and V ensures correct interpretation of sensor outputs, proper ADC configuration, and reliable display in user interfaces. This guide—using all heading levels from <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>—covers definitions, exact factors, step‐by‐step procedures, illustrative examples, quick‐reference tables, code snippets, error analysis, best practices, and integration patterns for a full mV ↔ V conversion workflow.
   </p>
-
-  <h2>What Is a Millivolt (mV)?</h2>
-  <p>
+<h2>What Is a Millivolt (mV)?</h2>
+<p>
     A millivolt is one‐thousandth of a volt:  
     <code>1 mV = 10<sup>–3</sup> V</code>. Millivolts commonly measure low‐level signals such as thermocouple EMFs, strain‐gauge bridge outputs, and small sensor offsets.
   </p>
-  <h3>Typical Applications</h3>
-  <ul>
-    <li>Thermocouples: 10–50 mV/°C</li>
-    <li>Load cells: millivolt‐per‐volt sensitivities</li>
-    <li>Precision references: low‐drift offsets</li>
-    <li>Biomedical sensors: ECG baseline shifts</li>
-  </ul>
-  <h4>Why Millivolts Matter</h4>
-  <p>
+<h3>Typical Applications</h3>
+<ul>
+<li>Thermocouples: 10–50 mV/°C</li>
+<li>Load cells: millivolt‐per‐volt sensitivities</li>
+<li>Precision references: low‐drift offsets</li>
+<li>Biomedical sensors: ECG baseline shifts</li>
+</ul>
+<h4>Why Millivolts Matter</h4>
+<p>
     Many precision sensors output in the millivolt range; converting correctly prevents saturation, preserves resolution, and avoids truncation in digital systems.
   </p>
-  <h5>SI Notation</h5>
-  <p>
+<h5>SI Notation</h5>
+<p>
     • Always use lowercase “m” for milli and uppercase “V” for volt: “mV”.  
     • Don’t confuse with “MV” (megavolt).
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Label axes, UIs, and documentation with “mV” vs. “V” explicitly to avoid unit errors.
   </p>
-
-  <h2>What Is a Volt (V)?</h2>
-  <p>
+<h2>What Is a Volt (V)?</h2>
+<p>
     The volt is the SI unit of electric potential:  
     <code>1 V = 1 J/C</code>. It underlies all electrical measurements from microelectronics to power systems.
   </p>
-  <h3>Common Contexts</h3>
-  <ul>
-    <li>Logic rails: 1.8 V, 3.3 V, 5 V</li>
-    <li>Battery packs: 12 V, 24 V</li>
-    <li>ADC references: 0–10 V, ±10 V</li>
-    <li>Lab supplies: 0–30 V adjustable</li>
-  </ul>
-  <h4>Importance of Accurate Scaling</h4>
-  <p>
+<h3>Common Contexts</h3>
+<ul>
+<li>Logic rails: 1.8 V, 3.3 V, 5 V</li>
+<li>Battery packs: 12 V, 24 V</li>
+<li>ADC references: 0–10 V, ±10 V</li>
+<li>Lab supplies: 0–30 V adjustable</li>
+</ul>
+<h4>Importance of Accurate Scaling</h4>
+<p>
     Converting mV to V ensures consistency across firmware, analytics, and user interfaces, and maintains the design accuracy of control loops.
   </p>
-  <h5>Precision Considerations</h5>
-  <p>
+<h5>Precision Considerations</h5>
+<p>
     Digital systems often require at least three decimal places to represent sub‐millivolt resolution in volts.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Use double‐precision or high‐resolution fixed‐point types when handling conversions to avoid rounding errors.
   </p>
-
-  <h2>Exact Conversion Factor</h2>
-  <p>
+<h2>Exact Conversion Factor</h2>
+<p>
     The SI prefix “milli” denotes 10<sup>–3</sup>. Therefore:
   </p>
-  <ul>
-    <li><code>1 mV = 0.001 V</code></li>
-    <li><code>1 V = 1 000 mV</code></li>
-  </ul>
-  <h3>Conversion Formulas</h3>
-  <p>
-    <code>V = mV × 10<sup>–3</sup></code><br>
-    <code>mV = V × 10<sup>3</sup></code>
-  </p>
-  <h4>Precision Guidelines</h4>
-  <p>
+<ul>
+<li><code>1 mV = 0.001 V</code></li>
+<li><code>1 V = 1 000 mV</code></li>
+</ul>
+<h3>Conversion Formulas</h3>
+<p>
+<code>V = mV × 10<sup>–3</sup></code><br/>
+<code>mV = V × 10<sup>3</sup></code>
+</p>
+<h4>Precision Guidelines</h4>
+<p>
     Retain at least three significant digits in intermediate steps; round final results per application requirements.
   </p>
-  <h5>Tip:</h5>
-  <p>
+<h5>Tip:</h5>
+<p>
     Centralize constants (<code>1e–3</code>, <code>1e3</code>) in a shared module to avoid typos.
   </p>
-  <h6>Note:</h6>
-  <p>
+<h6>Note:</h6>
+<p>
     When chaining conversions (mV→V→kV), apply each scaling step sequentially to maintain clarity and precision.
   </p>
-
-  <h2>Step‐by‐Step Conversion Procedure</h2>
-  <h3>1. Identify the Unit</h3>
-  <p>
+<h2>Step‐by‐Step Conversion Procedure</h2>
+<h3>1. Identify the Unit</h3>
+<p>
     Confirm whether your value is in mV or V via instrument metadata or sensor datasheet.
   </p>
-  <h3>2. Apply the Scaling</h3>
-  <p>
-    • Multiply mV by <code>0.001</code> to get V.<br>
+<h3>2. Apply the Scaling</h3>
+<p>
+    • Multiply mV by <code>0.001</code> to get V.<br/>
     • Multiply V by <code>1 000</code> to get mV.
   </p>
-  <h3>3. Round & Label</h3>
-  <p>
+<h3>3. Round &amp; Label</h3>
+<p>
     Round to the required decimal places (e.g., three decimals for V) and append the correct unit.
   </p>
-
-  <h2>Illustrative Examples</h2>
-  <h3>Example 1: Thermocouple Output</h3>
-  <p>
+<h2>Illustrative Examples</h2>
+<h3>Example 1: Thermocouple Output</h3>
+<p>
     A type‐K thermocouple produces 42 mV at 1 000 °C:  
     <code>42 mV × 0.001 = 0.042 V</code>.
   </p>
-  <h4>Example 2: Strain‐Gauge Bridge</h4>
-  <p>
+<h4>Example 2: Strain‐Gauge Bridge</h4>
+<p>
     Bridge sensitivity: 2 mV/V at 5 V excitation → 10 mV:  
     <code>10 mV × 0.001 = 0.010 V</code>.
   </p>
-  <h5>Example 3: ADC LSB</h5>
-  <p>
+<h5>Example 3: ADC LSB</h5>
+<p>
     A 16‐bit ADC, 0–10 V range → LSB = 10 V/2<sup>16</sup> ≈ 0.0001526 V = 0.1526 mV.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Express LSB in volts when configuring digital filters or thresholds.
   </p>
-
-  <h2>Quick‐Reference Conversion Table</h2>
-  <table>
-    <thead>
-      <tr><th>mV</th><th>V</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>0.001</td></tr>
-      <tr><td>10</td><td>0.010</td></tr>
-      <tr><td>100</td><td>0.100</td></tr>
-      <tr><td>500</td><td>0.500</td></tr>
-      <tr><td>1 000</td><td>1.000</td></tr>
-      <tr><td>2 500</td><td>2.500</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Implementing in Code</h2>
-  <h3>JavaScript</h3>
-  <pre><code>function mVtoV(mv) {
+<h2>Quick‐Reference Conversion Table</h2>
+<table>
+<thead>
+<tr><th>mV</th><th>V</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>0.001</td></tr>
+<tr><td>10</td><td>0.010</td></tr>
+<tr><td>100</td><td>0.100</td></tr>
+<tr><td>500</td><td>0.500</td></tr>
+<tr><td>1 000</td><td>1.000</td></tr>
+<tr><td>2 500</td><td>2.500</td></tr>
+</tbody>
+</table>
+<h2>Implementing in Code</h2>
+<h3>JavaScript</h3>
+<pre><code>function mVtoV(mv) {
   return mv * 1e-3;
 }
 function VtomV(v) {
@@ -214,9 +207,8 @@ function VtomV(v) {
 }
 console.log(mVtoV(42));   // 0.042
 console.log(VtomV(0.010)); // 10</code></pre>
-
-  <h4>Python</h4>
-  <pre><code>def mv_to_v(mv):
+<h4>Python</h4>
+<pre><code>def mv_to_v(mv):
     return mv * 1e-3
 
 def v_to_mv(v):
@@ -224,135 +216,127 @@ def v_to_mv(v):
 
 print(mv_to_v(42))   # 0.042
 print(v_to_mv(0.01)) # 10.0</code></pre>
-
-  <h5>Spreadsheet</h5>
-  <p>
-    Assuming mV in A2:<br>
-    <code>=A2/1000</code> → V,  
+<h5>Spreadsheet</h5>
+<p>
+    Assuming mV in A2:<br/>
+<code>=A2/1000</code> → V,  
     <code>=A2*1000</code> → mV.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Use named ranges (e.g., <code>Sensor_mV</code>) for clarity.
   </p>
-
-  <h2>Error Analysis & Noise</h2>
-  <h3>ADC Quantization</h3>
-  <p>
+<h2>Error Analysis &amp; Noise</h2>
+<h3>ADC Quantization</h3>
+<p>
     LSB error ≈ LSB/√12. For 16-bit, 10 V range → 0.1526 mV/√12 ≈ 0.044 mV → 0.000044 V.
   </p>
-  <h4>Thermal Noise</h4>
-  <p>
+<h4>Thermal Noise</h4>
+<p>
     10 kΩ resistor over 1 kHz bandwidth → ~0.126 mV<sub>rms</sub> ≈ 0.000126 V.
   </p>
-  <h5>Total RMS Error</h5>
-  <p>
-    <code>√(quant² + thermal² + amp_noise²)</code> in volts.
+<h5>Total RMS Error</h5>
+<p>
+<code>√(quant² + thermal² + amp_noise²)</code> in volts.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Identify dominant source and optimize (e.g., reduce bandwidth or source resistance).
   </p>
-
-  <h2>Integration & Best Practices</h2>
-  <h3>Centralized Conversion Module</h3>
-  <p>
+<h2>Integration &amp; Best Practices</h2>
+<h3>Centralized Conversion Module</h3>
+<p>
     Encapsulate mV ↔ V routines in a shared library or microservice to ensure consistency across firmware, analytics, and UIs.
   </p>
-  <h4>Metadata Tagging</h4>
-  <p>
+<h4>Metadata Tagging</h4>
+<p>
     Store raw values with <code>unit="mV"</code> and convert on display to preserve storage precision.
   </p>
-  <h5>Calibration Workflow</h5>
-  <p>
+<h5>Calibration Workflow</h5>
+<p>
     Automate two-point calibration with 0 mV and 100 mV references; compute gain/offset and apply before conversion to volts.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Version calibration coefficients with code for traceability.
   </p>
-
-  <h2>Advanced Case Study: Bridge Transducer</h2>
-  <p>
+<h2>Advanced Case Study: Bridge Transducer</h2>
+<p>
     A 350 Ω bridge, 2 mV/V sensitivity at 5 V.
   </p>
-  <h3>Output</h3>
-  <p>
-    <code>2 mV/V × 5 V = 10 mV → 0.010 V</code>.
+<h3>Output</h3>
+<p>
+<code>2 mV/V × 5 V = 10 mV → 0.010 V</code>.
   </p>
-  <h4>DAQ Conversion</h4>
-  <p>
+<h4>DAQ Conversion</h4>
+<p>
     Raw counts → Vref/LFSR → V → display in volts on SCADA.
   </p>
-  <h5>Dashboards</h5>
-  <p>
+<h5>Dashboards</h5>
+<p>
     Show both mV and V scales; allow user toggle for diagnostics.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Log both raw mV and converted V for troubleshooting.
   </p>
-
-  <h2>Final analysis</h2>
-  <p>
+<h2>Final analysis</h2>
+<p>
     Mastery of mV ↔ V conversion—essential for sensor interfacing, measurement, and control—goes beyond a single factor. By following this detailed guide—definitions, formulas, examples, code, error analysis, and best practices—you’ll ensure accurate, reliable, and maintainable voltage conversions across all your systems.
   </p>
 </div>
 <div class="description">
-  <h1>Advanced Integration & Calibration for V ↔ mV Conversion Workflows</h1>
-  <p>
+<h1>Advanced Integration &amp; Calibration for V ↔ mV Conversion Workflows</h1>
+<p>
     Beyond the basic factor, real‐world V↔mV conversion pipelines demand careful attention to signal conditioning, ADC interfacing, test automation, data‐logging, standards compliance, and even AI‐powered anomaly detection. This extended section—using all heading levels from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>—dives into these advanced patterns to build end‐to‐end, production-grade voltage measurement systems.
   </p>
-
-  <h2>Signal Conditioning & Front-End Design</h2>
-  <h3>Instrumentation Amplifier Selection</h3>
-  <p>
+<h2>Signal Conditioning &amp; Front-End Design</h2>
+<h3>Instrumentation Amplifier Selection</h3>
+<p>
     For mV-level signals, choose an instrumentation amplifier with ultra-low offset (<code>&lt;1 µV</code>) and drift (<code>&lt;0.1 µV/°C</code>) specifications.  
     <strong>Example:</strong> INA333 (Texas Instruments) offers 50 nV<sub>pp</sub> noise over 0.1–10 Hz and 0.25 µV offset drift.
   </p>
-  <h4>Input Filtering & Protection</h4>
-  <ul>
-    <li>RC low-pass at <code>fc = 1/(2π·R·C)</code> to limit bandwidth to the ADC’s Nyquist rate.</li>
-    <li>Transient suppression (TVS diodes, series resistors) to handle ESD or overvoltage.</li>
-  </ul>
-  <h5>Guarding Techniques</h5>
-  <p>
+<h4>Input Filtering &amp; Protection</h4>
+<ul>
+<li>RC low-pass at <code>fc = 1/(2π·R·C)</code> to limit bandwidth to the ADC’s Nyquist rate.</li>
+<li>Transient suppression (TVS diodes, series resistors) to handle ESD or overvoltage.</li>
+</ul>
+<h5>Guarding Techniques</h5>
+<p>
     Use driven guard traces around high-impedance inputs to reduce leakage. Implement PCB star-grounding to isolate analog returns.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Keep analog paths short and shielded; route digital ground returns separately from analog.
   </p>
-
-  <h2>High-Resolution ADC Interfacing</h2>
-  <h3>Choosing the Right Converter</h3>
-  <p>
+<h2>High-Resolution ADC Interfacing</h2>
+<h3>Choosing the Right Converter</h3>
+<p>
     Select a delta-sigma ADC with ≥24 bits and internal PGA for mV inputs. Look for noise floors &lt;0.5 µV<sub>RMS</sub> and data rates suited to your sampling needs.
   </p>
-  <h4>Hardware Averaging & Oversampling</h4>
-  <p>
+<h4>Hardware Averaging &amp; Oversampling</h4>
+<p>
     Configure the ADC’s internal oversampling ratio (OSR) to trade throughput for SNR. Typical: OSR=256 yields ~20 dB SNR improvement.
   </p>
-  <h5>SPI & I<sup>2</sup>C Bus Considerations</h5>
-  <p>
+<h5>SPI &amp; I<sup>2</sup>C Bus Considerations</h5>
+<p>
     Use hardware SPI at ≥1 MHz for low-latency reads; ensure proper pull-ups on I<sup>2</sup>C lines to avoid noise.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Time-stamp each sample at readout to correlate with external events or triggers.
   </p>
-
-  <h2>Automated Calibration & Self-Test</h2>
-  <h3>Two-Point Span & Offset Calibration</h3>
-  <p>
+<h2>Automated Calibration &amp; Self-Test</h2>
+<h3>Two-Point Span &amp; Offset Calibration</h3>
+<p>
     Automate zero-scale and full-scale calibration using precision references (e.g., 0 V and 1.000 V). Store calibration coefficients in non-volatile memory.
   </p>
-  <h4>Built-In Self-Test (BIST)</h4>
-  <p>
+<h4>Built-In Self-Test (BIST)</h4>
+<p>
     Use the ADC’s internal reference switch to measure its own reference and detect drift. Compare against factory trace and trigger recalibration if deviation &gt; specified tolerance.
   </p>
-  <h5>Scripted Calibration Workflow</h5>
-  <pre><code>#!/bin/bash
+<h5>Scripted Calibration Workflow</h5>
+<pre><code>#!/bin/bash
 # Calibrate 0V
 echo "Measuring zero offset..."
 zero=$(read_adc)
@@ -363,96 +347,91 @@ span=$(read_adc)
 scale=$(echo "scale=12; (1.0)/( $span - $zero )" | bc)
 offset=$zero
 store_calib $scale $offset</code></pre>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Automate environmental checks (temperature, humidity) and tag calibration runs accordingly.
   </p>
-
-  <h2>Data-Logging & Time-Series Management</h2>
-  <h3>Choosing a Database</h3>
-  <p>
+<h2>Data-Logging &amp; Time-Series Management</h2>
+<h3>Choosing a Database</h3>
+<p>
     Use time-series databases (InfluxDB, TimescaleDB) to store high-resolution mV streams with tags (sensor ID, calibration version).
   </p>
-  <h4>Downsampling & Retention Policies</h4>
-  <p>
+<h4>Downsampling &amp; Retention Policies</h4>
+<p>
     Retain full-rate data for short periods (days), then downsample (e.g., 1-minute averages) for long-term storage to control disk usage.
   </p>
-  <h5>Alerting & Thresholds</h5>
-  <p>
+<h5>Alerting &amp; Thresholds</h5>
+<p>
     Define alerts for readings beyond ±X mV or noise spikes above Y µV<sub>pp</sub>, integrating with PagerDuty or Slack via Webhooks.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Tag anomalies with root-cause metadata (e.g., “power_cycle,” “calibration_due”) for faster triage.
   </p>
-
-  <h2>Compliance & Traceability</h2>
-  <h3>Standards Overview</h3>
-  <ul>
-    <li>IEEE-488 (GPIB) for benchtop instrument control</li>
-    <li>IEC 61010 for measurement safety</li>
-    <li>ISO 9001 traceability requirements</li>
-  </ul>
-  <h4>Audit Trail Implementation</h4>
-  <p>
+<h2>Compliance &amp; Traceability</h2>
+<h3>Standards Overview</h3>
+<ul>
+<li>IEEE-488 (GPIB) for benchtop instrument control</li>
+<li>IEC 61010 for measurement safety</li>
+<li>ISO 9001 traceability requirements</li>
+</ul>
+<h4>Audit Trail Implementation</h4>
+<p>
     Log every calibration, firmware update, and threshold change with timestamp, operator ID, and reason codes. Store logs in WORM-compliant storage if required.
   </p>
-  <h5>Certificate Generation</h5>
-  <p>
+<h5>Certificate Generation</h5>
+<p>
     Automatically generate PDF calibration certificates (including mV→V conversion tables) after each calibration run using templating (e.g., Jinja2 + WeasyPrint).
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Digitally sign certificates to enforce authenticity and non-repudiation.
   </p>
-
-  <h2>AI/ML for µV-Scale Signal Analysis</h2>
-  <h3>Anomaly Detection</h3>
-  <p>
+<h2>AI/ML for µV-Scale Signal Analysis</h2>
+<h3>Anomaly Detection</h3>
+<p>
     Train models (Isolation Forest, LSTM autoencoders) on historical mV streams to detect drift, spikes, or sensor faults in real time.
   </p>
-  <h4>Predictive Drift Compensation</h4>
-  <p>
+<h4>Predictive Drift Compensation</h4>
+<p>
     Use regression models to predict baseline drift versus temperature or age, then apply dynamic offset correction in firmware.
   </p>
-  <h5>Edge Deployment</h5>
-  <p>
+<h5>Edge Deployment</h5>
+<p>
     Convert trained models to TensorFlow Lite / Edge Impulse to run on microcontrollers alongside ADC reads and flag outliers locally.
   </p>
-  <h6>Tip:</h6>
-  <p>
+<h6>Tip:</h6>
+<p>
     Continuously collect feedback on flagged events to retrain models and reduce false positives.
   </p>
-
-  <h2>End-to-End Example: Environmental Sensor Node</h2>
-  <p>
+<h2>End-to-End Example: Environmental Sensor Node</h2>
+<p>
     Consider an outdoor temperature sensor: a PT100 RTD’s mV output is amplified, digitized, calibrated, logged, and anomaly-checked.  
   </p>
-  <h3>Block Diagram</h3>
-  <p>
+<h3>Block Diagram</h3>
+<p>
     Sensor → INA333 → ADS1263 (24-bit ADC) → STM32 MCU → InfluxDB → Grafana dashboard → Alert on drift.
   </p>
-  <h4>Firmware Flow (Pseudocode)</h4>
-  <pre><code>loop:
+<h4>Firmware Flow (Pseudocode)</h4>
+<pre><code>loop:
   raw = adc.read()
   calibrated = (raw - offset) * scale
   if anomaly_model.detect(calibrated):
     alert("Sensor anomaly")
   store_time_series(calibrated)
   sleep(1s)</code></pre>
-  <h5>Dashboard KPIs</h5>
-  <ul>
-    <li>Real-time mV & degC plots</li>
-    <li>Noise floor over last hour</li>
-    <li>Time since last calibration</li>
-  </ul>
-  <h6>Tip:</h6>
-  <p>
+<h5>Dashboard KPIs</h5>
+<ul>
+<li>Real-time mV &amp; degC plots</li>
+<li>Noise floor over last hour</li>
+<li>Time since last calibration</li>
+</ul>
+<h6>Tip:</h6>
+<p>
     Implement “shadow mode” alerts for a week before enforcing automated alarms.
   </p>
-
-  <h2>Final analysis</h2>
-  <p>
+<h2>Final analysis</h2>
+<p>
     Building robust V↔mV measurement systems requires a holistic approach: precision front-ends, high-resolution ADCs, automated calibration, structured data pipelines, compliance controls, and intelligent analytics. By layering these advanced patterns—signal conditioning, calibration automation, time-series management, standards traceability, and AI-powered monitoring—you’ll achieve reliable, scalable, and compliant voltage measurement solutions across any application domain.
   </p>
 </div>

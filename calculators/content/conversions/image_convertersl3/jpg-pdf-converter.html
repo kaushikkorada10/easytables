@@ -1,21 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <!-- ────────────────  META & The  ──────────────── -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JPG to PDF Converter – EasyTables</title>
-  <meta name="description"
-        content="EasyTables free online JPG to PDF converter lets you merge one or multiple JPG images into a single high-quality PDF in seconds. 100 % browser-based, secure, and mobile-friendly.">
+<meta content="Parts-per million (ppm) conversion calculator." name="description"/><!-- ────────────────  META & The  ──────────────── -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JPG to PDF Converter – EasyTables</title>
 
-  <!-- ────────────────  BOOTSTRAP CSS  ──────────────── -->
-  <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-        crossorigin="anonymous">
-
-  <!-- ────────────────  PAGE STYLES  ──────────────── -->
-  <style>
+<!-- ────────────────  BOOTSTRAP CSS  ──────────────── -->
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
+<!-- ────────────────  PAGE STYLES  ──────────────── -->
+<style>
     /* Branding */
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
@@ -47,10 +42,9 @@
     #preview img{max-width:120px;height:auto;border-radius:4px;margin:5px 5px}
   </style>
 </head>
-
 <body>
-  <!-- ──────────────── NAVBAR ──────────────── -->
-<nav class="navbar navbar-expand-lg navbar-light nav-bg" ;style="font-family:Roboto">
+<!-- ──────────────── NAVBAR ──────────────── -->
+<nav ;style="font-family:Roboto" class="navbar navbar-expand-lg navbar-light nav-bg">
 <div class="container">
 <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
 <button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
@@ -67,108 +61,90 @@
 </div>
 </div>
 </nav>
-
-  <!-- ──────────────── BREADCRUMB ──────────────── -->
-  <br>
-  <nav class="breadcrumb container" aria-label="Breadcrumb">
-    <a href="../../../../index.html">Home</a> <span>&gt;</span>
+<!-- ──────────────── BREADCRUMB ──────────────── -->
+<br/>
+<nav aria-label="Breadcrumb" class="breadcrumb container">
+<a href="../../../../index.html">Home</a> <span>&gt;</span>
 <a href="../../../../index.html#Calculators-s">Contents Categories
-</a> <span>&gt;</span>           <a href="/calculators/content/conversions/image-convertion.html">Image  Converters</a> <span>›</span>
-    <span>JPG to PDF Converter</span>
-  </nav>
-
-  <!-- ──────────────── TOOL CONTAINER ──────────────── -->
-  <div class="container my-4">
-    <h2 class="text-center mb-4">JPG to PDF Converter</h2>
-
-    <!-- Drop zone / file picker -->
-    <div id="dropZone" class="drop-zone">
+</a> <span>&gt;</span> <a href="/calculators/content/conversions/image-convertion.html">Image  Converters</a> <span>›</span>
+<span>JPG to PDF Converter</span>
+</nav>
+<!-- ──────────────── TOOL CONTAINER ──────────────── -->
+<div class="container my-4">
+<h2 class="text-center mb-4">JPG to PDF Converter</h2>
+<!-- Drop zone / file picker -->
+<div class="drop-zone" id="dropZone">
       Click here or drag &amp; drop JPG images
-      <input type="file" id="fileInput" accept="image/jpeg,image/jpg" multiple hidden>
-    </div>
-
-    <!-- Thumbnails -->
-    <div id="preview" class="row mt-3"></div>
-
-    <!-- Convert button -->
-   <center> <button id="convertBtn" class="btn btn-primary mt-3" disabled>Convert&nbsp;to&nbsp;PDF</button></center>
-
-    <!-- Download link -->
-    <div id="downloadArea" class="text-center mt-4"></div>
-  </div>
-
-  <!-- ──────────────── DESCRIPTION (≈1400 + words) ──────────────── -->
-  <div class="description">
-    <h3>Why convert JPG to PDF online?</h3>
-    <p>Whether you are preparing a client presentation or archiving receipts, packaging your images in a single PDF
-      offers three compelling advantages: portability, immutability, and universal readability&mdash;a PDF always looks
-      the same, no matter which device or operating system opens it. <strong>EasyTables&nbsp;JPG&nbsp;→&nbsp;PDF
+      <input accept="image/jpeg,image/jpg" hidden="" id="fileInput" multiple="" type="file"/>
+</div>
+<!-- Thumbnails -->
+<div class="row mt-3" id="preview"></div>
+<!-- Convert button -->
+<center> <button class="btn btn-primary mt-3" disabled="" id="convertBtn">Convert to PDF</button></center>
+<!-- Download link -->
+<div class="text-center mt-4" id="downloadArea"></div>
+</div>
+<!-- ──────────────── DESCRIPTION (≈1400 + words) ──────────────── -->
+<div class="description">
+<h3>Why convert JPG to PDF online?</h3>
+<p>Whether you are preparing a client presentation or archiving receipts, packaging your images in a single PDF
+      offers three compelling advantages: portability, immutability, and universal readability—a PDF always looks
+      the same, no matter which device or operating system opens it. <strong>EasyTables JPG → PDF
       Converter</strong> delivers all of that without forcing you to install bulky desktop software or surrender your
       privacy by uploading files to an opaque server. The entire conversion takes place inside your browser using
-      modern&nbsp;Web APIs and the open-source <em>jsPDF</em> library, so your pictures never leave your computer.</p>
-
-    <h4>Key features at a glance</h4>
-    <ul>
-      <li><strong>Multi-image merge</strong> – Combine any number of JPGs into a single, multi-page PDF.</li>
-      <li><strong>Drag-and-drop simplicity</strong> – Drop files anywhere on the dotted frame or use the file-picker.</li>
-      <li><strong>High-quality output</strong> – Images are embedded at full resolution by default.</li>
-      <li><strong>Secure &amp; private</strong> – All processing happens locally; nothing is uploaded.</li>
-      <li><strong>Mobile-friendly</strong> – Works seamlessly on phones, tablets, and desktops.</li>
-      <li><strong>No registration</strong> – Unlimited conversions with zero sign-ups or ads.</li>
-    </ul>
-
-    <h4>How to use this converter</h4>
-    <ol>
-      <li>Click the blue dashed area or drag your JPG files onto it.</li>
-      <li>Reorder thumbnails &ndash; drag images to set the page order.</li>
-      <li>Press <em>Convert to PDF</em>; wait a moment while your browser assembles the document.</li>
-      <li>Hit <em>Download PDF</em> and save the file. That’s it!</li>
-    </ol>
-
-    <h4>Tips for best results</h4>
-    <p>If you plan on printing the PDF, scan your pictures at 300 dpi or higher. For online-only sharing, 150 dpi is
+      modern Web APIs and the open-source <em>jsPDF</em> library, so your pictures never leave your computer.</p>
+<h4>Key features at a glance</h4>
+<ul>
+<li><strong>Multi-image merge</strong> – Combine any number of JPGs into a single, multi-page PDF.</li>
+<li><strong>Drag-and-drop simplicity</strong> – Drop files anywhere on the dotted frame or use the file-picker.</li>
+<li><strong>High-quality output</strong> – Images are embedded at full resolution by default.</li>
+<li><strong>Secure &amp; private</strong> – All processing happens locally; nothing is uploaded.</li>
+<li><strong>Mobile-friendly</strong> – Works seamlessly on phones, tablets, and desktops.</li>
+<li><strong>No registration</strong> – Unlimited conversions with zero sign-ups or ads.</li>
+</ul>
+<h4>How to use this converter</h4>
+<ol>
+<li>Click the blue dashed area or drag your JPG files onto it.</li>
+<li>Reorder thumbnails – drag images to set the page order.</li>
+<li>Press <em>Convert to PDF</em>; wait a moment while your browser assembles the document.</li>
+<li>Hit <em>Download PDF</em> and save the file. That’s it!</li>
+</ol>
+<h4>Tips for best results</h4>
+<p>If you plan on printing the PDF, scan your pictures at 300 dpi or higher. For online-only sharing, 150 dpi is
       usually sufficient and will significantly reduce file size. You can also compress your JPGs beforehand with
       EasyTables’ companion <a href="../../image-compress.html">Image Compressor</a>.</p>
-
-    <h4>Common questions</h4>
-    <h5>Does it work offline?</h5>
-    <p>Yes. Once this page is fully loaded, you can disconnect from the Internet and still perform conversions.</p>
-
-    <h5>Is there a file-size limit?</h5>
-    <p>The practical limit is your browser’s memory allowance (usually hundreds of megabytes). For very large batches,
+<h4>Common questions</h4>
+<h5>Does it work offline?</h5>
+<p>Yes. Once this page is fully loaded, you can disconnect from the Internet and still perform conversions.</p>
+<h5>Is there a file-size limit?</h5>
+<p>The practical limit is your browser’s memory allowance (usually hundreds of megabytes). For very large batches,
       consider converting images in groups and then merging the resulting PDFs with our <a href="../../merge-pdf.html">PDF Merger</a>.</p>
-
-    <h5>Will my EXIF data be preserved?</h5>
-    <p>No. PDF does not embed JPG metadata. If preserving EXIF is critical, embed the metadata as a separate appendix page
+<h5>Will my EXIF data be preserved?</h5>
+<p>No. PDF does not embed JPG metadata. If preserving EXIF is critical, embed the metadata as a separate appendix page
       in the PDF.</p>
-
-    <h4>Behind the scenes: How the conversion works</h4>
-    <p>When you press the convert button, the JavaScript code below loads each JPG into an off-screen
+<h4>Behind the scenes: How the conversion works</h4>
+<p>When you press the convert button, the JavaScript code below loads each JPG into an off-screen
       <code>&lt;canvas&gt;</code> element, scales it to fit an A4-sized page (or US Letter if your browser locale is
       en-US), and then draws the bitmap into a new PDF page using
       <code>pdf.addImage()</code> from the <em>jsPDF</em> library. Finally, it invokes
       <code>pdf.save()</code>, triggering an automatic download. Because everything happens client-side, speed depends
       mainly on your CPU and available RAM.</p>
-
-    <h4>Accessibility &amp; browser support</h4>
-    <p>This tool is fully keyboard-navigable and screen-reader friendly. It runs in any evergreen browser (Chrome 84+,
+<h4>Accessibility &amp; browser support</h4>
+<p>This tool is fully keyboard-navigable and screen-reader friendly. It runs in any evergreen browser (Chrome 84+,
       Firefox 79+, Edge Chromium 84+, Safari 15+). Older browsers lacking <code>FileReader</code> or
       <code>Blob</code> support will gracefully show a message suggesting an alternative.</p>
-
-    <h4>Security &amp; privacy</h4>
-    <p>No file ever leaves your machine. Conversion is performed locally; close the tab and every trace disappears from
+<h4>Security &amp; privacy</h4>
+<p>No file ever leaves your machine. Conversion is performed locally; close the tab and every trace disappears from
       memory. EasyTables does not collect telemetry, fingerprints, or advertising IDs.</p>
-
-    <h4>Power-user shortcuts</h4>
-    <ul>
-      <li><kbd>Ctrl</kbd>/<kbd>Cmd</kbd>&nbsp;+&nbsp;<kbd>A</kbd> inside the drop-zone selects all thumbnails for quick removal.</li>
-      <li>Hold <kbd>Shift</kbd> and drag to reorder ten images at once.</li>
-    </ul>
-
-    <p>With these features in mind, you now hold a versatile utility that turns scattered photos into a polished PDF
+<h4>Power-user shortcuts</h4>
+<ul>
+<li><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> inside the drop-zone selects all thumbnails for quick removal.</li>
+<li>Hold <kbd>Shift</kbd> and drag to reorder ten images at once.</li>
+</ul>
+<p>With these features in mind, you now hold a versatile utility that turns scattered photos into a polished PDF
       booklet in the blink of an eye. Happy converting – and don’t forget to explore the rest of the EasyTables toolbox
       for more handy everyday utilities!</p>
-  </div>
+</div>
 <div class="description">
 <h1>JPEG (JPG) to GIF (Graphics Interchange Format) Converter</h1>
 <p>
@@ -488,7 +464,7 @@ ENTRYPOINT ["magick"]</code></pre>
     Mastery of JPG ↔ GIF conversion—through effective quantization, transparency masking, frame handling, and optimized pipelines—enables you to create engaging, accessible, and performant graphics for web and legacy deployments. By following the detailed procedures, code examples, CLI recipes, batch patterns, QA metrics, optimization strategies, and AI automation trends outlined above—utilizing all heading levels—you’ll build robust, scalable, and sustainable image‐conversion workflows for every application domain.
   </p>
 </div>
-  <!-- ──────────────── SEE ALSO ──────────────── -->
+<!-- ──────────────── SEE ALSO ──────────────── -->
 <div class="see-also description">
 <h4>See Also</h4>
 <ul>
@@ -502,43 +478,32 @@ ENTRYPOINT ["magick"]</code></pre>
 <li><a href="../temperature-convertion.html">Temperature conversion</a></li>
 </ul>
 </div>
-  <!-- ──────────────── FOOTER ──────────────── -->
-  <footer>
-    <div class="container">
-      <p>
-        <a href="#">Link to Us</a> | 
+<!-- ──────────────── FOOTER ──────────────── -->
+<footer>
+<div class="container">
+<p>
+<a href="#">Link to Us</a> | 
         <a href="#">Recommend Site</a> | 
         <a href="#">Send Feedback</a> | 
         <a href="#">About</a>
-      </p>
-      <p>
+</p>
+<p>
         © EasyTables.com | 
         <a href="#">Terms of Use</a> | 
         <a href="#">Privacy Policy</a> | 
         <a href="#">Manage Cookies</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- ────────────────  JAVASCRIPT  ──────────────── -->
-  <!-- Core scripts required on every EasyTables page -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-          crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-          integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-          crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-          crossorigin="anonymous"></script>
-
-  <!-- jsPDF for client-side PDF generation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
-          integrity="sha512-B4mI/JDnj2+oiCKUcdW/4VbKDSUpSbrPQOABMcGDlP+HV0rLg9lMphjHw8pZP665xUG/JhcQGJwJzNC9Mm4axw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <!-- Tool logic -->
-  <script>
+</p>
+</div>
+</footer>
+<!-- ────────────────  JAVASCRIPT  ──────────────── -->
+<!-- Core scripts required on every EasyTables page -->
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- jsPDF for client-side PDF generation -->
+<script crossorigin="anonymous" integrity="sha512-B4mI/JDnj2+oiCKUcdW/4VbKDSUpSbrPQOABMcGDlP+HV0rLg9lMphjHw8pZP665xUG/JhcQGJwJzNC9Mm4axw==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Tool logic -->
+<script>
     // References
     const dropZone    = document.getElementById('dropZone');
     const fileInput   = document.getElementById('fileInput');

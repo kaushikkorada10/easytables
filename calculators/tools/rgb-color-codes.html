@@ -2,9 +2,8 @@
 
 <html>
 <head>
-<meta content="EasyTables: Free online RGB color codes. Access at https://easytables.vercel.app/calculators/tools/rgb-color-codes.html for a fast and accurate RGB color codes tool." name="description"/><meta charset="utf-8"/>
+<meta content="nan" name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
 <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
 <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -225,38 +224,30 @@ footer {
 </nav>
 <div>
 <!-- The code goes heare-->
- <center><h1>RGB Color Codes Chart</h1></center>
+<center><h1>RGB Color Codes Chart</h1></center>
 <div class="description">
-  <h3 >RGB Color Picker</h3>
+<h3>RGB Color Picker</h3>
   Note: Click on the color picker to get the HEX code
 </div>
 <div class="picker description">
-
-  <canvas id="palette" width="200" height="200"></canvas>
-  <canvas id="hue"     width="26"  height="200"></canvas>
+<canvas height="200" id="palette" width="200"></canvas>
+<canvas height="200" id="hue" width="26"></canvas>
 <!-- sliders -->
-<div >
-    <div id="preview"></div>
-    <div class="fields">
-      <label>R:</label><input id="r" type="number" min="0" max="255">
-      <label>G:</label><input id="g" type="number" min="0" max="255">
-      <label>B:</label><input id="b" type="number" min="0" max="255">
-
-      <label>H&nbsp;(°):</label><input id="h" type="number" min="0" max="360">
-      <label>S&nbsp;(%) :</label><input id="s" type="number" min="0" max="100">
-      <label>V&nbsp;(%) :</label><input id="v" type="number" min="0" max="100">
-
-      <label>Hex:</label><input id="hex" maxlength="7">
-    </div>
-
-  </div>
-
+<div>
+<div id="preview"></div>
+<div class="fields">
+<label>R:</label><input id="r" max="255" min="0" type="number"/>
+<label>G:</label><input id="g" max="255" min="0" type="number"/>
+<label>B:</label><input id="b" max="255" min="0" type="number"/>
+<label>H (°):</label><input id="h" max="360" min="0" type="number"/>
+<label>S (%) :</label><input id="s" max="100" min="0" type="number"/>
+<label>V (%) :</label><input id="v" max="100" min="0" type="number"/>
+<label>Hex:</label><input id="hex" maxlength="7"/>
 </div>
-
+</div>
+</div>
 <!-- live preview + code read-out -->
-
 <!-- Main Content -->
-
 <section aria-label="RGB Color Space" class="description">
 <h2>RGB Color Space</h2>
 <p>
@@ -433,7 +424,6 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 <h3>Final analysis</h3>
 <p>RGB color codes are an essential part of digital design, development, and visualization. Whether you're building a website, designing an app, or manipulating images, understanding how to work with RGB and its representations helps you craft clear, beautiful, and user-friendly visuals.</p>
 </div>
-
 </section>
 <!-- The code goes heare-->
 </div>
@@ -445,7 +435,6 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 <li><a href="ascii-table.html">ASCII table</a></li>
 </ul>
 </div>
-
 <footer>
 <div class="container">
 <p>
@@ -616,6 +605,5 @@ function fillFields(r,g,b,h,s,v,hex){
 /* ----------- initial state ----------- */
 updateFromHSV(0,0,100);
 </script>
-
 </body>
 </html>

@@ -2,9 +2,8 @@
 
 <html>
 <head>
-<meta content="EasyTables: Free online Mortgage calculator. Access at https://easytables.vercel.app/calculators/content/calculators-2/financial-calculatorsl3/mortgage-calculator.html for a fast and accurate Mortgage calculator tool." name="description"/><meta charset="utf-8"/>
+<meta content="Simple home mortgage calculator online." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
 <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
 <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -215,8 +214,8 @@ footer {
 <label for="loanTerm">Loan Term (years):</label>
 <input id="loanTerm" placeholder="e.g. 30" type="number"/>
 <button onclick="calculateMortgage()">Calculate</button>
-<div aria-atomic="true" aria-live="polite" class="result" id="result"></div><br>
-<center><a href="mortgage-calculator.html"><button type="button" class="btn btn-primary">Clear</button></a></center>
+<div aria-atomic="true" aria-live="polite" class="result" id="result"></div><br/>
+<center><a href="mortgage-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a></center>
 </div>
 </main>
 <div class="description">
@@ -247,10 +246,10 @@ footer {
   Monthly Payment = [P × r × (1 + r)^n] ÷ [(1 + r)^n – 1]
     </pre>
 <p>Where:
-      <br/>P = Loan amount<br/>
+      <br>P = Loan amount<br/>
       r = Monthly interest rate (annual rate ÷ 12 ÷ 100)<br/>
       n = Total number of payments (loan term × 12)
-    </p>
+    </br></p>
 <h3>Example Calculation</h3>
 <p><strong>Example:</strong> ₹50,00,000 loan at 7% interest for 20 years:</p>
 <ul>
@@ -384,7 +383,6 @@ footer {
 <li><a href="bmi-calculator.html">BMI calculator</a></li>
 </ul>
 </div>
-
 <footer>
 <div class="container">
 <p>
@@ -424,6 +422,5 @@ footer {
       document.getElementById('result').innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
     }
   </script>
-
 </body>
 </html>
