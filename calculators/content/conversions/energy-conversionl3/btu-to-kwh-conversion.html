@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-<meta content="EasyTables: Free online BTU to kWh conversion. Access at https://easytables.vercel.app/calculators/content/conversions/energy-conversionl3/btu-to-kwh-conversion.html for a fast and accurate BTU to kWh conversion tool." name="description"/><meta charset="utf-8"/>
+<meta content="EasyTables: Free online BTU to kWh conversion. Access at  for a fast and accurate BTU to kWh conversion tool." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>BTU to kWh Conversion - Easy Tables</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
@@ -370,17 +370,17 @@ export default function BTUtoKWhConverter() {
   <p>
     This interactive converter gives technicians instant kWh equivalents as they enter BTU values.
   </p>
-  <p><strong>Integrating BTU-to-kWh Conversion in Energy Management Systems</strong><br>
-     Modern energy management systems collect heat readings in BTU/h from HVAC units, boilers, and heat exchangers via protocols like BACnet or Modbus. At ingestion, each reading is multiplied by the exact factor <code>0.00029307107</code> to convert to kWh, then stored in a time-series database alongside electrical data. This unified approach gives facility managers a single dashboard showing combined thermal and electrical energy usage in kWh, simplifying trend analysis and anomaly detection.</br></p>
+  <p><strong>Integrating BTU-to-kWh Conversion in Energy Management Systems</strong><br/>
+     Modern energy management systems collect heat readings in BTU/h from HVAC units, boilers, and heat exchangers via protocols like BACnet or Modbus. At ingestion, each reading is multiplied by the exact factor <code>0.00029307107</code> to convert to kWh, then stored in a time-series database alongside electrical data. This unified approach gives facility managers a single dashboard showing combined thermal and electrical energy usage in kWh, simplifying trend analysis and anomaly detection.</p>
 
-  <p><strong>Case Study: University CHP Plant</strong><br>
-     A campus combined heat and power (CHP) installation logged 5,000 kWh of electricity and 2 000 000 BTU/h of waste heat over 24 hours. Converting the heat gives <code>2 000 000 × 0.00029307107 ≈ 586.14 kWh/h</code>. Adding the per-hour electrical output (<code>5 000 ÷ 24 ≈ 208.33 kWh/h</code>) yields a total of about 794.48 kWh/h. Comparing that to the fuel input (1 000 kWh/h) shows the CHP’s overall efficiency at 79.45 percent.</br></p>
+  <p><strong>Case Study: University CHP Plant</strong><br/>
+     A campus combined heat and power (CHP) installation logged 5,000 kWh of electricity and 2 000 000 BTU/h of waste heat over 24 hours. Converting the heat gives <code>2 000 000 × 0.00029307107 ≈ 586.14 kWh/h</code>. Adding the per-hour electrical output (<code>5 000 ÷ 24 ≈ 208.33 kWh/h</code>) yields a total of about 794.48 kWh/h. Comparing that to the fuel input (1 000 kWh/h) shows the CHP’s overall efficiency at 79.45 percent.</p>
 
-  <p><strong>Batch Conversion with Python</strong><br>
-     For large datasets, automate conversion with a few lines of code. For example, a pandas script can load a CSV of monthly BTU readings, apply the factor <code>BTU_TO_KWH = 0.00029307107</code>, and output a new column of kWh ready for analysis or reporting.</br></p>
+  <p><strong>Batch Conversion with Python</strong><br/>
+     For large datasets, automate conversion with a few lines of code. For example, a pandas script can load a CSV of monthly BTU readings, apply the factor <code>BTU_TO_KWH = 0.00029307107</code>, and output a new column of kWh ready for analysis or reporting.</p>
 
-  <p><strong>Carbon Accounting and Sustainability Reporting</strong><br>
-     When compiling greenhouse-gas inventories, heat data expressed in BTU must be converted to kWh before applying emissions factors (for instance, natural gas at 0.2 kg CO₂e/kWh). Converting first ensures that your final CO₂e figures—used in ESG disclosures—are accurate and comparable across fuels and sites.</br></p>
+  <p><strong>Carbon Accounting and Sustainability Reporting</strong><br/>
+     When compiling greenhouse-gas inventories, heat data expressed in BTU must be converted to kWh before applying emissions factors (for instance, natural gas at 0.2 kg CO₂e/kWh). Converting first ensures that your final CO₂e figures—used in ESG disclosures—are accurate and comparable across fuels and sites.</p>
 
   <p><strong>Field-Service Mobile Apps</strong><br/>
      Field technicians benefit from instant conversions. In a React Native component, an input field bound to state can parse BTU entries, multiply by <code>0.00029307107</code>, and display kWh results with three decimals. This on-device logic avoids errors when connectivity is unreliable.</p>
