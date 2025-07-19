@@ -93,6 +93,34 @@
       border-radius: 50%;
       padding: 8px;
     }
+     #selectedDate{
+    width:360px;font-size:18px;padding:10px 12px;
+    border:1px solid #ccc;border-radius:4px;margin-bottom:16px;
+  }
+
+  /* calendar frame */
+  .calendar{
+    width:360px;border:1px solid #ddd;border-radius:4px;background:#fff;
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
+  }
+
+  /* header */
+  .cal-head{display:flex;align-items:center;gap:8px;padding:10px 14px 6px}
+  .cal-head h3{flex:1;margin:0;font:700 22px/1 Arial;text-align:center}
+  .cal-head button{
+    width:36px;height:36px;border:none;background:#eee;border-radius:50%;
+    cursor:pointer;font-size:20px;line-height:34px;padding:0;
+  }
+  .cal-head button:hover{background:#ddd}
+
+  /* grid */
+  table{width:100%;border-collapse:collapse;font-size:16px}
+  th,td{width:14.28%;text-align:center;padding:10px 0}
+  th{background:#e5e5e5;color:#555;font-weight:600}
+  td{cursor:pointer;color:#333}
+  td:hover{background:#f2f2f2}
+  td.selected{background:#1976d2;color:#fff;border-radius:4px}
+  td.fade{color:#bbb;cursor:default}
   </style>
 </head>
 <body>
@@ -122,24 +150,33 @@
 <a href="../../../index.html#contents-s">Contents</a> <span>&gt;</span>
 <a href="/calculators/online-contents/online-tools.html">Online-tools</a> <span>›</span>
 <a href="#">Calendar</a>
-</nav>
+</nav><br>
 <!--main code-->
-<div class="calendar-container">
-<div class="calendar-header">
-<button class="btn btn-sm btn-outline-primary" onclick="prevMonth()">‹</button>
-<h4 id="monthYear"></h4>
-<button class="btn btn-sm btn-outline-primary" onclick="nextMonth()">›</button>
-</div>
-<table>
-<thead>
-<tr>
-<th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
-<th>Thu</th><th>Fri</th><th>Sat</th>
-</tr>
-</thead>
-<tbody id="calendarBody"></tbody>
-</table>
-</div>
+<center>
+<div>
+<input id="selectedDate" readonly>
+
+  <!-- calendar -->
+  <div class="calendar">
+    <div class="cal-head">
+      <button id="prevBtn">&#8592;</button>
+      <h3 id="monthLabel"></h3>
+      <select id="yearSelect"></select>
+      <button id="nextBtn">&#8594;</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Su</th><th>Mo</th><th>Tu</th><th>We</th>
+          <th>Th</th><th>Fr</th><th>Sa</th>
+        </tr>
+      </thead>
+      <tbody id="calBody"></tbody>
+    </table>
+  </div>
+</div></center>
+
 <div class="description">
 <h2>Online Calendar – View, Plan, and Organize Your Schedule with Ease</h2>
 <p>
@@ -483,67 +520,94 @@
   </p>
 <p><strong>Stay organized, stay productive — one date at a time.</strong></p>
 </div>
-<script>
-  const calendarBody = document.getElementById("calendarBody");
-  const monthYear = document.getElementById("monthYear");
-  let today = new Date();
-  let currentMonth = today.getMonth();
-  let currentYear = today.getFullYear();
 
-  function generateCalendar(month, year) {
-    calendarBody.innerHTML = "";
-    const firstDay = new Date(year, month).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    monthYear.textContent = `${today.toLocaleString('default', { month: 'long' })} ${year}`;
 
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
-      let row = document.createElement("tr");
-      for (let j = 0; j < 7; j++) {
-        let cell = document.createElement("td");
-        if (i === 0 && j < firstDay) {
-          cell.textContent = "";
-        } else if (date > daysInMonth) {
-          break;
-        } else {
-          cell.textContent = date;
-          if (
-            date === today.getDate() &&
-            year === today.getFullYear() &&
-            month === today.getMonth()
-          ) {
-            cell.classList.add("today");
+  <script>
+  /* ---- refs ---- */
+  const tbody   = document.getElementById('calBody');
+  const monthLb = document.getElementById('monthLabel');
+  const yearSel = document.getElementById('yearSelect');
+  const inp     = document.getElementById('selectedDate');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  /* ---- populate year dropdown (1900-2100) ---- */
+  for(let y=1900;y<=2100;y++){
+    yearSel.add(new Option(y,y));
+  }
+
+  /* ---- helpers ---- */
+  const pad = n => n.toString().padStart(2,'0');
+  const fmt = d => `${pad(d.getMonth()+1)}/${pad(d.getDate())}/${d.getFullYear()}`;
+
+  /* ---- state ---- */
+  let selected = new Date();                          // chosen date
+  let view     = new Date(selected.getFullYear(),selected.getMonth(),1);
+
+  yearSel.value = selected.getFullYear();
+
+  /* ---- render calendar ---- */
+  function render(){
+    tbody.innerHTML='';
+    yearSel.value = view.getFullYear();
+    monthLb.textContent = view.toLocaleString('default',{month:'long'});
+
+    const y=view.getFullYear(), m=view.getMonth();
+    const firstDow = new Date(y,m,1).getDay();
+    const daysInMo = new Date(y,m+1,0).getDate();
+    const prevDays = new Date(y,m,0).getDate();
+
+    let day=1, nextFill=1;
+    for(let w=0; w<6; w++){
+      const tr=document.createElement('tr');
+      for(let dow=0; dow<7; dow++){
+        const td=document.createElement('td');
+
+        if(w===0 && dow<firstDow){                // prev-month filler
+          td.textContent = prevDays-firstDow+dow+1;
+          td.classList.add('fade');
+        }else if(day<=daysInMo){                  // real day
+          td.textContent = day;
+          const cur = new Date(y,m,day);
+
+          if(cur.toDateString()===selected.toDateString()){
+            td.classList.add('selected');
           }
-          date++;
+
+          td.onclick = ()=>{                      // select day
+            const old=tbody.querySelector('td.selected');
+            if(old) old.classList.remove('selected');
+            td.classList.add('selected');
+            selected = cur; inp.value = fmt(cur);
+          };
+          day++;
+        }else{                                    // next-month filler
+          td.textContent = nextFill++;
+          td.classList.add('fade');
         }
-        row.appendChild(cell);
+        tr.appendChild(td);
       }
-      calendarBody.appendChild(row);
+      tbody.appendChild(tr);
+      if(day>daysInMo) break;
     }
   }
 
-  function prevMonth() {
-    currentMonth--;
-    if (currentMonth < 0) {
-      currentMonth = 11;
-      currentYear--;
-    }
-    today = new Date(currentYear, currentMonth);
-    generateCalendar(currentMonth, currentYear);
+  /* ---- navigate month ---- */
+  function changeMonth(offset){
+    view.setMonth(view.getMonth()+offset);
+    render();
   }
 
-  function nextMonth() {
-    currentMonth++;
-    if (currentMonth > 11) {
-      currentMonth = 0;
-      currentYear++;
-    }
-    today = new Date(currentYear, currentMonth);
-    generateCalendar(currentMonth, currentYear);
-  }
+  prevBtn.onclick = ()=>changeMonth(-1);
+  nextBtn.onclick = ()=>changeMonth( 1);
 
-  generateCalendar(currentMonth, currentYear);
-</script>
+  /* ---- year change ---- */
+  yearSel.onchange = ()=>{ view.setFullYear(+yearSel.value); render(); };
+
+  /* ---- initialise ---- */
+  inp.value = fmt(selected);
+  render();
+  </script>
 <!-- see also -->
 <div class="see-also">
 <h4>See Also</h4>

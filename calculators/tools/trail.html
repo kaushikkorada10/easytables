@@ -2,189 +2,104 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Universal Color Converter</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>200-cm Pixel Ruler</title>
 
 <style>
-body{background:#f5f5f5;font:16px/1.4 Arial,sans-serif}
-.converter{max-width:900px;margin:40px auto;padding:30px;background:#fff;
-           border-left:5px solid #1976d2;border-radius:10px;box-shadow:0 6px 12px rgba(0,0,0,.05)}
-h2{color:#0d47a1;text-align:center;margin-bottom:1.5rem}
-label{font-weight:bold;margin-top:1rem;display:block}
-.row{display:flex;gap:10px}
-.row .cell{flex:1}
-input{width:100%;padding:10px;border:1px solid #1976d2;border-radius:6px}
-#preview{height:44px;border:1px solid #ccc;border-radius:4px;margin-top:.4rem;
-         display:flex;align-items:center;justify-content:center;background:#000;color:#fff;
-         font-family:sans-serif;transition:background-color .3s}
+body{font-family:Arial,Helvetica,sans-serif;margin:30px}
+.ruler-wrapper{
+  width: 100%;                 /* fill screen */
+  overflow-x:auto;             /* scroll when ruler is wider */
+  border:1px solid #aaa;
+  padding:10px 0 0 0;
+}
+#ruler{
+  position:relative;
+  height:55px;                 /* enough for marks + labels */
+  background:#fff;
+}
+
+/* marks */
+.cm{position:absolute;width:1px;height:28px;background:#000;top:0}
+.mm{position:absolute;width:1px;height:14px;background:#000;top:0}
+
+/* labels */
+.label{
+  position:absolute;
+  top:30px;                    /* move below the tall cm mark */
+  font:12px/1 Arial;
+  color:#000;
+  transform:translateX(-50%);  /* center on the cm mark */
+}
 </style>
 </head>
 <body>
 
-<div class="converter">
-  <h2>Color Converter</h2>
-
-  <!-- HEX -->
-  <label for="hex">HEX (#):</label>
-  <input id="hex" placeholder="#ff8800">
-
-  <!-- RGB -->
-  <label>RGB (R,G,B):</label>
-  <div class="row">
-    <div class="cell"><input id="r" placeholder="R" type="number" min="0" max="255"></div>
-    <div class="cell"><input id="g" placeholder="G" type="number" min="0" max="255"></div>
-    <div class="cell"><input id="b" placeholder="B" type="number" min="0" max="255"></div>
-  </div>
-
-  <!-- HSV -->
-  <label>HSV (H,S,V):</label>
-  <div class="row">
-    <div class="cell"><input id="hsv-h" placeholder="H°" type="number" min="0" max="360"></div>
-    <div class="cell"><input id="hsv-s" placeholder="S%" type="number" min="0" max="100"></div>
-    <div class="cell"><input id="hsv-v" placeholder="V%" type="number" min="0" max="100"></div>
-  </div>
-
-  <!-- HSL -->
-  <label>HSL (H,S,L):</label>
-  <div class="row">
-    <div class="cell"><input id="hsl-h" placeholder="H°" type="number" min="0" max="360"></div>
-    <div class="cell"><input id="hsl-s" placeholder="S%" type="number" min="0" max="100"></div>
-    <div class="cell"><input id="hsl-l" placeholder="L%" type="number" min="0" max="100"></div>
-  </div>
-
-  <!-- Preview -->
-  <label style="margin-top:1.2rem">Color Preview:</label>
-  <div id="preview">Preview</div>
+<div class="ruler-wrapper">
+  <div id="ruler"></div>
 </div>
-
+<input id="imgInput"  type="file" accept="image/*">
+<img   id="preview"   style="max-width:300px;display:block;margin-top:12px">
+<pre   id="ocrOut"></pre>
 <script>
-/* ---------- helpers ---------- */
-const clamp = (v,min,max)=>Math.min(Math.max(v,min),max);
-const pad   = n=>n.toString(16).padStart(2,'0');
+/* --- constants --- */
+const MAX_CM         = 200;      // ruler length (change as you like)
+const PX_PER_MM      = 2;        // 2 px → 1 mm, 20 px → 1 cm
+const ruler          = document.getElementById("ruler");
+ruler.style.width    = (MAX_CM * 10 * PX_PER_MM) + "px";  // total width
 
-/* ---------- model conversions ---------- */
-function hexToRgb(hex){
-  hex=hex.replace('#','');
-  if(hex.length===3) hex=[...hex].map(c=>c+c).join('');
-  const int=parseInt(hex,16);
-  if(isNaN(int)||hex.length!==6) return null;
-  return {r:(int>>16)&255,g:(int>>8)&255,b:int&255};
-}
-function rgbToHex({r,g,b}){return '#'+pad(r)+pad(g)+pad(b);}
+/* --- build the scale --- */
+for(let cm=0; cm<=MAX_CM; cm++){
 
-function rgbToHsl({r,g,b}){
-  r/=255;g/=255;b/=255;
-  const max=Math.max(r,g,b),min=Math.min(r,g,b),d=max-min;
-  let h=0,s=0,l=(max+min)/2;
-  if(d){ s=l>0.5?d/(2-max-min):d/(max+min);
-    switch(max){
-      case r:h=(g-b)/d+(g<b?6:0);break;
-      case g:h=(b-r)/d+2;break;
-      case b:h=(r-g)/d+4;break;
-    } h*=60;
+  /* cm mark */
+  const cmMark = document.createElement("div");
+  cmMark.className = "cm";
+  cmMark.style.left = `${cm * 10 * PX_PER_MM}px`;
+  ruler.appendChild(cmMark);
+
+  /* cm label */
+  const lbl = document.createElement("div");
+  lbl.className = "label";
+  lbl.style.left = `${cm * 10 * PX_PER_MM}px`;
+  lbl.textContent = cm;
+  ruler.appendChild(lbl);
+
+  /* mm marks (skip after last cm) */
+  if(cm < MAX_CM){
+    for(let mm=1; mm<10; mm++){
+      const mmMark = document.createElement("div");
+      mmMark.className = "mm";
+      mmMark.style.left = `${cm * 10 * PX_PER_MM + mm * PX_PER_MM}px`;
+      ruler.appendChild(mmMark);
+    }
   }
-  return {h:Math.round(h),s:Math.round(s*100),l:Math.round(l*100)};
 }
-function hslToRgb({h,s,l}){
-  h/=360; s/=100; l/=100;
-  if(s===0){ const v=Math.round(l*255); return {r:v,g:v,b:v}; }
-  const q=l<.5?l*(1+s):l+s-l*s, p=2*l-q;
-  const k=n=>{let t=h+n; t=(t<0)?t+1:(t>1)?t-1:t;
-    return t<1/6?p+(q-p)*6*t: t<1/2?q: t<2/3?p+(q-p)*(2/3-t)*6:p;};
-  return {r:Math.round(k(1/3)*255),g:Math.round(k(0)*255),b:Math.round(k(-1/3)*255)};
-}
+</script>
+<script src="https://unpkg.com/tesseract.js@5.0.3/dist/tesseract.min.js"></script>
+<script>
+const imgInput = document.getElementById('imgInput');
+const preview  = document.getElementById('preview');
+const ocrOut   = document.getElementById('ocrOut');
 
-function rgbToHsv({r,g,b}){
-  r/=255;g/=255;b/=255;
-  const max=Math.max(r,g,b),min=Math.min(r,g,b),d=max-min,v=max;
-  const s=max?d/max:0;
-  let h=0;
-  if(d){
-    switch(max){
-      case r:h=(g-b)/d+(g<b?6:0);break;
-      case g:h=(b-r)/d+2;break;
-      case b:h=(r-g)/d+4;break;
-    } h*=60;
-  }
-  return {h:Math.round(h),s:Math.round(s*100),v:Math.round(v*100)};
-}
-function hsvToRgb({h,s,v}){
-  h/=60; s/=100; v/=100;
-  const c=v*s, x=c*(1-Math.abs(h%2-1)), m=v-c;
-  let [r,g,b]=[0,0,0];
-  if(h>=0&&h<1){[r,g,b]=[c,x,0];}
-  else if(h<2){[r,g,b]=[x,c,0];}
-  else if(h<3){[r,g,b]=[0,c,x];}
-  else if(h<4){[r,g,b]=[0,x,c];}
-  else if(h<5){[r,g,b]=[x,0,c];}
-  else       {[r,g,b]=[c,0,x];}
-  return {r:Math.round((r+m)*255),g:Math.round((g+m)*255),b:Math.round((b+m)*255)};
-}
+imgInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
 
-/* ---------- DOM refs ---------- */
-const $ = id => document.getElementById(id);
-const fields = {
-  hex: $('hex'),
-  r: $('r'), g: $('g'), b: $('b'),
-  hsvH: $('hsv-h'), hsvS: $('hsv-s'), hsvV: $('hsv-v'),
-  hslH: $('hsl-h'), hslS: $('hsl-s'), hslL: $('hsl-l')
-};
-const preview = $('preview');
+  /* ----- show preview ----- */
+  const reader = new FileReader();
+  reader.onload = ev => {
+    preview.src = ev.target.result;          // render the image
+    runOCR(ev.target.result);                // kick-off OCR when ready
+  };
+  reader.readAsDataURL(file);
+});
 
-/* ---------- update cascade ---------- */
-let updating=false;           // prevent infinite event loops
-
-function setRgb({r,g,b},skip){
-  if(skip!=='rgb'){fields.r.value=r;fields.g.value=g;fields.b.value=b;}
-  setHex(rgbToHex({r,g,b}), 'hex');
-  const hsl=rgbToHsl({r,g,b});
-  setHsl(hsl,'hsl');
-  const hsv=rgbToHsv({r,g,b});
-  setHsv(hsv,'hsv');
-  preview.style.backgroundColor=`rgb(${r},${g},${b})`;
+/* OCR helper */
+function runOCR(dataURL){
+  ocrOut.textContent = '⏳ Reading…';
+  Tesseract.recognize(dataURL,'eng',{logger:m=>console.log(m)})
+    .then(({data:{text}})=>{ ocrOut.textContent = text || '(no text found)'; })
+    .catch(err=>{ ocrOut.textContent='Error: '+err; });
 }
-function setHex(hex,skip){
-  if(skip!=='hex') fields.hex.value=hex;
-}
-function setHsl({h,s,l},skip){
-  if(skip!=='hsl'){fields.hslH.value=h;fields.hslS.value=s;fields.hslL.value=l;}
-}
-function setHsv({h,s,v},skip){
-  if(skip!=='hsv'){fields.hsvH.value=h;fields.hsvS.value=s;fields.hsvV.value=v;}
-}
-
-/* ---------- input handlers ---------- */
-function onHex(){
-  if(updating) return;
-  const rgb=hexToRgb(fields.hex.value.trim());
-  if(rgb){ updating=true; setRgb(rgb); updating=false; }
-}
-function onRgb(){
-  if(updating) return;
-  const r=parseInt(fields.r.value,10),g=parseInt(fields.g.value,10),b=parseInt(fields.b.value,10);
-  if([r,g,b].every(v=>!isNaN(v))){ updating=true; setRgb({r:clamp(r,0,255),g:clamp(g,0,255),b:clamp(b,0,255)},'rgb'); updating=false; }
-}
-function onHsv(){
-  if(updating) return;
-  const h=parseFloat(fields.hsvH.value),s=parseFloat(fields.hsvS.value),v=parseFloat(fields.hsvV.value);
-  if(![h,s,v].some(isNaN)){ const rgb=hsvToRgb({h:clamp(h,0,360),s:clamp(s,0,100),v:clamp(v,0,100)});
-    updating=true; setRgb(rgb,'hsv'); updating=false; }
-}
-function onHsl(){
-  if(updating) return;
-  const h=parseFloat(fields.hslH.value),s=parseFloat(fields.hslS.value),l=parseFloat(fields.hslL.value);
-  if(![h,s,l].some(isNaN)){ const rgb=hslToRgb({h:clamp(h,0,360),s:clamp(s,0,100),l:clamp(l,0,100)});
-    updating=true; setRgb(rgb,'hsl'); updating=false; }
-}
-
-/* ---------- event wiring ---------- */
-fields.hex.addEventListener('input',onHex);
-['r','g','b'].forEach(k=>fields[k].addEventListener('input',onRgb));
-['hsvH','hsvS','hsvV'].forEach(k=>fields[k].addEventListener('input',onHsv));
-['hslH','hslS','hslL'].forEach(k=>fields[k].addEventListener('input',onHsl));
-
-/* ---------- default startup ---------- */
-fields.hex.value='#ff8800'; onHex();
 </script>
 </body>
 </html>

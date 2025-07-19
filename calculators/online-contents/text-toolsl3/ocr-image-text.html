@@ -86,13 +86,14 @@
 <a href="/calculators/online-contents/text-tools.html">Text-tools</a> <span>›</span>
 <a href="#">OCR - Image to Text</a>
 </nav>
-<div class="ocr-container">
+<div class="description">
 <h3>OCR – Image to Text</h3>
-<input accept="image/*" class="form-control mb-3" onchange="previewFile(event)" type="file"/>
-<img alt="Image preview" id="imagePreview" src=""/>
-<button class="btn btn-primary" disabled="" id="startBtn" onclick="startOCR()">Start OCR</button>
-<div class="loader" id="loader">🔄 Processing image, please wait...</div>
-<textarea id="extractedText" placeholder="Extracted text will appear here"></textarea>
+<input id="imgInput"  type="file" accept="image/*">
+<img   id="preview"   style="max-width:300px;display:block;margin-top:12px">
+<pre   id="ocrOut"></pre>
+<pre   id="ocrOut"></pre>
+</div>
+
 </div>
 <div class="description">
 <h3>What is OCR?</h3>
@@ -381,30 +382,32 @@
 </p>
 </div>
 </footer>
+<script src="https://unpkg.com/tesseract.js@5.0.3/dist/tesseract.min.js"></script>
 <script>
-  let selectedFile;
-  function previewFile(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    selectedFile = file;
-    const reader = new FileReader();
-    reader.onload = () => {
-      document.getElementById('imagePreview').src = reader.result;
-      document.getElementById('imagePreview').style.display = 'block';
-      document.getElementById('startBtn').disabled = false;
-      document.getElementById('extractedText').value = '';
-    };
-    reader.readAsDataURL(file);
-  }
+const imgInput = document.getElementById('imgInput');
+const preview  = document.getElementById('preview');
+const ocrOut   = document.getElementById('ocrOut');
 
-  async function startOCR() {
-    if (!selectedFile) return;
-    document.getElementById('loader').style.display = 'block';
-    const image = document.getElementById('imagePreview').src;
-    const result = await Tesseract.recognize(image, 'eng');
-    document.getElementById('extractedText').value = result.data.text;
-    document.getElementById('loader').style.display = 'none';
-  }
+imgInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  /* ----- show preview ----- */
+  const reader = new FileReader();
+  reader.onload = ev => {
+    preview.src = ev.target.result;          // render the image
+    runOCR(ev.target.result);                // kick-off OCR when ready
+  };
+  reader.readAsDataURL(file);
+});
+
+/* OCR helper */
+function runOCR(dataURL){
+  ocrOut.textContent = '⏳ Reading…';
+  Tesseract.recognize(dataURL,'eng',{logger:m=>console.log(m)})
+    .then(({data:{text}})=>{ ocrOut.textContent = text || '(no text found)'; })
+    .catch(err=>{ ocrOut.textContent='Error: '+err; });
+}
 </script>
 </body>
 </html>

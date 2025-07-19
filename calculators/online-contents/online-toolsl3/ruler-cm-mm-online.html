@@ -296,28 +296,38 @@
 <p><strong>Start measuring precisely, digitally, and conveniently — with our Online Ruler (cm/mm) today!</strong></p>
 </div>
 <script>
-  const ruler = document.getElementById("ruler");
-  for (let i = 0; i <= 100; i++) {
-    const cmMark = document.createElement("div");
-    cmMark.className = "cm";
-    cmMark.style.left = `${i * 10}px`;
-    ruler.appendChild(cmMark);
+/* --- constants --- */
+const MAX_CM         = 200;      // ruler length (change as you like)
+const PX_PER_MM      = 2;        // 2 px → 1 mm, 20 px → 1 cm
+const ruler          = document.getElementById("ruler");
+ruler.style.width    = (MAX_CM * 10 * PX_PER_MM) + "px";  // total width
 
-    const label = document.createElement("div");
-    label.className = "label";
-    label.style.left = `${i * 10 - 4}px`;
-    label.innerText = i;
-    ruler.appendChild(label);
+/* --- build the scale --- */
+for(let cm=0; cm<=MAX_CM; cm++){
 
-    if (i < 100) {
-      for (let j = 1; j < 10; j++) {
-        const mmMark = document.createElement("div");
-        mmMark.className = "mm";
-        mmMark.style.left = `${i * 10 + j}px`;
-        ruler.appendChild(mmMark);
-      }
+  /* cm mark */
+  const cmMark = document.createElement("div");
+  cmMark.className = "cm";
+  cmMark.style.left = `${cm * 10 * PX_PER_MM}px`;
+  ruler.appendChild(cmMark);
+
+  /* cm label */
+  const lbl = document.createElement("div");
+  lbl.className = "label";
+  lbl.style.left = `${cm * 10 * PX_PER_MM}px`;
+  lbl.textContent = cm;
+  ruler.appendChild(lbl);
+
+  /* mm marks (skip after last cm) */
+  if(cm < MAX_CM){
+    for(let mm=1; mm<10; mm++){
+      const mmMark = document.createElement("div");
+      mmMark.className = "mm";
+      mmMark.style.left = `${cm * 10 * PX_PER_MM + mm * PX_PER_MM}px`;
+      ruler.appendChild(mmMark);
     }
   }
+}
 </script>
 <!-- See Also -->
 <div class="see-also">
