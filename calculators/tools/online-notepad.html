@@ -134,9 +134,30 @@ footer {
   }
 
 .btn-1{
-  height:50px;
-  width: auto;
+  background:#1976D2;
+  color:#fff;
+  border:none;
+  padding:8px 18px;
+  border-radius:6px;
+  font:inherit;
+  cursor:pointer;
+  display:inline-flex;          /* lets us centre both <button> and <label> */
+  align-items:center;
+  justify-content:center;
+  height: 50px;
 
+}
+.buttons{
+  display:inline-flex;          /* keeps them on the same baseline */
+  gap:8px;                      /* optional spacing */
+}
+
+
+/* 3.  Hide the actual file input so only the styled <label> is visible */
+#openFile{ display:none; }
+.btn-2{
+  height: 300px;
+  text-align: center;
 }
 </style>
 </head>
@@ -176,7 +197,7 @@ footer {
 <button class="btn-1" id="newBtn" title="New Note">New</button>
 <button class="btn-1" id="saveBtn" title="Save Note as .txt">Save</button>
 <label class="btn-1" for="openFile" title="Open a .txt file">Open</label>
-<input accept=".txt" class="btn-1" id="openFile" type="file"/>
+<input class="btn-2"  accept=".txt"  id="openFile" type="file"/>
 <button class="btn-1" id="clearBtn" title="Clear All">Clear</button>
 </div>
 <div class="description">
