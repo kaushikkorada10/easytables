@@ -172,32 +172,33 @@
 <input class="form-control" id="y1" placeholder="Enter Y" type="number"/>
 <button class="btn btn-primary" onclick="calc1()">Calculate</button>
 <div class="result" id="r1"></div>
-<a href="percentage-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a>
+  <button class="btn btn-primary" type="button" onclick="resetCalc(1)">Clear</button>
 <h4>2. X is what percent of Y?</h4>
 <input class="form-control" id="x2" placeholder="Enter X" type="number"/>
 <input class="form-control" id="y2" placeholder="Enter Y" type="number"/>
 <button class="btn btn-primary" onclick="calc2()">Calculate</button>
 <div class="result" id="r2"></div>
-<a href="percentage-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a>
+  <button class="btn btn-primary" type="button" onclick="resetCalc(2)">Clear</button>
 <h4>3. Increase Y by X%</h4>
 <input class="form-control" id="y3" placeholder="Enter Y" type="number"/>
 <input class="form-control" id="x3" placeholder="Enter X%" type="number"/>
 <button class="btn btn-primary" onclick="calc3()">Calculate</button>
 <div class="result" id="r3"></div>
-<a href="percentage-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a>
+  <button class="btn btn-primary" type="button" onclick="resetCalc(3)">Clear</button>
 <h4>4. Decrease Y by X%</h4>
 <input class="form-control" id="y4" placeholder="Enter Y" type="number"/>
 <input class="form-control" id="x4" placeholder="Enter X%" type="number"/>
 <button class="btn btn-primary" onclick="calc4()">Calculate</button>
 <div class="result" id="r4"></div>
-<a href="percentage-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a>
+  <button class="btn btn-primary" type="button" onclick="resetCalc(4)">Clear</button>
 <h4>5. Percentage Increase/Decrease from X to Y</h4>
 <input class="form-control" id="x5" placeholder="Enter Original Value (X)" type="number"/>
 <input class="form-control" id="y5" placeholder="Enter New Value (Y)" type="number"/>
 <button class="btn btn-primary" onclick="calc5()">Calculate</button>
 <div class="result" id="r5"></div>
-<a href="percentage-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a>
+  <button class="btn btn-primary" type="button" onclick="resetCalc(5)">Clear</button>
 </div>
+
 <div class="description">
 <h2>Percentage Calculator</h2>
 <p>The Percentage Calculator is a powerful and easy-to-use tool designed to quickly find percentages, percentage changes, percentage increase or decrease, and percentage-based comparisons. Whether you're calculating your exam score, sales commission, discounts, or financial metrics, this calculator simplifies all your percentage-related calculations in just a few clicks.</p>
@@ -448,6 +449,20 @@
     const change = ((y - x) / x * 100).toFixed(2);
     document.getElementById('r5').textContent = `Change from ${x} to ${y} is ${change}% (${change > 0 ? 'increase' : 'decrease'})`;
   }
+
+function resetCalc(n){
+  const x = document.getElementById('x'+n);
+  const y = document.getElementById('y'+n);
+  const r = document.getElementById('r'+n);
+  if (x) x.value = '';
+  if (y) y.value = '';
+  if (r) r.textContent = '';
+}
 </script>
+<script>
+/* reusable reset: give it the calc number (1-5) */
+
+</script>
+
 </body>
 </html>
