@@ -177,6 +177,19 @@ footer {
       color: #0D47A1;
     }
 
+    .course{
+  display:flex;            /* keep inputs on a single line */
+  flex-wrap:wrap;          /* fall to the next line on small screens */
+  gap:0.75rem;             /* space *between* the three inputs          */
+  margin-bottom:1rem;      /* space *after* every course block          */
+}
+
+/* (optional) nudge the buttons down a bit once rows start stacking */
+.calculator button{
+  margin-top:0.5rem;
+}
+
+
 
 </style>
 </head>
@@ -213,11 +226,11 @@ footer {
 <h2 class="title">GPA Calculator</h2>
 <div aria-label="GPA Calculator form" class="calculator">
 <div id="courseContainer">
-<div class="course">
-<input aria-label="Course Name" placeholder="Course Name (optional)" type="text"/>
-<input aria-label="Grade percentage" class="grade" max="100" min="0" placeholder="Grade (%)" type="number"/>
-<input aria-label="Credit Hours" class="credit" min="1" placeholder="Credit Hours" type="number"/>
-</div><br/>
+<div class="course mb-3 d-flex gap-2 flex-wrap">
+  <input type="text"  placeholder="Course Name (optional)" aria-label="Course Name"/>
+  <input type="number" placeholder="Grade (%)"  class="grade"  min="0" max="100" aria-label="Grade percentage"/>
+  <input type="number" placeholder="Credit Hours" class="credit" min="1" aria-label="Credit Hours"/>
+</div>
 </div>
 <button onclick="addCourse()" type="button">Add Another Course</button>
 <button onclick="calculateGPA()" type="button">Calculate GPA</button>
