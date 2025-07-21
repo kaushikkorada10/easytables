@@ -57,83 +57,13 @@
 <a href="#">PNG to PDF Converter</a>
 </nav>
 <div class="description">
-<h3>PNG to PDF Converter</h3>
-<p>Select an image file and click convert:</p>
-<input accept="image/*" id="inputFile" type="file"/>
-<button class="btn btn-primary mt-3" onclick="convert()">Convert</button>
-<div class="mt-3" id="result"></div>
-<canvas id="canvas" style="display:none;"></canvas>
+  <h2>PNG to PDF Converter</h2>
+  <input type="file" id="fileInput" accept="image/png" multiple /><br>
+  <div id="preview"></div><br>
+  <button onclick="convertToPDF()">Convert to PDF</button>
 </div>
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-<script>
-    const fileInput   = document.getElementById('inputFile');
-    const convertBtn  = document.getElementById('convertBtn');
-    const resultDiv   = document.getElementById('result');
-    const canvas      = document.getElementById('canvas');
-    const ctx         = canvas.getContext('2d');
-    const { jsPDF }   = window.jspdf;
 
-    convertBtn.addEventListener('click', async () => {
-      resultDiv.textContent = '';
-      if (!fileInput.files.length) {
-        resultDiv.textContent = '⚠️ Please choose an image file first.';
-        return;
-      }
-
-      try {
-        const file = fileInput.files[0];
-        const img  = await loadImageFromFile(file);
-
-        // size canvas to image
-        canvas.width  = img.width;
-        canvas.height = img.height;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0);
-
-        // get JPEG DataURL
-        const dataURL = canvas.toDataURL('image/jpeg', 0.9);
-
-        // create PDF
-        const orientation = img.width > img.height ? 'l' : 'p';
-        const pdf = new jsPDF({
-          orientation,
-          unit: 'pt',
-          format: [img.width, img.height],
-        });
-
-        pdf.addImage(dataURL, 'JPEG', 0, 0, img.width, img.height);
-
-        // generate a blob URL for download
-        const blobUrl = pdf.output('bloburl');
-
-        // show download link
-        const link = document.createElement('a');
-        link.href        = blobUrl;
-        link.download    = 'converted.pdf';
-        link.textContent = '⬇️ Download PDF';
-        resultDiv.appendChild(link);
-
-      } catch (err) {
-        console.error(err);
-        resultDiv.textContent = '❌ Something went wrong: ' + err.message;
-      }
-    });
-
-    // Helper: read File → HTMLImageElement
-    function loadImageFromFile(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onerror = () => reject(new Error('Failed to read file'));
-        reader.onload = () => {
-          const img = new Image();
-          img.onerror   = () => reject(new Error('Invalid image format'));
-          img.onload    = () => resolve(img);
-          img.src       = reader.result;
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-  </script>
 <div class="description">
 <h1>PNG (Portable Network Graphics) to PDF (Portable Document Format) Converter</h1>
 <p>
@@ -398,6 +328,61 @@ ENTRYPOINT ["magick"]</code></pre>
 </p>
 <p>© EasyTables.com | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Manage Cookies</a></p>
 </div>
+
 </footer>
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const preview = document.getElementById("preview");
+    let images = [];
+
+    fileInput.addEventListener("change", (e) => {
+      preview.innerHTML = "";
+      images = Array.from(e.target.files);
+
+      images.forEach((file) => {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const img = document.createElement("img");
+          img.src = event.target.result;
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    async function convertToPDF() {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF();
+
+      for (let i = 0; i < images.length; i++) {
+        const imageDataUrl = await readFileAsDataURL(images[i]);
+
+        const img = new Image();
+        img.src = imageDataUrl;
+
+        await new Promise((resolve) => {
+          img.onload = () => {
+            const imgWidth = 210;
+            const ratio = img.height / img.width;
+            const imgHeight = imgWidth * ratio;
+
+            if (i > 0) pdf.addPage();
+            pdf.addImage(img, "PNG", 0, 0, imgWidth, imgHeight);
+            resolve();
+          };
+        });
+      }
+
+      pdf.save("converted.pdf");
+    }
+
+    function readFileAsDataURL(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(file);
+      });
+    }
+  </script>
 </body>
 </html>

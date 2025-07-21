@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta content="Parts-per million (ppm) conversion calculator." name="description"/><!-- ────────────────  META & The  ──────────────── -->
@@ -10,10 +9,18 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest"><!-- optional PWA -->
   <meta name="theme-color" content="#0f41ff"><!-- matches your gradient --><title>JPG to PDF Converter – EasyTables</title>
-<!-- ────────────────  BOOTSTRAP CSS  ──────────────── -->
-<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
-<!-- ────────────────  PAGE STYLES  ──────────────── -->
-<style>
+
+  <!-- SEO -->
+  <meta name="description"
+        content="Free online JPG to PDF converter from Easy Tables. Combine multiple JPG/JPEG images into a single high-quality PDF quickly and securely.">
+
+  <!-- Bootstrap 4.5.2 -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
+
+  <style>
     /* Branding */
       .nav-bg { background-color: #0D47A1; }
       .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
@@ -23,7 +30,7 @@
     /* Footer */
     footer{background:#0D47A1;color:#fff;padding:20px 0;text-align:center;font-size:.9rem}
     footer a{color:#fff;text-decoration:none;margin:0 5px}
-    footer a:hover{text-decoration:underline}
+    footer a:hover{text-decoration:underline; color: black;}
 
     /* Content blocks */
     .description,.see-also{
@@ -45,9 +52,10 @@
     #preview img{max-width:120px;height:auto;border-radius:4px;margin:5px 5px}
   </style>
 </head>
+
 <body>
-<!-- ──────────────── NAVBAR ──────────────── -->
-<nav ;style="font-family:Roboto" class="navbar navbar-expand-lg navbar-light nav-bg">
+  <!-- Navbar -->
+  <nav ;style="font-family:Roboto" class="navbar navbar-expand-lg navbar-light nav-bg">
 <div class="container">
 <a class="navbar-brand" href="../../../../index.html"><h1 class="nav-h1-color">EASY TABLES</h1></a>
 <button class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
@@ -64,7 +72,7 @@
 </div>
 </div>
 </nav>
-<!-- ──────────────── BREADCRUMB ──────────────── -->
+  <!-- Breadcrumbs -->
 <br/>
 <nav aria-label="Breadcrumb" class="breadcrumb container">
 <a href="../../../../index.html">Home</a> <span>&gt;</span>
@@ -72,21 +80,29 @@
 </a> <span>&gt;</span> <a href="/calculators/content/conversions/image-convertion.html">Image  Converters</a> <span>›</span>
 <span>JPG to PDF Converter</span>
 </nav>
-<!-- ──────────────── TOOL CONTAINER ──────────────── -->
-<div class="container my-4">
-<h2 class="text-center mb-4">JPG to PDF Converter</h2>
-<!-- Drop zone / file picker -->
-<div class="drop-zone" id="dropZone">
-      Click here or drag &amp; drop JPG images
-      <input accept="image/jpeg,image/jpg" hidden="" id="fileInput" multiple="" type="file"/>
-</div>
-<!-- Thumbnails -->
-<div class="row mt-3" id="preview"></div>
-<!-- Convert button -->
-<center> <button class="btn btn-primary mt-3" disabled="" id="convertBtn">Convert to PDF</button></center>
-<!-- Download link -->
-<div class="text-center mt-4" id="downloadArea"></div>
-</div>
+
+  <div class="container  my-4">
+    <!-- Page title -->
+    <h1 class="mb-4">JPG to PDF Converter</h1>
+
+    <!-- Tool -->
+    <div class="card shadow-sm description">
+      <div class="card-body">
+        <h2 class="h4">Convert your images</h2>
+        <p>Select one or more <strong>.jpg / .jpeg</strong> files, then click “Convert to PDF”. Everything happens locally in your browser.</p>
+
+        <div class="form-group">
+          <label for="images" class="font-weight-bold">Choose JPG files:</label>
+          <input type="file" id="images" class="form-control-file" accept="image/jpeg" multiple>
+        </div>
+
+        <button class="btn btn-primary" id="convertBtn">Convert to PDF</button>
+
+        <div id="result" class="mt-3"></div>
+      </div>
+    </div>
+
+  
 <!-- ──────────────── DESCRIPTION (≈1400 + words) ──────────────── -->
 <div class="description">
 <h3>Why convert JPG to PDF online?</h3>
@@ -115,13 +131,13 @@
 <h4>Tips for best results</h4>
 <p>If you plan on printing the PDF, scan your pictures at 300 dpi or higher. For online-only sharing, 150 dpi is
       usually sufficient and will significantly reduce file size. You can also compress your JPGs beforehand with
-      EasyTables’ companion <a href="../../image-compress.html">Image Compressor</a>.</p>
+      EasyTables’ companion Image Compressor</a>.</p>
 <h4>Common questions</h4>
 <h5>Does it work offline?</h5>
 <p>Yes. Once this page is fully loaded, you can disconnect from the Internet and still perform conversions.</p>
 <h5>Is there a file-size limit?</h5>
 <p>The practical limit is your browser’s memory allowance (usually hundreds of megabytes). For very large batches,
-      consider converting images in groups and then merging the resulting PDFs with our <a href="../../merge-pdf.html">PDF Merger</a>.</p>
+      consider converting images in groups and then merging the resulting PDFs with our PDF Merger</a>.</p>
 <h5>Will my EXIF data be preserved?</h5>
 <p>No. PDF does not embed JPG metadata. If preserving EXIF is critical, embed the metadata as a separate appendix page
       in the PDF.</p>
@@ -498,119 +514,69 @@ ENTRYPOINT ["magick"]</code></pre>
 </p>
 </div>
 </footer>
-<!-- ────────────────  JAVASCRIPT  ──────────────── -->
-<!-- Core scripts required on every EasyTables page -->
-<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- jsPDF for client-side PDF generation -->
-<script crossorigin="anonymous" integrity="sha512-B4mI/JDnj2+oiCKUcdW/4VbKDSUpSbrPQOABMcGDlP+HV0rLg9lMphjHw8pZP665xUG/JhcQGJwJzNC9Mm4axw==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<!-- Tool logic -->
-<script>
-    // References
-    const dropZone    = document.getElementById('dropZone');
-    const fileInput   = document.getElementById('fileInput');
-    const previewZone = document.getElementById('preview');
-    const convertBtn  = document.getElementById('convertBtn');
-    const downloadDiv = document.getElementById('downloadArea');
 
-    let files = []; // Selected File objects
+  <!-- jsPDF 3.0.1 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.1/jspdf.umd.min.js"
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    /* ─────────── DRAG-AND-DROP HANDLERS ─────────── */
-    ;['dragenter','dragover'].forEach(evt =>
-      dropZone.addEventListener(evt, e => { e.preventDefault(); dropZone.classList.add('dragover'); })
-    );
-    ;['dragleave','drop'].forEach(evt =>
-      dropZone.addEventListener(evt, e => { e.preventDefault(); dropZone.classList.remove('dragover'); })
-    );
-    dropZone.addEventListener('drop',  e => handleFiles(e.dataTransfer.files));
-    dropZone.addEventListener('click', () => fileInput.click());
-    fileInput.addEventListener('change',     () => handleFiles(fileInput.files));
-
-    /* ─────────── FILE PROCESSING ─────────── */
-    function handleFiles(selected) {
-      files = Array.from(selected).filter(f => /^image\/jpe?g$/i.test(f.type));
-      previewZone.innerHTML = '';
-      if (!files.length) { convertBtn.disabled = true; return; }
-
-      files.forEach((file, idx) => {
-        const reader = new FileReader();
-        reader.onload = e => {
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          img.title = file.name;
-          img.draggable = true;
-
-          // Drag-to-reorder thumbnails
-          img.addEventListener('dragstart', ev => ev.dataTransfer.setData('text/plain', idx));
-          img.addEventListener('drop',      reorderThumbnails);
-          img.addEventListener('dragover',  ev => ev.preventDefault());
-
-          previewZone.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-      });
-      convertBtn.disabled = false;
-      downloadDiv.innerHTML = '';
-    }
-
-    function reorderThumbnails(ev){
-      ev.preventDefault();
-      const from = +ev.dataTransfer.getData('text/plain');
-      const to   = Array.prototype.indexOf.call(previewZone.children, ev.target);
-      if (from === to) return;
-      files.splice(to, 0, files.splice(from,1)[0]); // Reorder underlying array
-      handleFiles(files);                            // Re-render previews
-    }
-
-    /* ─────────── CONVERSION LOGIC ─────────── */
-    convertBtn.addEventListener('click', async () => {
-      convertBtn.disabled = true;
-      convertBtn.textContent = 'Converting…';
-
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({ unit:'pt', format:'a4' });
-      const pageWidth  = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-
-      for (let i = 0; i < files.length; i++){
-        if (i > 0) pdf.addPage();
-
-        const imgData = await fileToDataURL(files[i]);
-        const dims = await imageDimensions(imgData);
-
-        // Fit image to page while preserving aspect ratio
-        const ratio = Math.min(pageWidth / dims.w, pageHeight / dims.h);
-        const imgW  = dims.w * ratio;
-        const imgH  = dims.h * ratio;
-        const x = (pageWidth  - imgW)/2;
-        const y = (pageHeight - imgH)/2;
-
-        pdf.addImage(imgData, 'JPEG', x, y, imgW, imgH);
-      }
-
-      const pdfBlob = pdf.output('blob');
-      const url     = URL.createObjectURL(pdfBlob);
-      downloadDiv.innerHTML =
-        `<a class="btn btn-success" href="${url}" download="images.pdf">Download PDF</a>`;
-      convertBtn.textContent = 'Convert to PDF';
-    });
-
-    // Helpers
-    function fileToDataURL(file){
-      return new Promise(res=>{
+  <script>
+    /* helper: read File → dataURL */
+    const { jsPDF } = window.jspdf;
+    function readAsDataURL(file){
+      return new Promise((res,rej)=>{
         const r=new FileReader();
         r.onload=e=>res(e.target.result);
+        r.onerror=rej;
         r.readAsDataURL(file);
-      })
+      });
     }
-    function imageDimensions(dataURL){
-      return new Promise(res=>{
+
+    /* core logic */
+    async function convertToPDF(){
+      const files=[...document.getElementById('images').files];
+      const out=document.getElementById('result');
+      out.innerHTML='';
+      if(!files.length){
+        out.innerHTML='<div class="alert alert-warning">Please select at least one JPG image.</div>';
+        return;
+      }
+
+      const pdf=new jsPDF({unit:'pt',format:'a4'});
+      for(let i=0;i<files.length;i++){
+        const dataURL=await readAsDataURL(files[i]);
         const img=new Image();
-        img.onload=()=>res({w:img.width,h:img.height});
-        img.src=dataURL;
-      })
+        await new Promise(ok=>{img.onload=ok;img.src=dataURL;});
+
+        const pageOrientation=img.width>img.height?'l':'p';
+        if(i>0) pdf.addPage('a4',pageOrientation);
+
+        const pw=pdf.internal.pageSize.getWidth();
+        const ph=pdf.internal.pageSize.getHeight();
+        let iw=img.width, ih=img.height;
+        const scale=Math.min(pw/iw, ph/ih);
+        iw*=scale; ih*=scale;
+        const x=(pw-iw)/2, y=(ph-ih)/2;
+
+        pdf.addImage(dataURL,'JPEG',x,y,iw,ih);
+      }
+
+      pdf.save('converted.pdf');
+      out.innerHTML='<div class="alert alert-success">PDF generated! If the download didn’t start, check your pop-up blocker.</div>';
     }
+
+    document.getElementById('convertBtn').addEventListener('click',convertToPDF);
+    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
+
+  <!-- Required Bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+          integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+          crossorigin="anonymous"></script>
 </body>
 </html>
