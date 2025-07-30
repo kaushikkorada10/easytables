@@ -227,22 +227,27 @@ footer {
 <div>
 <!-- The code goes heare-->
 <main class="container">
-<h2 class="title">GPA Calculator</h2>
-<div aria-label="GPA Calculator form" class="calculator">
-<div id="courseContainer">
-<div class="course mb-3 d-flex gap-2 flex-wrap">
-  <input type="text"  placeholder="Course Name (optional)" aria-label="Course Name"/>
-  <input type="number" placeholder="Grade (%)"  class="grade"  min="0" max="100" aria-label="Grade percentage"/>
-  <input type="number" placeholder="Credit Hours" class="credit" min="1" aria-label="Credit Hours"/>
-</div>
-</div>
-<button onclick="addCourse()" type="button">Add Another Course</button>
-<button onclick="calculateGPA()" type="button">Calculate GPA</button>
-<button onclick="clearCourses()" type="button">Clear All</button>
-<div aria-live="polite" class="result" id="result"></div><br/>
-<center><a href="gpa-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a></center>
-</div>
+  <h2 class="title">GPA Calculator</h2>
+  <div aria-label="GPA Calculator form" class="calculator">
+    <div id="courseContainer">
+      <!-- Initial Course Row -->
+      <div class="course mb-3 d-flex gap-2 flex-wrap">
+        <input type="text" placeholder="Course Name (optional)" aria-label="Course Name" />
+        <input type="number" placeholder="Grade (%)" class="grade" min="0" max="100" aria-label="Grade percentage" />
+        <input type="number" placeholder="Credit Hours" class="credit" min="1" aria-label="Credit Hours" />
+        <button class="btn btn-danger btn-sm" type="button" onclick="removeCourse(this)">Remove</button>
+      </div>
+    </div>
+
+    <button onclick="addCourse()" type="button">Add Another Course</button>
+    <button onclick="calculateGPA()" type="button">Calculate GPA</button>
+    <button onclick="clearCourses()" type="button">Clear All</button>
+
+    <div aria-live="polite" class="result" id="result"></div><br/>
+    <center><a href="gpa-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a></center>
+  </div>
 </main>
+
 <div class="description">
 <h3>About This Calculator</h3>
 <p>
@@ -443,64 +448,67 @@ footer {
 </div>
 </footer>
 <script>
-    function addCourse() {
-      const container = document.getElementById('courseContainer');
-      const courseDiv = document.createElement('div');
-      courseDiv.classList.add('course');
+  function addCourse() {
+    const container = document.getElementById('courseContainer');
+    const courseDiv = document.createElement('div');
+    courseDiv.classList.add('course', 'mb-3', 'd-flex', 'gap-2', 'flex-wrap');
 
-      courseDiv.innerHTML = `
-        <input type="text" placeholder="Course Name (optional)" aria-label="Course Name" />
-        <input type="number" min="0" max="100" placeholder="Grade (%)" class="grade" aria-label="Grade percentage" />
-        <input type="number" min="1" placeholder="Credit Hours" class="credit" aria-label="Credit Hours" />
-      `;
+    courseDiv.innerHTML = `
+      <input type="text" placeholder="Course Name (optional)" aria-label="Course Name" />
+      <input type="number" min="0" max="100" placeholder="Grade (%)" class="grade" aria-label="Grade percentage" />
+      <input type="number" min="1" placeholder="Credit Hours" class="credit" aria-label="Credit Hours" />
+      <button class="btn btn-danger btn-sm" type="button" onclick="removeCourse(this)">Remove</button>
+    `;
 
-      container.appendChild(courseDiv);
-    }
+    container.appendChild(courseDiv);
+  }
 
-    function calculateGPA() {
-      const grades = document.querySelectorAll('.grade');
-      const credits = document.querySelectorAll('.credit');
-      let totalPoints = 0;
-      let totalCredits = 0;
+  function removeCourse(button) {
+    const courseDiv = button.parentElement;
+    courseDiv.remove();
+  }
 
-      for (let i = 0; i < grades.length; i++) {
-        const grade = parseFloat(grades[i].value);
-        const credit = parseFloat(credits[i].value);
+  function calculateGPA() {
+    const grades = document.querySelectorAll('.grade');
+    const credits = document.querySelectorAll('.credit');
+    let totalPoints = 0;
+    let totalCredits = 0;
 
-        // Only include courses with valid grade and credit > 0
-        if (!isNaN(grade) && !isNaN(credit) && credit > 0) {
-          const gpaScale = convertToGPA(grade);
-          totalPoints += gpaScale * credit;
-          totalCredits += credit;
-        }
-      }
+    for (let i = 0; i < grades.length; i++) {
+      const grade = parseFloat(grades[i].value);
+      const credit = parseFloat(credits[i].value);
 
-      const resultElement = document.getElementById('result');
-
-      if (totalCredits === 0) {
-        resultElement.textContent = 'Please enter valid grades and credit hours.';
-      } else {
-        const gpa = totalPoints / totalCredits;
-        resultElement.textContent = `Your GPA is: ${gpa.toFixed(2)}`;
+      if (!isNaN(grade) && !isNaN(credit) && credit > 0) {
+        const gpaScale = convertToGPA(grade);
+        totalPoints += gpaScale * credit;
+        totalCredits += credit;
       }
     }
 
-    // Converts grade percent to 4.0 GPA scale
-    function convertToGPA(grade) {
-      if (grade >= 90) return 4.0;
-      if (grade >= 80) return 3.0;
-      if (grade >= 70) return 2.0;
-      if (grade >= 60) return 1.0;
-      return 0.0;
-    }
+    const resultElement = document.getElementById('result');
 
-    function clearCourses() {
-      const container = document.getElementById('courseContainer');
-      container.innerHTML = '';
-      // Add back one empty course input
-      addCourse();
-      document.getElementById('result').textContent = '';
+    if (totalCredits === 0) {
+      resultElement.textContent = 'Please enter valid grades and credit hours.';
+    } else {
+      const gpa = totalPoints / totalCredits;
+      resultElement.textContent = `Your GPA is: ${gpa.toFixed(2)}`;
     }
-  </script>
+  }
+
+  function convertToGPA(grade) {
+    if (grade >= 90) return 4.0;
+    if (grade >= 80) return 3.0;
+    if (grade >= 70) return 2.0;
+    if (grade >= 60) return 1.0;
+    return 0.0;
+  }
+
+  function clearCourses() {
+    const container = document.getElementById('courseContainer');
+    container.innerHTML = '';
+    addCourse(); // Reset with one blank row
+    document.getElementById('result').textContent = '';
+  }
+</script>
 </body>
 </html>

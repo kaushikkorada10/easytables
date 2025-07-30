@@ -52,22 +52,22 @@
 <a href="#">Image Converters</a>
 </nav>
 <div class="description">
-<h3>Image Converters</h3>
-<p>Select the conversion type and upload an image file. Your image will be converted directly in your browser.</p>
-<div class="form-group">
-<label for="conversionType"><strong>Choose conversion type:</strong></label>
-<select class="form-control" id="conversionType">
-<option value="jpeg-png">JPEG to PNG</option>
-<option value="png-webp">PNG to WebP</option>
-<option value="bmp-jpg">BMP to JPG</option>
-<option value="gif-png">GIF to PNG</option>
-<option value="svg-png">SVG to PNG</option>
-</select>
+  <div class="form-group">
+  <label for="conversionType"><strong>Choose conversion type:</strong></label>
+  <select class="form-control" id="conversionType" onchange="updateAcceptType()">
+    <option value="jpeg-png">JPEG to PNG</option>
+    <option value="png-webp">PNG to WebP</option>
+    <option value="bmp-jpg">BMP to JPG</option>
+    <option value="gif-png">GIF to PNG</option>
+    <option value="svg-png">SVG to PNG</option>
+  </select>
 </div>
+
 <div class="form-group">
-<label for="fileInput"><strong>Upload Image:</strong></label>
-<input accept="image/*,.svg" class="form-control-file" id="fileInput" type="file"/>
+  <label for="fileInput"><strong>Upload Image:</strong></label>
+  <input class="form-control-file" id="fileInput" type="file" />
 </div>
+
 <button class="btn btn-primary" onclick="convertImage()">Convert Image</button>
 <div class="mt-3" id="downloadLink"></div>
 </div>
@@ -326,57 +326,96 @@ color: hsl(340, 82%, 52%);
 </div>
 </footer>
 <script>
-    function convertImage() {
-      const file = document.getElementById("fileInput").files[0];
-      const type = document.getElementById("conversionType").value;
+  function updateAcceptType() {
+    const type = document.getElementById("conversionType").value;
+    const fileInput = document.getElementById("fileInput");
 
-      if (!file) {
-        alert("Please upload an image file.");
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const img = new Image();
-        img.onload = function() {
-          const canvas = document.createElement("canvas");
-          canvas.width = img.width;
-          canvas.height = img.height;
-          const ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0);
-
-          let format, mime;
-          switch (type) {
-            case "jpeg-png": mime = "image/png"; format = "png"; break;
-            case "png-webp": mime = "image/webp"; format = "webp"; break;
-            case "bmp-jpg": mime = "image/jpeg"; format = "jpg"; break;
-            case "gif-png": mime = "image/png"; format = "png"; break;
-            case "svg-png": mime = "image/png"; format = "png"; break;
-            default: mime = "image/png"; format = "png";
-          }
-
-          const dataURL = canvas.toDataURL(mime);
-          const link = document.createElement("a");
-          link.href = dataURL;
-          link.download = `converted.${format}`;
-          link.textContent = "Download Converted Image";
-          link.className = "btn btn-success mt-3";
-          const output = document.getElementById("downloadLink");
-          output.innerHTML = "";
-          output.appendChild(link);
-        };
-
-        // Special handling for SVG files
-        if (type === "svg-png" && file.type === "image/svg+xml") {
-          const svgBlob = new Blob([e.target.result], {type: 'image/svg+xml'});
-          const url = URL.createObjectURL(svgBlob);
-          img.src = url;
-        } else {
-          img.src = e.target.result;
-        }
-      };
-      reader.readAsDataURL(file);
+    switch (type) {
+      case "jpeg-png":
+        fileInput.accept = ".jpeg, .jpg, image/jpeg";
+        break;
+      case "png-webp":
+        fileInput.accept = ".png, image/png";
+        break;
+      case "bmp-jpg":
+        fileInput.accept = ".bmp, image/bmp";
+        break;
+      case "gif-png":
+        fileInput.accept = ".gif, image/gif";
+        break;
+      case "svg-png":
+        fileInput.accept = ".svg, image/svg+xml";
+        break;
+      default:
+        fileInput.accept = "image/*";
     }
-  </script>
+  }
+
+  window.onload = updateAcceptType;
+
+  function convertImage() {
+    const fileInput = document.getElementById("fileInput");
+    const file = fileInput.files[0];
+    const type = document.getElementById("conversionType").value;
+
+    if (!file) {
+      alert("Please upload an image file.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+
+        let format, mime;
+        switch (type) {
+          case "jpeg-png":
+            mime = "image/png"; format = "png"; break;
+          case "png-webp":
+            mime = "image/webp"; format = "webp"; break;
+          case "bmp-jpg":
+            mime = "image/jpeg"; format = "jpg"; break;
+          case "gif-png":
+            mime = "image/png"; format = "png"; break;
+          case "svg-png":
+            mime = "image/png"; format = "png"; break;
+          default:
+            mime = "image/png"; format = "png";
+        }
+
+        const dataURL = canvas.toDataURL(mime);
+        const link = document.createElement("a");
+        link.href = dataURL;
+
+        const originalName = file.name.substring(0, file.name.lastIndexOf(".")) || file.name;
+        link.download = `${originalName}_converted.${format}`;
+
+        link.textContent = "Download Converted Image";
+        link.className = "btn btn-success mt-3";
+
+        const output = document.getElementById("downloadLink");
+        output.innerHTML = "";
+        output.appendChild(link);
+      };
+
+      // Handle SVG differently
+      if (type === "svg-png" && file.type === "image/svg+xml") {
+        const svgBlob = new Blob([e.target.result], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(svgBlob);
+        img.src = url;
+      } else {
+        img.src = e.target.result;
+      }
+    };
+
+    reader.readAsDataURL(file);
+  }
+</script>
 </body>
 </html>
