@@ -86,6 +86,11 @@
   });
 
   async function convertToPDF() {
+    if (images.length === 0) {
+      alert("Please upload at least one PNG file before converting.");
+      return;
+    }
+
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF();
 
@@ -130,6 +135,7 @@
     });
   }
 </script>
+
 
 
 
