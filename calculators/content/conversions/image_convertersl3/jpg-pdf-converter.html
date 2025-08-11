@@ -576,5 +576,15 @@ ENTRYPOINT ["magick"]</code></pre>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
           integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
           crossorigin="anonymous"></script>
+<script>
+  function adjustTopPadding() {
+    const nav = document.querySelector('.navbar.fixed-top');
+    if (!nav) return;
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
+</script>
+
 </body>
 </html>

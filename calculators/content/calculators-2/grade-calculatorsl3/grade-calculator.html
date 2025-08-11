@@ -18,7 +18,7 @@
       #navItem2:hover { text-decoration: underline; }
       footer { background-color: #0D47A1; color: white; padding: 20px 0; text-align: center; font-size: 0.9rem; }
       footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
-      footer a:hover { text-decoration: underline; }
+      footer a:hover { text-decoration: underline; color: black; }
       .description, .see-also {
         max-width: 800px;
         margin: 40px auto;
@@ -60,7 +60,7 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
 <div class="container">
 <a class="navbar-brand" href="../../../../index.html">
 <h1 class="nav-h1-color">EASY TABLES</h1>
@@ -204,13 +204,6 @@
 <p>A: A GPA calculator tracks your overall academic performance across multiple courses or terms, while a grade calculator focuses on your score in a single class.</p>
 <h4>Q: Can I use this calculator for pass/fail courses?</h4>
 <p>A: Yes, but since pass/fail grading usually doesn't involve weightage or numerical scores, this tool may be less useful for those types of courses.</p>
-<h3>Other Tools You May Find Helpful</h3>
-<ul>
-<li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
-<li><a href="/calculators/final-grade-calculator.html">Final Grade Calculator</a></li>
-<li><a href="/calculators/college-gpa-calculator.html">College GPA Calculator</a></li>
-<li><a href="/calculators/assignment-grade-calculator.html">Assignment Grade Calculator</a></li>
-</ul>
 <p>Whether you’re aiming to pass, maintain a scholarship, or land on the Dean’s List, knowing your grades at every step is critical. Our Grade Calculator simplifies the process, providing instant results that you can trust. Designed for speed, accuracy, and convenience, it’s the go-to solution for students, teachers, and parents alike. Try it today and take the guesswork out of your academic performance!</p>
 <h3>How Teachers Use Grade Calculators</h3>
 <p>Grade calculators aren't just for students. Teachers and professors also benefit from them in several ways:</p>
@@ -302,14 +295,7 @@
 <blockquote>
     “As a parent, I use this to stay updated on my daughter’s progress without needing to interpret complicated report cards.” – Rajesh, Hyderabad
   </blockquote>
-<h3>Explore Related Tools</h3>
-<ul>
-<li><a href="/calculators/grade-percentage-calculator.html">Grade Percentage Calculator</a></li>
-<li><a href="/calculators/final-grade-calculator.html">Final Grade Calculator</a></li>
-<li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
-<li><a href="/calculators/assignment-grade-calculator.html">Assignment Grade Calculator</a></li>
-<li><a href="/calculators/college-gpa-calculator.html">College GPA Calculator</a></li>
-</ul>
+
 <h3>Final Thoughts</h3>
 <p>Grades are more than just marks on paper—they shape your future. Whether you’re trying to ace your finals, meet a GPA requirement, or just stay informed, the Grade Calculator helps you take control. With our user-friendly interface and accurate formulas, you're never in the dark about your academic progress. Try the Grade Calculator now and experience the power of knowledge, strategy, and success!</p>
 </div>
@@ -340,5 +326,15 @@
 </p>
 </div>
 </footer>
+<script>
+  function adjustTopPadding() {
+    const nav = document.querySelector('.navbar.fixed-top');
+    if (!nav) return;
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
+</script>
+
 </body>
 </html>

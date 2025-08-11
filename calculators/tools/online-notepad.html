@@ -164,7 +164,7 @@ footer {
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
 <div class="container">
 <a class="navbar-brand" href="../../index.html">
 <h1 class="nav-h1-color">EASY TABLES</h1>
@@ -468,7 +468,17 @@ footer {
 </p>
 </div>
 </footer>
-<!-- 📄 Put this block right after your HTML (before </body>) -->
+<!-- 📄 Put this block right after your HTML (before <script>
+  function adjustTopPadding() {
+    const nav = document.querySelector('.navbar.fixed-top');
+    if (!nav) return;
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
+</script>
+
+</body>) -->
 <script>
 /* ---------- element shortcuts ---------- */
 const $   = id => document.getElementById(id);
@@ -530,5 +540,15 @@ $('clearBtn').addEventListener('click', () => {
   pad.focus();
 });
 </script>
+<script>
+  function adjustTopPadding() {
+    const nav = document.querySelector('.navbar.fixed-top');
+    if (!nav) return;
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
+</script>
+
 </body>
 </html>

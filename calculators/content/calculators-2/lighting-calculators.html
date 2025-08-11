@@ -28,7 +28,7 @@
       text-decoration: none;
       margin: 0 5px;
     }
-    footer a:hover { text-decoration: underline; }
+    footer a:hover { text-decoration: underline; color: black; }
     .description {
       max-width: 800px;
       margin: 40px auto;
@@ -59,7 +59,7 @@
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
 <div class="container">
 <a class="navbar-brand" href="../../../index.html">
 <h1 class="nav-h1-color">EASY TABLES</h1>
@@ -577,5 +577,15 @@ if (abs(lux - mean) &gt; 3*sd) fireAnomaly();</code></pre>
 </p>
 </div>
 </footer>
+<script>
+  function adjustTopPadding() {
+    const nav = document.querySelector('.navbar.fixed-top');
+    if (!nav) return;
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
+</script>
+
 </body>
 </html>

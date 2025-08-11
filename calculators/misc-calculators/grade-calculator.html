@@ -164,7 +164,7 @@ footer {
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
 <div class="container">
 <a class="navbar-brand" href="../../index.html">
 <h1 class="nav-h1-color">EASY TABLES</h1>
@@ -354,14 +354,7 @@ footer {
 <li>Calculate college GPA</li>
 <li>Marks to grade converter</li>
 </ul>
-<h3>📎 Related Tools</h3>
-<ul class="btn-2">
-<li><a href="/gpa-calculator">GPA Calculator</a></li>
-<li><a href="/percentage-calculator">Percentage Calculator</a></li>
-<li><a href="/exam-score-calculator">Exam Score Calculator</a></li>
-<li><a href="/cgpa-converter">CGPA to Percentage Converter</a></li>
-<li><a href="/marksheet-generator">Online Marksheet Generator</a></li>
-</ul>
+
 <h3>🎯 Final analysis</h3>
 <p>
       Staying on top of your academic progress is easier than ever with our Grade Calculator. Whether you’re a student aiming for a scholarship or a parent monitoring report cards, this tool provides clarity, saves time, and supports smart educational planning.
@@ -740,5 +733,15 @@ footer {
       }
     }
   </script>
+<script>
+  function adjustTopPadding() {
+    const nav = document.querySelector('.navbar.fixed-top');
+    if (!nav) return;
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
+</script>
+
 </body>
 </html>

@@ -140,7 +140,7 @@
 </head>
 <body>
 <!-- New Header -->
-<nav class="navbar navbar-expand-lg navbar-light nav-bg">
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
 <div class="container">
 <a class="navbar-brand" href="../../index.html">
 <h1 class="nav-h1-color">EASY TABLES</h1>
@@ -463,6 +463,16 @@ function resetCalc(n){
 <script>
 /* reusable reset: give it the calc number (1-5) */
 
+</script>
+
+<script>
+  function adjustTopPadding() {
+    const nav = document.querySelector('.navbar.fixed-top');
+    if (!nav) return;
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
 </script>
 
 </body>
