@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Manage Cookies - Easy Tables"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
+    <meta name="theme-color" content="#0f41ff">
+    <title>Manage Cookies - Easy Tables</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        .nav-bg { background-color: #0D47A1; }
+        .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+        #navItem2 { color: white; font-family: "Roboto"; }
+        #navItem2:hover { text-decoration: underline; }
+        footer { background-color: #0D47A1; color: white; padding: 20px 0; text-align: center; font-size: 0.9rem; }
+        footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
+        footer a:hover { text-decoration: underline; color: black; }
+        .description { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #FFFFFF; border-left: 5px solid #1976D2; border-radius: 10px; line-height: 1.6; font-size: 1.05rem; }
+        .description h1, .description h2, .description h3 { color: #0D47A1; margin-bottom: 10px; }
+        .cookie-options { margin-top: 20px; }
+        .cookie-options button { margin-right: 10px; padding: 10px 20px; font-size: 1rem; border: none; border-radius: 5px; cursor: pointer; }
+        .allow-btn { background-color: #1976D2; color: white; }
+        .settings-btn { background-color: #E0E0E0; color: #000; }
+        .cookie-category { margin-top: 15px; }
+        .cookie-category h4 { color: #1976D2; margin-bottom: 5px; }
+        .cookie-category p { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html">
+            <h1 class="nav-h1-color">EASY TABLES</h1>
+        </a>
+        <button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active" href="/index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index.html#contents-s" id="navItem2">Contents</a>
+                <a class="nav-link" href="/index.html#misc-s" id="navItem2">Miscellaneous</a>
+                <a class="nav-link" href="/index.html#Online-tools-s" id="navItem2">Online tools</a>
+                <a class="nav-link" href="/index.html#content-categories-s" id="navItem2">Content Categories</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<nav aria-label="Breadcrumb" class="breadcrumb container mt-3">
+    <a href="#">Home</a> <span>&gt;</span>
+    <a href="#">Manage Cookies</a>
+</nav>
+
+<div class="description">
+    <h1>Manage Cookies</h1>
+
+    <h2>About Cookies</h2>
+    <p>An HTTP cookie is a small piece of data sent from a website and stored on your computer by your browser while browsing. Learn more about HTTP Cookies on <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer">Wikipedia</a>.</p>
+
+    <div class="cookie-options">
+        <button class="allow-btn">Allow All Cookies</button>
+        <button class="settings-btn">Cookie Settings</button>
+    </div>
+
+    <div class="cookie-category">
+        <h4>Necessary Cookies</h4>
+        <p>Required for website operation.</p>
+    </div>
+
+    <div class="cookie-category">
+        <h4>Analytical Cookies</h4>
+        <p>Used to improve user experience and analyze traffic. Disabling these may limit improvements to your experience.</p>
+    </div>
+
+    <div class="cookie-category">
+        <h4>Targeting Cookies</h4>
+        <p>Used to display personalized ads based on previous visits. Disabling these may reduce the relevance of ads but will help us maintain site funding.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>
+            <a href="#">Link to Us</a> |
+            <a href="#">Recommend Site</a> |
+            <a href="#">Send Feedback</a>
+        </p>
+        <p>
+            © EasyTables.com |
+            <a href="easytables/about.html">About</a> |
+            <a href="terms-of-use.html">Terms of Use</a> |
+            <a href="privacy-policy.html">Privacy Policy</a> |
+            <a href="manage-cookies.html">Manage Cookies</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    function adjustTopPadding() {
+        const nav = document.querySelector('.navbar.fixed-top');
+        if (!nav) return;
+        document.body.style.paddingTop = nav.offsetHeight + 'px';
+    }
+    window.addEventListener('load', adjustTopPadding);
+    window.addEventListener('resize', adjustTopPadding);
+</script>
+
+</body>
+</html>
+
