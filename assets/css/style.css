@@ -81,39 +81,43 @@ footer a:hover {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
-  nav ul {
-      flex-direction: column;
-      align-items: center;
-  }
 
-  header h1 {
-      font-size: 1.5rem;
-  }
+/* Normalize navbar height across pages */
+.navbar {
+  padding-top: 0.25rem;   /* shrink default 0.5rem */
+  padding-bottom: 0.25rem;
+}
 
-  section {
-      padding: 20px 15px;
-  }
+.navbar-brand {
+  padding: 0;             /* remove extra space around brand */
+}
 
-  footer {
-      font-size: 0.8rem;
+.navbar-brand h1,
+.nav-h1-color {           /* your brand title */
+  font-size: 2rem;      /* was 2rem — reduce height */
+  margin: 0;              /* kill default h1 margins */
+  line-height: 1.2;       /* keep it compact */
+}
+
+.navbar-nav .nav-link {
+  padding-top: 0.25rem;   /* optional: make links a bit tighter too */
+  padding-bottom: 0.25rem;
+}
+
+/* Keep things aligned when the nav collapses */
+@media (max-width: 991.98px) {
+  .navbar { 
+    padding-top: 0.35rem; 
+    padding-bottom: 0.35rem; 
   }
 }
 
-@media (max-width: 480px) {
-  nav ul {
-      gap: 10px;
-  }
 
-  nav ul li a {
-      font-size: 0.9rem;
-  }
 
-  section h2 {
-      font-size: 1.25rem;
-  }
-}
 
+
+
+/*--bdc*/
 .card-3 {
   background: #fff;
   padding: 20px;

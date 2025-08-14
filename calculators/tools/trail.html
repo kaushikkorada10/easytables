@@ -1,136 +1,312 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta content="EasyTables: Free online Image Converter. Access at  for a fast and accurate Image Converter tool." name="description"/><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
-   
-   <meta name="theme-color" content="#0f41ff"><!-- matches your gradient --><title>Image Converters - Easy Tables</title>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-<style>
-    .nav-bg { background-color: #0D47A1; }
-    .nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
-    #navItem2 { color: white; font-family: "Roboto"; }
-    #navItem2:hover { text-decoration: underline; }
-    footer { background-color: #0D47A1; color: white; padding: 20px 0; text-align: center; font-size: 0.9rem; }
-    footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
-    footer a:hover { text-decoration: underline; color: black; }
-    .description, .see-also { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #FFFFFF; border-left: 5px solid #1976D2; border-radius: 10px; line-height: 1.6; font-size: 1.05rem; }
-    .description h3, .see-also h4 { color: #0D47A1; margin-bottom: 10px; }
-    .see-also ul { list-style: none; padding-left: 0; }
-    .see-also ul li { margin-bottom: 8px; }
-    .see-also a { color: #1976D2; text-decoration: none; }
-    .see-also a:hover { text-decoration: underline; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EasyTables - Home</title>
 
- 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
+  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
+  <meta name="theme-color" content="#0f41ff">
+  <meta name="description" content="Easy Tables is your all-in-one online calculator and converter platform. Instantly perform math calculations, convert units, analyze data, and access everyday tools. Whether it's scientific formulas, financial estimates, or text utilities, Easy Tables delivers fast, accurate results with a clean and user-friendly experience — anytime, anywhere, for free.">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
+  <style>
+    /* ------------------------------
+       Reset + Color Scheme
+       ------------------------------ */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary-color: #0077cc;
+      --secondary-color: #f0f4f8;
+      --accent-color: #ffcc00;
+      --text-color: #333;
+      --background-color: #ffffff;
+      --footer-bg: #e0e0e0;
     }
-   #result {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-top: 20px;
+
+    /* ------------------------------
+       Base
+       ------------------------------ */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
-    
-  .form-group {
-      margin-bottom: 20px;
+
+    .container { max-width: 1200px; margin: auto; padding: 20px; }
+
+    /* ------------------------------
+       Navbar styling
+       ------------------------------ */
+    .nav-bg { background-color: #0D47A1; }
+    .nav-h1-color { color: #fff; font-family: "Roboto"; font-size: 2rem; }
+    #navItem2 { color: #fff; font-family: "Roboto"; }
+    #navItem2:hover { text-decoration: underline; }
+
+    /* Compact navbar overrides for consistent height */
+    .navbar { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+    .navbar-brand { padding: 0; }
+    .navbar-brand h1, .nav-h1-color {
+      font-size: 1.5rem; /* normalize height */
+      margin: 0;          /* remove default h1 margins */
+      line-height: 1.2;
     }
-    input, select{
-      width: 100%;
+    .navbar-nav .nav-link { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+
+    @media (max-width: 991.98px) {
+      .navbar { padding-top: 0.35rem; padding-bottom: 0.35rem; }
+    }
+
+    /* ------------------------------
+       Sections / Cards / Buttons
+       ------------------------------ */
+    section {
+      padding: 30px 20px;
+      background-color: var(--secondary-color);
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    section h2 {
+      color: var(--text-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    section ul { list-style-type: none; padding-left: 0; }
+    section ul li { margin-bottom: 8px; }
+    section ul li a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+    section ul li a:hover { text-decoration: underline; }
+
+    .card-3 {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-style: solid;
+      border-color: gold;
+      margin-left: 10px;
+    }
+    .card-1 {
+      background-color: #f8f7f4;
+      border-style: solid;
+      border-radius: 10px;
       padding: 10px;
-      font-size: 1rem;
+      width: 300px;
+      border-color: #fff;
+      height: 55vh;
+      margin-left: 10px;
     }
+    .card-2 { border-style: solid; border-radius: 10px; padding: 15px; }
+
+    .btn-2 { border-style: solid; border-radius: 10px; width: 250px; border-color: rgb(187,168,59); margin-left: 10px; margin-top: 10px; text-align: center; }
+    .btn-2 a { display: inline-block; margin: 5px 0; }
+
+    ul { list-style: none; padding: 0; }
+
+    .dropdown { display: inline-block; margin: 5px 0; background-color: #333; color: #2e86c1; list-style: none; }
+    .dropdown-menu { background-color: #FFFFFF; border: 1px solid #E0E0E0; width: auto; }
+    .dropdown-item { color: #000; }
+    .dropdown-item:hover { background-color: #1976D2; color: #fff; }
+
+    .dropdown-in { background-color: #E0E0E0; text-align: center; border-style: solid; border-radius: 10px; border-color: gold; }
+
+    /* ------------------------------
+       Footer
+       ------------------------------ */
+    footer {
+      background-color: #0D47A1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a { color: #FFFFFF; margin: 0 5px; text-decoration: none; }
+    footer a:hover { text-decoration: underline; color: black; }
+
+    /* ------------------------------
+       Responsive tweaks
+       ------------------------------ */
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; align-items: center; }
+      header h1 { font-size: 1.5rem; }
+      section { padding: 20px 15px; }
+      footer { font-size: 0.8rem; }
+      .card-3 { margin-bottom: 20px; }
+      .btn-2 a, .dropdown a.btn { width: 100%; text-align: left; }
+      .dropdown-menu { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      nav ul { gap: 10px; }
+      nav ul li a { font-size: 0.9rem; }
+      section h2 { font-size: 1.25rem; }
+    }
+
+    /* Optional smooth scroll */
+    html { scroll-behavior: smooth; }
   </style>
 </head>
+
 <body>
-  
-<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
-<div class="container">
-<a class="navbar-brand" href="/index.html">
-<h1 class="nav-h1-color">Easy Converters</h1>
-</a>
-<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav ml-auto">
-<a class="nav-link active" href="/index.html#maths-s" id="navItem2">Home <span class="sr-only">(current)</span></a>
-<a class="nav-link" href="/index.html#contents-s" id="navItem2">Contents</a>
-<a class="nav-link" href="/index.html#misc-s" id="navItem2">Miscellaneous</a>
-<a class="nav-link" href="/index.html#Online-tools-s" id="navItem2">Online tools</a>
-<a class="nav-link" href="/index.html#content-categories-s" id="navItem2">Content Categories</a>
-</div>
-</div>
-</div>
-</nav>
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <h1 class="nav-h1-color">Easy Converters</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" id="navItem2" href="#maths-s">Maths</a>
+          <a class="nav-link" id="navItem2" href="#misc-s">Misc</a>
+          <a class="nav-link" id="navItem2" href="#Online-tools-s">Online tools</a>
+          <a class="nav-link" id="navItem2" href="#content-categories-s">Content Categories</a>
+          <a class="nav-link" id="navItem2" href="#contents-s">Contents</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
 
+<main class="container">
+  <!-- Maths Section -->
+  <section id="maths-s">
+    <div class="card-3">
+      <h2>Math Calculators</h2>
+      <ul>
+        <li class="btn-2"><a href="calculators/math/scientific-calculator.html">Scientific calculator</a></li>
+        <li class="btn-2"><a href="calculators/math/percentage-calculator.html">Percentage calculator</a></li>
+        <li class="btn-2"><a href="calculators/math/fraction-calculator.html">Fraction calculator</a></li>
+        <li class="btn-2"><a href="calculators/math/average-calculator.html">Average calculator</a></li>
+      </ul>
+    </div>
+  </section>
 
+  <!-- Misc Section -->
+  <section id="misc-s">
+    <div class="card-3">
+      <h2>Miscellaneous calculators</h2>
+      <ul>
+        <li class="btn-2"><a href="calculators/misc-calculators/grade-calculator.html">Grade calculator</a></li>
+        <li class="btn-2"><a href="calculators/misc-calculators/gpa-calculator.html">GPA calculator</a></li>
+        <li class="btn-2"><a href="calculators/misc-calculators/final-grade-calculator.html">Final grade calculator</a></li>
+        <li class="btn-2"><a href="calculators/misc-calculators/mortgage-calculator.html">Mortgage calculator</a></li>
+        <li class="btn-2"><a href="calculators/misc-calculators/compound-interest-calculator.html">Compound interest calculator</a></li>
+        <li class="btn-2"><a href="calculators/misc-calculators/bmi-calculator.html">BMI calculator</a></li>
+      </ul>
+    </div>
+  </section>
 
+  <!-- Online Tools Section -->
+  <section id="Online-tools-s">
+    <div class="card-3">
+      <h2>Online Tools</h2>
+      <ul>
+        <li class="btn-2"><a href="calculators/tools/online-notepad.html">Online notepad</a></li>
+        <li class="btn-2"><a href="calculators/tools/rgb-color-codes.html">RGB color codes</a></li>
+        <li class="btn-2"><a href="calculators/tools/ascii-table.html">ASCII table</a></li>
+      </ul>
+    </div>
+  </section>
 
-<nav aria-label="Breadcrumb" class="breadcrumb container mt-3">
-<a href="#">Home</a> <span>&gt;</span>
-<a href="#">Content Categories</a> <span>&gt;</span>
-<a href="#"></a>
-</nav>
+  <!-- Content Categories Section -->
+  <section id="content-categories-s">
+    <div class="card-3">
+      <h2>Content Categories</h2>
 
+      <!-- Dropdown 1 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown1" data-toggle="dropdown">Calculate Calculators</a>
+        <div class="dropdown-menu dropdown-in mr-4">
+          <a class="dropdown-item dropdown-in" href="calculators/content/calculators-2/electrical-calculators.html">Electrical Calculators</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/calculators-2/financial-calculators.html">Financial calculators</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/calculators-2/grade-calculators.html">Grade Calculators</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/calculators-2/lighting-calculators.html">Lighting calculators</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/calculators-2/wire-Gauge-calculators.html">Wire Gauge calculators</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/calculators-2/Time-date-calculators.html">Time & Date Calculators</a>
+        </div>
+      </li><br>
 
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown5" data-toggle="dropdown">Mathematics</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item dropdown-in mb-2" href="calculators/content/mathematical.html">Mathematics</a>
+        </div>
+      </li><br>
 
+      <!-- Dropdown 2 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown">Conversion</a>
+        <div class="dropdown-menu dropdown-in">
+          <a class="dropdown-item dropdown-in mb-2" href="calculators/content/conversions/energy-conversion.html">Energy Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/length-conversion.html">Length Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/number-conversion.html">Number Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/power-conversion.html">Power Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/temperature-conversion.html">Temperature Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/weight-conversion.html">Weight Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/voltage-conversion.html">Voltage Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/frequency-conversion.html">Frequency Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/color-conversion.html">Color Converter</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/conversions/image-conversion.html">Image Converter</a>
+        </div>
+      </li><br>
 
+      <!-- Dropdown 3 -->
+      <li class="dropdown">
+        <a class="btn btn-secondary btn-2 dropdown-toggle" href="#" id="dropdown3" data-toggle="dropdown">Web Design</a>
+        <div class="dropdown-menu dropdown-in">
+          <a class="dropdown-item dropdown-in" href="calculators/content/web-design/web-color.html">Web color</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/web-design/web-html.html">Web HTML</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/web-design/web-tools.html">Web Tools</a>
+          <a class="dropdown-item dropdown-in" href="calculators/content/web-design/web-development.html">Web development</a>
+        </div>
+      </li><br>
 
-<div class="description">
-  <h1>About</h1>
-<p>EasyTables provides quick reference information and useful tools.</p>
-<p>Please review our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a> pages.</p>
+    </div>
+  </section>
 
-<h2>Energy Usage</h2>
-<p>EasyTables operates on Linode/Equinix servers powered by 100% renewable energy, and Cloudflare servers also run on 100% renewable energy.</p>
+  <!-- Contents Section -->
+  <section id="contents-s">
+    <div class="card-3">
+      <h2>CONTENTS</h2>
+      <ul>
+        <li class="btn-2"><a href="calculators/online-contents/online-tools.html">Online Tools</a></li>
+        <li class="btn-2"><a href="calculators/online-contents/text-tools.html">Text Tools</a></li>
+        <li class="btn-2"><a href="calculators/online-contents/pdf-tools.html">PDF Tools</a></li>
+        <li class="btn-2"><a href="calculators/online-contents/code.html">Code</a></li>
+        <li class="btn-2"><a href="calculators/online-contents/ecology.html">Ecology</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
 
-<h3>Frequently Asked Questions</h3>
-<p>We recommend reviewing the <a href="#">Frequently Asked Questions</a> page first.</p>
-
-<h4>Send Feedback</h4>
-<p>Your input is valuable to help improve this site. Please share your feedback using the form below.</p>
-<p>We welcome feedback on:</p>
-<ul>
-  <li>Suggestions</li>
-  <li>Missing content</li>
-  <li>Corrections</li>
-  <li>Spelling errors</li>
-</ul>
-
-<h5>Terms of Use / Disclaimer</h5>
-<p>The information and tools provided on this website are offered "AS IS" without any warranty of any kind.</p>
-<p>EasyTables and its contributors are not liable for any damages or losses resulting from the use of the content or tools on this site.</p>
-<p>EasyTables uses cookies as described in the <a href="#">Privacy Policy</a>. By using this site, you agree to the use of cookies.</p>
-<p>You may not access EasyTables using automated scripts or applications without prior written permission.</p>
-
-<h6>Agreement</h6>
-<p>By using this site, you accept the Terms of Use. These terms may be updated periodically.</p>
-
-</div>
-
-
-
-
-
-
-
+<!-- Footer -->
 <footer>
-<div class="container">
-<p>
-<a href="#">Link to Us</a> |
-        <a href="#">Send Feedback</a> |
-        <a href="#">Terms of Use</a> |
-        <a href="#">Privacy Policy</a>
-</p>
-<p>© EasyTables.com</p>
-</div>
+  <div class="container">
+    <p>
+      <a href="/about.html">About</a> |
+      <a href="/terms.html">Terms of Use</a> |
+      <a href="/send-feedback.html">Send Feedback</a>
+    </p>
+    <p>
+      <a href="/index.html">© EasyTables.com </a>|
+      <a href="/terms.html">Terms of Use</a> |
+      <a href="/privicy-policy.html">Privacy Policy</a> |
+      <a href="/cookies.html">Manage Cookies</a>
+    </p>
+  </div>
 </footer>
 
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
+  // Keep content offset equal to actual fixed navbar height
   function adjustTopPadding() {
     const nav = document.querySelector('.navbar.fixed-top');
     if (!nav) return;
@@ -139,16 +315,5 @@
   window.addEventListener('load', adjustTopPadding);
   window.addEventListener('resize', adjustTopPadding);
 </script>
-
-<script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
-  }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
-</script>
-
 </body>
 </html>
