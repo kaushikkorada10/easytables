@@ -10,66 +10,27 @@
    <meta name="theme-color" content="#0f41ff"><!-- matches your gradient -->
 
   <meta name="description" content="Easy Tables is your all-in-one online calculator and converter platform. Instantly perform math calculations, convert units, analyze data, and access everyday tools. Whether it's scientific formulas, financial estimates, or text utilities, Easy Tables delivers fast, accurate results with a clean and user-friendly experience — anytime, anywhere, for free.">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  
   <link rel="stylesheet" href="assets/css/style.css"/>
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
   <style>
-/* ===== Make main page navbar identical to reference ===== */
+    body {
+      background-color: #F5F5F5;
+      color: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-/* 1) Restore Bootstrap-like navbar padding */
-.navbar{
-  padding-top: .5rem;     /* same as reference */
-  padding-bottom: .5rem;  /* same as reference */
-}
+    .nav-bg {
+      background-color: #0D47A1;
+    }
 
-/* 2) Kill the extra vertical padding added by your global .container rule */
-.navbar .container{
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  display: flex;
-  align-items: center;     /* vertical centering */
-  min-height: 56px;        /* reference feel */
-}
-
-/* 3) Brand sizing/margins exactly like reference */
-.navbar-brand{
-  padding: 0;
-  margin-right: 1rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-.navbar-brand h1,
-.nav-h1-color{
-  font-size: 2rem;         /* reference */
-  margin: 0;               /* remove default h1 margins */
-  line-height: 1.2;
-}
-
-/* 4) Link paddings (keep compact but readable) */
-.navbar-nav .nav-link{
-  padding: .5rem .75rem;
-  line-height: 1.2;
-}
-
-/* 5) Your white link style without breaking height (fixed typo) */
-.navbar-nav .nav-link.text-white{
-  padding: 0px;            /* if you want even tighter links; otherwise remove this line */
-}
-
-/* 6) Toggler compact on mobile */
-.navbar-toggler{
-  padding: .25rem .5rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-
-/* 7) Collapse shouldn't add y-padding */
-@media (min-width: 992px) {   /* lg breakpoint and up */
-  .navbar-nav {
-    gap: 1.5rem;   /* wider spacing on large screens */
-  }
-}
+    .nav-h1-color {
+      color: white;
+      font-family: "roboto";
+      font-size: 2rem;
+    }
 
     .nav-bg {
       background-color: #0D47A1;
@@ -182,30 +143,10 @@
       background-color: gray;
       padding: 15px;
     }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-    .dropdown-in{
-      background-color: #E0E0E0;
-      text-align: center;
-      border-style: solid;
-      border-radius: 10px;
-      border-color: gold;
-    }
-    @media (min-width: 992px) {
-  .navbar-nav {
-    gap: 1.25rem;
-    padding: 0 1.5rem;   /* extra end spacing on large screens */
+ 
+  html{
+    scroll-behavior: smooth;
   }
-}
     .text-white { color: white; font-family: "Roboto"; }
     .text-white:hover { text-decoration: underline; color: #fff; }
   </style>
@@ -213,28 +154,27 @@
 
 <body>
 
-<header>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top " >
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <h1 class="nav-h1-color ">Easy Converters</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link text-white active" href="#maths-s">Maths</a>
-          <a class="nav-link text-white" href="#misc-s">Misc</a>
-          <a class="nav-link text-white" href="#Online-tools-s">Online tools</a>
-          <a class="nav-link text-white" href="#content-categories-s" >Content Categories</a>
-          <a class="nav-link text-white" href="#contents-s" >Contents</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
+<div class="container">
+<a class="navbar-brand" href="index.html">
+<h1 class="nav-h1-color">Easy Converters</h1>
+</a>
+<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav ml-auto">
+<a class="nav-link text-white active" href="index.html#maths-s" >Home <span class="sr-only">(current)</span></a>
+<a class="nav-link text-white" href="index.html#contents-s" >Contents</a>
+<a class="nav-link text-white" href="index.html#misc-s" >Miscellaneous</a>
+<a class="nav-link text-white" href="index.html#Online-tools-s" >Online tools</a>
+<a class="nav-link text-white" href="index.html#content-categories-s" >Content Categories</a>
+</div>
+</div>
+</div>
+</nav>
+
 
 <main class="container">
   <!-- Maths Section -->
