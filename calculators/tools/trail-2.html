@@ -40,73 +40,63 @@
   .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:#fff}
   .btn--dark{background:#111;color:#fff;border-color:#111}
 
-  /* --- replace your existing intro headline + arch styles with these --- */
+  /* Intro (pinned area) */
+  .intro{ height: 240vh; }
+  .intro__sticky{ position:sticky; top:0; height:100vh; overflow:hidden; }
 
-/* Intro (pinned area stays the same) */
-.intro{ height: 240vh; }            /* a bit more room for the motion */
-.intro__sticky{ position:sticky; top:0; height:100vh; overflow:hidden; }
+  .intro__headline{
+    position: relative;
+    max-width:min(1200px, 92vw);
+    margin: 0 auto;
+    padding-top: clamp(36px, 8vh, 80px);
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 5;
+    text-align: center;
+  }
+  .intro__headline-top{
+    font-size:clamp(36px,6vw,96px);
+    font-weight:900;
+    line-height:1.02;
+    letter-spacing:-.02em;
+    margin:0 0 .2em 0;
+  }
+  .intro__headline-em{
+    display:block;
+    font-family:"Playfair Display", serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(60px,13vw,180px);
+    line-height:.9;
+    letter-spacing:.01em;
+    margin:0 0 .6em 0;
+    opacity:1;
+  }
 
-/* Headline sits ABOVE the image, centered like the reference */
-.intro__headline{
-  position: relative;               /* was absolute */
-  max-width:min(1200px, 92vw);
-  margin: 0 auto;
-  padding-top: clamp(36px, 8vh, 80px);
-  padding-left: 20px;
-  padding-right: 20px;
-  z-index: 5;
-  text-align: center;
-}
-.intro__headline-top{
-  font-size:clamp(36px,6vw,96px);
-  font-weight:900;
-  line-height:1.02;
-  letter-spacing:-.02em;
-  margin:0 0 .2em 0;
-}
-.intro__headline-em{
-  display:block;
-  font-family:"Playfair Display", serif;
-  font-style:italic;
-  font-weight:500;
-  font-size:clamp(60px,13vw,180px);
-  line-height:.9;
-  letter-spacing:.01em;
-  margin:0 0 .6em 0;                /* space between headline and the image */
-  opacity:1;
-}
-
-/* Arch stage under the headline */
-.arch-stage{ position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; }
-
-/* Arch starts small and LOWER; we animate --y with JS */
-.arch{
-  --w: 60vw;
-  --h: 50vh;
-  --r: 160px;
-  --y: 16vh;                        /* initial downward offset (moves up as you scroll) */
-  width:var(--w);
-  height:var(--h);
-  border-radius: var(--r) var(--r) 0 0 / var(--r) var(--r) 0 0;
-  overflow:hidden;
-  box-shadow:0 30px 60px rgba(0,0,0,.18);
-  background:#000;
-  transform: translateY(var(--y));  /* << new */
-  will-change: width, height, border-radius, transform;
-}
-.arch__img{
-  width:100%; height:100%; object-fit:cover;
-  transform-origin:center center;
-  transform:scale(.88);             /* small at start */
-  will-change:transform;
-}
-
+  .arch-stage{ position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; }
+  .arch{
+    --w: 60vw; --h: 50vh; --r: 160px; --y: 16vh;
+    width:var(--w);
+    height:var(--h);
+    border-radius: var(--r) var(--r) 0 0 / var(--r) var(--r) 0 0;
+    overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,.18);
+    background:#000;
+    transform: translateY(var(--y));
+    will-change: width, height, border-radius, transform;
+  }
+  .arch__img{
+    width:100%; height:100%; object-fit:cover;
+    transform-origin:center center;
+    transform:scale(.88);
+    will-change:transform;
+  }
 
   .mouse{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:26px;height:42px;border:2px solid rgba(0,0,0,.45);border-radius:20px}
   .mouse::after{content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);width:4px;height:8px;background:rgba(0,0,0,.65);border-radius:2px;animation:wheel 1.6s ease-in-out infinite}
   @keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,10px)}}
 
-  /* Sections (same as before) */
+  /* Sections */
   .section{ max-width:1200px; margin:0 auto; padding:100px 20px; }
   .section__head{ display:flex; justify-content:space-between; align-items:end; gap:16px; margin-bottom:32px }
   .section__title{ font-family:"Playfair Display", serif; font-size:32px; margin:0; line-height:1.2; }
@@ -149,33 +139,38 @@
   .reveal.is-visible{ opacity:1; transform:none; filter:none }
   .delay-1{ transition-delay:.08s } .delay-2{ transition-delay:.16s } .delay-3{ transition-delay:.24s }
 
-  /* === Background fader layer (fixed to viewport) === */
-.bg-fader{
-  position: fixed;
-  inset: 0;
-  background: #000;
-  opacity: 0;                 /* JS animates this 0 → data-fade-max → 0 */
-  pointer-events: none;
-  z-index: 0;                 /* content stacks above by default */
-  transition: opacity .18s linear; /* small smoothing between frames */
-}
+  /* ===== Fade target: full-bleed background layer ===== */
+  .fade-target{
+    position: relative;
+    z-index: 0;                /* create stacking context for ::before */
+    --fade-opacity: 0;         /* JS writes this 0→max→0 */
+  }
+  /* Full width (100vw) layer centered under the section content */
+  .fade-target::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;              /* full viewport width */
+    height: 100%;
+    background: #000;
+    opacity: var(--fade-opacity, 0);
+    pointer-events: none;
+    z-index: -1;               /* sit behind section content */
+  }
 
-/* Optional: make text in the fading section readable on dark */
-.theme-fade.is-dark .section__title{ color:#f5f5f5 }
-.theme-fade.is-dark .section__sub{ color:#d6d6d6 }
-  
-
+  /* readable text when it’s dark */
+  .fade-target.is-dark .section__title{ color:#f5f5f5 }
+  .fade-target.is-dark .section__sub{ color:#d6d6d6 }
 </style>
 </head>
 <body>
 
 <header class="header">
   <nav class="nav">
-    <a href="#" class="brand"><span class="brand__dot"></span><span class="brand__name">nueve.<sup style="font-weight:400;font-size:.65em;opacity:.6"> (9)</sup></span></a>
+    <a href="#" class="brand"><span class="brand__dot"></span><span class="brand__name">Cificap<sup style="font-weight:400;font-size:.65em;opacity:.6"> (9)</sup></span></a>
     <div class="nav__links">
-      <a href="#residences">Residences</a>
-      <a href="#experiences">Experiences</a>
-      <a href="#gallery">Gallery</a>
       <a href="#contact" class="btn">Contact</a>
       <a href="#book" class="btn btn--dark">Book</a>
     </div>
@@ -205,63 +200,60 @@
     <div class="mouse" aria-hidden="true"></div>
   </div>
 </section>
-<!-- Page background fader (sits behind everything) -->
-<div class="bg-fader" id="bgFader" aria-hidden="true">
 
-    <section id="residences" class="section" data-fade-max="0.92" >
-      <div class="section__head">
-        <h2 class="section__title reveal">Residences</h2>
-        <p class="section__sub reveal delay-1">Sunny interiors, calm palettes, and everything necessary for a slow summer—kitchens ready to cook, terraces ready to linger.</p>
+<!-- Residences: gradual full-bleed fade -->
+<section id="residences" class="section fade-target" data-fade-max="0.92">
+  <div class="section__head">
+    <h2 class="section__title reveal">Residences</h2>
+    <p class="section__sub reveal delay-1">Sunny interiors, calm palettes, and everything necessary for a slow summer—kitchens ready to cook, terraces ready to linger.</p>
+  </div>
+
+  <div class="cards">
+    <article class="card reveal">
+      <div class="card__media">
+        <img alt="Village House exterior" src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop" loading="lazy">
       </div>
-
-      <div class="cards">
-        <article class="card reveal">
-          <div class="card__media">
-            <img alt="Village House exterior" src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop" loading="lazy">
-          </div>
-          <div class="card__body">
-            <span class="badge">Sleeps 5</span>
-            <h3 class="card__title">Village House</h3>
-            <div class="meta">2 bedrooms · 1 bath · <strong>63 m²</strong></div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-1">
-          <div class="card__media">
-            <img alt="Olive Grove studio" src="https://images.unsplash.com/photo-1600566753151-384129cf4e3b?q=80&w=1600&auto=format&fit=crop" loading="lazy">
-          </div>
-          <div class="card__body">
-            <span class="badge">Sleeps 2</span>
-            <h3 class="card__title">Olive Grove Studio</h3>
-            <div class="meta">1 bedroom · 1 bath · <strong>32 m²</strong></div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-2">
-          <div class="card__media">
-            <img alt="Sea View Loft" src="https://images.unsplash.com/photo-1560185008-b033106af2fb?q=80&w=1600&auto=format&fit=crop" loading="lazy">
-          </div>
-          <div class="card__body">
-            <span class="badge">Sleeps 4</span>
-            <h3 class="card__title">Sea View Loft</h3>
-            <div class="meta">1 bedroom · 1 bath · <strong>48 m²</strong></div>
-          </div>
-        </article>
-
-            <article class="card reveal delay-2">
-          <div class="card__media">
-            <img alt="Sea View Loft" src="https://images.unsplash.com/photo-1560185008-b033106af2fb?q=80&w=1600&auto=format&fit=crop" loading="lazy">
-          </div>
-          <div class="card__body">
-            <span class="badge">Sleeps 4</span>
-            <h3 class="card__title">Sea View Loft</h3>
-            <div class="meta">1 bedroom · 1 bath · <strong>48 m²</strong></div>
-          </div>
-        </article>
+      <div class="card__body">
+        <span class="badge">Sleeps 5</span>
+        <h3 class="card__title">Village House</h3>
+        <div class="meta">2 bedrooms · 1 bath · <strong>63 m²</strong></div>
       </div>
-    </section>
+    </article>
 
-</div>
+    <article class="card reveal delay-1">
+      <div class="card__media">
+        <img alt="Olive Grove studio" src="https://images.unsplash.com/photo-1528756514091-dee5ecaa3278?q=80&w=1200&auto=format&fit=crop" loading="lazy">
+      </div>
+      <div class="card__body">
+        <span class="badge">Sleeps 2</span>
+        <h3 class="card__title">Olive Grove Studio</h3>
+        <div class="meta">1 bedroom · 1 bath · <strong>32 m²</strong></div>
+      </div>
+    </article>
+
+    <article class="card reveal delay-2">
+      <div class="card__media">
+        <img alt="Sea View Loft" src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1200&auto=format&fit=crop" loading="lazy">
+      </div>
+      <div class="card__body">
+        <span class="badge">Sleeps 4</span>
+        <h3 class="card__title">Sea View Loft</h3>
+        <div class="meta">1 bedroom · 1 bath · <strong>48 m²</strong></div>
+      </div>
+    </article>
+
+    <article class="card reveal delay-2">
+      <div class="card__media">
+        <img alt="Sea View Loft" src="https://images.unsplash.com/photo-1484482340112-e1e2682b4856?q=80&w=1600&auto=format&fit=crop" loading="lazy">
+      </div>
+      <div class="card__body">
+        <span class="badge">Sleeps 4</span>
+        <h3 class="card__title">Sea View Loft</h3>
+        <div class="meta">1 bedroom · 1 bath · <strong>48 m²</strong></div>
+      </div>
+    </article>
+  </div>
+</section>
 
 <section id="experiences" class="section">
   <div class="section__head">
@@ -299,10 +291,10 @@
   </div>
 
   <div class="gallery">
-    <figure class="gallery__item reveal"><img alt="Interior 1" src="https://images.unsplash.com/photo-1600585154781-3e4c3b4f7d79?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
+    <figure class="gallery__item reveal"><img alt="Interior 1" src="https://images.unsplash.com/photo-1528756514091-dee5ecaa3278?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
     <figure class="gallery__item reveal delay-1"><img alt="Interior 2" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
     <figure class="gallery__item reveal delay-2"><img alt="Interior 3" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
-    <figure class="gallery__item reveal"><img alt="Exterior 1" src="https://images.unsplash.com/photo-1505692794403-34d498efab1b?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
+    <figure class="gallery__item reveal"><img alt="Exterior 1" src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
     <figure class="gallery__item reveal delay-1"><img alt="Pool" src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
     <figure class="gallery__item reveal delay-2"><img alt="Breakfast patio" src="https://images.unsplash.com/photo-1528756514091-dee5ecaa3278?q=80&w=1200&auto=format&fit=crop" loading="lazy"></figure>
   </div>
@@ -314,7 +306,7 @@
     <p class="section__sub reveal delay-1">Questions, dates, or custom stays—send a note and we’ll help plan your time by the sea.</p>
   </div>
 
-  <div class="contact reveal">
+  <div class="contact reveal" style="background-color: black;">
     <form id="book" class="grid">
       <div class="field">
         <label class="label" for="name">Full name</label>
@@ -339,7 +331,7 @@
       <div><button class="btn btn--dark" type="submit">Request availability</button></div>
     </form>
 
-    <div>
+    <div >
       <h3 style="margin:.2rem 0 .5rem 0">Contact</h3>
       <p class="meta">Patras region, Greece<br>+30 210 000 0000<br>hello@nueve.example</p>
       <div style="height:10px"></div>
@@ -364,7 +356,7 @@ const io = new IntersectionObserver((entries) => {
 },{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* Pinned intro animation — small & lower → arch → fullscreen */
+/* Pinned intro animation (unchanged) */
 (function(){
   const arch    = document.getElementById('arch');
   const img     = document.getElementById('archImg');
@@ -376,15 +368,13 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   function update(){
     const rect = section.getBoundingClientRect();
-    const total = section.offsetHeight - sticky.offsetHeight; // scrollable distance
+    const total = section.offsetHeight - sticky.offsetHeight;
     const scrolled = clamp(-rect.top, 0, total);
-    const p = total ? scrolled / total : 0; // 0..1 overall progress
+    const p = total ? scrolled / total : 0;
 
-    // two phases: (1) small → nice arch, (2) arch → full-bleed
     const split = 0.6;
 
     if (p <= split) {
-      // Phase 1: grow the small image into a centered arch and slide upward a bit
       const t = (p / split);
       const ease = t * t;
 
@@ -401,34 +391,32 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       arch.style.setProperty('--h', h + 'px');
       arch.style.setProperty('--r', r + 'px');
 
-      // NEW: move arch up from below the headline
-      const y = lerp(16, 6, ease);         // vh: start 16vh below → 6vh below
+      const y = lerp(16, 6, ease);
       arch.style.setProperty('--y', y + 'vh');
 
-      // Image: start smaller → almost natural
       const scale = lerp(0.85, 1.02, ease);
       img.style.transform = `scale(${scale})`;
 
     } else {
-      // Phase 2: arch → FULLSCREEN (radius → 0) and align to top (y → 0)
       const t = (p - split) / (1 - split);
-      const ease = 1 - (1 - t) * (1 - t); // ease-out
+      const ease = 1 - (1 - t) * (1 - t);
 
-      const currentW = parseFloat(getComputedStyle(arch).getPropertyValue('--w'));
-      const currentH = parseFloat(getComputedStyle(arch).getPropertyValue('--h'));
-      const currentR = parseFloat(getComputedStyle(arch).getPropertyValue('--r'));
+      const cs = getComputedStyle(arch);
+      const w0 = parseFloat(cs.getPropertyValue('--w'));
+      const h0 = parseFloat(cs.getPropertyValue('--h'));
+      const r0 = parseFloat(cs.getPropertyValue('--r'));
+      const y0 = parseFloat(cs.getPropertyValue('--y'));
 
-      const w = lerp(currentW, window.innerWidth, ease);
-      const h = lerp(currentH, window.innerHeight, ease);
-      const r = lerp(currentR, 0, ease);
-      const y = lerp(parseFloat(getComputedStyle(arch).getPropertyValue('--y')), 0, ease);
+      const w = lerp(w0, window.innerWidth, ease);
+      const h = lerp(h0, window.innerHeight, ease);
+      const r = lerp(r0, 0, ease);
+      const y = lerp(y0, 0, ease);
 
       arch.style.setProperty('--w', w + 'px');
       arch.style.setProperty('--h', h + 'px');
       arch.style.setProperty('--r', r + 'px');
       arch.style.setProperty('--y', y + 'vh');
 
-      // Slight extra scale so edges are safely covered
       const scale = lerp(1.02, 1.15, ease);
       img.style.transform = `scale(${scale})`;
     }
@@ -437,6 +425,42 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   update();
   window.addEventListener('scroll', update, { passive:true });
   window.addEventListener('resize', update);
+})();
+
+/* ===== Smooth white→black→white fade for #residences (full-bleed) ===== */
+(function(){
+  const target = document.getElementById('residences');
+  const maxOpacity = parseFloat(target.getAttribute('data-fade-max') || '0.92');
+
+  function clamp(n,min,max){ return Math.max(min, Math.min(max, n)); }
+
+  function onScroll(){
+    const rect = target.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    // progress 0→1 across the section
+    const progress = clamp(1 - (rect.bottom / (vh + rect.height)), 0, 1);
+
+    // triangular ease: 0→1→0
+    let t = progress < 0.5 ? (progress / 0.5) : (1 - (progress - 0.5) / 0.5);
+    t = clamp(t, 0, 1);
+
+    const darkness = t * maxOpacity;
+
+    // drive the ::before layer opacity (full width)
+    target.style.setProperty('--fade-opacity', darkness.toFixed(3));
+
+    // flip text tones when dark enough
+    if (darkness > 0.45) {
+      target.classList.add('is-dark');
+    } else {
+      target.classList.remove('is-dark');
+    }
+  }
+
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
 })();
 
 /* Booking demo + footer year (unchanged) */
@@ -448,9 +472,6 @@ document.getElementById('book').addEventListener('submit', (e) => {
 });
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
-
-
 
 </body>
 </html>
