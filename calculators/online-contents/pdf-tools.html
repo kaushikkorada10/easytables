@@ -1,93 +1,86 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <title>PDF Tools - Easy Converters</title>
-<meta content="Easy Converters: Free online PDF Tools. Access at  for a fast and accurate PDF Tools tool." name="description"/><meta charset="utf-8"/>
+<meta content="Easy Converters: Free online PDF Tools. Access at for a fast and accurate PDF Tools tool." name="description"/>
+<meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
-   
-   <meta name="theme-color" content="#0f41ff"><!-- matches your gradient --><link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
-<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
+<meta name="theme-color" content="#0f41ff">
+
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+
 <style>
+.nav-bg { background-color: #0D47A1; }
+.nav-h1-color { color: white; font-family: "Roboto"; font-size: 2rem; }
+#navItem2 { color: white; font-family: "Roboto"; }
+#navItem2:hover { text-decoration: underline; }
 
-.nav-bg{
-    background-color:  #0D47A1;
-}
-.nav-h1-color{
-    color: white;
-    font-family: "roboto";
-    font-size: 2rem;
-}
-#navItem2 {
-  color: white;
-  font-family: "Roboto";
-}
-#navItem2:hover {
-      text-decoration: underline;
-    }
-
+/* Footer full width */
 footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 0.9rem;
-    }
+  background-color: #0D47A1;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 100%;
+}
 
-    footer a {
-      color: #FFFFFF;
-      text-decoration: none;
-      margin: 0 5px;
-    }
+footer a {
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 0 5px;
+}
 
-    footer a:hover {
-      text-decoration: underline;
-      color: black;
-    }
+footer a:hover {
+  text-decoration: underline;
+  color: black;
+}
 
-    .description, .see-also {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #FFFFFF;
-      border-left: 5px solid #1976D2;
-      border-radius: 10px;
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
+.description {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-left: 5px solid #1976D2;
+  border-radius: 10px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+.description h2, .description h3, .description h4 {
+  color: #0D47A1;
+  margin-bottom: 10px;
+}
+.description ul { padding-left: 1.2rem; }
+.description ul li { margin-bottom: 8px; }
+.description a { color: #1976D2; text-decoration: none; }
+.description a:hover { text-decoration: underline; }
 
-    .description h3,
-    .see-also h4 {
-      color: #0D47A1;
-      margin-bottom: 10px;
-    }
+.text-white { color: white; font-family: "Roboto"; }
+.text-white:hover { text-decoration: underline; color: #fff; }
 
-    .see-also ul {
-      list-style: none;
-      padding-left: 0;
-    }
+/* Skip to main content */
+.skip-link {
+  position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed; left: 16px; top: 12px; width: auto; height: auto;
+  background: #fff; color: #000; padding: 8px 12px; z-index: 10000;
+  border: 2px solid #000; border-radius: 6px;
+}
 
-    .see-also ul li {
-      margin-bottom: 8px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-
-    .text-white { color: white; font-family: "Roboto"; }
-    .text-white:hover { text-decoration: underline; color: #fff; }
-  </style>
+/* Focus styles scoped to content */
+main a:focus, main button:focus, main [href]:focus, main [tabindex]:focus {
+  outline: 3px solid #FFD54F;
+  outline-offset: 2px;
+}
+</style>
 </head>
 <body>
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
 <div class="container">
 <a class="navbar-brand" href="../../index.html">
@@ -98,42 +91,43 @@ footer {
 </button>
 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 <div class="navbar-nav ml-auto">
-<a class="nav-link text-white active" href="../../index.html#maths-s" >Home <span class="sr-only">(current)</span></a>
-<a class="nav-link text-white" href="../../index.html#contents-s" >Contents</a>
-<a class="nav-link text-white" href="../../index.html#misc-s" >Miscellaneous</a>
-<a class="nav-link text-white" href="../../index.html#Online-tools-s" >Online tools</a>
-<a class="nav-link text-white" href="../../index.html#content-categories-s" >Content Categories</a>
+<a class="nav-link text-white active" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+<a class="nav-link text-white" href="../../index.html#contents-s">Contents</a>
+<a class="nav-link text-white" href="../../index.html#misc-s">Miscellaneous</a>
+<a class="nav-link text-white" href="../../index.html#Online-tools-s">Online tools</a>
+<a class="nav-link text-white" href="../../index.html#content-categories-s">Content Categories</a>
 </div>
 </div>
 </div>
 </nav>
-<br/>
-<!-- Breadcrumb -->
-<nav aria-label="Breadcrumb" class="breadcrumb container">
-<a href="../../index.html">Home </a> <span>&gt;</span>
-<a href="../../index.html#contents-s">Contents</a> <span>&gt;</span>
-<a >PDF Tools</a>
-</nav>
-<div>
-<!-- The code goes heare-->
-<main class="container">
-<div class="description card">
-<h2>PDF Tools</h2>
-<ul>
-  <li><a href="/calculators/online-contents/pdf-toolsl3/image-pdf.html">Image to PDF converter</a></li>
-  <li><a href="/calculators/online-contents/pdf-toolsl3/jpg-pdf.html">JPG to PDF converter</a></li>
-  <li><a href="/calculators/online-contents/pdf-toolsl3/pdf-viewer.html">PDF viewer</a></li>
-  <li><a href="/calculators/online-contents/pdf-toolsl3/png-pdf.html">PNG to PDF converter</a></li>
-</ul>
 
-</div>
-<!-- Description Blocks -->
-<div class="description">
-<h3>PDF Tools</h3>
-<p>PDF tools are essential for managing, editing, converting, and securing Portable Document Format files...</p>
-<!-- (Keep rest of the detailed content as-is) -->
-</div>
-<div class="description">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="container mt-4">
+<div class="breadcrumb">
+<a href="../../index.html">Home</a> <span>&gt;</span> 
+<a href="../../index.html#contents-s">Contents</a><span>&gt;
+    PDF Tools
+</nav>
+
+
+<!-- Main Content -->
+<main id="main" role="main" class="container">
+  <div class="description card">
+    <h2>PDF Tools</h2>
+    <ul>
+      <li><a href="/calculators/online-contents/pdf-toolsl3/image-pdf.html">Image to PDF converter</a></li>
+      <li><a href="/calculators/online-contents/pdf-toolsl3/jpg-pdf.html">JPG to PDF converter</a></li>
+      <li><a href="/calculators/online-contents/pdf-toolsl3/pdf-viewer.html">PDF viewer</a></li>
+      <li><a href="/calculators/online-contents/pdf-toolsl3/png-pdf.html">PNG to PDF converter</a></li>
+    </ul>
+  </div>
+
+  <div class="description">
+    <h3>PDF Tools</h3>
+    <p>PDF tools are essential for managing, editing, converting, and securing Portable Document Format files...</p>
+  </div>
+
+  <div class="description">
 <h2>PDF Tools – Free Online Solutions to Manage Your PDFs</h2>
 <p>Welcome to Easy Converters’ <strong>PDF Tools</strong> section – your one-stop solution for all things related to Portable Document Format (PDF). Whether you need to merge, split, compress, convert, rotate, or protect PDF files, our browser-based tools make it fast, simple, and completely free. No downloads, no sign-ups, and no limits—just efficient PDF handling on any device.</p>
 <h3>What Are PDF Tools?</h3>
@@ -300,33 +294,42 @@ footer {
 <h3>Final analysis</h3>
 <p>With Easy Converters’ PDF Tools, you no longer need to struggle with bulky software, confusing interfaces, or limited free versions. Our goal is simple: to provide fast, reliable, and free solutions for everything PDF-related. Whether you’re merging documents, converting files, compressing PDFs, or securing confidential data, our tools give you full control without complexity.</p>
 <p><strong>Try Easy Converters’ PDF Tools today—and experience document freedom like never before!</strong></p>
-</div>
-<!-- The code goes heare-->
-</main></div>
-<div class="see-also">
-<h4>See Also</h4>
-<ul>
-<li><a href="online-tools.html">Online Tools</a></li>
-<li><a href="text-tools.html">Text Tools</a></li>
-<li><a href="pdf-tools.html">PDF Tools</a></li>
-<li><a href="code.html">Code</a></li>
-<li><a href="ecology.html">Ecology</a></li>
-</ul>
-</div>
+
+  </div>
+
+  <!-- See Also -->
+  <div class="description">
+    <h4>See Also</h4>
+    <ul>
+      <li><a href="online-tools.html">Online Tools</a></li>
+      <li><a href="text-tools.html">Text Tools</a></li>
+      <!-- removed self-link to PDF Tools -->
+      <li><a href="code.html">Code</a></li>
+      <li><a href="ecology.html">Ecology</a></li>
+    </ul>
+  </div>
+</main>
+
+<!-- Footer full-width -->
 <footer>
-<div class="container">
-        <p>
-          <a href="../../about.html">About</a> |
-          <a href="../../terms.html">Terms of Use</a> |
-          <a href="../../send-feedback.html">Send Feedback</a> 
-        </p>
-        <p>
-          <a href="../../index.html">© Easy Converters </a>|
-          <a href="../../privacy-policy.html">Privacy Policy</a> |
-          <a href="../../cookies.html">Manage Cookies</a>
-        </p>
-</div>
+  <div class="container-fluid">
+    <p>
+      <a href="../../about.html">About</a> |
+      <a href="../../terms.html">Terms of Use</a> |
+      <a href="../../send-feedback.html">Send Feedback</a> 
+    </p>
+    <p>
+      <a href="../../index.html">© Easy Converters </a>|
+      <a href="../../privacy-policy.html">Privacy Policy</a> |
+      <a href="../../cookies.html">Manage Cookies</a>
+    </p>
+  </div>
 </footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <script>
   function adjustTopPadding() {
     const nav = document.querySelector('.navbar.fixed-top');
@@ -336,6 +339,5 @@ footer {
   window.addEventListener('load', adjustTopPadding);
   window.addEventListener('resize', adjustTopPadding);
 </script>
-
 </body>
 </html>
