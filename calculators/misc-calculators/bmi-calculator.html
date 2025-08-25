@@ -1,481 +1,387 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <title>BMI Calculator - Easy Converters</title>  
-<meta content="Calculate your Body Mass Index, for men, women and kids." name="description"/><meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Calculate your Body Mass Index, for men, women and kids." name="description"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
-   
-   <meta name="theme-color" content="#0f41ff"><!-- matches your gradient --><link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
-<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<style>
+    <meta name="theme-color" content="#0f41ff">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
+    <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-.nav-bg{
-    background-color:  #0D47A1;
-}
-.nav-h1-color{
-    color: white;
-    font-family: "roboto";
-    font-size: 2rem;
-}
-#navItem2 {
-  color: white;
-  font-family: "Roboto";
-}
-#navItem2:hover {
-      text-decoration: underline;
-    }
-
-footer {
-      background-color: #0D47A1;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #FFFFFF;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-      color: black;
-    }
-
-    .description, .see-also {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #FFFFFF;
-      border-left: 5px solid #1976D2;
-      border-radius: 10px;
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-
-    .description h3,
-    .see-also h4 {
-      color: #0D47A1;
-      margin-bottom: 10px;
-    }
-
-    .see-also ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .see-also ul li {
-      margin-bottom: 8px;
-    }
-
-    .see-also a {
-      color: #1976D2;
-      text-decoration: none;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-
- .card-3 {
-      background-color: #FFFFFF;
-      border: 2px solid #E0E0E0;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-      padding: 20px;
-      margin-bottom: 30px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .title {
-      text-align: center;
-      color: #1976D2;
-      margin-bottom: 30px;
-    }
-
-    .card-3 label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-      color: black;
-    }
-
-    .card-3 input {
-      width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1em;
-      box-sizing: border-box;
-    }
-
-    .btn-2 {
-      margin-top: 20px;
-      width: 100%;
-      padding: 14px;
-      background-color: #1976D2;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .btn-2:hover {
-      background-color: #125ca0;
-    }
-
-    .result {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #E3F2FD;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 1.2em;
-      font-weight: bold;
-      color: #154360;
-      min-height: 40px;
-    }
-
-    .description.card-3 {
-      font-size: 1.1em;
-      color: black;
-      line-height: 1.6;
-      background-color: #FFFFFF;
-      border-left: 4px solid #1976D2;
-      padding: 15px 20px;
-    }
-.bmi-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-.bmi-table th, .bmi-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
-
-
-
-    .text-white { color: white; font-family: "Roboto"; }
-    .text-white:hover { text-decoration: underline; color: #fff; }
-  </style>
+    <style>
+        .nav-bg{ background-color:  #0D47A1; }
+        .nav-h1-color{ color: white; font-family: "Roboto"; font-size: 2rem; }
+        #navItem2 { color: white; font-family: "Roboto"; }
+        #navItem2:hover { text-decoration: underline; }
+        footer { background-color: #0D47A1; color: white; padding: 20px 0; text-align: center; font-size: 0.9rem; }
+        footer a { color: #FFFFFF; text-decoration: none; margin: 0 5px; }
+        footer a:hover { text-decoration: underline; color: black; }
+        .description, .see-also { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #FFFFFF; border-left: 5px solid #1976D2; border-radius: 10px; line-height: 1.6; font-size: 1.05rem; }
+        .description h3, .see-also h4 { color: #0D47A1; margin-bottom: 10px; }
+        .see-also ul { list-style: none; padding-left: 0; }
+        .see-also ul li { margin-bottom: 8px; }
+        .see-also a { color: #1976D2; text-decoration: none; }
+        .see-also a:hover { text-decoration: underline; }
+        .card-3 { background-color: #FFFFFF; border: 2px solid #E0E0E0; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.05); padding: 20px; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .title { text-align: center; color: #1976D2; margin-bottom: 30px; }
+        .card-3 label { display: block; margin-top: 10px; font-weight: bold; color: black; }
+        .card-3 input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1em; box-sizing: border-box; }
+        .btn-2 { margin-top: 20px; width: 100%; padding: 14px; background-color: #1976D2; color: white; border: none; border-radius: 8px; font-size: 1.1em; cursor: pointer; transition: background 0.3s ease; }
+        .btn-2:hover { background-color: #125ca0; }
+        .result { margin-top: 20px; padding: 15px; background-color: #E3F2FD; border-radius: 8px; text-align: center; font-size: 1.2em; font-weight: bold; color: #154360; min-height: 40px; }
+        .description.card-3 { font-size: 1.1em; color: black; line-height: 1.6; background-color: #FFFFFF; border-left: 4px solid #1976D2; padding: 15px 20px; }
+        .bmi-table { border-collapse: collapse; width: 100%; margin-bottom: 1rem; }
+        .bmi-table th, .bmi-table td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        .text-white { color: white; font-family: "Roboto"; }
+        .text-white:hover { text-decoration: underline; color: #fff; }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
-<div class="container">
-<a class="navbar-brand" href="../../index.html">
-<h1 class="nav-h1-color">Easy Converters</h1>
-</a>
-<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav ml-auto">
-<a class="nav-link text-white active" href="../../index.html#maths-s" >Home <span class="sr-only">(current)</span></a>
-<a class="nav-link text-white" href="../../index.html#contents-s" >Contents</a>
-<a class="nav-link text-white" href="../../index.html#misc-s" >Miscellaneous</a>
-<a class="nav-link text-white" href="../../index.html#Online-tools-s" >Online tools</a>
-<a class="nav-link text-white" href="../../index.html#content-categories-s" >Content Categories</a>
-</div>
-</div>
-</div>
-</nav>
-<br/>
-<!-- Breadcrumb -->
-<nav aria-label="Breadcrumb" class="breadcrumb container">
-<a href="../../index.html">Home </a> <span>&gt;</span>
-<a href="../../index.html#misc-s">Miscellaneous calculators</a> <span>&gt;</span>
-<a >BMI Calculator</a>
-</nav>
-<div>
-<!-- The code goes heare-->
-<main>
-<h2 class="title">BMI Calculator</h2>
-<div class="card-3 calculator">
-<label for="height">Height (cm):</label>
-<input id="height" placeholder="e.g. 170" type="number"/>
-<label for="weight">Weight (kg):</label>
-<input id="weight" placeholder="e.g. 65" type="number"/>
-<button class="btn-2" onclick="calculateBMI()">Calculate BMI</button>
-<div class="result" id="result"></div><br/>
-<div style="text-align: center; margin-top: 15px;">
-  <a href="bmi-calculator.html" class="btn btn-primary">Clear</a>
-</div></div>
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <h1 class="nav-h1-color">Easy Converters</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link text-white active" href="../../index.html#maths-s">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-white" href="../../index.html#contents-s">Contents</a>
+                    <a class="nav-link text-white" href="../../index.html#misc-s">Miscellaneous</a>
+                    <a class="nav-link text-white" href="../../index.html#Online-tools-s">Online tools</a>
+                    <a class="nav-link text-white" href="../../index.html#content-categories-s">Content Categories</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <br/>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb container">
+        <a href="../../index.html">Home</a> <span>&gt;</span>
+        <a href="../../index.html#misc-s">Miscellaneous calculators</a> <span>&gt;</span>
+        <a>BMI Calculator</a>
+    </nav>
+
+    <main>
+        <h2 class="title">BMI Calculator</h2>
+        <div class="card-3 calculator">
+            <label for="height">Height (cm):</label>
+            <input id="height" placeholder="e.g. 170" type="number"/>
+            <label for="weight">Weight (kg):</label>
+            <input id="weight" placeholder="e.g. 65" type="number"/>
+            <button class="btn-2" onclick="calculateBMI()">Calculate BMI</button>
+            <div class="result" id="result"></div>
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="bmi-calculator.html" class="btn btn-primary">Clear</a>
+            </div>
+        </div>
+
 <div class="description">
-<h3>About BMI Calculator</h3>
-<p>
-      The Body Mass Index (BMI) calculator helps you assess if your weight is within a healthy range based on your height.
-      It’s a quick, simple tool used by healthcare professionals to categorize weight status.
-    </p>
-<p>
-<strong>BMI Categories:</strong><br/>
-      Underweight: BMI &lt; 18.5<br/>
-      Normal weight: 18.5 ≤ BMI &lt; 24.9<br/>
-      Overweight: 25 ≤ BMI &lt; 29.9<br>
-      Obese: BMI ≥ 30
-    </p>
-<div>
-<h3>What is BMI?</h3>
-<p>BMI (Body Mass Index) is a widely used measurement to assess whether a person has a healthy body weight for a given height. It's calculated using a person’s weight in kilograms divided by the square of their height in meters.</p>
-<pre>
-      BMI = Weight (kg) / Height (m)^2
-      </pre>
-<p>This metric helps classify individuals as underweight, normal weight, overweight, or obese.</p>
-<h3>BMI Categories</h3>
-<table class="bmi-table">
-<thead>
-<tr><th>BMI Range</th><th>Category</th></tr>
-</thead>
-<tbody>
-<tr><td>Below 18.5</td><td>Underweight</td></tr>
-<tr><td>18.5 – 24.9</td><td>Normal weight</td></tr>
-<tr><td>25.0 – 29.9</td><td>Overweight</td></tr>
-<tr><td>30.0 and above</td><td>Obese</td></tr>
-</tbody>
-</table><br>
-<h3>Why is BMI Important?</h3>
-<ul>
-<li><strong>Health Indicator:</strong> A high or low BMI can indicate potential health risks.</li>
-<li><strong>Risk Management:</strong> Helps detect obesity-related risks like heart disease, diabetes, and high blood pressure.</li>
-<li><strong>Fitness Monitoring:</strong> Used to set personal fitness or weight management goals.</li>
-<li><strong>Medical Assessment:</strong> Often used by doctors and nutritionists to assess general health.</li>
-</ul>
-<h3>BMI Limitations</h3>
-<ul>
-<li>BMI doesn't differentiate between fat and muscle mass.</li>
-<li>It doesn’t account for gender, age, or ethnicity.</li>
-<li>Athletes or muscular individuals may be misclassified as overweight or obese.</li>
-</ul>
-<h3>Healthy Lifestyle Tips</h3>
-<ul>
-<li>Eat a balanced diet with whole grains, fruits, and vegetables.</li>
-<li>Stay physically active for at least 30 minutes a day.</li>
-<li>Get regular medical check-ups to monitor BMI and other vital signs.</li>
-<li>Stay hydrated and reduce processed food intake.</li>
-</ul>
-<h3>BMI for Children and Teens</h3>
-<p>For individuals under 20, BMI is interpreted differently. It is compared with percentiles for age and gender on a growth chart.</p>
-<ul>
-<li><strong>Underweight:</strong> Less than 5th percentile</li>
-<li><strong>Healthy weight:</strong> 5th to 85th percentile</li>
-<li><strong>Overweight:</strong> 85th to 95th percentile</li>
-<li><strong>Obese:</strong> 95th percentile and above</li>
-</ul>
-<h3>Frequently Asked Questions</h3>
-<h4>🔹 Can I trust BMI as my only health metric?</h4>
-<p>No. While BMI is a good starting point, it should be considered along with other indicators like waist circumference, cholesterol levels, and blood pressure.</p>
-<h4>🔹 What’s the ideal BMI?</h4>
-<p>A BMI between 18.5 and 24.9 is considered ideal for most adults.</p>
-<h4>🔹 Can BMI change quickly?</h4>
-<p>Yes. Weight changes due to diet, hydration, and exercise can shift BMI within days or weeks.</p>
-<h3>How to Use This Calculator</h3>
-<p>This BMI calculator takes your weight (in kg) and height (in cm or meters), performs the BMI formula, and outputs your result with a category label. It’s quick and useful for tracking progress in fitness or weight loss goals.</p>
-<h3>Final analysis</h3>
-<p>BMI is a simple yet powerful tool for monitoring your health status. It helps you stay aware of your weight category and signals when to take action for a healthier lifestyle. Use this calculator regularly to track changes and maintain your well-being.</p>
+  <h3>About BMI Calculator</h3>
+  <p>The Body Mass Index (BMI) calculator helps you assess if your weight is within a healthy range based on your height. It’s a quick, simple tool used by healthcare professionals to categorize weight status.</p>
+  <p>
+    <strong>BMI Categories:</strong><br/>
+    Underweight: BMI &lt; 18.5<br/>
+    Normal weight: 18.5 ≤ BMI &lt; 24.9<br/>
+    Overweight: 25 ≤ BMI &lt; 29.9<br/>
+    Obese: BMI ≥ 30
+  </p>
+
+  <div>
+    <h3>What is BMI?</h3>
+    <p>BMI (Body Mass Index) is a widely used measurement to assess whether a person has a healthy body weight for a given height. It's calculated using a person’s weight in kilograms divided by the square of their height in meters.</p>
+    <pre>BMI = Weight (kg) / Height (m)^2</pre>
+    <p>This metric helps classify individuals as underweight, normal weight, overweight, or obese.</p>
+
+    <h3>BMI Categories</h3>
+    <table class="bmi-table">
+      <thead>
+        <tr><th>BMI Range</th><th>Category</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Below 18.5</td><td>Underweight</td></tr>
+        <tr><td>18.5 – 24.9</td><td>Normal weight</td></tr>
+        <tr><td>25.0 – 29.9</td><td>Overweight</td></tr>
+        <tr><td>30.0 and above</td><td>Obese</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Why is BMI Important?</h3>
+    <ul>
+      <li><strong>Health Indicator:</strong> A high or low BMI can indicate potential health risks.</li>
+      <li><strong>Risk Management:</strong> Helps detect obesity-related risks like heart disease, diabetes, and high blood pressure.</li>
+      <li><strong>Fitness Monitoring:</strong> Used to set personal fitness or weight management goals.</li>
+      <li><strong>Medical Assessment:</strong> Often used by doctors and nutritionists to assess general health.</li>
+    </ul>
+
+    <h3>BMI Limitations</h3>
+    <ul>
+      <li>BMI doesn't differentiate between fat and muscle mass.</li>
+      <li>It doesn’t account for gender, age, or ethnicity.</li>
+      <li>Athletes or muscular individuals may be misclassified as overweight or obese.</li>
+    </ul>
+
+    <h3>Healthy Lifestyle Tips</h3>
+    <ul>
+      <li>Eat a balanced diet with whole grains, fruits, and vegetables.</li>
+      <li>Stay physically active for at least 30 minutes a day.</li>
+      <li>Get regular medical check-ups to monitor BMI and other vital signs.</li>
+      <li>Stay hydrated and reduce processed food intake.</li>
+    </ul>
+
+    <h3>BMI for Children and Teens</h3>
+    <p>For individuals under 20, BMI is interpreted differently. It is compared with percentiles for age and gender on a growth chart.</p>
+    <ul>
+      <li><strong>Underweight:</strong> Less than 5th percentile</li>
+      <li><strong>Healthy weight:</strong> 5th to 85th percentile</li>
+      <li><strong>Overweight:</strong> 85th to 95th percentile</li>
+      <li><strong>Obese:</strong> 95th percentile and above</li>
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+    <h4>🔹 Can I trust BMI as my only health metric?</h4>
+    <p>No. While BMI is a good starting point, it should be considered along with other indicators like waist circumference, cholesterol levels, and blood pressure.</p>
+    <h4>🔹 What’s the ideal BMI?</h4>
+    <p>A BMI between 18.5 and 24.9 is considered ideal for most adults.</p>
+    <h4>🔹 Can BMI change quickly?</h4>
+    <p>Yes. Weight changes due to diet, hydration, and exercise can shift BMI within days or weeks.</p>
+
+    <h3>How to Use This Calculator</h3>
+    <p>This BMI calculator takes your weight (in kg) and height (in cm or meters), performs the BMI formula, and outputs your result with a category label. It’s quick and useful for tracking progress in fitness or weight loss goals.</p>
+
+    <h3>Final Analysis</h3>
+    <p>BMI is a simple yet powerful tool for monitoring your health status. It helps you stay aware of your weight category and signals when to take action for a healthier lifestyle. Use this calculator regularly to track changes and maintain your well-being.</p>
+  </div>
 </div>
-</div>
-</div>
-<!-- The code goes heare-->
-</div>
+
 <div class="description">
-<h1>BMI Calculator: Accurately Assess Your Body Mass Index</h1>
-<p>Welcome to our <strong>BMI Calculator</strong>, the definitive tool to help you understand and track your Body Mass Index (BMI). Whether you’re a fitness enthusiast, healthcare professional, or simply someone looking to maintain a healthy lifestyle, this guide will walk you through the science behind BMI, step-by-step instructions, real-world examples, common pitfalls, and advanced tips to optimize your health journey.</p>
-<h2>What Is Body Mass Index (BMI)?</h2>
-<p>Body Mass Index, or BMI, is a numerical value calculated from an individual’s weight and height. It serves as a quick screening tool to categorize individuals into underweight, normal weight, overweight, and obesity ranges. Originally developed in the 19th century by Belgian statistician Adolphe Quetelet, BMI has become a foundational metric in public health and clinical settings worldwide.</p>
-<h3>Why BMI Matters</h3>
-<p>Monitoring BMI helps identify potential health risks associated with excessive or insufficient body weight. High BMI values have been correlated with increased risk of cardiovascular disease, type 2 diabetes, certain cancers, and musculoskeletal disorders, while low BMI values can indicate malnutrition, weakened immunity, and bone health issues.</p>
-<h4>How BMI Is Used in Medicine</h4>
-<p>Healthcare providers use BMI to guide diagnostic evaluations, recommend weight management strategies, and monitor progress over time. Public health agencies rely on BMI statistics to assess population-level trends and allocate resources for nutritional programs.</p>
-<h5>BMI Versus Other Metrics</h5>
-<p>While BMI is practical and easy to calculate, it does not distinguish between muscle and fat mass. For athletes or individuals with high muscle density, alternative measures like waist-to-hip ratio or body fat percentage may offer more precise insights.</p>
-<h6>The Standard BMI Formula</h6>
-<p>The BMI formula is:</p>
-<p style="text-align:center;"><strong>BMI = weight (kg) / [height (m)]²</strong></p>
-<p>For measurements in pounds and inches, use:</p>
-<p style="text-align:center;"><strong>BMI = (weight (lb) / [height (in)]²) × 703</strong></p>
-<h2>How to Use the BMI Calculator</h2>
-<p>Our BMI Calculator simplifies the process. Follow these steps:</p>
-<ol>
-<li><strong>Select Units:</strong> Choose metric (kg/m) or imperial (lb/in) units.</li>
-<li><strong>Enter Height:</strong> Input your height in meters (e.g., 1.75 m) or inches (e.g., 69 in).</li>
-<li><strong>Enter Weight:</strong> Input your weight in kilograms (e.g., 68 kg) or pounds (e.g., 150 lb).</li>
-<li><strong>Click “Calculate BMI”:</strong> Instantly view your BMI value.</li>
-<li><strong>Interpret Results:</strong> Review your BMI category and take action if necessary.</li>
-</ol>
-<h3>Example Calculation (Metric)</h3>
-<p>Suppose you weigh 70 kg and are 1.75 m tall. Your calculation is:</p>
-<p style="text-align:center;"><strong>BMI = 70 / (1.75)² ≈ 22.86</strong></p>
-<p>This result places you in the “Normal weight” category, indicating a healthy weight-to-height ratio.</p>
-<h4>Example Calculation (Imperial)</h4>
-<p>Using 154 lb and 69 in:</p>
-<p style="text-align:center;"><strong>BMI = (154 / 69²) × 703 ≈ 22.74</strong></p>
-<p>Again, this falls into the normal range.</p>
-<h5>Interpreting BMI Values</h5>
-<ul>
-<li><strong>Underweight:</strong> BMI &lt; 18.5</li>
-<li><strong>Normal weight:</strong> 18.5 ≤ BMI &lt; 24.9</li>
-<li><strong>Overweight:</strong> 25.0 ≤ BMI &lt; 29.9</li>
-<li><strong>Obesity Class I:</strong> 30.0 ≤ BMI &lt; 34.9</li>
-<li><strong>Obesity Class II:</strong> 35.0 ≤ BMI &lt; 39.9</li>
-<li><strong>Obesity Class III:</strong> BMI ≥ 40.0</li>
-</ul>
-<h6>BMI Categories Explained</h6>
-<p>These categories help identify weight-related health risk levels, but should be considered alongside other factors like age, gender, and muscle mass.</p>
-<h2>Common Applications of BMI</h2>
-<p>BMI is used by various professionals and individuals:</p>
-<h3>Clinical Practice</h3>
-<p>Doctors and nurses use BMI screenings during routine checkups to quickly assess patients’ weight status and recommend lifestyle modifications.</p>
-<h4>Fitness and Personal Training</h4>
-<p>Personal trainers track BMI changes to measure client progress, set realistic goals, and adjust workout plans.</p>
-<h5>Public Health Surveillance</h5>
-<p>Government agencies analyze BMI data to monitor obesity trends, design nutritional programs, and evaluate intervention effectiveness.</p>
-<h6>Self-Monitoring</h6>
-<p>Individuals can use BMI calculators at home to stay informed about their weight status and maintain healthy habits.</p>
-<h2>Limitations and Considerations</h2>
-<p>While BMI is valuable for broad assessments, it has inherent limitations.</p>
-<h3>Muscle Versus Fat</h3>
-<p>Highly muscular individuals may have elevated BMI despite low body fat, leading to misclassification.</p>
-<h4>Age and Gender Differences</h4>
-<p>Children, elderly individuals, and pregnant women require adjusted BMI interpretations and specialized growth charts.</p>
-<h5>Ethnic Variations</h5>
-<p>Some populations experience health risks at lower BMI thresholds; clinicians may apply modified cutoffs accordingly.</p>
-<h6>Complementary Measurements</h6>
-<p>Consider waist circumference, waist-to-hip ratio, or body composition analyses for comprehensive assessments.</p>
-<h2>Health Risks by BMI Category</h2>
-<p>Understanding associated risks helps prioritize interventions:</p>
-<h3>Underweight Risks</h3>
-<p>Possible nutrient deficiencies, weakened immune system, and increased fracture risk.</p>
-<h4>Overweight and Obesity Risks</h4>
-<ul>
-<li>Type 2 diabetes</li>
-<li>Hypertension and heart disease</li>
-<li>Sleep apnea</li>
-<li>Joint issues and osteoarthritis</li>
-<li>Certain cancers</li>
-</ul>
-<h5>Graduated Risk Increase</h5>
-<p>As BMI rises from Class I to Class III obesity, risk severity and comorbidities escalate.</p>
-<h6>Mental Health Considerations</h6>
-<p>Weight stigma can impact self-esteem and psychological well-being. Holistic care addresses both physical and emotional health.</p>
-<h2>Tips for Improving BMI</h2>
-<h3>Balanced Nutrition</h3>
-<p>Focus on whole foods, lean proteins, healthy fats, and complex carbohydrates. Monitor calorie intake relative to energy expenditure.</p>
-<h4>Regular Physical Activity</h4>
-<p>Incorporate both cardiovascular exercise and strength training to burn fat and build lean muscle mass.</p>
-<h5>Behavioral Strategies</h5>
-<p>Use goal-setting, self-monitoring (food diaries), and social support to sustain long-term lifestyle changes.</p>
-<h6>Professional Guidance</h6>
-<p>Consult dietitians, personal trainers, or medical specialists for personalized plans and accountability.</p>
-<h2>Common Mistakes and How to Avoid Them</h2>
-<h3>Overreliance on BMI Alone</h3>
-<p>Avoid using BMI as the sole health indicator; combine it with other assessments for accuracy.</p>
-<h4>Ignoring Hydration and Muscle Fluctuations</h4>
-<p>Temporary weight changes due to water retention or muscle recovery can skew BMI readings.</p>
-<h5>Inaccurate Measurements</h5>
-<p>Ensure precise height measurement (stand straight against a wall) and a calibrated scale for weight.</p>
-<h6>Misinterpreting Categories for Special Populations</h6>
-<p>Use age- and gender-specific charts for children and adolescents; adjust expectations for elderly and pregnant individuals.</p>
-<h2>Frequently Asked Questions (FAQs)</h2>
-<h3>Q1: Can BMI predict individual health outcomes?</h3>
-<p>BMI provides a useful snapshot but should be complemented by blood tests, blood pressure readings, and lifestyle factors for a comprehensive health profile.</p>
-<h4>Q2: How often should I check my BMI?</h4>
-<p>Monthly tracking is sufficient for most individuals; more frequent measurements may be useful during active weight management phases.</p>
-<h5>Q3: What if I’m an athlete with high muscle mass?</h5>
-<p>Consider body composition testing (DEXA scan, bioelectrical impedance) to differentiate muscle from fat mass.</p>
-<h6>Q4: Does BMI apply to children?</h6>
-<p>Children and teens use BMI-for-age percentiles, which account for growth patterns and developmental stages. Refer to pediatric growth charts for interpretation.</p>
-<h2>Advanced Insights: BMI in Research</h2>
-<h3>Population Studies</h3>
-<p>Researchers use large datasets to correlate BMI distributions with disease prevalence, informing public health policies.</p>
-<h4>Genetic Factors</h4>
-<p>Genome-wide association studies (GWAS) reveal genetic variants linked to BMI regulation and obesity susceptibility.</p>
-<h5>Environmental Influences</h5>
-<p>Socioeconomic status, urban design, and food accessibility all interact with BMI trends at the community level.</p>
-<h6>Innovative Metrics</h6>
-<p>Emerging measures like the body shape index (ABSI) and body adiposity index (BAI) aim to improve risk stratification beyond BMI.</p>
-<h2>Summary &amp; Next Steps</h2>
-<p>Your BMI is a starting point for understanding weight-related health risks and guiding lifestyle changes. Use our BMI Calculator regularly, combine results with additional assessments, and implement balanced nutrition and exercise strategies. For personalized guidance, seek professional medical or fitness advice.</p>
+  <h1>BMI Calculator: Accurately Assess Your Body Mass Index</h1>
+  <p>Welcome to our <strong>BMI Calculator</strong>, the definitive tool to help you understand and track your Body Mass Index (BMI). Whether you’re a fitness enthusiast, healthcare professional, or simply someone looking to maintain a healthy lifestyle, this guide will walk you through the science behind BMI, step-by-step instructions, real-world examples, common pitfalls, and advanced tips to optimize your health journey.</p>
+
+  <h2>What Is Body Mass Index (BMI)?</h2>
+  <p>Body Mass Index, or BMI, is a numerical value calculated from an individual’s weight and height. It serves as a quick screening tool to categorize individuals into underweight, normal weight, overweight, and obesity ranges. Originally developed in the 19th century by Belgian statistician Adolphe Quetelet, BMI has become a foundational metric in public health and clinical settings worldwide.</p>
+
+  <h3>Why BMI Matters</h3>
+  <p>Monitoring BMI helps identify potential health risks associated with excessive or insufficient body weight. High BMI values have been correlated with increased risk of cardiovascular disease, type 2 diabetes, certain cancers, and musculoskeletal disorders, while low BMI values can indicate malnutrition, weakened immunity, and bone health issues.</p>
+
+  <h4>How BMI Is Used in Medicine</h4>
+  <p>Healthcare providers use BMI to guide diagnostic evaluations, recommend weight management strategies, and monitor progress over time. Public health agencies rely on BMI statistics to assess population-level trends and allocate resources for nutritional programs.</p>
+
+  <h5>BMI Versus Other Metrics</h5>
+  <p>While BMI is practical and easy to calculate, it does not distinguish between muscle and fat mass. For athletes or individuals with high muscle density, alternative measures like waist-to-hip ratio or body fat percentage may offer more precise insights.</p>
+
+  <h6>The Standard BMI Formula</h6>
+  <p style="text-align:center;"><strong>BMI = weight (kg) / [height (m)]²</strong></p>
+  <p style="text-align:center;"><strong>BMI = (weight (lb) / [height (in)]²) × 703</strong></p>
+
+  <h2>How to Use the BMI Calculator</h2>
+  <ol>
+    <li><strong>Select Units:</strong> Choose metric (kg/m) or imperial (lb/in) units.</li>
+    <li><strong>Enter Height:</strong> Input your height in meters (e.g., 1.75 m) or inches (e.g., 69 in).</li>
+    <li><strong>Enter Weight:</strong> Input your weight in kilograms (e.g., 68 kg) or pounds (e.g., 150 lb).</li>
+    <li><strong>Click “Calculate BMI”:</strong> Instantly view your BMI value.</li>
+    <li><strong>Interpret Results:</strong> Review your BMI category and take action if necessary.</li>
+  </ol>
+
+  <h3>Example Calculation (Metric)</h3>
+  <p>Suppose you weigh 70 kg and are 1.75 m tall. Your calculation is:</p>
+  <p style="text-align:center;"><strong>BMI = 70 / (1.75)² ≈ 22.86</strong></p>
+  <p>This result places you in the “Normal weight” category, indicating a healthy weight-to-height ratio.</p>
+
+  <h4>Example Calculation (Imperial)</h4>
+  <p>Using 154 lb and 69 in:</p>
+  <p style="text-align:center;"><strong>BMI = (154 / 69²) × 703 ≈ 22.74</strong></p>
+  <p>Again, this falls into the normal range.</p>
+
+  <h5>Interpreting BMI Values</h5>
+  <ul>
+    <li><strong>Underweight:</strong> BMI &lt; 18.5</li>
+    <li><strong>Normal weight:</strong> 18.5 ≤ BMI &lt; 24.9</li>
+    <li><strong>Overweight:</strong> 25.0 ≤ BMI &lt; 29.9</li>
+    <li><strong>Obesity Class I:</strong> 30.0 ≤ BMI &lt; 34.9</li>
+    <li><strong>Obesity Class II:</strong> 35.0 ≤ BMI &lt; 39.9</li>
+    <li><strong>Obesity Class III:</strong> BMI ≥ 40.0</li>
+  </ul>
+
+  <h6>BMI Categories Explained</h6>
+  <p>These categories help identify weight-related health risk levels, but should be considered alongside other factors like age, gender, and muscle mass.</p>
+
+  <h2>Common Applications of BMI</h2>
+  <h3>Clinical Practice</h3>
+  <p>Doctors and nurses use BMI screenings during routine checkups to quickly assess patients’ weight status and recommend lifestyle modifications.</p>
+
+  <h4>Fitness and Personal Training</h4>
+  <p>Personal trainers track BMI changes to measure client progress, set realistic goals, and adjust workout plans.</p>
+
+  <h5>Public Health Surveillance</h5>
+  <p>Government agencies analyze BMI data to monitor obesity trends, design nutritional programs, and evaluate intervention effectiveness.</p>
+
+  <h6>Self-Monitoring</h6>
+  <p>Individuals can use BMI calculators at home to stay informed about their weight status and maintain healthy habits.</p>
+
+  <h2>Limitations and Considerations</h2>
+  <h3>Muscle Versus Fat</h3>
+  <p>Highly muscular individuals may have elevated BMI despite low body fat, leading to misclassification.</p>
+
+  <h4>Age and Gender Differences</h4>
+  <p>Children, elderly individuals, and pregnant women require adjusted BMI interpretations and specialized growth charts.</p>
+
+  <h5>Ethnic Variations</h5>
+  <p>Some populations experience health risks at lower BMI thresholds; clinicians may apply modified cutoffs accordingly.</p>
+
+  <h6>Complementary Measurements</h6>
+  <p>Consider waist circumference, waist-to-hip ratio, or body composition analyses for comprehensive assessments.</p>
+
+  <h2>Health Risks by BMI Category</h2>
+  <h3>Underweight Risks</h3>
+  <p>Possible nutrient deficiencies, weakened immune system, and increased fracture risk.</p>
+
+  <h4>Overweight and Obesity Risks</h4>
+  <ul>
+    <li>Type 2 diabetes</li>
+    <li>Hypertension and heart disease</li>
+    <li>Sleep apnea</li>
+    <li>Joint issues and osteoarthritis</li>
+    <li>Certain cancers</li>
+  </ul>
+
+  <h5>Graduated Risk Increase</h5>
+  <p>As BMI rises from Class I to Class III obesity, risk severity and comorbidities escalate.</p>
+
+  <h6>Mental Health Considerations</h6>
+  <p>Weight stigma can impact self-esteem and psychological well-being. Holistic care addresses both physical and emotional health.</p>
+
+  <h2>Tips for Improving BMI</h2>
+  <h3>Balanced Nutrition</h3>
+  <p>Focus on whole foods, lean proteins, healthy fats, and complex carbohydrates. Monitor calorie intake relative to energy expenditure.</p>
+
+  <h4>Regular Physical Activity</h4>
+  <p>Incorporate both cardiovascular exercise and strength training to burn fat and build lean muscle mass.</p>
+
+  <h5>Behavioral Strategies</h5>
+  <p>Use goal-setting, self-monitoring (food diaries), and social support to sustain long-term lifestyle changes.</p>
+
+  <h6>Professional Guidance</h6>
+  <p>Consult dietitians, personal trainers, or medical specialists for personalized plans and accountability.</p>
+
+  <h2>Common Mistakes and How to Avoid Them</h2>
+  <h3>Overreliance on BMI Alone</h3>
+  <p>Avoid using BMI as the sole health indicator; combine it with other assessments for accuracy.</p>
+
+  <h4>Ignoring Hydration and Muscle Fluctuations</h4>
+  <p>Temporary weight changes due to water retention or muscle recovery can skew BMI readings.</p>
+
+  <h5>Inaccurate Measurements</h5>
+  <p>Ensure precise height measurement (stand straight against a wall) and a calibrated scale for weight.</p>
+
+  <h6>Misinterpreting Categories for Special Populations</h6>
+  <p>Use age- and gender-specific charts for children and adolescents; adjust expectations for elderly and pregnant individuals.</p>
+
+  <h2>Frequently Asked Questions (FAQs)</h2>
+  <h3>Q1: Can BMI predict individual health outcomes?</h3>
+  <p>BMI provides a useful snapshot but should be complemented by blood tests, blood pressure readings, and lifestyle factors for a comprehensive health profile.</p>
+
+  <h4>Q2: How often should I check my BMI?</h4>
+  <p>Monthly tracking is sufficient for most individuals; more frequent measurements may be useful during active weight management phases.</p>
+
+  <h5>Q3: What if I’m an athlete with high muscle mass?</h5>
+  <p>Consider body composition testing (DEXA scan, bioelectrical impedance) to differentiate muscle from fat mass.</p>
+
+  <h6>Q4: Does BMI apply to children?</h6>
+  <p>Children and teens use BMI-for-age percentiles, which account for growth patterns and developmental stages. Refer to pediatric growth charts for interpretation.</p>
+
+  <h2>Advanced Insights: BMI in Research</h2>
+  <h3>Population Studies</h3>
+  <p>Researchers use large datasets to correlate BMI distributions with disease prevalence, informing public health policies.</p>
+
+  <h4>Genetic Factors</h4>
+  <p>Genome-wide association studies (GWAS) reveal genetic variants linked to BMI regulation and obesity susceptibility.</p>
+
+  <h5>Environmental Influences</h5>
+  <p>Socioeconomic status, urban design, and food accessibility all interact with BMI trends at the community level.</p>
+
+  <h6>Innovative Metrics</h6>
+  <p>Emerging measures like the body shape index (ABSI) and body adiposity index (BAI) aim to improve risk stratification beyond BMI.</p>
+
+  <h2>Summary &amp; Next Steps</h2>
+  <p>Your BMI is a starting point for understanding weight-related health risks and guiding lifestyle changes. Use our BMI Calculator regularly, combine results with additional assessments, and implement balanced nutrition and exercise strategies. For personalized guidance, seek professional medical or fitness advice.</p>
 </div>
-<div class="see-also">
-<h4>See Also</h4>
-<ul>
-<li><a href="grade-calculator.html">Grade calculator</a></li>
-<li><a href="gpa-calculator.html">GPA calculator</a></li>
-<li><a href="final-grade-calculator.html">Final grade calculator</a></li>
-<li><a href="mortgage-calculator.html">Mortgage calculator</a></li>
-<li><a href="compound-interest-calculator.html">Compound interest calculator</a></li>
-<li><a href="bmi-calculator.html">BMI calculator</a></li>
-</ul>
-</div>
-<footer>
-<div class="container">
-        <p>
-          <a href="../../about.html">About</a> |
-          <a href="../../terms.html">Terms of Use</a> |
-          <a href="../../send-feedback.html">Send Feedback</a> 
-        </p>
-        <p>
-          <a href="../../index.html">© Easy Converters </a>|
-          <a href="../../privacy-policy.html">Privacy Policy</a> |
-          <a href="../../cookies.html">Manage Cookies</a>
-        </p>
-</div>
-</footer>
-<script>
-  function calculateBMI() {
-    const height = parseFloat(document.getElementById("height").value);
-    const weight = parseFloat(document.getElementById("weight").value);
-    const resultDiv = document.getElementById("result");
 
-    if (!height || !weight || height <= 0 || weight <= 0) {
-      resultDiv.textContent = "Please enter valid height and weight.";
-      resultDiv.style.color = "red";
-      return;
-    }
+    </main>
 
-    const heightInMeters = height / 100;
-    const bmi = weight / (heightInMeters * heightInMeters);
-    const roundedBMI = bmi.toFixed(2);
+    <div class="see-also">
+        <h4>See Also</h4>
+        <ul>
+            <li><a href="grade-calculator.html">Grade calculator</a></li>
+            <li><a href="gpa-calculator.html">GPA calculator</a></li>
+            <li><a href="final-grade-calculator.html">Final grade calculator</a></li>
+            <li><a href="mortgage-calculator.html">Mortgage calculator</a></li>
+            <li><a href="compound-interest-calculator.html">Compound interest calculator</a></li>
+            <li><a href="bmi-calculator.html">BMI calculator</a></li>
+        </ul>
+    </div>
 
-    let category = "";
-    if (bmi < 18.5) {
-      category = "Underweight";
-    } else if (bmi < 24.9) {
-      category = "Normal weight";
-    } else if (bmi < 29.9) {
-      category = "Overweight";
-    } else {
-      category = "Obese";
-    }
+    <footer>
+        <div class="container">
+            <p>
+                <a href="../../about.html">About</a> |
+                <a href="../../terms.html">Terms of Use</a> |
+                <a href="../../send-feedback.html">Send Feedback</a> 
+            </p>
+            <p>
+                <a href="../../index.html">© Easy Converters </a> |
+                <a href="../../privacy-policy.html">Privacy Policy</a> |
+                <a href="../../cookies.html">Manage Cookies</a>
+            </p>
+        </div>
+    </footer>
 
-    resultDiv.textContent = `Your BMI is ${roundedBMI} (${category})`;
-    resultDiv.style.color = "#154360";
-  }
-</script>
+    <script>
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById("height").value);
+            const weight = parseFloat(document.getElementById("weight").value);
+            const resultDiv = document.getElementById("result");
 
-<script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
-  }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
-</script>
+            if (!height || !weight || height <= 0 || weight <= 0) {
+                resultDiv.textContent = "Please enter valid height and weight.";
+                resultDiv.style.color = "red";
+                return;
+            }
 
+            const heightInMeters = height / 100;
+            const bmi = weight / (heightInMeters * heightInMeters);
+            const roundedBMI = bmi.toFixed(2);
 
+            let category = "";
+            if (bmi < 18.5) {
+                category = "Underweight";
+            } else if (bmi <= 24.9) {
+                category = "Normal weight";
+            } else if (bmi <= 29.9) {
+                category = "Overweight";
+            } else {
+                category = "Obese";
+            }
 
+            resultDiv.textContent = `Your BMI is ${roundedBMI} (${category})`;
+            resultDiv.style.color = "#154360";
+        }
+
+        function adjustTopPadding() {
+            const nav = document.querySelector('.navbar.fixed-top');
+            if (!nav) return;
+            document.body.style.paddingTop = nav.offsetHeight + 'px';
+        }
+        window.addEventListener('load', adjustTopPadding);
+        window.addEventListener('resize', adjustTopPadding);
+    </script>
 </body>
 </html>
