@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+    <title>BMI Calculator - Easy Converters</title>  
 <meta content="Calculate your Body Mass Index, for men, women and kids." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
@@ -154,6 +155,16 @@ footer {
       border-left: 4px solid #1976D2;
       padding: 15px 20px;
     }
+.bmi-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.bmi-table th, .bmi-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
 
 
 
@@ -199,8 +210,9 @@ footer {
 <input id="weight" placeholder="e.g. 65" type="number"/>
 <button class="btn-2" onclick="calculateBMI()">Calculate BMI</button>
 <div class="result" id="result"></div><br/>
-<center><a href="bmi-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a></center>
-</div>
+<div style="text-align: center; margin-top: 15px;">
+  <a href="bmi-calculator.html" class="btn btn-primary">Clear</a>
+</div></div>
 <div class="description">
 <h3>About BMI Calculator</h3>
 <p>
@@ -213,7 +225,7 @@ footer {
       Normal weight: 18.5 ≤ BMI &lt; 24.9<br/>
       Overweight: 25 ≤ BMI &lt; 29.9<br>
       Obese: BMI ≥ 30
-    </br></p>
+    </p>
 <div>
 <h3>What is BMI?</h3>
 <p>BMI (Body Mass Index) is a widely used measurement to assess whether a person has a healthy body weight for a given height. It's calculated using a person’s weight in kilograms divided by the square of their height in meters.</p>
@@ -222,7 +234,7 @@ footer {
       </pre>
 <p>This metric helps classify individuals as underweight, normal weight, overweight, or obese.</p>
 <h3>BMI Categories</h3>
-<table border="1" cellpadding="8">
+<table class="bmi-table">
 <thead>
 <tr><th>BMI Range</th><th>Category</th></tr>
 </thead>
@@ -275,7 +287,6 @@ footer {
 </div>
 </div>
 </div>
-</main>
 <!-- The code goes heare-->
 </div>
 <div class="description">
