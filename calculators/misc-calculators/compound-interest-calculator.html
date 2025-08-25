@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+    <title>Compound Interest Calculator - Easy Converters</title>
 <meta content="Compound interest calculator online." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
@@ -162,6 +163,21 @@ footer {
       border: 1px solid #E0E0E0;
       border-radius: 10px;
     }
+.styled-table {
+  border-collapse: collapse; /* merges borders */
+  width: 100%;
+}
+
+.styled-table th, .styled-table td {
+  border: 1px solid #000; /* replaces border="1" */
+  padding: 8px;           /* replaces cellpadding="8" */
+  text-align: left;
+}
+
+.styled-table th {
+  background-color: #0D47A1;
+  color: white;
+}
 
 
     .text-white { color: white; font-family: "Roboto"; }
@@ -216,8 +232,9 @@ footer {
 </select>
 <button onclick="calculateCI()">Calculate</button>
 <div class="result" id="result"></div><br/>
-<center><a href="compound-interest-calculator.html"><button class="btn btn-primary" type="button">Clear</button></a></center>
-</div>
+<div style="text-align: center; margin-top: 15px;">
+  <a href="compound-interest-calculator.html" class="btn btn-primary">Clear</a>
+</div></div>
 </main>
 <div class="description">
 <h3>What is Compound Interest?</h3>
@@ -346,7 +363,7 @@ footer {
 <li><strong>Future Value:</strong> Final amount after applying compound interest.</li>
 </ul>
 <h3>Comparing Investment Vehicles</h3>
-<table border="1" cellpadding="8">
+<table class="styled-table">
 <thead>
 <tr>
 <th>Investment Type</th><th>Interest Type</th><th>Compounding</th><th>Risk Level</th>

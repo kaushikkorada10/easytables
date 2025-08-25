@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+    <title>GPA Calculator - Easy Converters</title>
 <meta content="GPA calculator. Calculate your GPA. Grade point average calculator online." name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
@@ -191,6 +192,22 @@ footer {
   margin-top:0.5rem;
 }
 
+.gpa-table {
+  width: 100%;
+  border-collapse: collapse; /* combines borders */
+  margin-top: 15px;
+}
+
+.gpa-table th, .gpa-table td {
+  border: 1px solid #1976D2; /* border color */
+  padding: 8px;              /* replaces cellpadding */
+  text-align: center;
+}
+
+.gpa-table th {
+  background-color: #0D47A1; /* dark blue header */
+  color: white;
+}
 
 
     .text-white { color: white; font-family: "Roboto"; }
@@ -303,20 +320,23 @@ footer {
 <li>Track GPA after each term to make timely adjustments.</li>
 </ul>
 <h3>Grade-to-GPA Table</h3>
-<table border="1" cellpadding="8">
-<thead>
-<tr>
-<th>Percentage</th><th>Grade Point</th><th>Letter Grade</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>90–100%</td><td>4.0</td><td>A</td></tr>
-<tr><td>80–89%</td><td>3.0</td><td>B</td></tr>
-<tr><td>70–79%</td><td>2.0</td><td>C</td></tr>
-<tr><td>60–69%</td><td>1.0</td><td>D</td></tr>
-<tr><td>Below 60%</td><td>0.0</td><td>F</td></tr>
-</tbody>
+<table class="gpa-table">
+  <thead>
+    <tr>
+      <th>Percentage</th>
+      <th>Grade Point</th>
+      <th>Letter Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>90–100%</td><td>4.0</td><td>A</td></tr>
+    <tr><td>80–89%</td><td>3.0</td><td>B</td></tr>
+    <tr><td>70–79%</td><td>2.0</td><td>C</td></tr>
+    <tr><td>60–69%</td><td>1.0</td><td>D</td></tr>
+    <tr><td>Below 60%</td><td>0.0</td><td>F</td></tr>
+  </tbody>
 </table>
+
 <h3>Common GPA FAQs</h3>
 <h4>🔹 What GPA is considered good?</h4>
 <p>Typically, 3.0+ is good, 3.5+ is very good, and 4.0 is excellent. Some honors programs require 3.75+</p>
