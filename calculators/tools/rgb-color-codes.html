@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+   <title>RGB Color Codes Chart - Easy Converters</title>
 <meta content="nan" name="description"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dv6b1wtqx/image/upload/e_background_removal/f_png/v1753102855/C_Jul_21_2025_06_30_23_PM_uokxiv.png">
@@ -185,6 +186,23 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
+.rgb-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #E0E0E0;
+}
+
+.rgb-table th,
+.rgb-table td {
+  border: 1px solid #E0E0E0;
+  padding: 6px; /* replaces cellpadding="6" */
+  text-align: center;
+}
+
+.rgb-table th {
+  background: #f0f0f0;
+  font-weight: 700;
+}
 
 
   .picker{display:flex;gap:12px;align-items:flex-start}
@@ -228,7 +246,7 @@ footer {
 </nav>
 <div>
 <!-- The code goes heare-->
-<center><h1>RGB Color Codes Chart</h1></center>
+<h1 style="text-align: center;">RGB Color Codes Chart</h1>
 <div class="description">
 <h3>RGB Color Picker</h3>
   Note: Click on the color picker to get the HEX code
@@ -292,6 +310,9 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 </section>
 <section aria-label="RGB Color Table" class="description">
 <h2>RGB Color Table</h2>
+<p id="colorTableDesc" class="sr-only">
+  This table shows common RGB colors with their name, R, G, B values, Hex code, Decimal value, and a short description.
+</p>
 <table aria-describedby="colorTableDesc" role="table">
 <thead>
 <tr>
@@ -365,7 +386,7 @@ Hex = "#" + two-digit-hex(R) + two-digit-hex(G) + two-digit-hex(B)
 <li><code>#FFFF00</code> → Yellow</li>
 </ul>
 <h3>Common RGB Color Codes</h3>
-<table border="1" cellpadding="6">
+<table class="rgb-table">
 <thead>
 <tr>
 <th>Color</th><th>RGB</th><th>Hex</th>
