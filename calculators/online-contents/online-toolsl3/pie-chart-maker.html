@@ -332,38 +332,54 @@
 <p><strong>Make smarter, clearer, and more engaging pie charts today with our free online Pie Chart Maker. It's the ultimate tool to visualize your numbers — beautifully and securely.</strong></p>
 </div>
 <script>
-  function createPieChart() {
-    const labels = document.getElementById("labelsInput").value.split(',').map(l => l.trim());
-    const values = document.getElementById("valuesInput").value.split(',').map(Number);
+function createPieChart() {
+  const labelsInput = document.getElementById("labelsInput").value.trim();
+  const valuesInput = document.getElementById("valuesInput").value.trim();
 
-    const ctx = document.getElementById("pieChart").getContext("2d");
-    if (window.pieChartInstance) {
-      window.pieChartInstance.destroy();
-    }
+  // Validation: check if inputs are empty
+  if (!labelsInput || !valuesInput) {
+    alert("Please enter both labels and values to create the chart.");
+    return;
+  }
 
-    window.pieChartInstance = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Dataset',
-          data: values,
-          backgroundColor: ['#1976D2', '#42A5F5', '#90CAF9', '#64B5F6', '#2196F3'],
-          borderColor: '#ffffff',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'right'
-          }
+  const labels = labelsInput.split(',').map(l => l.trim());
+  const values = valuesInput.split(',').map(v => Number(v.trim()));
+
+  // Validation: check if values are valid numbers
+  if (values.some(v => isNaN(v))) {
+    alert("Please enter valid numeric values separated by commas.");
+    return;
+  }
+
+  const ctx = document.getElementById("pieChart").getContext("2d");
+  if (window.pieChartInstance) {
+    window.pieChartInstance.destroy();
+  }
+
+  window.pieChartInstance = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Dataset',
+        data: values,
+        backgroundColor: ['#1976D2', '#42A5F5', '#90CAF9', '#64B5F6', '#2196F3'],
+        borderColor: '#ffffff',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right'
         }
       }
-    });
-  }
+    }
+  });
+}
 </script>
+
 <!-- see also -->
 <div class="see-also">
 <h4>See Also</h4>
@@ -396,15 +412,6 @@
         </p>
 </div>
 </footer>
-<script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
-  }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
-</script>
 
 </body>
 </html>

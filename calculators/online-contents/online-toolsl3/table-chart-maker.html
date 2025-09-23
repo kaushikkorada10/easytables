@@ -271,27 +271,44 @@ Jane, 30, London" rows="5"></textarea>
   </blockquote>
 </div>
 <script>
-  function generateTable() {
-    const headers = document.getElementById("headers").value.split(",").map(h => h.trim());
-    const rows = document.getElementById("rows").value.trim().split("\n").map(r => r.split(",").map(c => c.trim()));
-    
-    let html = "<table class='table table-bordered table-striped'><thead><tr>";
-    headers.forEach(header => {
-      html += `<th>${header}</th>`;
-    });
-    html += "</tr></thead><tbody>";
-    rows.forEach(row => {
-      html += "<tr>";
-      row.forEach(cell => {
-        html += `<td>${cell}</td>`;
-      });
-      html += "</tr>";
-    });
-    html += "</tbody></table>";
+function generateTable() {
+  const headersInput = document.getElementById("headers").value.trim();
+  const rowsInput = document.getElementById("rows").value.trim();
 
-    document.getElementById("tableOutput").innerHTML = html;
+  // Validation: check if headers or rows are empty
+  if (!headersInput || !rowsInput) {
+    alert("Please enter both headers and row data to generate the table.");
+    return;
   }
+
+  const headers = headersInput.split(",").map(h => h.trim());
+  const rows = rowsInput.split("\n").map(r => r.split(",").map(c => c.trim()));
+
+  // Optional: check if any row has a different number of cells than headers
+  const invalidRow = rows.find(r => r.length !== headers.length);
+  if (invalidRow) {
+    alert("Each row must have the same number of columns as headers.");
+    return;
+  }
+
+  let html = "<table class='table table-bordered table-striped'><thead><tr>";
+  headers.forEach(header => {
+    html += `<th>${header}</th>`;
+  });
+  html += "</tr></thead><tbody>";
+  rows.forEach(row => {
+    html += "<tr>";
+    row.forEach(cell => {
+      html += `<td>${cell}</td>`;
+    });
+    html += "</tr>";
+  });
+  html += "</tbody></table>";
+
+  document.getElementById("tableOutput").innerHTML = html;
+}
 </script>
+
 <!-- see also -->
 <div class="see-also">
 <h4>See Also</h4>

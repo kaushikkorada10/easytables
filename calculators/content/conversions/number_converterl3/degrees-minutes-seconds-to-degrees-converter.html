@@ -27,6 +27,22 @@
       .description h3 { color: #0D47A1; margin-bottom: 10px; }
         .text-white { color: white; font-family: "Roboto"; }
     .text-white:hover { text-decoration: underline; color: #fff; }
+    .breadcrumb {
+  background-color: #f5f5f5;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #0D47A1; /* separator color */
+}
+.breadcrumb a {
+  color: #0D47A1;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -48,12 +64,18 @@
 </div>
 </nav>
 <br/>
-<nav aria-label="Breadcrumb" class="breadcrumb container">
-<a href="../../../../index.html">Home</a> <span>&gt;</span>
-<a href="../../../../index.html#content-categories-s">Contents Categories
-</a> <span>&gt;</span>
-<a href="/calculators/content/conversions/number-conversion.html">Number Converters</a> <span>&gt;</span> <a >Degrees,minutes, seconds to degrees converter</a>
+
+<nav aria-label="breadcrumb" class="container mt-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="../../../../index.html#content-categories-s">Contents Categories</a></li>
+    <li class="breadcrumb-item"><a href="/calculators/content/conversions/number-conversion.html">Number Converters</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Degrees, minutes, seconds to degrees converter</li>
+  </ol>
 </nav>
+
+
+
 <div class="description">
 <h3>Degrees,Minutes,Seconds to Degrees Converter</h3>
 <div class="form-row">
@@ -64,16 +86,7 @@
 <button class="btn btn-primary mt-3" onclick="conv()">Convert</button>
 <div class="mt-3" id="out"></div>
 </div>
-<script>
-function conv(){
-  const deg=parseFloat(document.getElementById('d').value)||0;
-  const min=parseFloat(document.getElementById('m').value)||0;
-  const sec=parseFloat(document.getElementById('s').value)||0;
-  const sign=deg<0?-1:1;
-  const dec=Math.abs(deg)+min/60+sec/3600;
-  document.getElementById('out').innerText=sign*dec;
-}
-</script>
+
 <div class="description">
 <h2>Degrees, Minutes, Seconds to Decimal Degrees Converter (DMS to DD)</h2>
 <p>Welcome to the Easy Converters <strong>DMS to Decimal Degrees Converter</strong> – your fast and accurate solution for converting angles and geographic coordinates from Degrees, Minutes, and Seconds (DMS) format into Decimal Degrees (DD). Whether you're mapping coordinates, entering data into GPS systems, or learning cartography, this tool streamlines the conversion process with clarity and precision.</p>
@@ -382,14 +395,34 @@ DMS: 33° 15′ 45″
         </p>
 </div></footer>
 <script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
+function conv() {
+  const degInput = document.getElementById('d').value.trim();
+  const minInput = document.getElementById('m').value.trim();
+  const secInput = document.getElementById('s').value.trim();
+
+  // Validation: all fields empty
+  if (degInput === '' && minInput === '' && secInput === '') {
+    document.getElementById('out').innerText = 'Please enter degrees, minutes, or seconds.';
+    return;
   }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
+
+  const deg = parseFloat(degInput) || 0;
+  const min = parseFloat(minInput) || 0;
+  const sec = parseFloat(secInput) || 0;
+
+  // Validation: negative minutes or seconds not allowed
+  if (min < 0 || sec < 0) {
+    document.getElementById('out').innerText = 'Minutes and seconds must be non-negative.';
+    return;
+  }
+
+  const sign = deg < 0 ? -1 : 1;
+  const dec = Math.abs(deg) + min / 60 + sec / 3600;
+
+  document.getElementById('out').innerText = (sign * dec).toFixed(6);
+}
 </script>
+
 
 </body>
 </html>

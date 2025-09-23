@@ -276,7 +276,12 @@
     const taskInput = document.getElementById("taskInput");
     const taskText = taskInput.value.trim();
 
-    if (taskText === "") return;
+    // Validation: check if input is empty
+    if (taskText === "") {
+      alert("Please enter a task before adding.");
+      taskInput.focus();
+      return;
+    }
 
     const listItem = document.createElement("li");
     listItem.innerHTML = `
@@ -296,6 +301,7 @@
     span.parentElement.classList.toggle("completed");
   }
 </script>
+
 <!-- see also -->
 <div class="see-also">
 <h4>See Also</h4>

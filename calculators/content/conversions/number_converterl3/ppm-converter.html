@@ -63,7 +63,7 @@
 <script>
 function show(){
   const p=parseFloat(document.getElementById('ppm').value);
-  if(isNaN(p)){document.getElementById('out').innerText='Invalid';return;}
+  if(isNaN(p)){document.getElementById('out').innerText='Please enter the value';return;}
   const percent=p/10000;
   const fraction=p+' / 1,000,000';
   document.getElementById('out').innerHTML=`Percent: ${percent}%<br>Fraction: ${fraction}`;

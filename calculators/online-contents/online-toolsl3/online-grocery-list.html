@@ -272,31 +272,38 @@
 <p><strong>Use our tool today and shop with confidence, convenience, and zero clutter!</strong></p>
 </div>
 <script>
-  function addItem() {
-    const input = document.getElementById("itemInput");
-    const itemText = input.value.trim();
-    if (itemText === "") return;
+function addItem() {
+  const input = document.getElementById("itemInput");
+  const itemText = input.value.trim();
 
-    const list = document.getElementById("groceryList");
-    const li = document.createElement("li");
-
-    const span = document.createElement("span");
-    span.textContent = itemText;
-    span.style.flexGrow = 1;
-    span.onclick = () => li.classList.toggle("done");
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.className = "delete-btn";
-    deleteBtn.innerHTML = "&times;";
-    deleteBtn.onclick = () => list.removeChild(li);
-
-    li.appendChild(span);
-    li.appendChild(deleteBtn);
-    list.appendChild(li);
-
-    input.value = "";
+  // Show popup if input is empty
+  if (itemText === "") {
+    alert("Please enter an item before submitting!");
+    input.focus(); // focus the input
+    return;
   }
+
+  const list = document.getElementById("groceryList");
+  const li = document.createElement("li");
+
+  const span = document.createElement("span");
+  span.textContent = itemText;
+  span.style.flexGrow = 1;
+  span.onclick = () => li.classList.toggle("done");
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.innerHTML = "&times;";
+  deleteBtn.onclick = () => list.removeChild(li);
+
+  li.appendChild(span);
+  li.appendChild(deleteBtn);
+  list.appendChild(li);
+
+  input.value = "";
+}
 </script>
+
 <!-- see also -->
 <div class="see-also">
 <h4>See Also</h4>

@@ -63,7 +63,7 @@
 <script>
 function conv(){
   const d=parseFloat(document.getElementById('deg').value);
-  if(isNaN(d)){document.getElementById('out').innerText='Invalid';return;}
+  if(isNaN(d)){document.getElementById('out').innerText='Please enter the value';return;}
   const deg=Math.trunc(d);
   const min=Math.trunc((Math.abs(d)-Math.abs(deg))*60);
   const sec=(((Math.abs(d)-Math.abs(deg))*60)-min)*60;
