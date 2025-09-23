@@ -382,14 +382,67 @@ document.getElementById('out').innerText=[...t].map(c=>c.charCodeAt(0).toString(
 </div>
 </footer>
 <script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
+function convertToCM() {
+  const feetInput = document.getElementById('feet').value.trim();
+  const inchesInput = document.getElementById('inches').value.trim();
+
+  // Validation: check if both fields are empty
+  if (feetInput === '' && inchesInput === '') {
+    document.getElementById('result').textContent = 'Please enter feet or inches.';
+    return;
   }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
+
+  const feet = parseFloat(feetInput) || 0;
+  const inches = parseFloat(inchesInput) || 0;
+
+  // Validation: negative values
+  if (feet < 0 || inches < 0) {
+    document.getElementById('result').textContent = 'Please enter non-negative values.';
+    return;
+  }
+
+  const totalInches = feet * 12 + inches;
+  const centimeters = totalInches * 2.54;
+
+  document.getElementById('result').textContent = centimeters.toFixed(2) + ' cm';
+}
+
+// Binary converter with validation
+function conv() {
+  const t = document.getElementById('txt').value.trim();
+
+  // Validation: empty input
+  if (t === '') {
+    document.getElementById('out').innerText = 'Please enter some text.';
+    return;
+  }
+
+  const bin = [...t]
+    .map(c => c.charCodeAt(0).toString(2).padStart(8, '0'))
+    .join(' ');
+
+  document.getElementById('out').innerText = bin;
+}
+
+// Attach convertToCM to button
+document.addEventListener('DOMContentLoaded', function() {
+  const cmBtn = document.getElementById('convertBtn');
+  if (cmBtn) cmBtn.addEventListener('click', convertToCM);
+
+  const binBtn = document.getElementById('binBtn');
+  if (binBtn) binBtn.addEventListener('click', conv);
+});
+
+// Keep adjustTopPadding separate
+function adjustTopPadding() {
+  const nav = document.querySelector('.navbar.fixed-top');
+  if (!nav) return;
+  document.body.style.paddingTop = nav.offsetHeight + 'px';
+}
+window.addEventListener('load', adjustTopPadding);
+window.addEventListener('resize', adjustTopPadding);
 </script>
+
 
 </body>
 </html>

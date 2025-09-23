@@ -406,12 +406,18 @@ app.get('/convert/ftin-to-cm', (req, res) =&gt; {
 </div>
 </footer>
 <script>
-  // Convert feet + inches to centimeters
+  // Feet + Inches to CM Converter
   function convertToCM() {
-    const feetInput   = document.getElementById('feet').value;
-    const inchesInput = document.getElementById('inches').value;
+    const feetInput = document.getElementById('feet').value.trim();
+    const inchesInput = document.getElementById('inches').value.trim();
 
-    const feet   = parseFloat(feetInput)   || 0;
+    // Validation: empty or negative inputs
+    if (feetInput === '' && inchesInput === '') {
+      document.getElementById('result').textContent = 'Please enter feet or inches.';
+      return;
+    }
+
+    const feet = parseFloat(feetInput) || 0;
     const inches = parseFloat(inchesInput) || 0;
 
     if (feet < 0 || inches < 0) {
@@ -424,16 +430,14 @@ app.get('/convert/ftin-to-cm', (req, res) =&gt; {
 
     document.getElementById('result').textContent = centimeters.toFixed(2) + ' cm';
   }
+
+  // Attach function to the button
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('convertBtn');
+    btn.addEventListener('click', convertToCM);
+  });
 </script>
-<script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
-  }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
-</script>
+
 
 </body>
 </html>

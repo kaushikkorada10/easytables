@@ -224,14 +224,27 @@
 </div>
 </footer>
 <script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  function updateKoreaTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'Asia/Seoul',  // ✅ Correct timezone for South Korea
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    };
+    const timeString = new Intl.DateTimeFormat('en-GB', options).format(now);
+    document.getElementById('result').innerHTML =
+      "Current South Korea Time: <strong>" + timeString + "</strong>";
   }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
+
+  // Run once immediately
+  window.addEventListener('load', updateKoreaTime);
+
+  // Keep updating every second
+  setInterval(updateKoreaTime, 1000);
 </script>
+
 
 </body>
 </html>

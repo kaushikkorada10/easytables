@@ -307,15 +307,7 @@ Output: Flag
 <p>Use this converter for educational projects, debugging tasks, CTF challenges, and any scenario where you need to convert binary code into readable human text. It’s mobile-friendly, beginner-ready, and perfect for students, programmers, and engineers alike.</p>
 <p><strong>Start decoding binary into words — one byte at a time.</strong></p>
 </div>
-<script>
-function conv(){
-  const bytes=document.getElementById('bin').value.trim().split(/\s+/);
-  try{
-    const text=bytes.map(b=>String.fromCharCode(parseInt(b,2))).join('');
-    document.getElementById('out').innerText=text;
-  }catch(e){document.getElementById('out').innerText='Invalid binary';}
-}
-</script>
+
 <div class="see-also description">
 <h4>See Also</h4>
 <ul>
@@ -344,13 +336,32 @@ function conv(){
 </div>
 </footer>
 <script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
+function conv() {
+  const input = document.getElementById('bin').value.trim();
+
+  // Validation: check for empty input
+  if (input === '') {
+    document.getElementById('out').innerText = 'Please enter binary values.';
+    return;
   }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
+
+  // Split input by spaces
+  const bytes = input.split(/\s+/);
+
+  try {
+    // Convert each binary to character
+    const text = bytes
+      .map(b => {
+        if (!/^[01]+$/.test(b)) throw new Error('Invalid binary'); // validation for non-binary
+        return String.fromCharCode(parseInt(b, 2));
+      })
+      .join('');
+
+    document.getElementById('out').innerText = text;
+  } catch (e) {
+    document.getElementById('out').innerText = 'Invalid binary';
+  }
+}
 </script>
 
 </body>

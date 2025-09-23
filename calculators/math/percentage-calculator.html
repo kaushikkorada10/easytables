@@ -415,65 +415,80 @@
 <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
+  function showError(n, msg) {
+    const r = document.getElementById('r' + n);
+    if (r) r.textContent = msg;
+  }
+
   function calc1() {
     const x = parseFloat(document.getElementById('x1').value);
     const y = parseFloat(document.getElementById('y1').value);
-    if (isNaN(x) || isNaN(y)) return;
+    if (isNaN(x) || isNaN(y)) {
+      showError(1, "❌ Please enter valid numbers.");
+      return;
+    }
     document.getElementById('r1').textContent = `${x}% of ${y} is ${(x / 100 * y).toFixed(2)}`;
   }
 
   function calc2() {
     const x = parseFloat(document.getElementById('x2').value);
     const y = parseFloat(document.getElementById('y2').value);
-    if (isNaN(x) || isNaN(y) || y === 0) return;
+    if (isNaN(x) || isNaN(y)) {
+      showError(2, "❌ Please enter valid numbers.");
+      return;
+    }
+    if (y === 0) {
+      showError(2, "❌ Denominator cannot be zero.");
+      return;
+    }
     document.getElementById('r2').textContent = `${x} is ${(x / y * 100).toFixed(2)}% of ${y}`;
   }
 
   function calc3() {
     const y = parseFloat(document.getElementById('y3').value);
     const x = parseFloat(document.getElementById('x3').value);
-    if (isNaN(x) || isNaN(y)) return;
+    if (isNaN(x) || isNaN(y)) {
+      showError(3, "❌ Please enter valid numbers.");
+      return;
+    }
     document.getElementById('r3').textContent = `${y} increased by ${x}% is ${(y + y * x / 100).toFixed(2)}`;
   }
 
   function calc4() {
     const y = parseFloat(document.getElementById('y4').value);
     const x = parseFloat(document.getElementById('x4').value);
-    if (isNaN(x) || isNaN(y)) return;
+    if (isNaN(x) || isNaN(y)) {
+      showError(4, "❌ Please enter valid numbers.");
+      return;
+    }
     document.getElementById('r4').textContent = `${y} decreased by ${x}% is ${(y - y * x / 100).toFixed(2)}`;
   }
 
   function calc5() {
     const x = parseFloat(document.getElementById('x5').value);
     const y = parseFloat(document.getElementById('y5').value);
-    if (isNaN(x) || isNaN(y) || x === 0) return;
+    if (isNaN(x) || isNaN(y)) {
+      showError(5, "❌ Please enter valid numbers.");
+      return;
+    }
+    if (x === 0) {
+      showError(5, "❌ Starting value cannot be zero.");
+      return;
+    }
     const change = ((y - x) / x * 100).toFixed(2);
     document.getElementById('r5').textContent = `Change from ${x} to ${y} is ${change}% (${change > 0 ? 'increase' : 'decrease'})`;
   }
 
-function resetCalc(n){
-  const x = document.getElementById('x'+n);
-  const y = document.getElementById('y'+n);
-  const r = document.getElementById('r'+n);
-  if (x) x.value = '';
-  if (y) y.value = '';
-  if (r) r.textContent = '';
-}
-</script>
-<script>
-/* reusable reset: give it the calc number (1-5) */
-
-</script>
-
-<script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
+  function resetCalc(n){
+    const x = document.getElementById('x'+n);
+    const y = document.getElementById('y'+n);
+    const r = document.getElementById('r'+n);
+    if (x) x.value = '';
+    if (y) y.value = '';
+    if (r) r.textContent = '';
   }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
 </script>
+
 
 </body>
 </html>

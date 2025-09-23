@@ -73,6 +73,7 @@
       .see-also a:hover {
         text-decoration: underline;
       }
+
         h2{margin-bottom:20px;text-align:center}
   table{width:100%;border-collapse:collapse}
   th,td{border:1px solid #ccc;padding:6px;text-align:center}
@@ -84,6 +85,18 @@
   button:hover{background:#004f8f}
         .text-white { color: white; font-family: "Roboto"; }
     .text-white:hover { text-decoration: underline; color: #fff; }
+
+    /* Make action buttons side by side */
+.action-buttons {
+  display: flex;
+  gap: 6px;   /* small gap between Clear and Remove */
+}
+
+.action-buttons button {
+  flex: none;   /* prevents buttons from stretching */
+  padding: 4px 8px;
+}
+
   </style>
 </head>
 <body>
@@ -114,38 +127,112 @@
 <a >High School GPA Calculator</a>
 </nav>
 <h2>High-School GPA Calculator</h2>
+
 <div class="description">
-<table id="courses">
-<thead>
-<tr>
-<th style="width:40%">Course</th>
-<th style="width:20%">Credits</th>
-<th style="width:40%">Letter Grade</th>
-</tr>
-</thead>
-<tbody>
-<!-- initial blank row -->
-<tr>
-<td><input placeholder="e.g. Algebra II" type="text"/></td>
-<td><input min="0" placeholder="1" step="0.5" type="number"/></td>
-<td>
-<select>
-<option value="">–</option>
-<option>A</option><option>A-</option>
-<option>B+</option><option>B</option><option>B-</option>
-<option>C+</option><option>C</option><option>C-</option>
-<option>D+</option><option>D</option><option>D-</option>
-<option>F</option>
-</select>
-</td>
-</tr>
-</tbody>
-</table>
-<div id="controls">
-<button onclick="addRow()">Add Course</button>
-<button onclick="calculateGPA()">Calculate GPA</button>
+  <table id="courses" border="1">
+    <thead>
+      <tr>
+        <th style="width:30%">Course</th>
+        <th style="width:20%">Credits</th>
+        <th style="width:30%">Letter Grade</th>
+        <th style="width:20%">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- initial blank row -->
+      <tr>
+        <td><input placeholder="e.g. Algebra II" type="text"/></td>
+        <td><input min="0" placeholder="1" step="0.5" type="number"/></td>
+        <td>
+          <select>
+            <option value="">–</option>
+            <option>A</option><option>A-</option>
+            <option>B+</option><option>B</option><option>B-</option>
+            <option>C+</option><option>C</option><option>C-</option>
+            <option>D+</option><option>D</option><option>D-</option>
+            <option>F</option>
+          </select>
+        </td>
+        <td class="action-buttons">
+          <button type="button" onclick="clearRow(this)" style="margin-right:5px;">Clear</button>
+          <button type="button" onclick="removeRow(this)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="controls" style="margin-top:10px;">
+    <button onclick="addRow()">Add Course</button>
+    <button onclick="calculateGPA()">Calculate GPA</button>
+  </div>
+
+  <div id="result" style="margin-top:10px;font-weight:bold;"></div>
 </div>
-<div id="result"></div></div>
+
+<script>
+/* -------- grade-point map -------- */
+const GRADE_POINTS = {
+  'A': 4.0,  'A-': 3.7,
+  'B+': 3.3, 'B': 3.0, 'B-': 2.7,
+  'C+': 2.3, 'C': 2.0, 'C-': 1.7,
+  'D+': 1.3, 'D': 1.0, 'D-': 0.7,
+  'F': 0.0
+};
+
+/* -------- row utilities -------- */
+function addRow(){
+  const row = document.querySelector('#courses tbody tr').cloneNode(true);
+  row.querySelectorAll('input,select').forEach(el => el.value='');
+  document.querySelector('#courses tbody').appendChild(row);
+}
+
+function getRows(){
+  return Array.from(document.querySelectorAll('#courses tbody tr'));
+}
+
+function clearRow(btn){
+  const row = btn.closest('tr');
+  row.querySelectorAll('input,select').forEach(el => el.value = '');
+}
+
+function removeRow(btn){
+  const row = btn.closest('tr');
+  const tbody = document.querySelector('#courses tbody');
+  if (tbody.rows.length > 1) {
+    tbody.removeChild(row);
+  } else {
+    // if only one row left, just clear instead of removing
+    clearRow(btn);
+  }
+}
+
+/* -------- GPA calculation -------- */
+function calculateGPA(){
+  let totalPoints = 0, totalCredits = 0;
+
+  for (const row of getRows()){
+    const creditVal = parseFloat(row.children[1].firstElementChild.value);
+    const gradeVal  = row.children[2].firstElementChild.value;
+
+    if(isNaN(creditVal) || creditVal <= 0 || !GRADE_POINTS.hasOwnProperty(gradeVal)){
+      continue; // skip invalid rows
+    }
+    totalCredits += creditVal;
+    totalPoints  += creditVal * GRADE_POINTS[gradeVal];
+  }
+
+  const resultBox = document.getElementById('result');
+  if (totalCredits === 0){
+    resultBox.textContent = '⚠️ Please enter course credits and letter grades.';
+    return;
+  }
+
+  const gpa = (totalPoints / totalCredits).toFixed(2);
+  resultBox.textContent = `✅ Your weighted GPA is ${gpa}`;
+}
+</script>
+
+
 <div>
 <div class="description">
 <h3>High School GPA Calculator</h3>
@@ -364,62 +451,9 @@
           <a href="../../../../cookies.html">Manage Cookies</a>
         </p>
 </div>
-<script>
-/* -------- grade-point map -------- */
-const GRADE_POINTS = {
-  'A': 4.0,  'A-': 3.7,
-  'B+': 3.3, 'B': 3.0, 'B-': 2.7,
-  'C+': 2.3, 'C': 2.0, 'C-': 1.7,
-  'D+': 1.3, 'D': 1.0, 'D-': 0.7,
-  'F': 0.0
-};
 
-/* -------- row utilities -------- */
-function addRow(){
-  const row = document.querySelector('#courses tbody tr').cloneNode(true);
-  row.querySelectorAll('input,select').forEach(el => { el.value=''; });
-  document.querySelector('#courses tbody').appendChild(row);
-}
-
-function getRows(){
-  return Array.from(document.querySelectorAll('#courses tbody tr'));
-}
-
-/* -------- GPA calculation -------- */
-function calculateGPA(){
-  let totalPoints = 0, totalCredits = 0;
-
-  for (const row of getRows()){
-    const creditVal = parseFloat(row.children[1].firstElementChild.value);
-    const gradeVal  = row.children[2].firstElementChild.value;
-
-    if(isNaN(creditVal) || creditVal <= 0 || !GRADE_POINTS.hasOwnProperty(gradeVal)){
-      continue; // skip rows that aren't fully filled in
-    }
-    totalCredits += creditVal;
-    totalPoints  += creditVal * GRADE_POINTS[gradeVal];
-  }
-
-  const resultBox = document.getElementById('result');
-  if (totalCredits === 0){
-    resultBox.textContent = 'Please enter course credits and letter grades.';
-    return;
-  }
-
-  const gpa = (totalPoints / totalCredits).toFixed(2);
-  resultBox.textContent = `Your weighted GPA is ${gpa}`;
-}
-</script>
 </footer>
-<script>
-  function adjustTopPadding() {
-    const nav = document.querySelector('.navbar.fixed-top');
-    if (!nav) return;
-    document.body.style.paddingTop = nav.offsetHeight + 'px';
-  }
-  window.addEventListener('load', adjustTopPadding);
-  window.addEventListener('resize', adjustTopPadding);
-</script>
+
 
 </body>
 </html>
